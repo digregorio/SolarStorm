@@ -27,6 +27,9 @@ EDA gera hipóteses H1..Hn. Cada uma roda através do harness walk-forward e dev
 ### P4 — Foco financeiro no bracket
 A métrica de verdade é o bracket inteiro que o Polymarket settla. 0.1°C cruza fronteira de 1°C inteiro. Incerteza alta → `stay_out`. O sistema pode (e deve) ficar fora do mercado; não pode fingir edge.
 
+### P5 — Documentação como produto primário
+Toda onda entrega documentação versionada junto com o código — não como afterthought. O projeto anterior era ruim em tudo, mas documentou tão bem as próprias falhas que a auditoria forense foi possível sem re-executar nada. Esse é o **piso**: relatórios de baseline/hipótese são gerados e commitados automaticamente pelo CLI; CHANGELOG é atualizado a cada merge; decisões de design (como este spec) vivem em `docs/specs/`; hipóteses que falham são documentadas com o mesmo rigor das que passam — failures são ativos de conhecimento. Nenhum resultado de leaderboard ou teste de hipótese existe apenas em stdout; tudo produz artefato versionado.
+
 ---
 
 ## 2. Estrutura do repo
@@ -36,6 +39,7 @@ solarstorm/
   __init__.py
   __main__.py              # CLI: tmax ingest | baselines | leaderboard | eda
   _contracts.py            # P1+P2 firewall causal + constantes contratuais
+  _config.py               # centraliza paths, constantes contratuais, seed
   data/
     __init__.py
     _metar.py              # [PORT] parsing integer-truth do METAR cru + cross-check tmpf
@@ -62,7 +66,6 @@ solarstorm/
     _regimes.py            # [NOVO] classificador heurístico calm/transition/late-warming/foehn
     _hypotheses.py         # [NOVO] registro H1..Hn + runner gated por walk-forward
     _catalog.py            # [NOVO] catálogo de features candidatas com fonte e veredito EDA
-  _config.py               # centraliza paths, constantes contratuais, seed
 tests/
   conftest.py              # fixtures METAR sintéticas (calmo, late-warming, dado faltante)
   test_causal_firewall.py  # P1+P2: closed='left' levanta exceção com timestamp futuro
@@ -78,6 +81,11 @@ notebooks/
 reports/
   leaderboard/             # gerado: JSON+MD do leaderboard por data
   hypotheses/              # gerado: relatório H1..Hn com efeito + IC + pass/fail
+docs/
+  specs/                   # specs de design de cada onda (este documento e futuros)
+  decisions/               # registros de decisão de arquitetura (ADR) datados
+CHANGELOG.md               # atualizado a cada merge; uma linha por mudança significativa
+README.md                  # visão geral, instalação, uso rápido, link para specs
 ```
 
 > Convenção: módulos internos com underscore prefix (`_metar.py`) indicam API não-estável; re-exportados publicamente em `__init__.py` se necessário.
@@ -248,7 +256,7 @@ O rebuild do zero já falhou uma vez (a `quarentena/`). O guard-rail é:
 
 | # | Task | Output | Dependências |
 |---|---|---|---|
-| 0.1 | Criar estrutura de diretórios + `pyproject.toml` + dev-deps | Repo funcional com `pytest` passando (vazio) | — |
+| 0.1 | Criar estrutura de diretórios + `pyproject.toml` + dev-deps + `README.md` + `CHANGELOG.md` | Repo funcional com `pytest` passando (vazio), README com visão geral e link para specs | — |
 | 0.2 | Portar + testar `_calendar.py` (NZST/DST/CPs) | `test_calendar.py` verde | 0.1 |
 | 0.3 | Portar + testar `_metar.py` (parsing integer-truth) | `test_metar.py` verde (fixtures METAR sintéticos) | 0.1 |
 | 0.4 | Construir + testar `_iem.py` (backfill 10+ anos NZWN) | Download e cache de ~6200 dias NZWN; `test_iem.py` com mock | 0.3 |
@@ -272,8 +280,8 @@ O rebuild do zero já falhou uma vez (a `quarentena/`). O guard-rail é:
 | 1.9 | EDA-relâmpago: notebooks/ 00-03 (~1-2 dias) | Hipóteses candidatas + thresholds de regime calibrados | 0.4, 0.5 |
 | 1.10 | Implementar + testar `eda/_regimes.py` (classificador heurístico com thresholds data-driven) | `test_regimes.py` verde | 1.9 |
 | 1.11 | Implementar + testar `eda/_hypotheses.py` + `eda/_catalog.py` (H1-H13) | `test_hypotheses.py` verde; cada Hn roda no harness e devolve efeito+IC+pass/fail | 1.4, 1.5, 1.10 |
-| 1.12 | CLI `__main__.py`: comandos `ingest`, `baselines`, `leaderboard`, `eda` | `python -m solarstorm leaderboard` funcional | 1.8, 1.11 |
-| 1.13 | Gerar leaderboard baseline sobre 2026 + relatório de hipóteses | Artefatos em `reports/leaderboard/` e `reports/hypotheses/` | 1.12 |
+| 1.12 | CLI `__main__.py`: comandos `ingest`, `baselines`, `leaderboard`, `eda` — todo comando que produz output gera artefato versionado em `reports/` automaticamente (P5); stdout é só eco | `python -m solarstorm leaderboard` funcional, arquivo em `reports/leaderboard/` commitado | 1.8, 1.11 |
+| 1.13 | Gerar leaderboard baseline sobre 2026 + relatório de hipóteses + atualizar `CHANGELOG.md` com o marco Onda 0+1 | Artefatos versionados em `reports/leaderboard/` e `reports/hypotheses/`; CHANGELOG registra a entrega | 1.12 |
 
 ---
 
@@ -319,7 +327,28 @@ Estes itens foram julgados pertinentes mas pertencem a ondas posteriores:
 
 ---
 
-## 8. O que NÃO está neste spec (explicitamente)
+## 8. Deliverables de documentação (P5)
+
+Cada marco de Onda produz:
+
+| Artefato | Formato | Local | Trigger |
+|---|---|---|---|
+| Leaderboard baseline | JSON + Markdown | `reports/leaderboard/YYYY-MM-DD-leaderboard.{json,md}` | `solarstorm leaderboard` |
+| Relatório de hipóteses | JSON + Markdown | `reports/hypotheses/YYYY-MM-DD-hypotheses.{json,md}` | `solarstorm eda` |
+| Spec de design | Markdown | `docs/specs/YYYY-MM-DD-<wave>-design.md` | Antes de cada onda (este documento é o primeiro) |
+| ADR (decisões de arquitetura) | Markdown | `docs/decisions/YYYY-MM-DD-<slug>.md` | Quando uma decisão de design não-óbvia é tomada |
+| CHANGELOG | Markdown | `CHANGELOG.md` (raiz) | A cada merge; uma linha por mudança significativa |
+| README | Markdown | `README.md` (raiz) | Atualizado a cada onda — visão geral, instalação, link para specs |
+
+Regras:
+- **Hipóteses que falham são documentadas com o mesmo rigor das que passam.** Um catálogo de "o que não funciona e por quê" é ativo de conhecimento — evita repetir becos sem saída e é exatamente o que permitiu auditar o projeto anterior.
+- **Leaderboard é versionado.** Todo `solarstorm leaderboard` escreve arquivo datado em `reports/leaderboard/`. O histórico de leaderboards no git mostra a evolução do poder preditivo ao longo do tempo.
+- **CHANGELOG é linha do tempo, não lista técnica.** Uma entrada típica: `2026-06-10 — Onda 0 completa: ingestão METAR 2009-2026 (6371 dias), labels Tmax/CP/remaining_warming, climatologia DOY+CP×mês`.
+- **README nunca fica desatualizado.** Após cada onda, a seção "Quick Start" é verificada — um novo dev deve conseguir rodar o CLI em < 5 minutos.
+
+---
+
+## 9. O que NÃO está neste spec (explicitamente)
 
 - Qualquer automação de trading, shadow ops, decisão, Kelly sizing
 - Calibração conformal, IC80, confidence scores
