@@ -43,6 +43,10 @@ class ShadowForecastRecord:
         ic80_low_int: Lower bound of 80% prediction interval.
         ic80_high_int: Upper bound of 80% prediction interval.
         support_k: Support K values used for prediction.
+        feature_max_ts_utc: Latest observation timestamp used by CP features.
+        feature_gap_to_cp_min: Minutes between the CP and latest feature timestamp.
+        feature_staleness_min: Backward-compatible alias for feature_gap_to_cp_min.
+        k_cp_available: Whether pre-CP temperature max was available.
     """
 
     run_id: str
@@ -55,6 +59,10 @@ class ShadowForecastRecord:
     ic80_low_int: int | None = None
     ic80_high_int: int | None = None
     support_k: list[int] | None = None
+    feature_max_ts_utc: str | None = None
+    feature_gap_to_cp_min: int | None = None
+    feature_staleness_min: int | None = None
+    k_cp_available: bool | None = None
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> ShadowForecastRecord:
@@ -70,6 +78,10 @@ class ShadowForecastRecord:
             ic80_low_int=data.get("ic80_low_int"),
             ic80_high_int=data.get("ic80_high_int"),
             support_k=data.get("support_k"),
+            feature_max_ts_utc=data.get("feature_max_ts_utc"),
+            feature_gap_to_cp_min=data.get("feature_gap_to_cp_min"),
+            feature_staleness_min=data.get("feature_staleness_min"),
+            k_cp_available=data.get("k_cp_available"),
         )
 
     def to_dict(self) -> dict[str, Any]:
@@ -85,6 +97,10 @@ class ShadowForecastRecord:
             "ic80_low_int": self.ic80_low_int,
             "ic80_high_int": self.ic80_high_int,
             "support_k": self.support_k,
+            "feature_max_ts_utc": self.feature_max_ts_utc,
+            "feature_gap_to_cp_min": self.feature_gap_to_cp_min,
+            "feature_staleness_min": self.feature_staleness_min,
+            "k_cp_available": self.k_cp_available,
         }
 
 

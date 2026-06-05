@@ -29,6 +29,7 @@ from live_shadow_readiness_report import (
     _percentile,
     compute_metrics,
     evaluate_gates,
+    main,
     render_json,
     render_markdown,
     render_weekly_markdown,
@@ -471,6 +472,22 @@ def test_completeness_missing_whole_date_in_window(tmp_path: Path):
     assert metrics.dates_found == 2
 
 
+def test_missing_inventory_includes_whole_missing_dates(tmp_path: Path):
+    """A window date with no JSONL file is listed with all expected CPs missing."""
+    forecasts_dir = tmp_path / "forecasts"
+    _write_fixture_jsonl(forecasts_dir, date(2025, 1, 1))
+    _write_fixture_jsonl(forecasts_dir, date(2025, 1, 3))
+
+    metrics = compute_metrics(
+        tmp_path,
+        start_date=date(2025, 1, 1),
+        end_date=date(2025, 1, 3),
+        expected_cps=(20, 21, 22, 23),
+    )
+
+    assert metrics.missing_inventory == [("2025-01-02", [20, 21, 22, 23])]
+
+
 def test_residual_served_not_counted_for_ridge_fallback(tmp_path: Path):
     """All-Ridge fallback at CP20-22 should NOT count as residual served."""
     forecasts_dir = tmp_path / "forecasts"
@@ -703,6 +720,38 @@ def test_render_markdown_includes_wave2_sections():
     assert "### Fallback Distribution by Model" in output
     assert "### NWP Endpoint Summary" in output
     assert "ecmwf:" in output
+
+
+def test_main_writes_shadow_window_aliases(monkeypatch, tmp_path: Path):
+    """An explicit readiness window writes stable shadow_window artifacts."""
+    shadow_root = tmp_path / "shadow"
+    out_root = tmp_path / "reports"
+    _write_fixture_jsonl(shadow_root / "forecasts", date(2025, 1, 15))
+
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "live_shadow_readiness_report.py",
+            "--shadow-root",
+            str(shadow_root),
+            "--out-root",
+            str(out_root),
+            "--start",
+            "2025-01-15",
+            "--end",
+            "2025-01-15",
+            "--git-sha",
+            "sha-window",
+        ],
+    )
+
+    assert main() == 0
+    assert (out_root / "readiness_v1.json").exists()
+    assert (out_root / "readiness_v1.md").exists()
+    assert (out_root / "shadow_ops_weekly_v1.md").exists()
+    assert (out_root / "shadow_window_2025-01-15_2025-01-15.json").exists()
+    assert (out_root / "shadow_window_2025-01-15_2025-01-15.md").exists()
 
 
 def test_render_weekly_markdown_no_fallbacks():

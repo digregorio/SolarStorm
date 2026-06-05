@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 import polars as pl
 import pytest
@@ -10,6 +11,7 @@ import typer
 
 import core.cli.ingest as ing
 from core.ingest.iem_csv import ParseStats
+from core.ingest.iem_csv import load_observations
 
 
 def _live_frame(last_age_min: float, gap_min: float = 30.0, n: int = 6):
@@ -58,3 +60,22 @@ def test_status_stale_when_old_and_nonzero_exit(monkeypatch, capsys):
 def test_status_degraded_on_big_gap(monkeypatch, capsys):
     h, code = _run_capture(monkeypatch, _live_frame(20.0, gap_min=120.0), _stats(6), capsys)
     assert h["status"] == "degraded" and code == 0
+
+
+def test_out_csv_is_consumable_by_forecast_loader(monkeypatch, tmp_path, capsys):
+    live = _live_frame(20.0)
+    monkeypatch.setattr(ing, "fetch_observations", lambda *a, **k: (live, _stats(live.height)))
+    out_csv = tmp_path / "live_merged.csv"
+
+    ing.ingest_live(
+        station_yaml=Path("nzwn/config/station.yaml"),
+        csv=tmp_path / "missing_history.csv",
+        hours=96,
+        out_csv=out_csv,
+    )
+
+    obs, stats = load_observations(out_csv)
+    assert "valid" in out_csv.read_text(encoding="utf-8").splitlines()[0]
+    assert obs.height == live.height
+    assert stats.fallback_rate == 0.0
+    assert capsys.readouterr().out

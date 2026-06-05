@@ -30,6 +30,7 @@ from core.ops.shadow_runner import (
     ShadowRunnerConfig,
     ShadowRunnerError,
     _atomic_write,
+    _build_forecast_command,
     _decisions_path,
     _output_path,
     _parse_forecast_output,
@@ -51,6 +52,10 @@ def _valid_record() -> dict:
         "p50_int": 19,
         "ic80_low_int": 17,
         "ic80_high_int": 21,
+        "feature_max_ts_utc": "2025-01-15T19:30:00+00:00",
+        "feature_gap_to_cp_min": 30,
+        "feature_staleness_min": 30,
+        "k_cp_available": True,
     }
 
 
@@ -90,6 +95,21 @@ def test_shadow_forecast_record_to_dict():
     d = record.to_dict()
     assert d["run_id"] == raw["run_id"]
     assert d["prob_dist"] == raw["prob_dist"]
+    assert d["feature_max_ts_utc"] == "2025-01-15T19:30:00+00:00"
+    assert d["feature_gap_to_cp_min"] == 30
+    assert d["k_cp_available"] is True
+
+
+def test_build_forecast_command_passes_configured_csv():
+    cmd = _build_forecast_command(
+        "python",
+        date(2025, 1, 15),
+        20,
+        Path("out"),
+        Path("artifacts/state/NZWN_live_merged.csv"),
+    )
+    assert "--csv" in cmd
+    assert Path(cmd[cmd.index("--csv") + 1]) == Path("artifacts/state/NZWN_live_merged.csv")
 
 
 # --- Atomic write tests -------------------------------------------------------
@@ -642,7 +662,7 @@ def test_is_decisions_complete_rejects_missing_fields(tmp_path: Path):
     dec_path = tmp_path / "decisions" / f"{target.isoformat()}.jsonl"
     dec_path.parent.mkdir(parents=True)
 
-    # Missing 'odds_status', linkage fields, and 'cp_utc' — should be rejected.
+    # Missing 'odds_status', linkage fields, and 'cp_utc' - should be rejected.
     with open(dec_path, "w") as fh:
         fh.write(json.dumps({
             "run_id": "dec-1",

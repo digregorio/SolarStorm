@@ -84,7 +84,7 @@ def parse_args() -> argparse.Namespace:
         "--csv",
         type=Path,
         default=Path("NZWN.csv"),
-        help="Observations CSV for decide (default: NZWN.csv).",
+        help="Observations CSV for forecast and decide (default: NZWN.csv).",
     )
     return parser.parse_args()
 

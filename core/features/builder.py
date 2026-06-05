@@ -251,4 +251,92 @@ def build_panel(
     return pl.DataFrame(rows)
 
 
-__all__ = ["CPFeatures", "build_cp_features", "build_panel"]
+def build_empirical_panel_fast(
+    observations: pl.DataFrame,
+    labels: pl.DataFrame,
+    *,
+    tz_name: str,
+    cp_set: Iterable[str],
+    dates: Iterable[date] | None = None,
+) -> pl.DataFrame:
+    """Build the narrow empirical panel without per-date dataframe scans.
+
+    The empirical baseline only needs ``date_local``, ``month``, ``tmax_int``,
+    ``day_complete`` and one ``k_cp__cp_HH`` column per CP. The generic
+    ``build_panel`` computes those values by calling ``build_cp_features`` for
+    every date/CP, which is intentionally rich but too expensive for live
+    forecasting. This narrow path keeps the same CP causality contract
+    (``ts_utc < cp_utc`` and non-missing integer temperature) with a single
+    pre-filtered observation scan per CP.
+    """
+    cp_set = list(cp_set)
+    if dates is None:
+        date_list = labels["date_local"].drop_nulls().unique().to_list()
+    else:
+        date_list = [d for d in dates if d is not None]
+    date_set = set(date_list)
+    label_rows: list[dict[str, Any]] = []
+    if labels.height:
+        for row in labels.select(["date_local", "tmax_int", "day_complete"]).iter_rows(named=True):
+            d_key = row["date_local"]
+            if d_key is not None and d_key in date_set:
+                label_rows.append({
+                    "date_local": d_key,
+                    "tmax_int": row["tmax_int"],
+                    "day_complete": bool(row["day_complete"]),
+                    "month": d_key.month,
+                })
+    if not label_rows:
+        return pl.DataFrame(
+            schema={
+                "date_local": pl.Date,
+                "tmax_int": pl.Int32,
+                "day_complete": pl.Boolean,
+                "month": pl.Int32,
+                **{f"k_cp__cp_{cp[:2]}": pl.Int32 for cp in cp_set},
+            }
+        )
+
+    panel = pl.DataFrame(
+        label_rows,
+        schema_overrides={
+            "date_local": pl.Date,
+            "tmax_int": pl.Int32,
+            "day_complete": pl.Boolean,
+            "month": pl.Int32,
+        },
+    ).sort("date_local")
+    obs_valid = (
+        observations.filter(
+            pl.col("tmp_c_int").is_not_null() & (pl.col("dq_tmp_c_int") != "missing")
+        )
+        .with_columns(
+            pl.col("ts_utc").dt.convert_time_zone(tz_name).dt.date().alias("date_local")
+        )
+        .filter(pl.col("date_local").is_in(date_list))
+        .select(["date_local", "ts_utc", "tmp_c_int"])
+    )
+
+    for cp in cp_set:
+        cp_rows = [{"date_local": d, "cp_utc": cp_to_utc(d, cp)} for d in date_list]
+        cp_frame = pl.DataFrame(
+            cp_rows,
+            schema_overrides={"date_local": pl.Date, "cp_utc": pl.Datetime("us", time_zone="UTC")},
+        )
+        if cp_frame.is_empty() or obs_valid.is_empty():
+            kcp = pl.DataFrame(
+                {"date_local": date_list, f"k_cp__cp_{cp[:2]}": [None] * len(date_list)},
+                schema_overrides={"date_local": pl.Date, f"k_cp__cp_{cp[:2]}": pl.Int32},
+            )
+        else:
+            kcp = (
+                cp_frame.join(obs_valid, on="date_local", how="left")
+                .filter(pl.col("ts_utc") < pl.col("cp_utc"))
+                .group_by("date_local")
+                .agg(pl.col("tmp_c_int").max().cast(pl.Int32).alias(f"k_cp__cp_{cp[:2]}"))
+            )
+        panel = panel.join(kcp, on="date_local", how="left")
+    return panel
+
+
+__all__ = ["CPFeatures", "build_cp_features", "build_panel", "build_empirical_panel_fast"]

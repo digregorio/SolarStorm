@@ -121,6 +121,7 @@ artifacts/tuning/**
 artifacts/decisions/**
 artifacts/shadow_ops/**
 artifacts/_cqr_eval_run.log
+artifacts/_wave*.txt
 artifacts/_smoke_phase3/
 
 # External reference projects (not part of this codebase)

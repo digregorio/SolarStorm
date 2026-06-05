@@ -110,7 +110,7 @@ def _invoke_serve(monkeypatch, *, serve_return, cp=22, serve_flag=True):
 
     app = typer.Typer()
     app.command()(run)
-    runner = CliRunner(mix_stderr=False)
+    runner = CliRunner()
     args = ["--date", "2025-07-15", "--cp", str(cp), "--model", "auto", "--dry-run"]
     if serve_flag:
         args.append("--serve-residuals")

@@ -46,7 +46,7 @@ class ShadowRunnerConfig:
         python_executable: Python interpreter to use (default: sys.executable).
         with_decisions: If True, generate decision artifacts after forecasts.
         station_yaml: Path to station config for the decide CLI.
-        csv_path: Path to observations CSV for the decide CLI.
+        csv_path: Path to observations CSV for forecast and decide subprocesses.
     """
 
     shadow_root: Path = DEFAULT_SHADOW_ROOT
@@ -113,6 +113,7 @@ def _build_forecast_command(
     target_date: date,
     cp: int,
     out_root: Path,
+    csv_path: Path,
 ) -> list[str]:
     """Build the subprocess command for a single forecast."""
     return [
@@ -124,6 +125,8 @@ def _build_forecast_command(
         target_date.isoformat(),
         "--cp",
         str(cp),
+        "--csv",
+        str(csv_path),
         "--model",
         "auto",
         "--serve-residuals",
@@ -396,6 +399,7 @@ class ShadowRunner:
             target_date,
             cp,
             self._forecasts_out,
+            self.config.csv_path,
         )
 
         result = subprocess.run(

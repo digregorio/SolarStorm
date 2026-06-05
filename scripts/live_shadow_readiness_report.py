@@ -239,10 +239,12 @@ def compute_metrics(
     decisions_dir = shadow_root / "decisions"
 
     # --- Compute expected records from date range (not just existing files) ----
+    expected_dates: set[date] = set()
     if start_date is not None and end_date is not None:
         # Window-based: every date in [start, end] is expected.
         current = start_date
         while current <= end_date:
+            expected_dates.add(current)
             metrics.dates_expected += 1
             metrics.expected_records += len(expected_cps)
             current = date.fromordinal(current.toordinal() + 1)
@@ -251,6 +253,7 @@ def compute_metrics(
 
     # --- Scan existing JSONL files ---------------------------------------------
     jsonl_files = sorted(forecasts_dir.glob("*.jsonl")) if forecasts_dir.exists() else []
+    seen_dates: set[date] = set()
 
     for jsonl_path in jsonl_files:
         # Parse date from filename.
@@ -264,6 +267,7 @@ def compute_metrics(
             continue
         if end_date and file_date > end_date:
             continue
+        seen_dates.add(file_date)
 
         # If no window was given, count expected from existing files.
         if start_date is None or end_date is None:
@@ -386,6 +390,13 @@ def compute_metrics(
                 metrics.missing_inventory.append(
                     (file_date.isoformat(), missing_cps)
                 )
+
+    # Window-based inventories must include dates with no JSONL file at all.
+    if expected_dates:
+        for missing_date in sorted(expected_dates - seen_dates):
+            metrics.missing_inventory.append(
+                (missing_date.isoformat(), sorted(expected_cps))
+            )
 
     # Wave 2: build NWP endpoint summary from telemetry counts.
     metrics.nwp_endpoint_summary = {
@@ -870,6 +881,17 @@ def main() -> int:
     with open(weekly_path, "w", encoding="utf-8") as fh:
         fh.write(weekly_md)
     print(f"Wrote: {weekly_path}")
+
+    if start_date and end_date:
+        suffix = f"{start_date.isoformat()}_{end_date.isoformat()}"
+        window_json_path = args.out_root / f"shadow_window_{suffix}.json"
+        window_md_path = args.out_root / f"shadow_window_{suffix}.md"
+        with open(window_json_path, "w", encoding="ascii") as fh:
+            json.dump(json_output, fh, ensure_ascii=True, indent=2, sort_keys=True)
+        with open(window_md_path, "w", encoding="utf-8") as fh:
+            fh.write(weekly_md)
+        print(f"Wrote: {window_json_path}")
+        print(f"Wrote: {window_md_path}")
 
     # Print summary.
     verdict = json_output["verdict"]

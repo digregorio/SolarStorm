@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from datetime import date
+from datetime import date, timezone
 from pathlib import Path
 
 import polars as pl
@@ -16,7 +16,7 @@ from core.baselines.support import support_K
 from core.contracts.quantization import Q
 from core.contracts.station import load_station_config
 from core.eval.intervals import discrete_ic
-from core.features.builder import build_cp_features, build_panel
+from core.features.builder import build_cp_features, build_empirical_panel_fast, build_panel
 from core.features.training_panel import FEATURE_COLUMNS, build_training_panel
 from core.ingest.iem_csv import load_observations
 from core.ingest.nwp_client import ECMWF_IFS_HRES, NCEP_GFS
@@ -107,9 +107,15 @@ def run(
         ]
     else:
         train_dates = None
-    panel = build_panel(obs, labels, tz_name=cfg.tz, cp_set=cfg.cp_set_utc, dates=train_dates)
-    train_panel = panel.filter(
-        (panel["date_local"] >= train_start_d) & (panel["date_local"] <= train_end_d)
+    if labels is not None:
+        empirical_panel = build_empirical_panel_fast(
+            obs, labels, tz_name=cfg.tz, cp_set=cfg.cp_set_utc, dates=train_dates
+        )
+    else:
+        # Backward-compatible test/mocking path. Real forecasts always have labels.
+        empirical_panel = build_panel(obs, labels, tz_name=cfg.tz, cp_set=cfg.cp_set_utc, dates=train_dates)
+    train_panel = empirical_panel.filter(
+        (empirical_panel["date_local"] >= train_start_d) & (empirical_panel["date_local"] <= train_end_d)
     )
     climo = fit_climatology(labels, train_start=train_start_d, train_end=train_end_d)
     empirical = fit_empirical_conditional(
@@ -254,8 +260,8 @@ def run(
         import numpy as np
 
         tpanel = build_training_panel(
-            obs, labels, climo=climo, tz_name=cfg.tz, cp_set=cfg.cp_set_utc,
-            dates=[r for r in panel["date_local"].unique().to_list()
+            obs, labels, climo=climo, tz_name=cfg.tz, cp_set=[cp_hhmm],
+            dates=[r for r in empirical_panel["date_local"].unique().to_list()
                    if r is not None and train_start_d <= r <= train_end_d],
         ).filter(pl.col("cp") == cp_hhmm)
         if tpanel.height < 100:
@@ -290,6 +296,9 @@ def run(
         model_version = "baseline-empirical-v0.1"
     p50 = max(prob_dist.items(), key=lambda kv: kv[1])[0]
     low, high = discrete_ic(prob_dist, p_low=0.10, p_high=0.90)
+    feature_gap_to_cp_min = int(
+        (feats.cp_utc - feats.feature_max_ts_utc.astimezone(timezone.utc)).total_seconds() // 60
+    )
     forecast_row = {
         "run_id": rid,
         "date_local": d.isoformat(),
@@ -306,6 +315,12 @@ def run(
         "model_version": model_version,
         "tau": None,
         "fallback_rate": stats.fallback_rate,
+        "feature_max_ts_utc": feats.feature_max_ts_utc.isoformat(),
+        "feature_gap_to_cp_min": feature_gap_to_cp_min,
+        # Backward-compatible alias. This is CP-relative feature age, not wall-clock
+        # feed freshness; live feed freshness comes from ingest-live health.
+        "feature_staleness_min": feature_gap_to_cp_min,
+        "k_cp_available": kcp is not None,
     }
 
     if route is not None:

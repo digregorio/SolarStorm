@@ -5,6 +5,7 @@ from __future__ import annotations
 from datetime import date, datetime
 from pathlib import Path
 
+import polars as pl
 import typer
 
 from core.contracts.station import load_station_config
@@ -173,7 +174,28 @@ def ingest_live(
     log_event("ingest", "ingest.live", extra=health)
     if out_csv is not None:
         out_csv.parent.mkdir(parents=True, exist_ok=True)
-        merged.select(["valid", "metar"] if "valid" in merged.columns else ["ts_utc", "metar"]).write_csv(out_csv)
+        out = merged
+        if "valid" not in out.columns:
+            out = out.with_columns(
+                pl.col("ts_utc")
+                .dt.strftime("%Y-%m-%d %H:%M")
+                .alias("valid")
+            )
+        # Keep the runtime artifact in the same consumable schema as the IEM
+        # history CSV. ``forecast --csv`` reads ``valid`` and reparses METAR as
+        # the integer-temperature source of truth; writing only ``ts_utc,metar``
+        # makes the live refresh unusable by the forecast command.
+        iem_cols = (
+            "station", "valid", "tmpf", "dwpf", "relh", "drct", "sknt", "p01i",
+            "alti", "mslp", "vsby", "gust", "skyc1", "skyc2", "skyc3", "skyc4",
+            "skyl1", "skyl2", "skyl3", "skyl4", "wxcodes", "ice_accretion_1hr",
+            "ice_accretion_3hr", "ice_accretion_6hr", "peak_wind_gust",
+            "peak_wind_drct", "peak_wind_time", "feel", "metar", "snowdepth",
+        )
+        write_cols = [c for c in iem_cols if c in out.columns]
+        if "valid" not in write_cols or "metar" not in write_cols:
+            raise typer.BadParameter("Merged live observations must contain valid and metar columns.")
+        out.select(write_cols).write_csv(out_csv)
     typer.echo(_json.dumps(health, ensure_ascii=True, sort_keys=True, indent=2))
     if status in ("no_data", "stale"):
         raise typer.Exit(code=1)

@@ -75,8 +75,10 @@ Promotion requires passing ALL three dimensions independently:
 1. **Run readiness report:** `scripts/live_shadow_readiness_report.py`
 2. **Verify gates:** All gates must show "PASS"
 3. **Review metrics:** Examine fallback distribution, NWP telemetry
-4. **Document findings:** Write evaluation memo with verdict
-5. **Decision:** Promote / Extend shadow / Defer
+4. **Build promotion pack:** `scripts/live_shadow_promotion_review.py`
+5. **Decision:** `KEEP_SHADOW`, `EXTEND_SHADOW`, or `PROMOTE_SERVING_DEFAULT`
+
+The promotion pack is evidence only. It does not enable automatic trading.
 
 ## 7. Rollback Plan
 
@@ -112,6 +114,7 @@ Changes to this contract require:
 ## Appendix B: Related Documents
 
 - `scripts/live_shadow_readiness_report.py` - Readiness report implementation
+- `scripts/live_shadow_promotion_review.py` - Promotion review pack implementation
 - `core/ops/shadow_runner.py` - Shadow runner implementation
 - `contracts/phase5_preregistration.md` - Phase 5 prediction quality gates
 - `contracts/phase5_amendment.md` - Phase 5 amendment process

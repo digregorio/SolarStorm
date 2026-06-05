@@ -88,6 +88,8 @@ def fit_empirical_conditional(
     marginal: dict[tuple[int, str], dict[int, int]] = {}
 
     df = train_panel.filter(pl.col("tmax_int").is_not_null())
+    if "day_complete" in df.columns:
+        df = df.filter(pl.col("day_complete"))
     for cp_col in cp_cols:
         cp = cp_col.replace(cp_col_template, "") + ":00"
         sub = df.filter(pl.col(cp_col).is_not_null()).select(

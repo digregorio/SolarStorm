@@ -117,6 +117,7 @@ class _FakeStats:
 class _FakeFeats:
     cp_utc = datetime(2025, 7, 15, 10, 0, tzinfo=timezone.utc)
     cp_local = datetime(2025, 7, 15, 22, 0)
+    feature_max_ts_utc = datetime(2025, 7, 15, 9, 30, tzinfo=timezone.utc)
     features = {**{c: 1.0 for c in FEATURE_COLUMNS}, "k_cp": 14}
 
 
@@ -171,7 +172,7 @@ def _invoke_auto(monkeypatch, tpanel_height, cp=22, probe=None):
 
     app = typer.Typer()
     app.command()(run)
-    runner = CliRunner(mix_stderr=False)
+    runner = CliRunner()
     result = runner.invoke(
         app,
         ["--date", "2025-07-15", "--cp", str(cp), "--model", "auto", "--dry-run"],
@@ -187,6 +188,9 @@ def test_auto_dry_run_emits_valid_json_ridge_served(monkeypatch):
     row = json.loads(result.stdout)
     assert row["model_requested"] == "auto"
     assert row["served_model"] == "ridge"
+    assert row["feature_max_ts_utc"] == "2025-07-15T09:30:00+00:00"
+    assert row["feature_staleness_min"] == 30
+    assert row["k_cp_available"] is True
 
     routing = row["routing"]
     assert routing["cp"] == 22
@@ -206,6 +210,44 @@ def test_auto_dry_run_emits_valid_json_ridge_served(monkeypatch):
     assert "[forecast --model auto]" in result.stderr
     assert "spread_used=False" in result.stderr
     assert "[forecast --model auto]" not in result.stdout
+
+
+def test_auto_ridge_builds_training_panel_for_requested_cp_only(monkeypatch):
+    """A single-CP forecast must not rebuild the rich Ridge panel for all CPs."""
+    captured: list[tuple[str, ...]] = []
+
+    def _build_training_panel(*a, **kw):
+        captured.append(tuple(kw["cp_set"]))
+        return _FakeTPanel(120, [date(2025, 7, 1)])
+
+    monkeypatch.setattr("core.cli.forecast.probe_causal_nwp", _fake_probe_unavailable)
+    monkeypatch.setattr("core.cli.forecast.load_station_config", lambda _: _FakeCfg())
+    monkeypatch.setattr("core.cli.forecast.load_observations", lambda *a, **kw: (None, _FakeStats()))
+    monkeypatch.setattr("core.cli.forecast.build_tmax_labels", lambda *a, **kw: None)
+    monkeypatch.setattr("core.cli.forecast.build_panel", lambda *a, **kw: _FakePanel([date(2025, 7, 1)]))
+    monkeypatch.setattr("core.cli.forecast.fit_climatology", lambda *a, **kw: _FakeClimo())
+    monkeypatch.setattr("core.cli.forecast.fit_empirical_conditional", lambda *a, **kw: _FakeEmpirical())
+    monkeypatch.setattr("core.cli.forecast.build_cp_features", lambda *a, **kw: _FakeFeats())
+    monkeypatch.setattr("core.cli.forecast.support_K", lambda *a, **kw: [13, 14, 15, 16])
+    monkeypatch.setattr("core.cli.forecast.log_event", lambda *a, **kw: None)
+    monkeypatch.setattr("core.cli.forecast.build_training_panel", _build_training_panel)
+    monkeypatch.setattr("core.cli.forecast.fit_ridge_band", lambda *a, **kw: types.SimpleNamespace(alpha=1.0))
+    monkeypatch.setattr("core.cli.forecast.ridge_predict_dist", lambda *a, **kw: [{14: 1.0}])
+
+    from core.cli.forecast import run
+    from typer.testing import CliRunner
+    import typer
+
+    app = typer.Typer()
+    app.command()(run)
+    runner = CliRunner()
+    result = runner.invoke(
+        app,
+        ["--date", "2025-07-15", "--cp", "22", "--model", "auto", "--dry-run"],
+    )
+
+    assert result.exit_code == 0, (result.stdout, result.stderr, repr(result.exception))
+    assert captured == [("22:00",)]
 
 
 def test_auto_dry_run_cp23_records_decision_reason(monkeypatch):
@@ -317,7 +359,7 @@ def test_auto_no_nwp_probe_flag_forces_ridge(monkeypatch):
 
     app = typer.Typer()
     app.command()(run)
-    runner = CliRunner(mix_stderr=False)
+    runner = CliRunner()
     result = runner.invoke(
         app,
         ["--date", "2025-07-15", "--cp", "22", "--model", "auto", "--no-nwp-probe", "--dry-run"],
