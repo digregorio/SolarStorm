@@ -559,6 +559,51 @@ This does not promote a production model, does not authorize deployment, and
 does not unlock market execution. The next allowed action is an Onda 4-style
 model robustness rerun/review of the experiment-only Onda 3 baseline result.
 
+## Generated 2026-06-09 Onda 4 Model Robustness Review State
+
+Onda 4 model review has generated the first model robustness artifact surface.
+It reads the Onda 3 baseline artifacts from `reports/onda3/`, evaluates
+model-specific M1-M8 gates, and writes review artifacts under
+`reports/onda4-model/`.
+
+Planning artifacts:
+
+- `docs/superpowers/specs/2026-06-09-onda4-model-robustness-review-design.md`
+- `docs/superpowers/plans/2026-06-09-onda4-model-robustness-review.md`
+
+Generated artifacts:
+
+- `reports/onda4-model/onda4_model_input_audit_v1.csv`
+- `reports/onda4-model/onda4_model_input_audit_v1.md`
+- `reports/onda4-model/onda4_model_gate_results_v1.csv`
+- `reports/onda4-model/onda4_model_gate_results_v1.md`
+- `reports/onda4-model/onda4_model_slice_review_v1.csv`
+- `reports/onda4-model/onda4_model_slice_review_v1.md`
+- `reports/onda4-model/onda4_model_uncertainty_review_v1.csv`
+- `reports/onda4-model/onda4_model_uncertainty_review_v1.md`
+- `reports/onda4-model/onda4_model_decision_update_v1.csv`
+- `reports/onda4-model/onda4_model_decision_update_v1.md`
+- `reports/onda4-model/onda4_model_robustness_report_v1.md`
+
+Allowed review decisions:
+
+- `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`
+- `KEEP_IN_ONDA3_EXPERIMENT_REVIEW`
+- `BLOCK_MODEL_PROMOTION`
+
+These decisions remain experiment-only. They cannot promote a production model,
+replace the production classifier, authorize deployment, or unlock market
+execution. Onda 4 model gates are named M1-M8 so they do not overwrite the
+historical R1-R9 regime/feature-null robustness semantics.
+
+Current decision:
+
+- `decision_status = READY_FOR_ONDA3_NEXT_MODEL_ITERATION`
+- `production_status = EXPERIMENT_ONLY`
+- M1-M8 all pass.
+- The next allowed action is a next Onda 3 model iteration, not production
+  deployment or market execution.
+
 ## References
 
 - `reports/onda2e/thesis_atlas_v1.md`
@@ -568,5 +613,7 @@ model robustness rerun/review of the experiment-only Onda 3 baseline result.
 - `docs/superpowers/specs/2026-06-08-regime-deadlock-pivot-design.md`
 - `docs/superpowers/specs/2026-06-09-onda3-baseline-model-design.md`
 - `docs/superpowers/plans/2026-06-09-onda3-baseline-model.md`
+- `docs/superpowers/specs/2026-06-09-onda4-model-robustness-review-design.md`
+- `docs/superpowers/plans/2026-06-09-onda4-model-robustness-review.md`
 - `docs/decisions/011-regime-ontology-repair.md`
 - `ROADMAP.md`

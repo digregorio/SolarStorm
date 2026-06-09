@@ -371,3 +371,29 @@ This is a model-review handoff, not production promotion. The production-facing
 regime classifier remains quarantined, and the binary macro surface remains
 experiment-only until a future robustness/promotion gate explicitly replaces
 the current classifier.
+
+## Onda 4 Model Review Status
+
+Onda 4M model robustness review has now run. It reads the experiment-only Onda 3
+artifacts from `reports/onda3/` and writes model review outputs under
+`reports/onda4-model/`.
+
+Planning artifacts:
+
+- `docs/superpowers/specs/2026-06-09-onda4-model-robustness-review-design.md`
+- `docs/superpowers/plans/2026-06-09-onda4-model-robustness-review.md`
+
+The review uses M1-M8 model gates for input integrity, causal manifest safety,
+challenger lift, temporal robustness, slice robustness, uncertainty/abstention,
+anti-nowcast/model timing, and decision hygiene. These gates are separate from
+historical Onda 4 R1-R9 regime robustness.
+
+Generated result:
+
+- M1-M8 all pass.
+- decision status: `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`
+- production status: `EXPERIMENT_ONLY`
+
+The regime model remains non-production. This passing Onda 4M review allows the
+next Onda 3 model iteration only; it cannot promote the regime classifier,
+binary macro assignments, deployment, or market execution.

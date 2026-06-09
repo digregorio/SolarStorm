@@ -116,6 +116,10 @@ from solarstorm.robustness._late_spike import (
     write_late_spike_candidates,
 )
 from solarstorm.robustness._lead_time import detect_nowcast_only, lead_time_analysis
+from solarstorm.robustness._model_review import (
+    build_onda4_model_review,
+    write_onda4_model_review_artifacts,
+)
 from solarstorm.robustness._regime_analysis import detect_dead_regimes, regime_sensitivity
 from solarstorm.robustness._regime_diagnostics import (
     cooling_rule_experiment,
@@ -2560,6 +2564,39 @@ def onda3_baseline_model(
         today=dt.date.today(),
     )
     print(f"Onda 3 baseline model complete: {paths['onda3_report_md']}")
+
+
+@app.command("onda4-model-review")
+def onda4_model_review(
+    onda3_dir: str = typer.Option(
+        "./reports/onda3",
+        help="Directory containing Onda 3 baseline artifacts",
+    ),
+    output_dir: str = typer.Option(
+        "./reports/onda4-model",
+        help="Output directory for Onda 4 model review artifacts",
+    ),
+):
+    """Write experiment-only Onda 4 model robustness review artifacts."""
+    base = Path(onda3_dir)
+    inputs = {
+        "feature_manifest": pl.read_csv(base / "onda3_feature_manifest_v1.csv"),
+        "design_matrix_audit": pl.read_csv(base / "onda3_design_matrix_audit_v1.csv"),
+        "baseline_results": pl.read_csv(base / "onda3_baseline_results_v1.csv"),
+        "challenger_results": pl.read_csv(base / "onda3_challenger_results_v1.csv"),
+        "slice_diagnostics": pl.read_csv(base / "onda3_slice_diagnostics_v1.csv"),
+        "uncertainty": pl.read_csv(base / "onda3_uncertainty_abstention_v1.csv"),
+        "decision": pl.read_csv(base / "onda3_decision_update_v1.csv"),
+    }
+    artifacts = build_onda4_model_review(inputs)
+    paths = write_onda4_model_review_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["onda4_model_decision_update_v1"].row(0, named=True)
+    print(f"Onda 4 model review complete: {decision['decision_status']}")
+    print(f"Report: {paths['onda4_model_robustness_report_md']}")
 
 
 if __name__ == "__main__":

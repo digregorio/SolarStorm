@@ -293,3 +293,44 @@ production claim. It must preserve the causal firewall, verify no target/proxy
 columns entered the live feature manifest, check slice failures by CP/month and
 binary macro, and treat uncertainty/abstention as gating evidence rather than
 report decoration.
+
+## Onda 4M Model Review Result
+
+The active follow-up Onda 4M has now generated a model robustness review of the
+experiment-only Onda 3 baseline. It is documented separately from the historical
+R1-R9 feature/regime hardening wave:
+
+- Spec:
+  `docs/superpowers/specs/2026-06-09-onda4-model-robustness-review-design.md`
+- Plan:
+  `docs/superpowers/plans/2026-06-09-onda4-model-robustness-review.md`
+
+Onda 4M uses M1-M8 model gates:
+
+- M1 input artifact integrity.
+- M2 causal manifest safety.
+- M3 challenger lift over train-mean null.
+- M4 temporal robustness.
+- M5 CP/month/binary macro slice robustness.
+- M6 uncertainty and abstention evidence.
+- M7 anti-nowcast/model timing.
+- M8 decision hygiene.
+
+The planned outputs live under `reports/onda4-model/`. Every row must remain
+`EXPERIMENT_ONLY`. A passing review may only authorize the next Onda 3 model
+iteration; it does not authorize production, deployment, market execution, EV,
+position sizing, or trading.
+
+Generated outputs:
+
+- `reports/onda4-model/onda4_model_input_audit_v1.csv/.md`
+- `reports/onda4-model/onda4_model_gate_results_v1.csv/.md`
+- `reports/onda4-model/onda4_model_slice_review_v1.csv/.md`
+- `reports/onda4-model/onda4_model_uncertainty_review_v1.csv/.md`
+- `reports/onda4-model/onda4_model_decision_update_v1.csv/.md`
+- `reports/onda4-model/onda4_model_robustness_report_v1.md`
+
+Result: M1-M8 all pass. The decision update records
+`READY_FOR_ONDA3_NEXT_MODEL_ITERATION`, with
+`production_status = EXPERIMENT_ONLY`. This authorizes the next experimental
+Onda 3 model iteration only.

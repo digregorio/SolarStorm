@@ -18,6 +18,15 @@ SolarStorm. Each onda depends on and validates the previous. See
   NumPy ridge challenger, slice diagnostics, uncertainty/abstention reporting,
   artifact writer, and `onda3-baseline-model` CLI.
 - Generated the first Onda 3 baseline artifacts under `reports/onda3/`.
+- Added Onda 4 model robustness review design spec:
+  `docs/superpowers/specs/2026-06-09-onda4-model-robustness-review-design.md`.
+- Added Onda 4 model robustness review implementation plan:
+  `docs/superpowers/plans/2026-06-09-onda4-model-robustness-review.md`.
+- Added `solarstorm.robustness._model_review` and the
+  `onda4-model-review` CLI to evaluate Onda 3 model artifacts with M1-M8 model
+  robustness gates.
+- Generated the first Onda 4M model review artifacts under
+  `reports/onda4-model/`.
 
 ### Changed
 
@@ -30,6 +39,13 @@ SolarStorm. Each onda depends on and validates the previous. See
 - Recorded the first Onda 3 baseline result as `EXPERIMENT_ONLY`: train-mean
   null MAE 2.8120, ridge challenger MAE 1.3487, and decision
   `READY_FOR_ONDA4_MODEL_RERUN`.
+- Updated project docs to make Onda 4 model robustness review the active next
+  wave after the Onda 3 baseline. The review will use M1-M8 model gates,
+  separate from historical R1-R9 regime/feature-null robustness, and will write
+  under `reports/onda4-model/`.
+- Recorded the first Onda 4M result as `EXPERIMENT_ONLY`: all M1-M8 gates pass
+  and `onda4_model_decision_update_v1.csv` records
+  `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`.
 
 ### Fixed
 

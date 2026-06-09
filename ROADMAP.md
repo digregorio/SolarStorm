@@ -308,7 +308,8 @@ Report: `reports/onda2e/onda2e_decision_report.md`
 
 ## Onda 4: Robustness Hardening
 
-Status: implemented; post-Onda 2R verdict was NO-GO; v2.1 candidate rerun is GO; active v2.2 Onda C blocks promotion
+Status: historical feature/regime robustness implemented; model robustness
+review is the active next wave after Onda 3 baseline
 
 Purpose: stress-test the Onda 2 feature-null foundation before Onda 3 models.
 Onda 4 is not shadow trading and not financial readiness.
@@ -343,6 +344,60 @@ design in review and the v2.2 calm/radiative restoration now blocks promotion
 because `macro_calm_radiative` is dead in R2. The older post-Onda 2R NO-GO
 remains historical evidence that the quarantined production classifier should
 not be treated as final.
+
+## Onda 4M: Model Robustness Review
+
+Status: first model review generated; next action is Onda 3 next model
+iteration under experiment-only constraints
+
+Purpose: review the first Onda 3 baseline model result before any further model
+iteration can be treated as robust. This wave reads `reports/onda3/` and writes
+separate experiment-only review artifacts under `reports/onda4-model/`.
+
+Entry state:
+
+- Onda 3 generated baseline artifacts under `reports/onda3/`.
+- `onda3_decision_update_v1.csv` records
+  `READY_FOR_ONDA4_MODEL_RERUN`.
+- Train-mean null MAE is 2.8120; ridge challenger MAE is 1.3487.
+- All Onda 3 outputs remain `EXPERIMENT_ONLY`.
+
+Design:
+
+- `docs/superpowers/specs/2026-06-09-onda4-model-robustness-review-design.md`
+
+Plan:
+
+- `docs/superpowers/plans/2026-06-09-onda4-model-robustness-review.md`
+
+Generated review artifacts:
+
+- `reports/onda4-model/onda4_model_input_audit_v1.csv/.md`
+- `reports/onda4-model/onda4_model_gate_results_v1.csv/.md`
+- `reports/onda4-model/onda4_model_slice_review_v1.csv/.md`
+- `reports/onda4-model/onda4_model_uncertainty_review_v1.csv/.md`
+- `reports/onda4-model/onda4_model_decision_update_v1.csv/.md`
+- `reports/onda4-model/onda4_model_robustness_report_v1.md`
+
+Gate policy:
+
+- Onda 4M uses M1-M8 model-specific gates for input integrity, causal manifest
+  safety, challenger lift, temporal robustness, slice robustness,
+  uncertainty/abstention, anti-nowcast/model timing, and decision hygiene.
+- M1-M8 are separate from the historical Onda 4 R1-R9 regime/feature-null
+  robustness checks.
+- Passing Onda 4M may only produce an experiment decision such as
+  `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`; it does not approve production,
+  deployment, market execution, EV, position sizing, or trading.
+
+First review result:
+
+- M1-M8 all pass.
+- M3 records null MAE 2.8120, challenger MAE 1.3487, and lift 1.4632.
+- M6 records residual absolute p50 1.0315 and p90 2.9818 with an abstention
+  rule present.
+- Decision status is `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`.
+- Production status remains `EXPERIMENT_ONLY`.
 
 ## Regime Ontology v2.2: Calm/Radiative Restoration
 

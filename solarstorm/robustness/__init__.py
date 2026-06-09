@@ -14,6 +14,10 @@ from solarstorm.robustness._config import (
     R9_LATE_TMAX_BASELINE_BLOCK,
     ROBUSTNESS_CONFIG_VERSION,
 )
+from solarstorm.robustness._model_review import (
+    build_onda4_model_review,
+    write_onda4_model_review_artifacts,
+)
 
 __all__ = [
     "R1_BLOCK_YEARS",
@@ -27,4 +31,6 @@ __all__ = [
     "R8_LATE_SPIKE_WARNING_ONLY",
     "R9_LATE_TMAX_BASELINE_BLOCK",
     "ROBUSTNESS_CONFIG_VERSION",
+    "build_onda4_model_review",
+    "write_onda4_model_review_artifacts",
 ]
