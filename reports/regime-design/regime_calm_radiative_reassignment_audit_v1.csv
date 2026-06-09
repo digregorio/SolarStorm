@@ -1,0 +1,6 @@
+diagnostic_item,status,detail,n_rows,production_status
+physical_thresholds,PASS,wind_low_q25=7.125000; relh_high_q75=86.719091; dewpoint_depression_low_q25=2.181818; cloud_cover_high_q75=2.705882; temp_slope_weak_q25=0.000000,21824,EXPERIMENT_ONLY
+calm_radiative_candidate_rows,PASS,2572 rows meet the v2.2 calm/radiative physical rule.,2572,EXPERIMENT_ONLY
+calm_radiative_cp_support,PASS,Smallest CP support for calm/radiative is 502 rows.,502,EXPERIMENT_ONLY
+missing_physical_rule_inputs,WARN,1995 joined rows have at least one missing rule input.,1995,EXPERIMENT_ONLY
+production_status,PASS,v2.2 assignments remain NOT_PRODUCTION.,21824,EXPERIMENT_ONLY

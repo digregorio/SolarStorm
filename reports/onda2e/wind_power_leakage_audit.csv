@@ -1,0 +1,4 @@
+audit_item,status,detail
+cp_slice_causal,PASS,Wind sectors are computed only from observations with valid < CP.
+outcome_usage,WARN,"tmax_int, tmax_anomaly, and remaining_warming are outcome summaries used only after sector assignment."
+power,WARN,28/412 wind sector effect cells have n_obs < 30.

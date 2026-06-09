@@ -1,0 +1,3 @@
+candidate_regime_family,assignment_rows,cp_count,month_count,mean_assignment_confidence,min_assignment_confidence,mean_distance_to_candidate,r2_rows,r2_pass_rows,r2_dead_status,power_status,recommended_repair,production_status
+candidate_maritime_cloudy,31,4,0,0.30599143125933687,0.24045025014032986,2.3099170267394253,92,0,DEAD,OK,repair candidate family before production promotion,NOT_PRODUCTION
+candidate_mixed_or_transition,320,4,0,0.28387400455704137,0.1352780708379613,2.6903815623801575,92,0,DEAD,OK,repair candidate family before production promotion,NOT_PRODUCTION

@@ -9,7 +9,7 @@ requires-python = ">=3.12"
 dependencies = ["polars>=1.0", "numpy>=1.26", "typer>=0.12", "tzdata"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "httpx>=0.27"]
+dev = ["pytest>=8", "httpx>=0.27", "ruff>=0.5", "mypy>=1.10"]
 
 [project.scripts]
 tmax = "solarstorm.__main__:app"

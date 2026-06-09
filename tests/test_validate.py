@@ -32,11 +32,9 @@ import datetime as dt
 
 import numpy as np
 import polars as pl
-import pytest
 
 from solarstorm.eda._hypotheses import Hypothesis
 from solarstorm.eda._validate import validate_hypotheses
-
 
 # ---------------------------------------------------------------------------
 # Synthetic data factory
@@ -113,6 +111,126 @@ def _make_dataset(
     return features, labels
 
 
+def _make_biased_remaining_warming_dataset(
+    *,
+    n_years: int = 7,
+    start_year: int = 2018,
+    seed: int = 42,
+    cp_set: tuple[str, ...] = ("20:00",),
+) -> tuple[pl.DataFrame, pl.DataFrame]:
+    """Dataset where an intercept-only challenger beats L0 but not calibrated null."""
+    rng = np.random.default_rng(seed)
+    n_days = n_years * 365
+    start = dt.date(start_year, 1, 1)
+    dates = [start + dt.timedelta(days=i) for i in range(n_days)]
+
+    tmax_int = np.round(18.0 + rng.normal(0.0, 5.0, n_days)).astype(int)
+    rw = 3 + rng.choice([-1, 0, 1], size=n_days)
+
+    labels_rows: list[dict] = []
+    features_rows: list[dict] = []
+    for i, d in enumerate(dates):
+        label_row: dict = {
+            "date_local": d,
+            "tmax_int": int(tmax_int[i]),
+            "day_complete": True,
+        }
+        for cp_str in cp_set:
+            label_row[f"k_cp__cp_{cp_str.replace(':', '')}"] = int(tmax_int[i] - rw[i])
+            features_rows.append({
+                "date_local": d,
+                "cp": cp_str,
+                "regime_label": "all",
+                "regime_flags": "{}",
+                "constant_feature": 0.0,
+            })
+        labels_rows.append(label_row)
+
+    return pl.DataFrame(features_rows), pl.DataFrame(labels_rows)
+
+
+def _make_climatology_dominates_dataset(
+    *,
+    n_years: int = 7,
+    start_year: int = 2018,
+    seed: int = 42,
+    cp_set: tuple[str, ...] = ("20:00",),
+) -> tuple[pl.DataFrame, pl.DataFrame]:
+    """Dataset where a weak feature beats L0 but loses to train-only L2 climatology."""
+    rng = np.random.default_rng(seed)
+    n_days = n_years * 365
+    start = dt.date(start_year, 1, 1)
+    dates = [start + dt.timedelta(days=i) for i in range(n_days)]
+
+    doy_arr = np.arange(n_days)
+    tmax_cont = 20.0 + 8.0 * np.sin(2.0 * np.pi * doy_arr / 365.0)
+    tmax_int = np.round(tmax_cont).astype(int)
+    rw = rng.normal(0.0, 3.0, n_days)
+    rw -= rw.mean()
+    rw_int = np.round(rw).astype(int)
+    weak_signal = rw_int.astype(float) + rng.normal(0.0, 6.0, n_days)
+
+    labels_rows: list[dict] = []
+    features_rows: list[dict] = []
+    for i, d in enumerate(dates):
+        label_row: dict = {
+            "date_local": d,
+            "tmax_int": int(tmax_int[i]),
+            "day_complete": True,
+        }
+        for cp_str in cp_set:
+            label_row[f"k_cp__cp_{cp_str.replace(':', '')}"] = int(tmax_int[i] - rw_int[i])
+            features_rows.append({
+                "date_local": d,
+                "cp": cp_str,
+                "regime_label": "all",
+                "regime_flags": "{}",
+                "weak_signal": float(weak_signal[i]),
+            })
+        labels_rows.append(label_row)
+
+    return pl.DataFrame(features_rows), pl.DataFrame(labels_rows)
+
+
+def _make_categorical_signal_dataset(
+    *,
+    n_years: int = 7,
+    start_year: int = 2018,
+    seed: int = 42,
+    cp_set: tuple[str, ...] = ("20:00",),
+) -> tuple[pl.DataFrame, pl.DataFrame]:
+    """Dataset where a string category cleanly predicts remaining_warming."""
+    rng = np.random.default_rng(seed)
+    n_days = n_years * 365
+    start = dt.date(start_year, 1, 1)
+    dates = [start + dt.timedelta(days=i) for i in range(n_days)]
+
+    tmax_int = np.round(18.0 + rng.normal(0.0, 4.0, n_days)).astype(int)
+    categories = np.where(np.arange(n_days) % 2 == 0, "cooling", "warming")
+    rw = np.where(categories == "warming", 4, -4)
+
+    labels_rows: list[dict] = []
+    features_rows: list[dict] = []
+    for i, d in enumerate(dates):
+        label_row: dict = {
+            "date_local": d,
+            "tmax_int": int(tmax_int[i]),
+            "day_complete": True,
+        }
+        for cp_str in cp_set:
+            label_row[f"k_cp__cp_{cp_str.replace(':', '')}"] = int(tmax_int[i] - rw[i])
+            features_rows.append({
+                "date_local": d,
+                "cp": cp_str,
+                "regime_label": "all",
+                "regime_flags": "{}",
+                "category_signal": str(categories[i]),
+            })
+        labels_rows.append(label_row)
+
+    return pl.DataFrame(features_rows), pl.DataFrame(labels_rows)
+
+
 # ===================================================================
 # Tests
 # ===================================================================
@@ -169,6 +287,76 @@ class TestNoiseFails:
             )
             assert r.status == "rejected", msg
         assert contract["n_validated"] == 0
+
+
+class TestHonestNulls:
+    """Regression tests for real best-null-per-CP and calibrated null gates."""
+
+    def test_intercept_only_loses_to_calibrated_null(self):
+        features, labels = _make_biased_remaining_warming_dataset()
+        hyp = Hypothesis(
+            id="H_CONSTANT",
+            feature_column="constant_feature",
+            description="Constant feature must not get credit for intercept-only calibration",
+        )
+
+        results, contract = validate_hypotheses(
+            features, labels, [hyp],
+            cp_set=("20:00",),
+            test_starts=[dt.date(2024, 1, 1)],
+            seed=42,
+        )
+
+        result = next(r for r in results if r.id == "H_CONSTANT")
+        assert result.status == "rejected"
+        assert result.best_null_name == "calibrated_cp_mean_rw"
+        assert result.best_null_mae is not None
+        assert contract["n_validated"] == 0
+
+    def test_feature_must_beat_best_null_not_just_l0(self):
+        features, labels = _make_climatology_dominates_dataset()
+        hyp = Hypothesis(
+            id="H_WEAK",
+            feature_column="weak_signal",
+            description="Weak feature beats L0 but must lose to the best train-only null",
+        )
+
+        results, contract = validate_hypotheses(
+            features, labels, [hyp],
+            cp_set=("20:00",),
+            test_starts=[dt.date(2024, 1, 1)],
+            seed=42,
+        )
+
+        result = next(r for r in results if r.id == "H_WEAK")
+        assert result.status == "rejected"
+        assert result.best_null_name != "L0_persistence"
+        assert result.best_null_mae is not None
+        assert result.gate_results["G1"].passed is False
+        assert result.gate_results["G5"].passed is False
+        assert contract["n_validated"] == 0
+
+    def test_categorical_feature_can_validate_via_one_hot(self):
+        features, labels = _make_categorical_signal_dataset()
+        hyp = Hypothesis(
+            id="H_CATEGORY",
+            feature_column="category_signal",
+            description="String categories should be one-hot encoded by the harness",
+        )
+
+        results, contract = validate_hypotheses(
+            features, labels, [hyp],
+            cp_set=("20:00",),
+            test_starts=[dt.date(2024, 1, 1)],
+            seed=42,
+        )
+
+        result = next(r for r in results if r.id == "H_CATEGORY")
+        assert result.status == "validated"
+        assert result.best_null_name is not None
+        assert result.gate_results["G1"].passed is True
+        assert result.gate_results["G5"].passed is True
+        assert contract["n_validated"] == 1
 
 
 class TestFdrCorrection:
@@ -240,7 +428,7 @@ class TestBlockedFeatures:
             description="Requires SST — should be BLOCKED",
         )
 
-        results, contract = validate_hypotheses(
+        results, _contract = validate_hypotheses(
             features, labels, [hyp],
             cp_set=("20:00",),
             test_starts=[dt.date(2024, 1, 1)],
@@ -267,7 +455,7 @@ class TestEmptyFeature:
         )
 
         # Should not raise
-        results, contract = validate_hypotheses(
+        results, _contract = validate_hypotheses(
             features, labels, [hyp],
             cp_set=("20:00",),
             test_starts=[dt.date(2024, 1, 1)],

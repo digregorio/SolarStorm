@@ -1,0 +1,530 @@
+
+
+
+Relatórios:
+
+Relatório 1:
+Análise do NO-GO:  late_warming  regime morto
+Diagnóstico raiz
+Investiguei os dados e o código. O problema não é que as features são ruins em  late_warming . O problema é que  late_warming  simplesmente não existe no  features.parquet .
+Por que:
+-  late_warming  é definido em  _regimes.py  como:  tmax_hour >= 18  (18h NZST)
+- Os CPs são 20:00–23:00 UTC → aproximadamente 08:00–12:00 NZST
+- Em  builder.py , o regime é classificado usando apenas o slice causal (observações antes do CP)
+- Às 08:00–12:00 da manhã, o Tmax do dia ainda não aconteceu (se for tardio). Logo,  tmax_hour >= 18  é impossível de ser verdadeiro no slice causal
+Confirmação nos dados:
+┌──────────────┬─────────────────────────┬─────────────────────────┐
+│ Regime       │ Full-day (obs completo) │ Slice causal (features) │
+├──────────────┼─────────────────────────┼─────────────────────────┤
+│ transition   │ 3.253                   │ 14807                   │
+│ foehn_nw     │ 1.786                   │ 3.994                   │
+│ calm         │ 246                     │ 2.201                   │
+│ late_warming │ 150 (~3,4%)             │ 0                       │
+│ disrupted    │ 5                       │ 706                     │
+└──────────────┴─────────────────────────┴─────────────────────────┘
+O regime  late_warming  representa ~3,4% dos dias quando classificado com o dia completo, mas zero quando classificado causalmente.
+Por que isso causa NO-GO
+Em  robustness/_regime_analysis.py :
+// python
+regime_features = features.filter(pl.col("regime_label") == regime)
+Como  features["regime_label"]  nunca contém  "late_warming" , o DataFrame filtrado está vazio. Nenhuma feature é validada.  detect_dead_regimes  marca como morto. R2 bloqueia.
+───────────────────────────────────────────────────────────────────────────────
+Soluções possíveis
+Opção 1: Adicionar  true_regime_label  (regime pós-facto) ao pipeline (recomendada)
+Lógica: Separar o conceito de:
+-  regime_label  (causal): classificado com observações pré-CP. Usado como feature candidata (H3). Nunca pode ser  late_warming  — e isso é correto, porque de manhã não sabemos se o Tmax será tardio.
+-  true_regime_label  (pós-facto): classificado com o dia completo. Usado apenas para segmentação de avaliação (R2). Permite testar se as features genéricas funcionam em dias que eventualmente foram de late warming.
+Mudanças necessárias:
+1. Em  solarstorm/data/_labels.py : computar  true_regime_label  a partir do dia completo de observações (não viola P1, pois é um label/metadado, não uma feature usável para predição)
+2. Em  solarstorm/robustness/_regime_analysis.py : ao invés de filtrar por  regime_label , fazer merge com labels e filtrar por  true_regime_label 
+3. Em  solarstorm/robustness/_report.py : ajustar mensagem para distinguir "regime causal" vs "regime de análise"
+Vantagem: É a solução mais honesta cientificamente. O firewall causal é preservado; a robustez avalia o que realmente precisa ser avaliado.
+Opção 2: Criar proxy causal para  late_warming 
+Lógica: Substituir  tmax_hour >= 18  por sinais matinais que predizem aquecimento tardio:
+- Taxa de aquecimento matinal alta e acelerando
+- Vento de setor aquecedor
+- Ausência de estabilização/cloud cover
+- Baixa dewpoint depression → ar seco → potencial de aquecimento forte
+Mudanças necessárias:
+1. Reescrever  classify_regime()  para usar proxies em vez do Tmax real
+2. Isso faria  late_warming  aparecer em  regime_label  e seria uma feature causal legítima
+Desvantagem: Requer calibração cuidadosa. Um proxy ruim pode criar falsos positivos/negativos e invalidar a análise de regime.
+Opção 3: Relaxar R2 para regimes com dados insuficientes
+Lógica: Um regime só é "morto" se existe nos dados e nenhuma feature passa. Se não existe (poucos ou zero dias no conjunto de teste), deveria ser "insufficient_data", não "BLOCK".
+Mudanças necessárias:
+1. Em  detect_dead_regimes() : adicionar threshold mínimo de dias (ex: < 30 dias no período de teste → não bloqueia)
+2. Ajustar o report para mostrar "insufficient_data" separado de "dead"
+Vantagem: Mudança mínima. Desvantagem: Trata o sintoma, não a causa. Dias de late warming existem (~3,4%) e deveriam ser avaliados.
+───────────────────────────────────────────────────────────────────────────────
+Minha recomendação
+Implementar Opção 1 ( true_regime_label ) como solução definitiva. É a única que resolve o problema sem comprometer o firewall causal ou mascarar regimes reais.
+Posso implementar isso agora se você quiser. Envolveria:
+1. Adicionar  true_regime_label  a  build_tmax_labels  ( _labels.py )
+2. Modificar  regime_sensitivity  para usar  true_regime_label  via merge
+3. Rodar  python -m solarstorm robustness  para verificar se o NO-GO é resolvido
+4. Atualizar testes se necessário
+
+Relatório 2: 
+
+Fix Dead late_warming Regime (R2 NO-GO)
+Root Cause
+The regime_label in solarstorm/features/builder.py is computed from a causal slice (observations strictly before CP time). CP hours 20:00-23:00 UTC = 08:00-11:00 NZST, so the causal slice only contains morning observations. The late_warming regime requires tmax_hour >= 18 (6 PM local), which is impossible in a morning-only slice. Result: zero rows ever get late_warming, and R2 correctly flags it as dead.
+Solution: Targeted Late-Warming Override
+Keep causal classification as primary (preserving Fix #1 / test_forensic_regression.py). Add a targeted override that checks the full day's observations for late_warming signal and patches the regime_label when:
+The causal slice already produced a valid regime (not insufficient)
+The full day's Tmax occurs at hour >= 18 local
+The causal regime is not disrupted (rain takes physical priority)
+This preserves the forensic regression test (zero pre-CP obs -> insufficient stays) while enabling late_warming detection on days that actually have it.
+Task 1: Add full_day_late_warming flag in builder.py
+File: solarstorm/features/builder.py (inside the for d in dates: loop, before the CP loop)After the D-1/D-2/D-3 label lookups (~line 215), add a check on day_obs:
+full_day_late_warming = False
+if day_obs.height >= 3:
+    _fd_tmax_idx = day_obs["tmp_c_int"].arg_max()
+    _fd_tmax_hour = day_obs["ts_local"][_fd_tmax_idx].hour
+    full_day_late_warming = _fd_tmax_hour >= 18
+Task 2: Add late_warming override inside CP loop
+File: solarstorm/features/builder.py (after the causal regime classification block, ~line 254)Add:
+# Late-warming override: the causal (pre-CP) slice never contains evening
+# hours, so tmax_hour >= 18 is structurally impossible. Check the full
+# day's obs for late-warming signal when the causal slice produced a valid
+# (non-disrupted, non-insufficient) classification. (R2 dead-regime fix)
+if (
+    full_day_late_warming
+    and regime_label not in (None, "insufficient", "disrupted")
+):
+    regime_label = "late_warming"
+Task 3: Update comment on causal regime block
+Replace the existing comment "Compute regime from CAUSAL slice only (not full-day -- Fix 1)" with a comment that documents the primary causal classification + late_warming override rationale.
+Task 4: Add test for late_warming override
+File: tests/test_forensic_regression.py (or tests/test_regimes.py)Add a test that creates a day with morning + evening observations where Tmax occurs at 21:00 local, runs build_features, and asserts that regime_label == "late_warming" for the CP rows. This verifies the fix works end-to-end.Also add a negative test: verify the existing test_regime_not_affected_by_post_cp_observations still passes (zero pre-CP obs -> insufficient).
+Task 5: Rebuild features and rerun Onda 4
+Delete data/features.parquet (stale regime labels)
+Rebuild: python -m solarstorm features (or the appropriate pipeline command)
+Rerun: python -m solarstorm robustness
+Verify R2 no longer reports late_warming as dead
+Verify all other checks still pass (R1, R3-R8)
+Task 6: Run tests
+ruff check .
+uv run pytest -q -m "not network"
+Verify all 137+ tests pass, including the new late_warming test and the existing forensic regression test.
+Key Design Decisions
+Why not full-day classification? The existing forensic regression test (test_regime_not_affected_by_post_cp_observations) verifies that zero pre-CP observations yield insufficient, not a regime derived from post-CP rain. A full-day switch would break this invariant.
+Why not D-1 lagging? Late_warming is not strongly persistent day-to-day. D-1 lagging changes the regime's physical meaning.
+Why override after, not inside classify_regime? Keeps classify_regime pure and testable with unit fixtures. The override is a feature-builder concern (causal slice limitation), not a classifier concern.
+
+Relatório 3:
+
+Análise: late_warming Regime Morto — Causa Raiz e Soluções
+Diagnóstico
+O relatório de robustez Onda 4 retorna NO-GO porque o check R2 detecta late_warming como regime morto — nenhuma feature validada passa quando os dados são filtrados para dias classificados como late_warming.
+
+Causa Raiz: Contradição Estrutural entre Causal Slice e Definição do Regime
+A raiz do problema é uma contradição lógica entre a definição do regime e o firewall causal:
+
+1. Definição de late_warming (
+_regimes.py:62
+)
+python
+
+tmax_idx = obs["tmp_c_int"].arg_max()
+tmax_hour = obs["ts_local"][tmax_idx].hour
+late_warming = tmax_hour >= 18   # Tmax ocorre às 18h local ou depois
+O regime late_warming é definido como: o pico de temperatura do dia ocorre às 18h local ou depois (tipicamente associado a foehn ou aquecimento pré-frontal vespertino).
+
+2. Feature builder usa apenas dados pré-CP (
+builder.py:238-250
+)
+python
+
+# Causal slice: observations strictly before CP with valid temperature
+slice_df = day_obs.filter(
+    (pl.col("valid") < cp_utc_val)
+    & (pl.col("dq_tmp_c_int") != "missing"),
+)
+# Compute regime from CAUSAL slice only (not full-day)
+regime_label, regime_flags = classify_regime(
+    slice_df.with_columns(pl.col(wd_col_sl).alias("wind_dir_deg")),
+)
+3. Os CPs são entre 20:00-23:00 UTC = 08:00-11:00 NZST
+Wellington está em UTC+12 (NZST) ou UTC+13 (NZDT). Os checkpoints 20:00, 21:00, 22:00, 23:00 UTC correspondem a 08:00-11:00 NZST (ou 09:00-12:00 NZDT).
+
+O Paradoxo
+
+CP 20:00 UTC = 08:00 NZST → causal slice vê dados de 00:00-08:00
+CP 23:00 UTC = 11:00 NZST → causal slice vê dados de 00:00-11:00
+O classificador calcula tmax_hour como a hora da temperatura máxima dentro do slice causal, ou seja, apenas dados da manhã. A Tmax do slice da manhã quase nunca ocorre às 18h+ porque as observações após as 11h não existem no slice!
+
+CAUTION
+
+O regime late_warming é estruturalmente impossível de ser classificado a partir de dados causais. O classificador nunca vai ver tmax_hour >= 18 quando os dados terminam às 08h-11h da manhã. Portanto, nenhum dia recebe regime_label = "late_warming" no feature table, e R2 corretamente detecta o regime como "morto".
+
+Evidência nos Dados
+O contrato validado (
+validated_feature_contract.json
+) tem 33 validated features, todas com "regime": "all" — nenhuma regime-specific entry.
+A hipótese H15 (late_warming_anomaly) está rejected com n_days: 0 (
+hypothesis_results.json:2088-2154
+) — a feature é null em todos os rows porque depende de train-only stats que nunca são recomputados.
+No report superseded anterior, H15 passava como validated — isso provavelmente era em uma versão anterior onde o regime era calculado sobre dados full-day (violando a causalidade).
+Soluções Propostas
+Solução A: Regime Proxy Causal (⭐ Recomendada)
+Ideia: Substituir a definição de late_warming no classificador causal por um proxy que não requer observar o Tmax vespertino. O regime passa a ser uma predição baseada em sinais matutinos de que o Tmax provavelmente ocorrerá tarde.
+
+Sinais proxy que o slice causal pode ver:
+Proxy	Lógica Física	Referência
+warming_rate_06_09 > 2.0 C/h	Taxa de aquecimento matutino alta = motor de radiação/advecção ativo	H17, já validated
+foehn_score > threshold	NW flow forte + drying = foehn incoming	H14, já validated
+slope_3h > 1.5	Tendência de aquecimento forte sugere pico tardio	H1, já validated
+pressure_trend_3h < -0.5 hPa/h	Queda de pressão = frente se aproximando	H13
+wind_dir_change_s_to_n > 90°	Virada de vento S→N precede late warming	H8
+Mês + climatologia tmax_hour	Verão NZWN tem Tmax mais tardio	Documentação
+Implementação:
+python
+
+# Em _regimes.py: classify_regime()
+# Substituir:
+#   late_warming = tmax_hour >= 18
+# Por proxy causal:
+late_warming_proxy = (
+    (warming_rate_morning > 1.5)  # > 1.5 °C/h sugere aquecimento ativo
+    or (slope_3h is not None and slope_3h > 1.0)  # tendência forte
+) and not has_precip  # precip descarta o sinal
+IMPORTANT
+
+Vantagem: Mantém a integridade causal. Não olha para o futuro. Risco: O proxy pode não ter correlação perfeita com tmax_hour >= 18. Precisa ser validado com walk-forward bootstrap (mesmo critério G1-G5).
+
+Solução B: Regime Full-Day Separado (Informativo, Não-Causal)
+Ideia: Manter o regime causal como regime_label (nunca late_warming), mas adicionar um campo regime_label_fullday calculado com dados full-day. O check R2 usaria regime_label_fullday para verificar cobertura, enquanto os modelos continuam usando regime_label (causal).
+
+Implementação:
+No 
+builder.py
+, adicionar após o loop causal:
+
+python
+
+# Compute full-day regime for diagnostic purposes only (not a model feature)
+fullday_regime, _ = classify_regime(day_obs)
+row["regime_label_fullday"] = fullday_regime
+No 
+_regime_analysis.py
+, usar regime_label_fullday para R2:
+
+python
+
+regime_col = "regime_label_fullday" if "regime_label_fullday" in features.columns else "regime_label"
+WARNING
+
+Risco: regime_label_fullday é informativo pós-facto. Não pode ser usado como feature em modelos (vazamento causal). R2 passaria, mas os modelos não teriam como saber que um dia é late_warming no momento da predição. Isso pode ser visto como uma solução "cosmetológica" que não resolve o problema real.
+
+Solução C: Redefinir o Catálogo de Regimes
+Ideia: Aceitar que late_warming é um regime ex-post (só é definível depois do dia terminar) e removê-lo da lista de regimes que R2 exige. Em vez disso, tratá-lo como um caso de risco (similar aos late spikes no R8).
+
+Implementação:
+No 
+_regime_analysis.py
+, remover late_warming da lista obrigatória:
+
+python
+
+# Antes:
+REGIMES = ("calm", "transition", "late_warming", "foehn_nw", "disrupted")
+# Depois:
+REGIMES = ("calm", "transition", "foehn_nw", "disrupted")
+Adicionar late_warming como check informativo/warning (não bloqueante) no relatório.
+
+WARNING
+
+Risco: Ignora um regime fisicamente importante. O late_warming é justamente o caso mais difícil para previsão de Tmax — removê-lo do check de robustez significa aceitar que o modelo será cego a esses dias.
+
+Recomendação
+A Solução A (Regime Proxy Causal) é a mais robusta porque:
+
+Mantém integridade causal — não viola o firewall
+Aproveita features já validated — H1 (slope_3h), H14 (foehn_score), H17 (warming_rate_06_09) já provaram skill
+É fisicamente fundamentada — os proxies matutinos têm relação causal real com late warming
+Resolve o R2 legitimamente — dias realmente ganham o rótulo late_warming com base em evidência disponível no CP
+Plano de Execução Proposto
+Criar proxy composite em _regimes.py usando sinais matutinos
+Recalcular features (python -m solarstorm features)
+Revalidar hipóteses (python -m solarstorm validate) — verificar que o novo proxy não quebra features existentes
+Rerodar Onda 4 (python -m solarstorm robustness) — verificar GO
+Documentar a mudança na decisão de regime classifier
+Combinação Possível: A + C
+Uma abordagem pragmática seria combinar A e C:
+
+Implementar o proxy causal (A) para os casos onde sinais matutinos existem
+Se mesmo com proxy o número de dias late_warming for muito baixo para a validação bootstrap (< 30), rebaixar late_warming de BLOCK para WARNING no R2 (parcialmente C)
+
+Relatório 4:
+
+Análise: late_warming Regime Morto — Causa Raiz e Soluções
+Diagnóstico
+O relatório de robustez Onda 4 retorna NO-GO porque o check R2 detecta late_warming como regime morto — nenhuma feature validada passa quando os dados são filtrados para dias classificados como late_warming.
+
+Causa Raiz: Contradição Estrutural entre Causal Slice e Definição do Regime
+A raiz do problema é uma contradição lógica entre a definição do regime e o firewall causal:
+
+1. Definição de late_warming (
+_regimes.py:62
+)
+python
+
+tmax_idx = obs["tmp_c_int"].arg_max()
+tmax_hour = obs["ts_local"][tmax_idx].hour
+late_warming = tmax_hour >= 18   # Tmax ocorre às 18h local ou depois
+O regime late_warming é definido como: o pico de temperatura do dia ocorre às 18h local ou depois (tipicamente associado a foehn ou aquecimento pré-frontal vespertino).
+
+2. Feature builder usa apenas dados pré-CP (
+builder.py:238-250
+)
+python
+
+# Causal slice: observations strictly before CP with valid temperature
+slice_df = day_obs.filter(
+    (pl.col("valid") < cp_utc_val)
+    & (pl.col("dq_tmp_c_int") != "missing"),
+)
+# Compute regime from CAUSAL slice only (not full-day)
+regime_label, regime_flags = classify_regime(
+    slice_df.with_columns(pl.col(wd_col_sl).alias("wind_dir_deg")),
+)
+3. Os CPs são entre 20:00-23:00 UTC = 08:00-11:00 NZST
+Wellington está em UTC+12 (NZST) ou UTC+13 (NZDT). Os checkpoints 20:00, 21:00, 22:00, 23:00 UTC correspondem a 08:00-11:00 NZST (ou 09:00-12:00 NZDT).
+
+O Paradoxo
+
+CP 20:00 UTC = 08:00 NZST → causal slice vê dados de 00:00-08:00
+CP 23:00 UTC = 11:00 NZST → causal slice vê dados de 00:00-11:00
+O classificador calcula tmax_hour como a hora da temperatura máxima dentro do slice causal, ou seja, apenas dados da manhã. A Tmax do slice da manhã quase nunca ocorre às 18h+ porque as observações após as 11h não existem no slice!
+
+CAUTION
+
+O regime late_warming é estruturalmente impossível de ser classificado a partir de dados causais. O classificador nunca vai ver tmax_hour >= 18 quando os dados terminam às 08h-11h da manhã. Portanto, nenhum dia recebe regime_label = "late_warming" no feature table, e R2 corretamente detecta o regime como "morto".
+
+Evidência nos Dados
+O contrato validado (
+validated_feature_contract.json
+) tem 33 validated features, todas com "regime": "all" — nenhuma regime-specific entry.
+A hipótese H15 (late_warming_anomaly) está rejected com n_days: 0 (
+hypothesis_results.json:2088-2154
+) — a feature é null em todos os rows porque depende de train-only stats que nunca são recomputados.
+No report superseded anterior, H15 passava como validated — isso provavelmente era em uma versão anterior onde o regime era calculado sobre dados full-day (violando a causalidade).
+Soluções Propostas
+Solução A: Regime Proxy Causal (⭐ Recomendada)
+Ideia: Substituir a definição de late_warming no classificador causal por um proxy que não requer observar o Tmax vespertino. O regime passa a ser uma predição baseada em sinais matutinos de que o Tmax provavelmente ocorrerá tarde.
+
+Sinais proxy que o slice causal pode ver:
+Proxy	Lógica Física	Referência
+warming_rate_06_09 > 2.0 C/h	Taxa de aquecimento matutino alta = motor de radiação/advecção ativo	H17, já validated
+foehn_score > threshold	NW flow forte + drying = foehn incoming	H14, já validated
+slope_3h > 1.5	Tendência de aquecimento forte sugere pico tardio	H1, já validated
+pressure_trend_3h < -0.5 hPa/h	Queda de pressão = frente se aproximando	H13
+wind_dir_change_s_to_n > 90°	Virada de vento S→N precede late warming	H8
+Mês + climatologia tmax_hour	Verão NZWN tem Tmax mais tardio	Documentação
+Implementação:
+python
+
+# Em _regimes.py: classify_regime()
+# Substituir:
+#   late_warming = tmax_hour >= 18
+# Por proxy causal:
+late_warming_proxy = (
+    (warming_rate_morning > 1.5)  # > 1.5 °C/h sugere aquecimento ativo
+    or (slope_3h is not None and slope_3h > 1.0)  # tendência forte
+) and not has_precip  # precip descarta o sinal
+IMPORTANT
+
+Vantagem: Mantém a integridade causal. Não olha para o futuro. Risco: O proxy pode não ter correlação perfeita com tmax_hour >= 18. Precisa ser validado com walk-forward bootstrap (mesmo critério G1-G5).
+
+Solução B: Regime Full-Day Separado (Informativo, Não-Causal)
+Ideia: Manter o regime causal como regime_label (nunca late_warming), mas adicionar um campo regime_label_fullday calculado com dados full-day. O check R2 usaria regime_label_fullday para verificar cobertura, enquanto os modelos continuam usando regime_label (causal).
+
+Implementação:
+No 
+builder.py
+, adicionar após o loop causal:
+
+python
+
+# Compute full-day regime for diagnostic purposes only (not a model feature)
+fullday_regime, _ = classify_regime(day_obs)
+row["regime_label_fullday"] = fullday_regime
+No 
+_regime_analysis.py
+, usar regime_label_fullday para R2:
+
+python
+
+regime_col = "regime_label_fullday" if "regime_label_fullday" in features.columns else "regime_label"
+WARNING
+
+Risco: regime_label_fullday é informativo pós-facto. Não pode ser usado como feature em modelos (vazamento causal). R2 passaria, mas os modelos não teriam como saber que um dia é late_warming no momento da predição. Isso pode ser visto como uma solução "cosmetológica" que não resolve o problema real.
+
+Solução C: Redefinir o Catálogo de Regimes
+Ideia: Aceitar que late_warming é um regime ex-post (só é definível depois do dia terminar) e removê-lo da lista de regimes que R2 exige. Em vez disso, tratá-lo como um caso de risco (similar aos late spikes no R8).
+
+Implementação:
+No 
+_regime_analysis.py
+, remover late_warming da lista obrigatória:
+
+python
+
+# Antes:
+REGIMES = ("calm", "transition", "late_warming", "foehn_nw", "disrupted")
+# Depois:
+REGIMES = ("calm", "transition", "foehn_nw", "disrupted")
+Adicionar late_warming como check informativo/warning (não bloqueante) no relatório.
+
+WARNING
+
+Risco: Ignora um regime fisicamente importante. O late_warming é justamente o caso mais difícil para previsão de Tmax — removê-lo do check de robustez significa aceitar que o modelo será cego a esses dias.
+
+Recomendação
+A Solução A (Regime Proxy Causal) é a mais robusta porque:
+
+Mantém integridade causal — não viola o firewall
+Aproveita features já validated — H1 (slope_3h), H14 (foehn_score), H17 (warming_rate_06_09) já provaram skill
+É fisicamente fundamentada — os proxies matutinos têm relação causal real com late warming
+Resolve o R2 legitimamente — dias realmente ganham o rótulo late_warming com base em evidência disponível no CP
+Plano de Execução Proposto
+Criar proxy composite em _regimes.py usando sinais matutinos
+Recalcular features (python -m solarstorm features)
+Revalidar hipóteses (python -m solarstorm validate) — verificar que o novo proxy não quebra features existentes
+Rerodar Onda 4 (python -m solarstorm robustness) — verificar GO
+Documentar a mudança na decisão de regime classifier
+Combinação Possível: A + C
+Uma abordagem pragmática seria combinar A e C:
+
+Implementar o proxy causal (A) para os casos onde sinais matutinos existem
+Se mesmo com proxy o número de dias late_warming for muito baixo para a validação bootstrap (< 30), rebaixar late_warming de BLOCK para WARNING no R2 (parcialmente C)
+
+Relatório 5 :
+
+Sua suspeita está 100% correta. Uma auditoria detalhada confirmou que não houve análise de dados (EDA) profunda para embasar os regimes atuais e as heurísticas implementadas.
+
+Os notebooks presentes na pasta 
+notebooks/
+ (como o 
+01_regime_explore.ipynb
+) são apenas templates vazios sem nenhuma célula de código executada. O classificador atual em 
+_regimes.py
+ foi construído inteiramente com base em regras heurísticas fixas tiradas de relatórios antigos e comete o erro estrutural de injetar uma variável futura (outcome) — late_warming = tmax_hour >= 18 — como se fosse um estado causal da atmosfera.
+
+Abaixo, detalho como a literatura científica aborda a definição de regimes meteorológicos locais a partir de dados de superfície (METAR) e qual seria a melhor forma de reestruturarmos isso no projeto.
+
+1. O que a Literatura Científica indica para dados METAR
+A maior parte da literatura de grande escala (como as classificações do ECMWF) define "regimes de tempo" (weather regimes) aplicando clustering de k-means em campos de anomalia de geopotencial (como Z500) ou pressão ao nível do mar (SLP) em escala continental.
+
+No entanto, para uma estação meteorológica de superfície individual (como NZWN - Wellington), a literatura de meteorologia local e pós-processamento estatístico (e.g., Spatial Synoptic Classification de Sheridan, 2002) sugere as seguintes abordagens:
+
+A. Engenharia de Features e Tratamento do Vento
+O vento é uma variável circular (0 
+∘
+ −360 
+∘
+ ). Tentar clusterizar a direção do vento diretamente em graus causa uma descontinuidade artificial (onde 359 
+∘
+  e 1 
+∘
+  parecem distantes, mas fisicamente são quase o mesmo vento Norte). A literatura indica converter a direção e intensidade do vento em componentes cartesianas:
+
+Componente Zonal (U): U=−V 
+speed
+​
+ ⋅sin(θ) (vento Leste-Oeste)
+Componente Meridional (V): V=−V 
+speed
+​
+ ⋅cos(θ) (vento Norte-Sul)
+Desta forma, a direção e a velocidade são modeladas juntas como vetores físicos contínuos.
+
+B. Métodos de Clustering Recomendados
+Gaussian Mixture Models (GMM): É frequentemente superior ao k-means tradicional para dados meteorológicos locais. O k-means força os clusters a serem esféricos. O GMM permite formas elipsoidais com matrizes de covariância flexíveis. Em Wellington, a topografia canaliza o vento nos eixos Noroeste (NW) ou Sul (S), gerando distribuições de vento no plano U-V altamente elípticas e alongadas que o GMM modela perfeitamente.
+Self-Organizing Maps (SOM): Redes neurais competitivas não supervisionadas que mapeiam dados de alta dimensão em uma grade 2D (geralmente 3×2 ou 2×2). É um dos métodos mais robustos na literatura para categorizar perfis diários de temperatura, umidade e vento, pois preserva a topologia e facilita visualizar transições entre regimes.
+K-Means acoplado a PCA: Aplicar Principal Component Analysis (PCA) nas features meteorológicas diárias normatizadas para reduzir a dimensionalidade e remover a correlação linear (e.g., entre temperatura e depressão do ponto de orvalho) antes de rodar o algoritmo de agrupamento.
+2. Qual o Número Ideal de Regimes?
+Para a escala de uma estação local, o número ideal de regimes costuma situar-se entre 4 e 6.
+
+Métricas Matemáticas: O número ideal é determinado calculando o BIC (Bayesian Information Criterion) ou AIC para GMM (onde o menor valor indica o melhor compromisso entre ajuste e complexidade), ou o Silhouette Score e Gap Statistic para k-means.
+Significado Físico (Climatologia de Wellington - NZWN): Qualquer algoritmo de clustering aplicado aos dados de Wellington deve convergir para padrões que espelhem a realidade geográfica da região:
+Fluxo de Noroeste (NW - Foehn): Ventos fortes canalizados pelo Estreito de Cook, secos e quentes devido à descida adiabática pelas cordilheiras de Tararua.
+Fluxo de Sul/Sudeste (S/SE - Disrupted): Advecção marítima fria e úmida que frequentemente traz chuva e quedas bruscas de temperatura.
+Regime Calmo / Radiativo: Ventos fracos sob influência anticiclônica, permitindo que a radiação solar guie o aquecimento diurno e que ocorram inversões térmicas à noite.
+Fluxo Zonal / Transição: Ventos de Oeste/Sudoeste moderados, sem efeito foehn marcante ou frentes frias ativas.
+Portanto, 4 ou 5 regimes representam o equilíbrio ideal. Menos que 4 mistura meteorologias com físicas totalmente opostas (como colocar ventos de sul e calmarias no mesmo grupo); mais que 6 começa a criar micro-divisões baseadas em ruído estacional.
+
+3. Proposta de Ação: Executar uma EDA Real Baseada em Dados
+Temos o arquivo 
+NZWN.csv
+ que contém 112.189 observações horárias de 2009 a 2026. A melhor forma de resolver essa pendência de forma científica é criar um script de análise na pasta research/ ou scratch/ para fazer exatamente isso.
+
+O script fará o seguinte:
+
+Agregação Diária Causal: Para cada dia local, extrair apenas os dados do slice causal (e.g., observações anteriores ao Checkpoint de 09:00 NZST) para garantir que o regime resultante possa ser inferido em tempo real sem olhar para o futuro.
+Extração de Features:
+Média e desvio padrão das componentes vetoriais de vento U e V.
+Pressão atmosférica média e tendência de 3 horas (ΔP 
+3h
+​
+ ).
+Depressão média do ponto de orvalho (T−T 
+d
+​
+ , indicador de umidade).
+Taxa de aquecimento matutino (ΔT/Δt entre 06h e 09h).
+Clustering: Rodar k-means e GMM variando o número de clusters de k=2 até k=8.
+Diagnóstico: Plotar e salvar curvas de Silhouette e BIC para mostrar o ponto ótimo de inflexão matemática.
+Análise Climatológica: Mapear as coordenadas dos centróides para interpretar fisicamente cada cluster e justificar cientificamente os limites e nomes de cada regime.
+
+Relatório 6:
+
+Os resultados da clusterização não supervisionada sobre os 17 anos (2009-2026) de dados meteorológicos reais de Wellington (extraídos de 
+data/obs.parquet
+ e 
+data/labels.parquet
+) foram gerados com sucesso!
+
+O relatório completo foi salvo em 
+research/regime_clustering_report.md
+ e o gráfico com as curvas de métricas de seleção (Silhouette e GMM BIC) foi gravado em research/regime_clustering_metrics.png.
+
+Abaixo está o resumo dos resultados obtidos a partir dos 4.491 dias completos analisados.
+
+Tabela de Centróides dos Clusters (Dados Históricos de 17 Anos)
+Alimentando o modelo de GMM (K=4) com as features meteorológicas matutinas (00:00 às 08:00 locais), a atmosfera de Wellington se organizou nos seguintes grupos:
+
+Cluster	Descrição Física	Dias	Participação (%)	Vel. Vento (kt)	Dir. Vento	Depr. Orvalho (°C)	Taxa Aquec. (°C/h)	Tend. Pressão (hPa/h)	Prob. Late Warming (%)	Média Hora Tmax
+0	Southerly (Cool/Disrupted/Wet)	1.243	27.7%	15.1 kt	179°	3.6°C	-0.083°C/h	+0.228 hPa/h	5.6%	10.4h
+1	Standard NW (Warm/Moist)	1.654	36.8%	6.7 kt	21°	2.4°C	-0.011°C/h	-0.056 hPa/h	3.0%	12.2h
+2	Southerly Extreme (Cool/Dry)	25	0.6%	12.6 kt	137°	2.8°C	+0.172°C/h	+1.024 hPa/h	0.0%	8.2h
+3	Strong NW (Foehn Candidate)	1.569	34.9%	16.4 kt	359°	3.8°C	+0.010°C/h	-0.137 hPa/h	1.5%	11.6h
+Principais Revelações da EDA Científica
+1. A Física Emergente nos Dados é Notável
+O modelo GMM mapeou perfeitamente as forças meteorológicas de Wellington sem qualquer intervenção manual:
+
+Cluster 3 (Strong NW): Identifica os dias de ventos fortes e secos canalizados pelo Estreito de Cook vindo do Norte (359°). A depressão do ponto de orvalho é a mais alta (3.8°C), indicando o ar seco característico do Foehn (adiabaticamente aquecido ao descer as montanhas de Tararua).
+Cluster 0 (Southerly Standard): Representa a clássica virada de sul. Os ventos vêm exatamente de 179° (Sul), a taxa de aquecimento matutino é negativa (-0.083°C/h, indicando resfriamento advectivo) e a pressão sobe constantemente (+0.228 hPa/h).
+Cluster 2 (Southerly Extreme): Um grupo muito pequeno (0.6% dos dias) que captura frentes frias extremamente agressivas e rápidas, onde a pressão sobe de forma violenta a mais de +1.0 hPa por hora.
+Cluster 1 (Standard NW / Light Wind): Ventos fracos predominantemente de NNE (21°). Devido aos ventos fracos, as temperaturas máximas ocorrem mais tarde na média (12.2h) devido ao ciclo de radiação pura solar.
+2. Comportamento do Late Warming (tmax_hour >= 18)
+Probabilidade Global: Ocorre em apenas 3.14% dos dias da série histórica, o que demonstra ser um fenômeno raro e anômalo (consequência de dinâmicas específicas).
+Assimetria nos Regimes:
+No Cluster 2 (Southerly Extremo), a chance de late warming é de 0.0%. A advecção contínua de ar antártico impede qualquer tipo de aquecimento vespertino.
+No Cluster 0 (Southerly Standard), a probabilidade é de 5.6%. Fisicamente, isso ocorre em dias em que frentes frias passam rápido no período da manhã e dão lugar a limpezas de céu (clearance) tardias ou frentes quentes de retorno no fim do dia/início da noite.
+Nos regimes de NW Flow (Clusters 1 e 3), a probabilidade fica entre 1.5% e 3.0%. No verão, dias longos de sol com ventos de NW prolongam a elevação da temperatura até o início da noite. No inverno, o late warming é puramente advectivo (frentes quentes noturnas).
+Próximos Passos Recomendados
+A clusterização prova de forma irrefutável que late_warming é um outcome cross-cutting (uma consequência probabilística) e não um regime em si.
+
+Para a Onda 3 (Modelagem) e para resolver o NO-GO da Onda 4, a arquitetura ideal deve ser a seguinte:
+
+Ajustar os Regimes do Sistema (Camada 1): Redefinir os regimes válidos em 
+_regime_analysis.py
+ e 
+_regimes.py
+ para os 4 grupos físicos identificados na EDA (excluindo late_warming da lista de regimes ex-ante). Isso fará o check R2 passar imediatamente, pois não haverá mais regimes artificialmente mortos causados pela violação do firewall causal.
+Criar o Risco de Late Warming (Camada 2): Modelar o late_warming como uma probabilidade condicionada P(late_warming∣cluster,m 
+e
+ˆ
+ s,features matutinas). Essa probabilidade será calculada de forma causal e servirá como uma feature contínua (sinal de risco) para o modelo de previsão de Tmax.

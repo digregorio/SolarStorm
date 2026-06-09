@@ -1,8 +1,8 @@
-import json
 import datetime as dt
-import polars as pl
-from solarstorm.eval._leaderboard import build_leaderboard, export_leaderboard
+import json
+
 from solarstorm.baselines._ladder import LadderResult
+from solarstorm.eval._leaderboard import build_leaderboard, export_leaderboard
 
 
 def test_build_leaderboard_groups_by_cp():
@@ -30,8 +30,9 @@ def test_export_leaderboard_writes_json(tmp_path):
     }
     out_path = tmp_path / "leaderboard"
     export_leaderboard(board, out_path)
-    today = dt.date.today().isoformat()
-    assert (out_path / f"{today}-leaderboard.json").exists()
-    assert (out_path / f"{today}-leaderboard.md").exists()
-    data = json.loads((out_path / f"{today}-leaderboard.json").read_text())
+    json_files = list(out_path.glob("*-leaderboard.json"))
+    assert json_files
+    assert (out_path / "latest-leaderboard.json").exists()
+    assert (out_path / "latest-leaderboard.md").exists()
+    data = json.loads((out_path / "latest-leaderboard.json").read_text())
     assert data["summary"] == "test"

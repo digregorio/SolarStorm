@@ -43,7 +43,7 @@ def test_parse_metar_missing_all():
 
 
 def test_parse_metar_implausible_temperature():
-    tt, dwp, dq, implausible = parse_tmp_c_int_from_row(
+    tt, _, dq, implausible = parse_tmp_c_int_from_row(
         "NZWN 150300Z AUTO 36005KT 9999 FEW020 55/12 Q1015",
         tmpf=None,
     )
@@ -62,4 +62,3 @@ def test_parse_metar_temp_group_at_end_of_string():
     assert tt == 18
     assert dwp == 12
     assert dq == "ok"
-

@@ -1,5 +1,4 @@
-import datetime as dt
-from solarstorm.baselines._ladder import best_null_for_cp, evaluate_step, LadderResult
+from solarstorm.baselines._ladder import LadderResult, best_null_for_cp, evaluate_step
 
 
 def test_best_null_for_cp_picks_min_mae():

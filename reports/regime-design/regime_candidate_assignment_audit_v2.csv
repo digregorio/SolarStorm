@@ -1,0 +1,6 @@
+audit_item,status,detail
+assignment_coverage,PASS,21824/21824 feature rows received v2 labels.
+soft_assignment_probabilities,PASS,Component probabilities are distance-softmax normalized.
+season_fallback,PASS,0 rows used season-level fallback centroids.
+missing_input_imputation,WARN,3162 missing assignment inputs were imputed from training means.
+production_status,PASS,v2 assignment artifacts remain NOT_PRODUCTION.

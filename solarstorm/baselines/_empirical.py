@@ -11,6 +11,30 @@ from dataclasses import dataclass, field
 import polars as pl
 
 
+def cp_key(cp: str) -> str:
+    """Normalize CP string to canonical form (no colons).
+
+    ``"23:00"`` and ``"2300"`` both map to ``"2300"``.
+    This bridges the L4 mismatch between column-name keys (``k_cp__cp_2300``)
+    and user-facing CP strings (``"23:00"``).
+    """
+    return cp.replace(":", "")
+
+
+def _dist_p50(dist: dict[int, float]) -> int:
+    """Median (p50) of a discrete probability distribution via CDF.
+
+    Returns the smallest value whose cumulative probability >= 0.5.
+    Falls back to the mode if no value reaches 0.5 (degenerate case).
+    """
+    cum = 0.0
+    for k in sorted(dist):
+        cum += dist[k]
+        if cum >= 0.5:
+            return k
+    return max(dist, key=dist.get)  # fallback
+
+
 @dataclass
 class EmpiricalConditional:
     cond: dict[tuple[int, str, int], dict[int, int]] = field(default_factory=dict)
@@ -27,6 +51,7 @@ class EmpiricalConditional:
     def predict_dist(
         self, *, month: int, cp: str, k_cp: int, support_k: list[int]
     ) -> tuple[dict[int, float], str]:
+        cp = cp_key(cp)  # normalize "23:00" → "2300" (Fix #4)
         counts = self.cond.get((month, cp, k_cp))
         if counts is not None and sum(counts.values()) >= self.n_min_bucket:
             source = "conditional"
@@ -71,7 +96,7 @@ def fit_empirical_conditional(
         m = row["month"]
         keod = row["tmax_int"]
         for col in kcp_cols:
-            cp = col.replace("k_cp__cp_", "")
+            cp = cp_key(col.replace("k_cp__cp_", ""))
             kcp = row[col]
             if kcp is None:
                 continue

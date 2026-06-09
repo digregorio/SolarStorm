@@ -1,0 +1,4 @@
+audit_item,status,detail
+cp_slice_causal,PASS,All cooling events are computed from observations with valid < CP.
+outcome_usage,WARN,"tmax_int/tmax_anomaly are outcome columns used only for EDA effects, not CP evidence."
+power,WARN,285/408 effect cells have n < 30.

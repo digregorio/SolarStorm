@@ -1,7 +1,5 @@
 """Tests for frozen gates G1-G5, including G4 morning/evening stratification."""
-import numpy as np
-from solarstorm.eval._gates import GateResult, apply_all_gates, _is_morning_cp
-
+from solarstorm.eval._gates import _is_morning_cp, apply_all_gates
 
 # --- G1 -----------------------------------------------------------------
 

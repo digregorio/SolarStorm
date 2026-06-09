@@ -1,5 +1,7 @@
-import polars as pl
 import datetime as dt
+
+import polars as pl
+
 from solarstorm.eda._regimes import classify_regime
 
 
@@ -17,18 +19,18 @@ def make_obs(rows: list[tuple[int, float, float, float, float]]):
 
 def test_classify_calm_day():
     obs = make_obs([
-        (6, 8, 360, 5, 6, 0.0),
-        (9, 10, 350, 5, 7, 0.0),
-        (12, 13, 340, 6, 8, 0.0),
-        (15, 14, 350, 5, 7, 0.0),
-        (18, 12, 360, 4, 6, 0.0),
+        (6, 8, 90, 3, 6, 0.0),
+        (9, 10, 100, 4, 7, 0.0),
+        (12, 13, 110, 4, 8, 0.0),
+        (15, 14, 100, 4, 7, 0.0),
+        (18, 12, 90, 3, 6, 0.0),
     ])
     regime, flags = classify_regime(obs)
-    assert regime == "calm"
+    assert regime == "calm_radiative"
     assert not flags.get("intraday_regime_change", False)
 
 
-def test_classify_late_warming():
+def test_late_tmax_does_not_create_causal_regime():
     obs = make_obs([
         (6, 10, 320, 8, 8, 0.0),
         (9, 12, 330, 10, 9, 0.0),
@@ -37,8 +39,8 @@ def test_classify_late_warming():
         (18, 16, 330, 12, 11, 0.0),
         (21, 19, 320, 15, 10, 0.0),   # jump after 21Z NZST (9Z UTC)
     ])
-    regime, flags = classify_regime(obs)
-    assert regime == "late_warming"
+    regime, _ = classify_regime(obs)
+    assert regime == "standard_nw"
 
 
 def test_classify_foehn_nw():
@@ -48,5 +50,18 @@ def test_classify_foehn_nw():
         (12, 17, 340, 22, 9, 0.0),  # depression > 4°C
         (15, 17, 330, 20, 10, 0.0),
     ])
-    regime, flags = classify_regime(obs)
-    assert regime == "foehn_nw"
+    regime, _ = classify_regime(obs)
+    assert regime == "strong_nw_foehn"
+
+
+def test_classify_southerly_disrupted_from_precip_or_cooling():
+    obs = make_obs([
+        (6, 14, 180, 18, 12, 0.0),
+        (9, 13, 170, 20, 11, 0.0),
+        (12, 10, 160, 22, 9, 0.05),
+        (15, 9, 170, 22, 8, 0.0),
+    ])
+
+    regime, _ = classify_regime(obs)
+
+    assert regime == "southerly_disrupted"

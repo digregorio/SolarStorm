@@ -4,9 +4,11 @@
 
 | Term | Definition |
 |------|------------|
-| **Onda** | Portuguese for "wave." Development phase: Onda 0 (scaffold), Onda 1 (baselines), Onda 2 (prove predictive value), Onda 3 (ML models) |
-| **P1-P5** | Five design principles: P1 Causal Firewall, P2 Evidence Over Parameters, P3 Hypotheses Must Be Testable, P4 Settlement Honesty, P5 Versioned Artifacts |
+| **Onda** | Portuguese for "wave." Development phase: Onda 0 (scaffold), Onda 1 (baselines), Onda 2 (prove predictive value), Onda 2E (climatology atlas), Onda 2E-Gate (evidence decisions), Onda 3 (ML models) |
+| **P1-P6** | Six design principles: P1 Causal Firewall, P2 Evidence Over Parameters, P3 Hypotheses Must Be Testable, P4 Settlement Honesty, P5 Versioned Artifacts, P6 Evidence Must Become Decisions |
 | **G1-G5** | Five frozen quality gates applied to every model: G1 null-not-beaten, G2 fallback dominance, G3 p50 collapse, G4 anti-nowcaster, G5 per-CP |
+| **Evidence-to-Decision Gate** | ADR-012 gate requiring every EDA finding, regime rule, cooling rule, timing rule, and feature candidate to become a traceable decision before downstream use |
+| **QUARANTINED_BASELINE** | Decision status for an old or current heuristic kept only as a diagnostic comparator, not as production truth |
 
 ## Data
 
@@ -52,7 +54,7 @@
 |------|------------|
 | **Walk-forward** | Expanding-window cross-validation for time series. Train on [start, split], test on [split, split+365] |
 | **Expanding window** | Training data grows at each split (never shrinks). Preserves temporal ordering |
-| **Holdout window** | A fixed-length recent window (7, 14, or 30 days) for operational readiness assessment |
+| **Holdout window** | A fixed-length recent window (7, 14, or 30 days) for robustness or leaderboard assessment |
 | **Bootstrap CI** | Confidence interval from 1000 resamples of the error distribution. Percentile method |
 | **FDR** | False Discovery Rate. Benjamini-Hochberg correction for multiple hypothesis testing at α=0.05 |
 | **MAE** | Mean Absolute Error. Primary deterministic metric |
@@ -68,12 +70,17 @@
 
 | Term | Definition |
 |------|------------|
-| **calm** | Low intraday temperature variability. Typical maritime conditions |
-| **transition** | Moderate warming/cooling rate. Boundary between calm and active |
-| **late_warming** | Tmax occurs after 18:00 local. Often associated with foehn or prefrontal warming |
-| **foehn_nw** | Northwest flow with dry conditions. Wellington's foehn wind pattern |
-| **disrupted** | Active weather: sharp temperature drops, precipitation, frontal passage |
+| **causal physical regime** | Weather-state label inferred only from observations available before the CP |
+| **calm_radiative** | Candidate repaired regime: weak wind / radiative morning pattern |
+| **standard_nw** | Candidate repaired regime: normal northerly or northwesterly flow |
+| **strong_nw_foehn** | Candidate repaired regime: strong dry NW flow, foehn-like |
+| **southerly_disrupted** | Candidate repaired regime: southerly change, cooling, rain, or frontal disruption |
+| **late_warming** | Deprecated as a regime. Use late Tmax / late-spike risk instead |
+| **late_tmax_event** | Ex-post timing label: Tmax occurs later than the train-only normal window for its month and physical regime |
+| **late_tmax_anomaly** | Difference between observed Tmax hour and train-only expected Tmax hour for month and physical regime |
+| **intraday state change** | Observed change in day characteristics such as clearing, cooling, wind rotation, or renewed NW flow. It is a feature/risk layer, not a new regime label |
 | **foehn_score** | Composite: `nw_flow_strength * dewpoint_depression`. Higher = more foehn-like |
+| **quarantined regime baseline** | Current or legacy regime logic retained for comparison until Onda 2E-Gate explicitly retains, adapts, or replaces it |
 
 ## Settlement
 

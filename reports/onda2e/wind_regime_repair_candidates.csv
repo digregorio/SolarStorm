@@ -1,0 +1,2 @@
+candidate_id,source_rule_id,candidate_action,evidence_artifact,rationale,next_action
+WRR-001,REGIME_CLASSIFIER_CURRENT,review_wind_sector_split_for_regime_design,reports/onda2e/wind_sector_effects_by_month_cp.csv; reports/onda2e/wind_direction_reliability_by_day_cp.csv,Pre-CP wind evidence spans 9 sectors; 9749/21824 day/CP rows have southerly-sector observations.,Review wind-sector and southerly-count splits before changing the production regime classifier.

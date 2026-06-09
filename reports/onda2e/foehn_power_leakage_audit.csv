@@ -1,0 +1,4 @@
+audit_item,status,detail
+outcome_usage,WARN,"tmax_int, tmax_anomaly, and remaining_warming are labels used only for EDA effects, not CP evidence."
+future_observation_use,PASS,FOEHN artifacts are built by joining feature rows to labels only; no future observation table is read.
+power,WARN,55/272 FOEHN score-bin cells have n < 30.

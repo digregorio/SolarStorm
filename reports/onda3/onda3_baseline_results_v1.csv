@@ -1,0 +1,2 @@
+model_name,cp,n_train,n_test,mae,beats_train_mean_null,production_status
+train_mean_null,ALL,19748,2076,2.811951591985803,false,EXPERIMENT_ONLY

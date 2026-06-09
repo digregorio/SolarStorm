@@ -1,7 +1,10 @@
 """Tests for settlement contract: rounding, brackets, flip_risk."""
 import pytest
+
 from solarstorm.data._settlement import (
-    bracket_for, integer_settlement, flip_risk, FlipRisk,
+    bracket_for,
+    flip_risk,
+    integer_settlement,
 )
 
 

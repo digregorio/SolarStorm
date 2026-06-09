@@ -1,0 +1,4 @@
+candidate_version,macro_regime_label,assignment_rows,reassigned_calm_radiative_rows,r2_rows,r2_pass_rows,r2_dead_status,v21_dead_regimes,v22_dead_regimes,protected_regression_flag,underpowered_macro_flag,decision_update,production_status
+v2.2,macro_calm_radiative,2572,2572,92,0,DEAD,0,1,true,false,KEEP_IN_REGIME_DESIGN_REVIEW,EXPERIMENT_ONLY
+v2.2,macro_nw_continuum,13726,0,92,23,PASS,0,1,false,false,KEEP_IN_REGIME_DESIGN_REVIEW,EXPERIMENT_ONLY
+v2.2,macro_southerly_flow,5526,0,92,47,PASS,0,1,false,false,KEEP_IN_REGIME_DESIGN_REVIEW,EXPERIMENT_ONLY

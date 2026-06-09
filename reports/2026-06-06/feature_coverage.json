@@ -1,0 +1,141 @@
+{
+  "slope_3h": {
+    "status": "computable",
+    "non_null_rate": 0.624,
+    "n_total": 21824,
+    "n_non_null": 13619
+  },
+  "hours_to_expected_peak": {
+    "status": "computable",
+    "non_null_rate": 0.0,
+    "n_total": 21824,
+    "n_non_null": 0
+  },
+  "regime_label": {
+    "status": "computable",
+    "non_null_rate": 1.0,
+    "n_total": 21824,
+    "n_non_null": 21824
+  },
+  "dewpoint_depression": {
+    "status": "computable",
+    "non_null_rate": 0.9966,
+    "n_total": 21824,
+    "n_non_null": 21750
+  },
+  "tmax_dminus1": {
+    "status": "computable",
+    "non_null_rate": 0.9963,
+    "n_total": 21824,
+    "n_non_null": 21744
+  },
+  "tmin_delta_tmax": {
+    "status": "computable",
+    "non_null_rate": 0.9948,
+    "n_total": 21824,
+    "n_non_null": 21711
+  },
+  "intraday_regime_change": {
+    "status": "computable",
+    "non_null_rate": 1.0,
+    "n_total": 21824,
+    "n_non_null": 21824
+  },
+  "wind_dir_change_s_to_n": {
+    "status": "computable",
+    "non_null_rate": 1.0,
+    "n_total": 21824,
+    "n_non_null": 21824
+  },
+  "day_sequence_pattern": {
+    "status": "computable",
+    "non_null_rate": 0.9929,
+    "n_total": 21824,
+    "n_non_null": 21668
+  },
+  "precip_disruption": {
+    "status": "computable",
+    "non_null_rate": 1.0,
+    "n_total": 21824,
+    "n_non_null": 21824
+  },
+  "tmax_hour_by_regime_month": {
+    "status": "computable",
+    "non_null_rate": 0.0,
+    "n_total": 21824,
+    "n_non_null": 0
+  },
+  "cloud_cover_suppression": {
+    "status": "computable",
+    "non_null_rate": 0.9105,
+    "n_total": 21824,
+    "n_non_null": 19871
+  },
+  "pressure_trend_3h": {
+    "status": "computable",
+    "non_null_rate": 0.624,
+    "n_total": 21824,
+    "n_non_null": 13619
+  },
+  "foehn_score": {
+    "status": "computable",
+    "non_null_rate": 0.9966,
+    "n_total": 21824,
+    "n_non_null": 21750
+  },
+  "late_warming_anomaly": {
+    "status": "computable",
+    "non_null_rate": 0.0,
+    "n_total": 21824,
+    "n_non_null": 0
+  },
+  "regime_score_argmax": {
+    "status": "computable",
+    "non_null_rate": 0.9967,
+    "n_total": 21824,
+    "n_non_null": 21753
+  },
+  "warming_rate_06_09": {
+    "status": "computable",
+    "non_null_rate": 0.624,
+    "n_total": 21824,
+    "n_non_null": 13619
+  },
+  "nocturnal_plateau_flag": {
+    "status": "computable",
+    "non_null_rate": 1.0,
+    "n_total": 21824,
+    "n_non_null": 21824
+  },
+  "sst_maritime_cap": {
+    "status": "BLOCKED",
+    "reason": "Requires Cook Strait SST \u2014 no METAR source available (H19)",
+    "non_null_rate": 0.0,
+    "n_total": 21824,
+    "n_non_null": 0
+  },
+  "dewpoint_collapse_rate_3h": {
+    "status": "computable",
+    "non_null_rate": 0.6239,
+    "n_total": 21824,
+    "n_non_null": 13616
+  },
+  "prefrontal_warming_window": {
+    "status": "computable",
+    "non_null_rate": 1.0,
+    "n_total": 21824,
+    "n_non_null": 21824
+  },
+  "nw_sector_not_foehn": {
+    "status": "computable",
+    "non_null_rate": 1.0,
+    "n_total": 21824,
+    "n_non_null": 21824
+  },
+  "cloud_base_transparency": {
+    "status": "computable",
+    "non_null_rate": 0.9105,
+    "n_total": 21824,
+    "n_non_null": 19871
+  }
+}

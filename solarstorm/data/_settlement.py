@@ -19,7 +19,7 @@ from dataclasses import dataclass
 
 def integer_settlement(dec: float) -> int:
     """Commercial rounding (half-up): 14.5 → 15, -2.5 → -2."""
-    return int(math.floor(dec + 0.5))
+    return math.floor(dec + 0.5)
 
 
 def bracket_for(dec: float) -> int:

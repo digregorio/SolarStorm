@@ -1,9 +1,10 @@
 import datetime as dt
 from zoneinfo import ZoneInfo
+
 from solarstorm.data._calendar import cp_to_utc, day_local_window
 
 NZST = ZoneInfo("Pacific/Auckland")
-UTC = dt.timezone.utc
+UTC = dt.UTC
 
 
 def test_day_local_window_standard_day():

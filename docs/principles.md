@@ -1,6 +1,9 @@
-# SolarStorm Design Principles (P1-P5)
+# SolarStorm Design Principles (P1-P6)
 
-These five principles are extracted from the codebase and govern every design decision. They are ranked by priority: P1 is the hardest constraint and failures cascade downward.
+These principles govern every design decision. They are ranked by priority:
+P1 is the hardest constraint and failures cascade downward. SolarStorm is a
+data-first climatology project before it is a modeling project; rules, regimes,
+features, and models must earn their place through evidence.
 
 ## P1: Causal Firewall
 
@@ -19,7 +22,9 @@ These five principles are extracted from the codebase and govern every design de
 
 - All thresholds, regimes, and climatological parameters must be data-driven, computed from the training set only.
 - The sole exception: `CP_SET_UTC` (checkpoint hours) and `ICAO`/`TZ_NAME` are contractual constants defined in `_config.py`.
-- Regime thresholds (`foehn_score > 60.0`, `max_delta > 1.0`, etc.) are calibrated on NZWN EDA, not baked in from the old project's fitted coefficients.
+- Regime thresholds (`foehn_score > 60.0`, `max_delta > 1.0`, etc.) may exist
+  only as candidate tests or quarantined baselines until ADR-012 decision
+  records explicitly retain, adapt, reject, or replace them.
 - Old Reports' fitted constants (e.g., "Tmax = T09 * 1.15 + 4") are deliberately excluded -- their backtests showed 33-38% out-of-sample vs inflated in-sample.
 
 **Why it is P2:** The old Wellington project died from overfitted constants. If it cannot be derived from data, it does not go in.
@@ -60,10 +65,35 @@ These five principles are extracted from the codebase and govern every design de
 
 **Why it is P5:** The old project's results were scattered across notebooks and Slack threads. Versioned artifacts make the evaluation trail auditable and the leaderboard a living document.
 
+## P6: Evidence Must Become Decisions
+
+> **EDA that does not feed a traceable decision cannot guide the project.**
+
+- Every Onda 2E thesis, regime rule, cooling rule, timing rule, and candidate
+  feature must end in a registered decision: `SUPPORTED`, `REJECTED`,
+  `ADAPTED`, `BLOCKED`, `PROMOTED_TO_REGIME_DESIGN`,
+  `PROMOTED_TO_FEATURE_CANDIDATE`, or `QUARANTINED_BASELINE`.
+- A decision must cite the artifact that supports it, the strata tested
+  (month/CP/regime when applicable), sample-size warnings, causal availability,
+  and leakage risk.
+- EDA tables are not enough. A CSV in `reports/` is descriptive evidence, not
+  permission to change regimes, features, gates, or models.
+- Existing hardcoded or heuristic rules are quarantined baselines until this
+  gate explicitly retains, adapts, rejects, or replaces them.
+- Rejected ideas must not return under new names unless new evidence is added.
+
+**Why it is P6:** The project has repeatedly drifted from evidence into
+plausible-sounding rules. The 251-thesis atlas must change project decisions,
+not become an archive.
+
 ## Cascade
 
-These principles cascade: if P1 (causality) is violated, P3 (hypothesis testing) is meaningless. If P2 (evidence) is violated, P4 (settlement honesty) becomes a lie about precision. P5 (versioning) makes all others auditable.
+These principles cascade: if P1 (causality) is violated, P3 (hypothesis
+testing) is meaningless. If P2 (evidence) is violated, P4 (settlement honesty)
+becomes a lie about precision. P5 (versioning) makes all others auditable. P6
+prevents evidence from being ignored after it is produced.
 
 ## Source
 
-Extracted from the codebase on 2026-06-04. These principles are **descriptive** -- they document what the code enforces, not what we wish it enforced.
+Extracted from the codebase on 2026-06-04 and updated on 2026-06-07 after Onda
+2E exposed the need for a formal Evidence-to-Decision Gate.

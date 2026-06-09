@@ -1,0 +1,4 @@
+candidate_version,macro_regime_label,assignment_rows,r2_rows,r2_pass_rows,r2_dead_status,protected_regression_flag,low_confidence_share,mean_component_entropy,mean_component_margin,smallest_cp_support,v1_dead_regimes,v2_dead_regimes,protected_regressions,decision_update,production_status
+v2,macro_light_marine_or_residual,351,92,0,DEAD,false,0.9373219373219374,1.4499583471196031,0.237566480971947,64,2,1,"",KEEP_IN_REGIME_DESIGN_REVIEW,EXPERIMENT_ONLY
+v2,macro_nw_continuum,15638,92,1,PASS,false,0.9626550709809438,1.3645484319334713,0.27097744426500786,3850,2,1,"",KEEP_IN_REGIME_DESIGN_REVIEW,EXPERIMENT_ONLY
+v2,macro_southerly_flow,5835,92,62,PASS,false,0.8973436161096829,1.3498730544147597,0.3142612703311291,1441,2,1,"",KEEP_IN_REGIME_DESIGN_REVIEW,EXPERIMENT_ONLY

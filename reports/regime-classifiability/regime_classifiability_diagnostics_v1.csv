@@ -1,0 +1,16 @@
+diagnostic_item,status,detail,n_rows,production_status
+non-production status guardrail,PASS,All inputs are NOT_PRODUCTION or EXPERIMENT_ONLY,0,EXPERIMENT_ONLY
+no Onda 3 training artifact produced,PASS,No model files created,0,EXPERIMENT_ONLY
+train/test leakage check,PASS,Train/test split is causal by date,0,EXPERIMENT_ONLY
+causal-window check,PASS,All causal windows are valid < CP,0,EXPERIMENT_ONLY
+duplicate method/date/CP assignment check,PASS,No duplicates found,0,EXPERIMENT_ONLY
+protected macros present,PASS,Protected macros present in v2.2,3,EXPERIMENT_ONLY
+candidate comparison gate,FAIL,v2.2 is blocked before Onda C promotion by its comparison gate.,7,EXPERIMENT_ONLY
+candidate comparison loaded,PASS,Comparison snapshot is loaded for v2.2,0,EXPERIMENT_ONLY
+candidate under review acknowledged,PASS,Onda C is evaluating v2.2,21824,EXPERIMENT_ONLY
+physical_feature_basis_loaded,PASS,Onda C used the approved physical meteorological feature basis.,8,EXPERIMENT_ONLY
+obs_labels_features_join_valid,PASS,"Classifiability features joined to regime assignments by (date_local, cp) without duplicate assignment keys.",21824,EXPERIMENT_ONLY
+approved_physical_feature_count,PASS,8 approved physical features survived preprocessing.,8,EXPERIMENT_ONLY
+forbidden_numeric_fallback_not_used,PASS,Unrestricted numeric fallback is disabled for physical regime classifiability.,0,EXPERIMENT_ONLY
+outcome_columns_excluded,PASS,0 outcome columns were included.,0,EXPERIMENT_ONLY
+quarantined_labels_excluded,PASS,0 quarantined label columns were included.,0,EXPERIMENT_ONLY

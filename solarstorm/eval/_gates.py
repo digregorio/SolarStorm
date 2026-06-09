@@ -26,6 +26,8 @@ from zoneinfo import ZoneInfo
 
 from solarstorm._config import TZ_NAME
 
+_SKILL_EPSILON = 1e-9
+
 
 @dataclass
 class GateResult:
@@ -37,7 +39,7 @@ class GateResult:
 
 
 def _g1_null_not_beaten(model_mae: float, best_null_mae: float) -> GateResult:
-    passed = model_mae < best_null_mae
+    passed = model_mae < best_null_mae - _SKILL_EPSILON
     return GateResult(
         gate="G1", description="Null not beaten = KILL",
         passed=passed,
@@ -66,14 +68,18 @@ def _g3_p50_collapse(p50_mode_share: float) -> GateResult:
     )
 
 
-def _is_morning_cp(cp_str: str) -> bool:
-    """True if the CP local hour is before noon (Tmax still ahead)."""
+def _is_morning_cp(cp_str: str, date_local: dt.date | None = None) -> bool:
+    """True if the CP local hour is before noon (Tmax still ahead).
+
+    When ``date_local`` is provided, the actual DST offset for that date is used
+    (so CP23 = 11:00 NZST in winter is morning, but = 12:00 NZDT in summer is
+    not).  Without a date it falls back to a winter (NZST) reference (#9).
+    """
     tz = ZoneInfo(TZ_NAME)
     cp_hour = int(cp_str.split(":")[0])
-    # Use a fixed date — the local-hour offset depends only on DST, not the
-    # specific date.  NZ DST transitions are rare; using June (winter, NZST)
-    # gives the correct classification for the vast majority of dates.
-    dummy_utc = dt.datetime(2025, 6, 15, cp_hour, 0, tzinfo=dt.timezone.utc)
+    ref_date = date_local if date_local is not None else dt.date(2025, 6, 15)
+    dummy_utc = dt.datetime(ref_date.year, ref_date.month, ref_date.day,
+                            cp_hour, 0, tzinfo=dt.UTC)
     local_hour = dummy_utc.astimezone(tz).hour
     return local_hour < 12
 
@@ -84,6 +90,7 @@ def _g4_anti_nowcaster(
     *,
     skill_ci_lo: float | None = None,
     cp_str: str = "",
+    date_local: dt.date | None = None,
 ) -> GateResult:
     """Anti-nowcaster gate, stratified by lead-time.
 
@@ -98,7 +105,7 @@ def _g4_anti_nowcaster(
     times the nowcasting risk is real and correlation discrimination is the
     appropriate guard.
     """
-    is_morning = _is_morning_cp(cp_str) if cp_str else True
+    is_morning = _is_morning_cp(cp_str, date_local) if cp_str else True
 
     if is_morning:
         # MAE skill CI test — statistically grounded, immune to bias-blindness
@@ -106,7 +113,7 @@ def _g4_anti_nowcaster(
             passed = False
             detail = "morning CP — skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
         else:
-            passed = skill_ci_lo > 0.0
+            passed = skill_ci_lo > _SKILL_EPSILON
             detail = (
                 f"morning CP — MAE skill CI lo={skill_ci_lo:.4f} "
                 f"({'OK' if passed else 'NOWCAST_SUSPECT — CI includes zero'})"
@@ -152,6 +159,7 @@ def apply_all_gates(
     corr_diff_ci95: tuple[float, float] | None = None,
     skill_ci_lo: float | None = None,
     per_cp_passed: bool = True,
+    date_local: dt.date | None = None,
 ) -> dict[str, GateResult]:
     results = {
         "G1": _g1_null_not_beaten(model_mae, best_null_mae),
@@ -159,7 +167,7 @@ def apply_all_gates(
         "G3": _g3_p50_collapse(p50_mode_share),
         "G4": _g4_anti_nowcaster(
             corr_diff, corr_diff_ci95,
-            skill_ci_lo=skill_ci_lo, cp_str=cp,
+            skill_ci_lo=skill_ci_lo, cp_str=cp, date_local=date_local,
         ),
         "G5": _g5_per_cp(cp, per_cp_passed),
     }

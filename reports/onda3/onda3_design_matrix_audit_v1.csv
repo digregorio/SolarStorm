@@ -1,0 +1,2 @@
+input_feature_rows,input_label_rows,joined_rows,train_rows,test_rows,production_status
+21824,5456,21824,19748,2076,EXPERIMENT_ONLY

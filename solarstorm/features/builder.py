@@ -136,7 +136,7 @@ def _cloud_base_transparency(slice_df: pl.DataFrame) -> float | None:
             if hcol in slice_df.columns
             else [None] * len(codes)
         )
-        for code, ht in zip(codes, heights):
+        for code, ht in zip(codes, heights, strict=True):
             if code is None:
                 continue
             cw = _coverage_weight(str(code))
@@ -150,19 +150,27 @@ def _cloud_base_transparency(slice_df: pl.DataFrame) -> float | None:
 
 
 def _has_wxcode(slice_df: pl.DataFrame, code: str) -> bool:
-    for val in slice_df["wxcodes"].to_list():
-        if val is not None and code in str(val):
-            return True
-    return False
+    return any(val is not None and code in str(val) for val in slice_df["wxcodes"].to_list())
 
 
 def _classify_regime_for_date(day_obs: pl.DataFrame) -> tuple[str, dict]:
     if day_obs.height < 3:
-        return "calm", {}
+        return "insufficient", {}
     wd = "wind_dir_deg" if "wind_dir_deg" in day_obs.columns else "drct"
     return classify_regime(
         day_obs.with_columns(pl.col(wd).alias("wind_dir_deg")),
     )
+
+
+def _obs_by_date(obs: pl.DataFrame) -> dict[dt.date, pl.DataFrame]:
+    """Partition annotated observations by local date in chronological order."""
+    obs = _annotate_obs(obs)
+    groups: dict[dt.date, pl.DataFrame] = {}
+    for day_obs in obs.partition_by("date_local", maintain_order=True):
+        if day_obs.height == 0:
+            continue
+        groups[day_obs["date_local"][0]] = day_obs
+    return groups
 
 
 # ---------------------------------------------------------------------------
@@ -190,7 +198,8 @@ def build_features(
     obs = _annotate_obs(obs).sort("valid")
     tz = ZoneInfo(TZ_NAME)
 
-    dates = obs["date_local"].unique().sort().to_list()
+    obs_by_date = _obs_by_date(obs)
+    dates = list(obs_by_date)
 
     # ---- Build label lookups (neighbour-day values only — no future leakage) ----
     # Pre-build dicts: date → tmax_int, tmin_int, tmax_hour for fast lookup
@@ -202,14 +211,12 @@ def build_features(
     rows: list[dict[str, Any]] = []
 
     for d in dates:
-        day_obs = obs.filter(pl.col("date_local") == d)
+        day_obs = obs_by_date[d]
 
         # Labels for this date and neighbour days
         lr = label_by_date.get(d)
         if lr is None:
             continue
-        tmin_d = lr.get("tmin_int")  # full-day tmin (used only where causal)
-
         lr_m1 = label_by_date.get(d - dt.timedelta(days=1))
         tmax_dminus1 = lr_m1.get("tmax_int") if lr_m1 else None
 
@@ -236,7 +243,7 @@ def build_features(
                 day_seq = "flat"
 
         for cp_str in cp_set:
-            cp_utc_val = cp_to_utc(d, cp_str, TZ_NAME).astimezone(dt.timezone.utc)
+            cp_utc_val = cp_to_utc(d, cp_str, TZ_NAME).astimezone(dt.UTC)
             cp_local_hour = cp_utc_val.astimezone(tz).hour
 
             # Causal slice: observations strictly before CP with valid temperature
@@ -263,10 +270,19 @@ def build_features(
                     "date_local": d, "cp": cp_str,
                     "regime_label": regime_label,
                     "regime_flags": json.dumps(regime_flags),
+                    "tmax_dminus1": tmax_dminus1,
+                    "day_sequence_pattern": day_seq,
+                    "intraday_regime_change": False,
+                    "wind_dir_change_s_to_n": 0.0,
+                    "precip_disruption": 0,
+                    "nocturnal_plateau_flag": 0,
+                    "prefrontal_warming_window": 0,
+                    "nw_sector_not_foehn": 0,
+                    "sst_maritime_cap": None,
                 }
                 for hyp in SEED_HYPOTHESES:
                     fc = hyp.feature_column
-                    if fc in ("regime_label",):
+                    if fc in row or fc == "regime_label":
                         continue
                     row[fc] = None
                 rows.append(row)
@@ -391,8 +407,6 @@ def build_features(
 
             # H14 foehn_score
             # H15 late_warming_anomaly — requires train-only stats; set None (recomputed in harness)
-            kcp_col = f"k_cp__cp_{cp_str.replace(':', '')}"
-            k_cp = lr.get(kcp_col)
             late_warming_anomaly: float | None = None
 
             # H16 regime_score_argmax
@@ -412,9 +426,12 @@ def build_features(
                 vals = [at_06, at_09, at_12]
                 if max(vals) - min(vals) <= 0.5:
                     n_mean = _circular_mean_dir(slice_df)
-                    if n_mean is not None and (n_mean >= 315 or n_mean <= 45):
-                        if cloud_suppression >= 0.75:
-                            nocturnal_flag = 1
+                    if (
+                        n_mean is not None
+                        and (n_mean >= 315 or n_mean <= 45)
+                        and cloud_suppression >= 0.75
+                    ):
+                        nocturnal_flag = 1
 
             # H19 sst_maritime_cap  — BLOCKED, always null
             # H20 dewpoint_collapse_rate_3h
@@ -431,15 +448,21 @@ def build_features(
             if len(alti_anchors) >= 2:
                 a0 = anchors[alti_anchors[0]]["alti"]
                 a1 = anchors[alti_anchors[-1]]["alti"]
-                if a0 is not None and a1 is not None and a1 < a0 and (a0 - a1) * 33.8639 >= 0.5:
-                    if p01i_sum is not None and p01i_sum == 0.0:
-                        n_mean = _circular_mean_dir(slice_df)
-                        if n_mean is not None and (n_mean >= 315 or n_mean <= 45):
-                            prefrontal = 1
+                if (
+                    a0 is not None
+                    and a1 is not None
+                    and a1 < a0
+                    and (a0 - a1) * 33.8639 >= 0.5
+                    and p01i_sum is not None
+                    and p01i_sum == 0.0
+                ):
+                    n_mean = _circular_mean_dir(slice_df)
+                    if n_mean is not None and (n_mean >= 315 or n_mean <= 45):
+                        prefrontal = 1
 
             # H22 nw_sector_not_foehn
             nw_not_foehn: int = 0
-            if regime_label == "foehn_nw":
+            if regime_label == "strong_nw_foehn":
                 n_mean = _circular_mean_dir(slice_df)
                 if n_mean is not None and 280 <= n_mean <= 310:
                     nw_not_foehn = 1

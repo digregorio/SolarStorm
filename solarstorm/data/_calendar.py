@@ -39,7 +39,7 @@ def cp_to_utc(d: dt.date, cp_hhmm: str, tz_name: str) -> dt.datetime:
 
     # Try the CP at UTC hour on UTC date D, then D-1.  For NZ tz offsets
     # the CP almost always lands on D-1, but we try both to stay generic.
-    utc_dt = dt.datetime(d.year, d.month, d.day, hour, 0, 0, tzinfo=dt.timezone.utc)
+    utc_dt = dt.datetime(d.year, d.month, d.day, hour, 0, 0, tzinfo=dt.UTC)
     if utc_dt.astimezone(tz).date() == d:
         return utc_dt
 

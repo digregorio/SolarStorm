@@ -1,0 +1,30 @@
+"""Onda 4 robustness hardening checks."""
+from __future__ import annotations
+
+from solarstorm.robustness._config import (
+    R1_BLOCK_YEARS,
+    R1_MIN_PASSING_YEARS,
+    R2_DEAD_REGIME_BLOCK,
+    R3_LEAK_BLOCK,
+    R4_TREND_ALPHA,
+    R5_GATE_RERUN_BLOCK,
+    R6_ANTI_NOWCAST_BLOCK,
+    R7_FIXED_CP_ARTIFACT_BLOCK,
+    R8_LATE_SPIKE_WARNING_ONLY,
+    R9_LATE_TMAX_BASELINE_BLOCK,
+    ROBUSTNESS_CONFIG_VERSION,
+)
+
+__all__ = [
+    "R1_BLOCK_YEARS",
+    "R1_MIN_PASSING_YEARS",
+    "R2_DEAD_REGIME_BLOCK",
+    "R3_LEAK_BLOCK",
+    "R4_TREND_ALPHA",
+    "R5_GATE_RERUN_BLOCK",
+    "R6_ANTI_NOWCAST_BLOCK",
+    "R7_FIXED_CP_ARTIFACT_BLOCK",
+    "R8_LATE_SPIKE_WARNING_ONLY",
+    "R9_LATE_TMAX_BASELINE_BLOCK",
+    "ROBUSTNESS_CONFIG_VERSION",
+]

@@ -1,0 +1,6 @@
+audit_item,status,detail
+assignment_coverage,PASS,21824/21824 feature rows received candidate labels.
+null_assignments,PASS,0 assignment rows have null candidate labels.
+season_fallback,PASS,0 rows used season-level fallback centroids.
+missing_input_imputation,WARN,3162 missing assignment inputs were imputed from training means.
+causal_inputs,PASS,Assignment inputs are pre-CP aggregates from the Onda 2E cluster matrix.

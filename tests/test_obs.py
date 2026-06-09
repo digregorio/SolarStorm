@@ -12,7 +12,7 @@ from solarstorm.data._obs import persist_obs
 def test_persist_obs_schema(tmp_path):
     """persist_obs writes obs.parquet with expected columns."""
     df = pl.DataFrame({
-        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.timezone.utc)],
+        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.UTC)],
         "metar": ["NZWN 010000Z AUTO 00000KT 9999 FEW020 15/10 Q1020"],
         "tmpf": [59.0], "dwpf": [50.0], "sknt": [0.0], "drct": [0.0],
         "alti": [30.12], "p01i": [0.0],
@@ -32,7 +32,7 @@ def test_persist_obs_parses_dwp_from_metar(tmp_path):
     """METAR TT/DD group determines dwp, not rounded tmpf."""
     # 15/10 in METAR -> dwp=10, depression=5 (tmp_c_int is already 15 from ingest)
     df = pl.DataFrame({
-        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.timezone.utc)],
+        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.UTC)],
         "metar": ["NZWN 010000Z AUTO 00000KT 9999 FEW020 15/10 Q1020"],
         "tmpf": [59.0], "dwpf": [50.0], "sknt": [0.0], "drct": [0.0],
         "alti": [30.12], "p01i": [0.0],
@@ -46,7 +46,7 @@ def test_persist_obs_parses_dwp_from_metar(tmp_path):
 def test_persist_obs_negative_temperature(tmp_path):
     """M05/M10 in METAR -> dwp=-10, depression=5 (tmp_c_int=-5)."""
     df = pl.DataFrame({
-        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.timezone.utc)],
+        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.UTC)],
         "metar": ["NZWN 010000Z AUTO 00000KT 9999 FEW020 M05/M10 Q1020"],
         "tmpf": [23.0], "dwpf": [14.0], "sknt": [0.0], "drct": [0.0],
         "alti": [30.12], "p01i": [0.0],
@@ -60,7 +60,7 @@ def test_persist_obs_negative_temperature(tmp_path):
 def test_persist_obs_ts_local_is_pacific_auckland(tmp_path):
     """ts_local preserves Pacific/Auckland timezone with correct offset for NZST."""
     df = pl.DataFrame({
-        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.timezone.utc)],
+        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.UTC)],
         "metar": ["NZWN 010000Z AUTO 00000KT 9999 FEW020 15/10 Q1020"],
         "tmpf": [59.0], "dwpf": [50.0], "sknt": [0.0], "drct": [0.0],
         "alti": [30.12], "p01i": [0.0],
@@ -78,7 +78,7 @@ def test_persist_obs_ts_local_is_pacific_auckland(tmp_path):
 def test_persist_obs_skyl_casts_to_int64(tmp_path):
     """skyl* columns are cast to Int64 in the output."""
     df = pl.DataFrame({
-        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.timezone.utc)],
+        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.UTC)],
         "metar": ["NZWN 010000Z AUTO 00000KT 9999 FEW020 18/12 Q1020"],
         "tmpf": [64.0], "dwpf": [54.0], "sknt": [0.0], "drct": [0.0],
         "alti": [30.12], "p01i": [0.0],
@@ -99,7 +99,7 @@ def test_persist_obs_skyl_casts_to_int64(tmp_path):
 def test_persist_obs_preserves_wxcodes(tmp_path):
     """wxcodes column passes through."""
     df = pl.DataFrame({
-        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.timezone.utc)],
+        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.UTC)],
         "metar": ["NZWN 010000Z AUTO 00000KT 9999 FEW020 18/12 Q1020"],
         "tmpf": [64.0], "dwpf": [54.0], "sknt": [0.0], "drct": [0.0],
         "alti": [30.12], "p01i": [0.0],
@@ -114,7 +114,7 @@ def test_persist_obs_preserves_wxcodes(tmp_path):
 def test_persist_obs_missing_metar_yields_null_dwp(tmp_path):
     """When METAR is missing, dwp and depression should be null."""
     df = pl.DataFrame({
-        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.timezone.utc)],
+        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.UTC)],
         "metar": [None],
         "tmpf": [59.0], "dwpf": [50.0], "sknt": [0.0], "drct": [0.0],
         "alti": [30.12], "p01i": [0.0],
@@ -127,8 +127,8 @@ def test_persist_obs_missing_metar_yields_null_dwp(tmp_path):
 
 def test_persist_obs_multiple_rows(tmp_path):
     """Multiple rows are handled correctly."""
-    ts1 = dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.timezone.utc)
-    ts2 = dt.datetime(2025, 6, 1, 1, 0, tzinfo=dt.timezone.utc)
+    ts1 = dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.UTC)
+    ts2 = dt.datetime(2025, 6, 1, 1, 0, tzinfo=dt.UTC)
     df = pl.DataFrame({
         "valid": [ts1, ts2],
         "metar": [
@@ -152,7 +152,7 @@ def test_persist_obs_multiple_rows(tmp_path):
 def test_persist_obs_roundtrip(tmp_path):
     """Written obs.parquet can be read back with the same schema."""
     df = pl.DataFrame({
-        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.timezone.utc)],
+        "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.UTC)],
         "metar": ["NZWN 010000Z AUTO 00000KT 9999 FEW020 15/10 Q1020"],
         "tmpf": [59.0], "dwpf": [50.0], "sknt": [0.0], "drct": [0.0],
         "alti": [30.12], "p01i": [0.0],

@@ -1,7 +1,19 @@
 # ADR-006: Regime Classifier
 
 - **Date:** 2026-06-04
-- **Status:** Accepted
+- **Status:** Superseded by ADR-011
+
+## Supersession Note
+
+The 2026-06-06 Onda 4 run showed that this ADR mixed causal physical regimes
+with an ex-post outcome label. In particular, `late_warming = tmax_hour >= 18`
+cannot be a causal pre-CP regime because `tmax_hour` is only known after the day
+unfolds.
+
+ADR-011 supersedes the promoted semantics. ADR-012 further quarantines this
+heuristic classifier as a diagnostic baseline until Onda 2E decision records
+explicitly retain, adapt, or replace each rule. This document remains
+historical context for the original heuristic classifier.
 
 ## Context
 

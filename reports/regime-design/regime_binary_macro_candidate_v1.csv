@@ -1,0 +1,3 @@
+candidate_version,macro_regime_label,description,production_status,n_rows
+binary_v1,macro_southerly_flow,Southerly/frontal flow retained as the robust directional macro.,EXPERIMENT_ONLY,5526
+binary_v1,macro_non_southerly,"NW, foehn-like, calm/radiative, marine, and transition cases collapsed.",EXPERIMENT_ONLY,16298

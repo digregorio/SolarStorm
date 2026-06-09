@@ -1,0 +1,2 @@
+model_name,cp,n_train,n_test,mae,beats_train_mean_null,production_status
+ridge_challenger,ALL,19748,2076,1.348721920474219,true,EXPERIMENT_ONLY

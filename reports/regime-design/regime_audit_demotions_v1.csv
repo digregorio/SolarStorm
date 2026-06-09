@@ -1,0 +1,4 @@
+macro_regime_label,gate_role,blocks_production_gate,r2_pass_rows,median_n_days,known_signal,decision_rationale,production_status
+macro_nw_continuum,PRODUCTION_BLOCKING,true,23,210.0,"",Retained as production-blocking because existing evidence supports this macro.,EXPERIMENT_ONLY
+macro_southerly_flow,PRODUCTION_BLOCKING,true,47,110.0,"",Retained as production-blocking because existing evidence supports this macro.,EXPERIMENT_ONLY
+macro_calm_radiative,AUDIT_ONLY,false,0,27.0,cloud_cover_suppression,Demoted because repeated R2 failure is underpowered and structurally ambiguous.,EXPERIMENT_ONLY

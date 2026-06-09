@@ -1,0 +1,4 @@
+audit_item,status,detail
+r2_validation_mode,WARN,Candidate R2 screening uses one annual walk-forward window; run full Onda 4 before production promotion.
+r2_cp_set,PASS,"20:00,21:00,22:00,23:00"
+r2_test_starts,PASS,2025-01-01

@@ -12,10 +12,7 @@ def segment_results(df: pl.DataFrame, *, by: list[str]) -> dict[str, pl.DataFram
     segments = {}
     for keys, group in df.group_by(by):
         # polars yields the group key as a tuple, even for a single column.
-        if len(by) == 1:
-            key = str(keys[0])
-        else:
-            key = "_".join(str(k) for k in keys)
+        key = str(keys[0]) if len(by) == 1 else "_".join(str(k) for k in keys)
         segments[key] = group
     return segments
 

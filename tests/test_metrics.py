@@ -1,6 +1,7 @@
 import numpy as np
-from solarstorm.eval._metrics import mae, rmse, rps, bracket_match_at_p50, corr, skill_score
+
 from solarstorm.eval._bootstrap import bootstrap_ci, bootstrap_ci_diff
+from solarstorm.eval._metrics import bracket_match_at_p50, corr, mae, rmse, rps, skill_score
 
 
 def test_mae():
@@ -57,5 +58,5 @@ def test_bootstrap_ci_diff_significant():
     rng = np.random.default_rng(42)
     a = rng.normal(12, 2, 100)
     b = rng.normal(10, 2, 100)
-    point, lo, hi = bootstrap_ci_diff(a, b, seed=42)
+    _, lo, _ = bootstrap_ci_diff(a, b, seed=42)
     assert lo > 0  # a > b significantly

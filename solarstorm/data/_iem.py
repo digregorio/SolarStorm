@@ -8,7 +8,6 @@ from pathlib import Path
 
 import polars as pl
 
-
 _IEM_URL = (
     "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
     "?station={station}&data=all&year1={y1}&month1={m1}&day1={d1}"

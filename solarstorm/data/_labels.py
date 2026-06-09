@@ -3,11 +3,10 @@ from __future__ import annotations
 
 import datetime as dt
 from dataclasses import dataclass
-from zoneinfo import ZoneInfo
 
 import polars as pl
 
-from solarstorm._config import CP_SET_UTC, TZ_NAME, TMP_C_INT_PLAUSIBILITY
+from solarstorm._config import CP_SET_UTC, TZ_NAME
 from solarstorm.data._calendar import cp_to_utc
 
 
@@ -114,7 +113,6 @@ def build_tmax_labels(
     )
 
     # --- day_complete gate with quartile coverage + edge gaps ---
-    tz = ZoneInfo(TZ_NAME)
     daily = daily.with_columns(
         # Edge gap start: minutes from local midnight to first obs
         (
@@ -156,7 +154,7 @@ def build_tmax_labels(
         kcp_rows = []
         for row in daily.iter_rows(named=True):
             d = row["date_local"]
-            cp = cp_to_utc(d, cp_str, TZ_NAME).astimezone(dt.timezone.utc)
+            cp = cp_to_utc(d, cp_str, TZ_NAME).astimezone(dt.UTC)
             day_obs = obs_ok.filter(
                 (pl.col("date_local") == d)
                 & (pl.col("valid") < cp)

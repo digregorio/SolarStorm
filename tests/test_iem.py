@@ -1,6 +1,8 @@
 import datetime as dt
+
 import polars as pl
 import pytest
+
 from solarstorm.data._iem import fetch_iem_asos
 
 
@@ -26,8 +28,8 @@ def test_fetch_iem_asos_dates_in_range():
     assert df.height > 0
     min_ts = df["valid"].min()
     max_ts = df["valid"].max()
-    assert min_ts >= dt.datetime(2025, 6, 1, tzinfo=dt.timezone.utc)
-    assert max_ts < dt.datetime(2025, 6, 4, tzinfo=dt.timezone.utc)
+    assert min_ts >= dt.datetime(2025, 6, 1, tzinfo=dt.UTC)
+    assert max_ts < dt.datetime(2025, 6, 4, tzinfo=dt.UTC)
 
 
 def test_fetch_iem_asos_cached(tmp_path, monkeypatch):
@@ -39,7 +41,7 @@ def test_fetch_iem_asos_cached(tmp_path, monkeypatch):
         nonlocal calls
         calls += 1
         return pl.DataFrame({
-            "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.timezone.utc)],
+            "valid": [dt.datetime(2025, 6, 1, 0, 0, tzinfo=dt.UTC)],
             "metar": ["NZWN 010000Z AUTO 00000KT 9999 FEW020 15/10 Q1020"],
             "tmpf": [59.0], "dwpf": [50.0], "sknt": [0.0], "drct": [0.0],
             "alti": [30.12], "p01i": [0.0],

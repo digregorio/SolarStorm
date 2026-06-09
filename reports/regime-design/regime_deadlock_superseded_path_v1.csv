@@ -1,0 +1,4 @@
+path_item,superseded_status,reason,replacement_path,production_status
+regime_v22_calm_radiative_restoration,SUPERSEDED_ACTIVE_UNLOCK_PATH,Restoration did not resolve R2 deadlock.,OPTION_C_AUDIT_DEMOTION,EXPERIMENT_ONLY
+regime_v23_calm_failure_diagnostics,AUDIT_HISTORY_RETAINED,Diagnostics explain the blocker but are not an unlock path.,REGIME_DEADLOCK_PIVOT,EXPERIMENT_ONLY
+v2.4_threshold_tuning,BLOCKED_BY_DECISION,"Report diagnoses structural information limit, not calibration.",OPTION_A_BINARY_EXPERIMENT,EXPERIMENT_ONLY

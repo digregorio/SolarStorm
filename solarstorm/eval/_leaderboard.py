@@ -31,7 +31,7 @@ def build_leaderboard(
         best_nulls[cp] = best["name"]
 
     return {
-        "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "generated_at": dt.datetime.now(dt.UTC).isoformat(),
         "window": {"start": window_start.isoformat(), "end": window_end.isoformat()},
         "by_cp": by_cp,
         "best_nulls": best_nulls,
@@ -47,11 +47,19 @@ def build_leaderboard(
 
 def export_leaderboard(board: dict, output_dir: Path) -> tuple[Path, Path]:
     output_dir.mkdir(parents=True, exist_ok=True)
+    now_utc = dt.datetime.now(dt.UTC)
+    stamp = now_utc.strftime("%Y-%m-%dT%H%MZ")
     today = dt.date.today().isoformat()
-    json_path = output_dir / f"{today}-leaderboard.json"
-    md_path = output_dir / f"{today}-leaderboard.md"
+    json_path = output_dir / f"{stamp}-leaderboard.json"
+    md_path = output_dir / f"{stamp}-leaderboard.md"
+
+    # Also write/overwrite a convenience "latest" alias (P5: artifact is the
+    # timestamped file; latest is a pointer, not the artifact).
+    latest_json = output_dir / "latest-leaderboard.json"
+    latest_md = output_dir / "latest-leaderboard.md"
 
     json_path.write_text(json.dumps(board, indent=2, default=str), encoding="utf-8")
+    latest_json.write_text(json.dumps(board, indent=2, default=str), encoding="utf-8")
 
     lines = [
         f"# SolarStorm Baseline Leaderboard — {today}",
@@ -101,6 +109,8 @@ def export_leaderboard(board: dict, output_dir: Path) -> tuple[Path, Path]:
         lines.append("")
 
     lines.append(f"\n{board['summary']}")
-    md_path.write_text("\n".join(lines), encoding="utf-8")
+    md_text = "\n".join(lines)
+    md_path.write_text(md_text, encoding="utf-8")
+    latest_md.write_text(md_text, encoding="utf-8")
 
     return json_path, md_path

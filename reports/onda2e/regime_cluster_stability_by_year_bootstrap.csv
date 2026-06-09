@@ -1,0 +1,241 @@
+stratum_type,stratum_value,year,best_k_by_bic,all_year_best_k_by_bic,best_k_matches_all_year,n_rows,smallest_cluster_rows,eta2_tmax_anomaly,stability_note
+month,12,2010,6,6,true,116,3,0.4171944158351713,Year best-k matches all-year best-k.
+season,DJF,2010,6,6,true,116,3,0.4171944158351713,Year best-k matches all-year best-k.
+month,1,2011,6,6,true,56,4,0.5558174042070352,Year best-k matches all-year best-k.
+month,2,2011,4,6,false,4,1,,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,4,2011,2,6,false,4,0,,Year best-k differs from all-year best-k; inspect before regime promotion.
+season,DJF,2011,6,6,true,60,4,0.7922988539511285,Year best-k matches all-year best-k.
+season,MAM,2011,2,6,false,4,0,,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,1,2012,6,6,true,48,4,0.6339869281045751,Year best-k matches all-year best-k.
+month,10,2012,6,6,true,116,12,0.39368260523951043,Year best-k matches all-year best-k.
+month,11,2012,6,6,true,114,4,0.6970512524935573,Year best-k matches all-year best-k.
+month,12,2012,5,6,false,97,8,0.1999751326259947,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,2,2012,6,6,true,112,6,0.37242002063983487,Year best-k matches all-year best-k.
+month,3,2012,6,6,true,124,8,0.23034935788035768,Year best-k matches all-year best-k.
+month,4,2012,6,6,true,116,7,0.6377509652509653,Year best-k matches all-year best-k.
+month,5,2012,6,6,true,124,8,0.18719763423710784,Year best-k matches all-year best-k.
+month,6,2012,6,6,true,115,7,0.5548819501194119,Year best-k matches all-year best-k.
+month,7,2012,6,6,true,104,8,0.4211910899596801,Year best-k matches all-year best-k.
+month,8,2012,6,6,true,119,12,0.30398244242251904,Year best-k matches all-year best-k.
+month,9,2012,6,6,true,120,4,0.3336802270577106,Year best-k matches all-year best-k.
+season,DJF,2012,6,6,true,257,26,0.17845667348830693,Year best-k matches all-year best-k.
+season,JJA,2012,6,6,true,338,25,0.2318382040171553,Year best-k matches all-year best-k.
+season,MAM,2012,6,6,true,364,20,0.4594540377660779,Year best-k matches all-year best-k.
+season,SON,2012,5,6,false,350,28,0.3498002953998609,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,1,2013,5,6,false,93,8,0.2720227072191031,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,10,2013,6,6,true,118,4,0.7791865890461416,Year best-k matches all-year best-k.
+month,11,2013,6,6,true,117,4,0.5375435936216456,Year best-k matches all-year best-k.
+month,12,2013,6,6,true,112,4,0.5767174946712578,Year best-k matches all-year best-k.
+month,2,2013,5,6,false,96,8,0.7160641721278744,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,3,2013,6,6,true,119,8,0.462011680062312,Year best-k matches all-year best-k.
+month,4,2013,6,6,true,112,4,0.4924395726582245,Year best-k matches all-year best-k.
+month,5,2013,6,6,true,120,12,0.42711261857689586,Year best-k matches all-year best-k.
+month,6,2013,6,6,true,116,12,0.5649194550424651,Year best-k matches all-year best-k.
+month,7,2013,6,6,true,117,8,0.6140171150236842,Year best-k matches all-year best-k.
+month,8,2013,6,6,true,122,4,0.5911073311838578,Year best-k matches all-year best-k.
+month,9,2013,6,6,true,119,8,0.18764729335095104,Year best-k matches all-year best-k.
+season,DJF,2013,6,6,true,301,24,0.1880648799557737,Year best-k matches all-year best-k.
+season,JJA,2013,6,6,true,355,44,0.49900005497630995,Year best-k matches all-year best-k.
+season,MAM,2013,6,6,true,351,13,0.43871436984526907,Year best-k matches all-year best-k.
+season,SON,2013,6,6,true,354,26,0.19380731589112823,Year best-k matches all-year best-k.
+month,1,2014,6,6,true,104,8,0.5419539636663914,Year best-k matches all-year best-k.
+month,10,2014,6,6,true,112,12,0.4028536733454765,Year best-k matches all-year best-k.
+month,11,2014,5,6,false,117,17,0.3283851401234218,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,12,2014,6,6,true,110,4,0.275811745059616,Year best-k matches all-year best-k.
+month,2,2014,6,6,true,101,5,0.7074024920285039,Year best-k matches all-year best-k.
+month,3,2014,6,6,true,120,8,0.41421016222971013,Year best-k matches all-year best-k.
+month,4,2014,6,6,true,112,4,0.485218312153796,Year best-k matches all-year best-k.
+month,5,2014,6,6,true,120,8,0.48260325229704976,Year best-k matches all-year best-k.
+month,6,2014,5,6,false,107,7,0.6016623134215296,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,7,2014,6,6,true,120,11,0.7188376392921847,Year best-k matches all-year best-k.
+month,8,2014,6,6,true,114,2,0.13715974190066121,Year best-k matches all-year best-k.
+month,9,2014,6,6,true,101,4,0.37906363388493874,Year best-k matches all-year best-k.
+season,DJF,2014,6,6,true,315,9,0.15604781936651024,Year best-k matches all-year best-k.
+season,JJA,2014,6,6,true,341,36,0.543278997784248,Year best-k matches all-year best-k.
+season,MAM,2014,6,6,true,352,12,0.3678646671885676,Year best-k matches all-year best-k.
+season,SON,2014,6,6,true,330,28,0.3301099138883918,Year best-k matches all-year best-k.
+month,1,2015,6,6,true,85,11,0.1817980689840329,Year best-k matches all-year best-k.
+month,10,2015,6,6,true,114,6,0.49793972858489,Year best-k matches all-year best-k.
+month,11,2015,6,6,true,103,9,0.26653602329129567,Year best-k matches all-year best-k.
+month,12,2015,6,6,true,112,8,0.615720908004779,Year best-k matches all-year best-k.
+month,2,2015,6,6,true,101,4,0.575691558219557,Year best-k matches all-year best-k.
+month,3,2015,5,6,false,120,9,0.5625198017417927,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,4,2015,6,6,true,115,12,0.21626917805284954,Year best-k matches all-year best-k.
+month,5,2015,6,6,true,116,12,0.49310986164348175,Year best-k matches all-year best-k.
+month,6,2015,5,6,false,106,12,0.5671113915949653,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,7,2015,6,6,true,105,4,0.5326766255181968,Year best-k matches all-year best-k.
+month,8,2015,6,6,true,120,4,0.34424328839728086,Year best-k matches all-year best-k.
+month,9,2015,6,6,true,116,12,0.6891518654414387,Year best-k matches all-year best-k.
+season,DJF,2015,6,6,true,298,4,0.40088186672298076,Year best-k matches all-year best-k.
+season,JJA,2015,5,6,false,331,33,0.4766450365227953,Year best-k differs from all-year best-k; inspect before regime promotion.
+season,MAM,2015,6,6,true,351,49,0.42256545287836894,Year best-k matches all-year best-k.
+season,SON,2015,6,6,true,333,10,0.3338412866112764,Year best-k matches all-year best-k.
+month,1,2016,6,6,true,108,8,0.3040590417505029,Year best-k matches all-year best-k.
+month,10,2016,6,6,true,112,8,0.7077481840193703,Year best-k matches all-year best-k.
+month,11,2016,6,6,true,109,8,0.2583349492335189,Year best-k matches all-year best-k.
+month,12,2016,6,6,true,108,12,0.2982503570699856,Year best-k matches all-year best-k.
+month,2,2016,6,6,true,100,8,0.07348635243743984,Year best-k matches all-year best-k.
+month,3,2016,6,6,true,114,4,0.5996232368826447,Year best-k matches all-year best-k.
+month,4,2016,6,6,true,98,4,0.6518382894229142,Year best-k matches all-year best-k.
+month,5,2016,6,6,true,110,4,0.5272992544551092,Year best-k matches all-year best-k.
+month,6,2016,6,6,true,106,8,0.6870312240345153,Year best-k matches all-year best-k.
+month,7,2016,6,6,true,89,8,0.6542957473056668,Year best-k matches all-year best-k.
+month,8,2016,6,6,true,104,4,0.6924568449832538,Year best-k matches all-year best-k.
+month,9,2016,6,6,true,116,7,0.5516329341746542,Year best-k matches all-year best-k.
+season,DJF,2016,6,6,true,316,29,0.1685247242056762,Year best-k matches all-year best-k.
+season,JJA,2016,6,6,true,299,8,0.46426987924106783,Year best-k matches all-year best-k.
+season,MAM,2016,6,6,true,322,23,0.5750744540929039,Year best-k matches all-year best-k.
+season,SON,2016,6,6,true,337,43,0.4767611964552845,Year best-k matches all-year best-k.
+month,1,2017,6,6,true,112,4,0.22697926710308938,Year best-k matches all-year best-k.
+month,10,2017,6,6,true,117,8,0.30468077493358586,Year best-k matches all-year best-k.
+month,11,2017,6,6,true,108,4,0.4483995037220843,Year best-k matches all-year best-k.
+month,12,2017,6,6,true,108,8,0.7011641926109285,Year best-k matches all-year best-k.
+month,2,2017,6,6,true,88,12,0.28937835420393565,Year best-k matches all-year best-k.
+month,3,2017,6,6,true,119,8,0.3889892764687709,Year best-k matches all-year best-k.
+month,4,2017,6,6,true,111,11,0.3614854444069758,Year best-k matches all-year best-k.
+month,5,2017,6,6,true,123,4,0.35712993352873185,Year best-k matches all-year best-k.
+month,6,2017,6,6,true,112,4,0.17485714285714285,Year best-k matches all-year best-k.
+month,7,2017,6,6,true,120,4,0.5198391492704958,Year best-k matches all-year best-k.
+month,8,2017,6,6,true,120,8,0.652625728433321,Year best-k matches all-year best-k.
+month,9,2017,6,6,true,116,4,0.49718129396608346,Year best-k matches all-year best-k.
+season,DJF,2017,6,6,true,308,23,0.42712041090263597,Year best-k matches all-year best-k.
+season,JJA,2017,6,6,true,352,4,0.5421131279583109,Year best-k matches all-year best-k.
+season,MAM,2017,6,6,true,353,44,0.3858252999175059,Year best-k matches all-year best-k.
+season,SON,2017,6,6,true,341,4,0.44081397961612634,Year best-k matches all-year best-k.
+month,1,2018,6,6,true,120,4,0.4272936635365478,Year best-k matches all-year best-k.
+month,10,2018,6,6,true,116,8,0.4204657963466139,Year best-k matches all-year best-k.
+month,11,2018,6,6,true,114,4,0.05920947646861137,Year best-k matches all-year best-k.
+month,12,2018,6,6,true,120,4,0.36964485476286785,Year best-k matches all-year best-k.
+month,2,2018,6,6,true,105,8,0.2715731158640499,Year best-k matches all-year best-k.
+month,3,2018,6,6,true,115,8,0.740045593300018,Year best-k matches all-year best-k.
+month,4,2018,6,6,true,92,8,0.6132701966610076,Year best-k matches all-year best-k.
+month,5,2018,6,6,true,99,4,0.47674579511446885,Year best-k matches all-year best-k.
+month,6,2018,6,6,true,120,4,0.4049583910004253,Year best-k matches all-year best-k.
+month,7,2018,6,6,true,99,12,0.4006902113327483,Year best-k matches all-year best-k.
+month,8,2018,6,6,true,121,4,0.4274060121508665,Year best-k matches all-year best-k.
+month,9,2018,6,6,true,106,3,0.5281901373621177,Year best-k matches all-year best-k.
+season,DJF,2018,6,6,true,345,32,0.2808105623194465,Year best-k matches all-year best-k.
+season,JJA,2018,6,6,true,340,26,0.4123132986424866,Year best-k matches all-year best-k.
+season,MAM,2018,6,6,true,306,33,0.44949443449764415,Year best-k matches all-year best-k.
+season,SON,2018,6,6,true,336,11,0.2883387180524219,Year best-k matches all-year best-k.
+month,1,2019,6,6,true,116,8,0.5207455314261306,Year best-k matches all-year best-k.
+month,10,2019,6,6,true,120,4,0.2767689855707228,Year best-k matches all-year best-k.
+month,11,2019,6,6,true,105,4,0.4214900023566705,Year best-k matches all-year best-k.
+month,12,2019,6,6,true,115,12,0.2629339619310348,Year best-k matches all-year best-k.
+month,2,2019,6,6,true,103,5,0.7241362104124853,Year best-k matches all-year best-k.
+month,3,2019,6,6,true,107,12,0.49297176029918194,Year best-k matches all-year best-k.
+month,4,2019,6,6,true,112,8,0.5919431279620855,Year best-k matches all-year best-k.
+month,5,2019,6,6,true,106,4,0.30662582034120994,Year best-k matches all-year best-k.
+month,6,2019,5,6,false,109,17,0.3315064269123359,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,7,2019,6,6,true,122,11,0.1877465301761841,Year best-k matches all-year best-k.
+month,8,2019,6,6,true,101,4,0.2504929916069512,Year best-k matches all-year best-k.
+month,9,2019,5,6,false,106,8,0.3068348318348318,Year best-k differs from all-year best-k; inspect before regime promotion.
+season,DJF,2019,6,6,true,334,18,0.4487180669816027,Year best-k matches all-year best-k.
+season,JJA,2019,6,6,true,332,24,0.3122515936692589,Year best-k matches all-year best-k.
+season,MAM,2019,6,6,true,325,12,0.502140251799979,Year best-k matches all-year best-k.
+season,SON,2019,6,6,true,331,24,0.23142450444155807,Year best-k matches all-year best-k.
+month,1,2020,5,6,false,124,16,0.3643087094209276,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,10,2020,6,6,true,112,9,0.20549810405138416,Year best-k matches all-year best-k.
+month,11,2020,5,6,false,120,18,0.3095115742964172,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,12,2020,6,6,true,109,3,0.2959547843012949,Year best-k matches all-year best-k.
+month,2,2020,6,6,true,104,4,0.4212246777163905,Year best-k matches all-year best-k.
+month,3,2020,6,6,true,110,8,0.5211296324616406,Year best-k matches all-year best-k.
+month,4,2020,6,6,true,101,7,0.6650319613397976,Year best-k matches all-year best-k.
+month,5,2020,6,6,true,109,12,0.2933652274449235,Year best-k matches all-year best-k.
+month,6,2020,6,6,true,99,4,0.3997238725153921,Year best-k matches all-year best-k.
+month,7,2020,6,6,true,100,8,0.43098316334203435,Year best-k matches all-year best-k.
+month,8,2020,6,6,true,99,8,0.5095280410742494,Year best-k matches all-year best-k.
+month,9,2020,6,6,true,103,8,0.5273360591017106,Year best-k matches all-year best-k.
+season,DJF,2020,6,6,true,337,20,0.2974556746545244,Year best-k matches all-year best-k.
+season,JJA,2020,6,6,true,298,20,0.1618967558394411,Year best-k matches all-year best-k.
+season,MAM,2020,6,6,true,320,20,0.41881080267788745,Year best-k matches all-year best-k.
+season,SON,2020,6,6,true,335,5,0.41901850982704664,Year best-k matches all-year best-k.
+month,1,2021,6,6,true,118,12,0.4574501081427558,Year best-k matches all-year best-k.
+month,10,2021,6,6,true,114,4,0.14657375004967194,Year best-k matches all-year best-k.
+month,11,2021,6,6,true,114,8,0.6367916501219584,Year best-k matches all-year best-k.
+month,12,2021,6,6,true,123,4,0.40448159495022096,Year best-k matches all-year best-k.
+month,2,2021,6,6,true,77,4,0.5536446145506947,Year best-k matches all-year best-k.
+month,3,2021,6,6,true,106,8,0.43035231327756224,Year best-k matches all-year best-k.
+month,4,2021,6,6,true,104,4,0.4683000439010903,Year best-k matches all-year best-k.
+month,5,2021,6,6,true,100,4,0.5025315662895756,Year best-k matches all-year best-k.
+month,6,2021,6,6,true,119,4,0.75332562712585,Year best-k matches all-year best-k.
+month,7,2021,6,6,true,123,14,0.38403906253346226,Year best-k matches all-year best-k.
+month,8,2021,6,6,true,118,12,0.37293091671969025,Year best-k matches all-year best-k.
+month,9,2021,6,6,true,108,4,0.7280542658154379,Year best-k matches all-year best-k.
+season,DJF,2021,6,6,true,318,4,0.3908009652845345,Year best-k matches all-year best-k.
+season,JJA,2021,6,6,true,360,31,0.3114815577118087,Year best-k matches all-year best-k.
+season,MAM,2021,6,6,true,310,46,0.40574023103496537,Year best-k matches all-year best-k.
+season,SON,2021,6,6,true,336,36,0.4521732938002724,Year best-k matches all-year best-k.
+month,1,2022,6,6,true,80,8,0.8203215647273329,Year best-k matches all-year best-k.
+month,10,2022,6,6,true,121,12,0.5027976323644134,Year best-k matches all-year best-k.
+month,11,2022,6,6,true,110,4,0.4308822130739405,Year best-k matches all-year best-k.
+month,12,2022,6,6,true,116,4,0.38022334763305404,Year best-k matches all-year best-k.
+month,2,2022,6,6,true,106,8,0.7130439256732918,Year best-k matches all-year best-k.
+month,3,2022,6,6,true,111,8,0.43226206753216895,Year best-k matches all-year best-k.
+month,4,2022,5,6,false,107,8,0.5425252002233062,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,5,2022,6,6,true,112,4,0.24103355705607707,Year best-k matches all-year best-k.
+month,6,2022,6,6,true,104,6,0.6831103747340859,Year best-k matches all-year best-k.
+month,7,2022,6,6,true,109,4,0.6437221245704567,Year best-k matches all-year best-k.
+month,8,2022,6,6,true,116,4,0.4516879291755035,Year best-k matches all-year best-k.
+month,9,2022,5,6,false,108,12,0.4553541441835756,Year best-k differs from all-year best-k; inspect before regime promotion.
+season,DJF,2022,6,6,true,302,35,0.5740740356613381,Year best-k matches all-year best-k.
+season,JJA,2022,6,6,true,329,12,0.43880989219963584,Year best-k matches all-year best-k.
+season,MAM,2022,6,6,true,330,32,0.46991587604535795,Year best-k matches all-year best-k.
+season,SON,2022,6,6,true,339,8,0.4043817308200036,Year best-k matches all-year best-k.
+month,1,2023,5,6,false,120,12,0.7423589771729587,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,10,2023,6,6,true,100,8,0.39534673659673664,Year best-k matches all-year best-k.
+month,11,2023,6,6,true,116,14,0.7034496807079377,Year best-k matches all-year best-k.
+month,12,2023,6,6,true,121,4,0.4094305598205284,Year best-k matches all-year best-k.
+month,2,2023,6,6,true,112,8,0.5284656447665244,Year best-k matches all-year best-k.
+month,3,2023,6,6,true,111,12,0.7783919197023748,Year best-k matches all-year best-k.
+month,4,2023,6,6,true,106,8,0.4556813291753738,Year best-k matches all-year best-k.
+month,5,2023,6,6,true,122,8,0.33567117307905114,Year best-k matches all-year best-k.
+month,6,2023,6,6,true,109,8,0.49099691433252407,Year best-k matches all-year best-k.
+month,7,2023,5,6,false,103,12,0.5950146315509445,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,8,2023,6,6,true,113,5,0.18388888888888888,Year best-k matches all-year best-k.
+month,9,2023,6,6,true,108,8,0.4971859395932283,Year best-k matches all-year best-k.
+season,DJF,2023,6,6,true,353,42,0.4609566165138215,Year best-k matches all-year best-k.
+season,JJA,2023,5,6,false,325,21,0.3623033285639586,Year best-k differs from all-year best-k; inspect before regime promotion.
+season,MAM,2023,6,6,true,339,26,0.3873127390863853,Year best-k matches all-year best-k.
+season,SON,2023,6,6,true,324,25,0.48181779148949244,Year best-k matches all-year best-k.
+month,1,2024,6,6,true,107,8,0.314199411733611,Year best-k matches all-year best-k.
+month,10,2024,6,6,true,123,4,0.28421908739412977,Year best-k matches all-year best-k.
+month,11,2024,6,6,true,114,4,0.3924585901159991,Year best-k matches all-year best-k.
+month,12,2024,6,6,true,120,4,0.8157222936303914,Year best-k matches all-year best-k.
+month,2,2024,6,6,true,108,4,0.5194083428239654,Year best-k matches all-year best-k.
+month,3,2024,6,6,true,120,8,0.4415096170171481,Year best-k matches all-year best-k.
+month,4,2024,6,6,true,105,4,0.43255011569946333,Year best-k matches all-year best-k.
+month,5,2024,6,6,true,112,8,0.2741819105691057,Year best-k matches all-year best-k.
+month,6,2024,5,6,false,113,12,0.1893030285028146,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,7,2024,6,6,true,120,4,0.4464177423546738,Year best-k matches all-year best-k.
+month,8,2024,5,6,false,111,12,0.48728713378226085,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,9,2024,6,6,true,108,8,0.3987419509154471,Year best-k matches all-year best-k.
+season,DJF,2024,6,6,true,335,22,0.5222732530450367,Year best-k matches all-year best-k.
+season,JJA,2024,6,6,true,344,27,0.25782940181151304,Year best-k matches all-year best-k.
+season,MAM,2024,6,6,true,337,35,0.33869045753213456,Year best-k matches all-year best-k.
+season,SON,2024,6,6,true,345,38,0.21683995683181462,Year best-k matches all-year best-k.
+month,1,2025,6,6,true,112,12,0.6881980240549828,Year best-k matches all-year best-k.
+month,10,2025,6,6,true,100,4,0.4764957264957265,Year best-k matches all-year best-k.
+month,11,2025,6,6,true,119,4,0.18902490753853038,Year best-k matches all-year best-k.
+month,12,2025,6,6,true,118,10,0.5783348614411619,Year best-k matches all-year best-k.
+month,2,2025,6,6,true,92,4,0.3390301191949004,Year best-k matches all-year best-k.
+month,3,2025,6,6,true,124,4,0.6475367294756117,Year best-k matches all-year best-k.
+month,4,2025,6,6,true,111,4,0.5981589935201824,Year best-k matches all-year best-k.
+month,5,2025,6,6,true,107,6,0.5378643040045795,Year best-k matches all-year best-k.
+month,6,2025,6,6,true,111,8,0.4142880213355974,Year best-k matches all-year best-k.
+month,7,2025,6,6,true,104,4,0.46857794951896403,Year best-k matches all-year best-k.
+month,8,2025,5,6,false,98,14,0.8051960824770631,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,9,2025,6,6,true,109,12,0.1992703710568684,Year best-k matches all-year best-k.
+season,DJF,2025,6,6,true,322,34,0.5000226181228096,Year best-k matches all-year best-k.
+season,JJA,2025,6,6,true,313,20,0.29036303994210066,Year best-k matches all-year best-k.
+season,MAM,2025,6,6,true,342,8,0.4059276562427283,Year best-k matches all-year best-k.
+season,SON,2025,5,6,false,328,28,0.22453598451896736,Year best-k differs from all-year best-k; inspect before regime promotion.
+month,1,2026,6,6,true,120,4,0.2415499061100679,Year best-k matches all-year best-k.
+month,2,2026,6,6,true,105,4,0.2443018155659833,Year best-k matches all-year best-k.
+month,3,2026,6,6,true,107,8,0.6866668856374534,Year best-k matches all-year best-k.
+month,4,2026,6,6,true,102,8,0.5314227025660471,Year best-k matches all-year best-k.
+month,5,2026,6,6,true,115,4,0.3297547050109936,Year best-k matches all-year best-k.
+month,6,2026,5,6,false,12,1,1.0,Year best-k differs from all-year best-k; inspect before regime promotion.
+season,DJF,2026,5,6,false,225,8,0.27858521693927324,Year best-k differs from all-year best-k; inspect before regime promotion.
+season,JJA,2026,5,6,false,12,1,1.0,Year best-k differs from all-year best-k; inspect before regime promotion.
+season,MAM,2026,6,6,true,324,12,0.31009239213811685,Year best-k matches all-year best-k.

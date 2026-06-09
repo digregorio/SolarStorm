@@ -6,8 +6,8 @@ with the same rigor as passed ones (P5).
 """
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from typing import Callable
+from collections.abc import Callable
+from dataclasses import dataclass
 
 
 @dataclass

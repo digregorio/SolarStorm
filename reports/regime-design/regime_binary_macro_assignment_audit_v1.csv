@@ -1,0 +1,3 @@
+audit_item,status,detail,production_status
+source_production_status,PASS,All source assignment rows are NOT_PRODUCTION.,EXPERIMENT_ONLY
+binary_label_set,PASS,Assignments use only macro_southerly_flow and macro_non_southerly.,EXPERIMENT_ONLY

@@ -1,0 +1,2 @@
+candidate_id,source_rule_id,candidate_action,evidence_artifact,rationale,next_action
+CRR-001,RULE_COOLING_FIXED_MINUS_2_C_PER_H,replace_single_threshold_with_mechanism_taxonomy,reports/onda2e/cooling_event_taxonomy_by_day_cp.csv,Fixed -2 C/h trigger rate is 0.101 across 6 cooling mechanisms.,Review mechanism effects by month/regime/CP before changing any production classifier.

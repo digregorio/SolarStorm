@@ -1,0 +1,18 @@
+feature,source,included_in_classifiability,required_for_physical_basis,causal_availability,leakage_class,missing_rate,variance_status,selection_reason,production_status
+drct_sin_mean,obs.drct,true,true,valid < CP,causal_input,0.0032532991202346043,usable,approved causal meteorological feature,EXPERIMENT_ONLY
+drct_cos_mean,obs.drct,true,true,valid < CP,causal_input,0.0032532991202346043,usable,approved causal meteorological feature,EXPERIMENT_ONLY
+sknt_mean,obs.sknt,true,true,valid < CP,causal_input,0.0032532991202346043,usable,approved causal meteorological feature,EXPERIMENT_ONLY
+qnh_hpa_mean,obs.alti,true,true,valid < CP,causal_input,0.0032532991202346043,usable,approved causal meteorological feature,EXPERIMENT_ONLY
+relh_mean,obs.relh,true,true,valid < CP,causal_input,0.0037573313782991204,usable,approved causal meteorological feature,EXPERIMENT_ONLY
+dewpoint_depression_mean,obs.dw_depression_c_int or tmp-dwp,true,true,valid < CP,causal_input,0.0033907624633431085,usable,approved causal meteorological feature,EXPERIMENT_ONLY
+precip_pre_cp_sum,obs.p01i,false,true,valid < CP,causal_input,0.030379398826979473,constant,excluded by variance status constant,EXPERIMENT_ONLY
+cloud_cover_score_mean,obs.skyc1,true,true,valid < CP,causal_input,0.08948863636363637,usable,approved causal meteorological feature,EXPERIMENT_ONLY
+temp_slope_pre_cp,obs.tmp_c_int,true,true,valid < CP,causal_input,0.0048570381231671554,usable,approved causal meteorological feature,EXPERIMENT_ONLY
+date_local,inspected_input,false,false,excluded,excluded_identifier,0.0,non_numeric,excluded by leakage class excluded_identifier,EXPERIMENT_ONLY
+month,inspected_input,false,false,excluded,excluded_identifier,0.0,usable,excluded by leakage class excluded_identifier,EXPERIMENT_ONLY
+season,inspected_input,false,false,excluded,excluded_identifier,0.0,non_numeric,excluded by leakage class excluded_identifier,EXPERIMENT_ONLY
+cp,inspected_input,false,false,excluded,excluded_identifier,0.0,non_numeric,excluded by leakage class excluded_identifier,EXPERIMENT_ONLY
+current_regime_label,inspected_input,false,false,excluded,excluded_quarantined_label,0.0,non_numeric,excluded by leakage class excluded_quarantined_label,EXPERIMENT_ONLY
+tmax_anomaly,inspected_input,false,false,excluded,excluded_outcome,0.0,usable,excluded by leakage class excluded_outcome,EXPERIMENT_ONLY
+remaining_warming,inspected_input,false,false,excluded,excluded_outcome,0.0032532991202346043,usable,excluded by leakage class excluded_outcome,EXPERIMENT_ONLY
+n_pre_cp_obs,inspected_input,false,false,excluded,excluded_model_feature,0.0,usable,excluded by leakage class excluded_model_feature,EXPERIMENT_ONLY

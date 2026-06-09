@@ -1,0 +1,2 @@
+candidate_id,source_rule_id,candidate_action,evidence_artifact,rationale,next_action
+FRR-001,RULE_FOEHN_SCORE_FIXED_60,calibrate_by_month_cp_or_replace_with_binned_continuous_score,reports/onda2e/domain_foehn_score_bins_by_month_cp.csv,Fixed foehn_score > 60 is retained only as an audit comparator. Max fixed-60 NW-sector-not-foehn share is 0.017. 55/272 score-bin cells have n < 30.,Review month/CP bins and continuous-score calibration before changing any production regime classifier.

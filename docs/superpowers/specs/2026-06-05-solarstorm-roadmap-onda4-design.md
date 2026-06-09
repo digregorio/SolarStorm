@@ -1,8 +1,20 @@
 # SolarStorm ROADMAP + Onda 4 Robustness — Design
 
+> Supersession note, 2026-06-06: the regime assumptions in this spec are stale.
+> ADR-011 and `docs/onda2r_regime_ontology_repair_plan.md` supersede the old
+> required 5-regime list. `late_warming` is now treated as a timing-risk target,
+> not a causal physical regime.
+> Historical code blocks in this file that name
+> `calm`/`transition`/`late_warming`/`foehn_nw`/`disrupted` are not executable
+> guidance for current work. Use `docs/regime_model_card.md` and
+> `solarstorm/eda/_regimes.py`.
+
 **Date:** 2026-06-05
 **Status:** Accepted
 **Context:** Onda 0/1/2 complete; Onda 3 not started; Onda 4 needs clean redefinition
+**Scope update 2026-06-06:** Onda 4 is model-first robustness. Financial
+execution, EV, position sizing, shadow trading, and Polymarket API work are on
+hold until Onda 3 proves a production model.
 
 ---
 
@@ -33,7 +45,7 @@ Two problems exist simultaneously:
 ## Onda 0: Scaffold ✅ (2026-06-04)
 ## Onda 1: Baselines ✅ (2026-06-04)
 ## Onda 2: Prove Value ✅ (2026-06-05)
-## Onda 3: Models 🔮 (gated on Onda 4 go)
+## Onda 3: Models 🔮 (historically gated on Onda 4; now also gated on Onda C)
 ## Onda 4: Robustness Hardening ⏳ (2026-06-05 → )
 
 ### Onda 4 Detail ← expanded inline, task-level
@@ -61,7 +73,11 @@ Two problems exist simultaneously:
 
 ### 3.1 Purpose
 
-Stress-test Onda 2's 72 validated feature-null hypotheses before investing in Onda 3 ML models. Confirm the foundation is not a split-design artifact, regime-specific fluke, or temporal-leakage ghost.
+Stress-test Onda 2's current validated feature-null hypotheses before investing
+in Onda 3 ML models. The validated count must be read from the latest
+`validated_feature_contract.json`; do not hard-code a stale count. Confirm the
+foundation is not a split-design artifact, regime-specific fluke,
+temporal-leakage ghost, nowcast proxy, or fixed-CP timing artifact.
 
 ### 3.1a Entry Gate
 
@@ -74,7 +90,8 @@ Before Onda 4 hardening code runs, the following must pass:
    - `reports/2026-06-05/hypothesis_results.json`
 2. `ruff check .` passes with zero errors.
 3. `pytest -q -m "not network"` passes with zero failures.
-4. The 5 regime labels are confirmed as `calm`, `transition`, `late_warming`, `foehn_nw`, `disrupted` (verifiable via `solarstorm.eda._regimes.classify_regime`).
+4. Historical pre-Onda 2R context / superseded, not executable guidance: the old 5 regime labels were confirmed as `calm`, `transition`, `late_warming`, `foehn_nw`, `disrupted` (verifiable at the time via `solarstorm.eda._regimes.classify_regime`).
+5. The Onda 4 scope is model-first robustness only; financial, shadow, and live-market work is on hold.
 
 These are verifiable as a bash script or manual checklist before any robustness code runs.
 
@@ -82,7 +99,10 @@ These are verifiable as a bash script or manual checklist before any robustness 
 
 The old Wellington project's "Fase 8 — Shadow trading + EV" (quarentena) was designed for a system that predicated Polymarket fills and economic edge. SolarStorm has no trade-execution layer, no position-sizing policy, and no model. Importing shadow-trading into Onda 4 would replicate the old project's core mistake: building downstream on an untested foundation.
 
-The correct Onda 4 is a **hardening gate**: prove the foundation holds under stress before building on it.
+The correct Onda 4 is a **hardening gate**: prove the foundation holds under
+stress before building on it. It must also prove that apparent skill is not
+nowcasting, not an artifact of fixed CP timing, and not blind to late-spike
+regimes.
 
 ### 3.3 Architecture
 
@@ -93,6 +113,9 @@ solarstorm/robustness/          ← new package
 ├── _regime_analysis.py         ← regime × feature cross-tabulation
 ├── _drift.py                   ← calendar-time performance trend
 ├── _causal_audit.py            ← firewall re-audit on validated features
+├── _lead_time.py               ← anti-nowcast lead-time analysis
+├── _tmax_hour.py               ← physical Tmax-hour stratification
+├── _late_spike.py              ← late-spike evidence pack
 ├── _report.py                  ← markdown report generator
 └── _config.py                  ← frozen go/no-go thresholds
 
@@ -145,9 +168,10 @@ def regime_sensitivity(
     """Return regime_cross_tab with columns: hypothesis_id, cp, regime, passes, n_days."""
 ```
 
-**Regime labels** (from `solarstorm.eda._regimes`): `calm`, `transition`, `late_warming`, `foehn_nw`, `disrupted`.
+**Regime labels** (historical pre-Onda 2R context / superseded, not executable guidance; formerly from `solarstorm.eda._regimes`): `calm`, `transition`, `late_warming`, `foehn_nw`, `disrupted`.
 
-**Dead-regime detection:** If ALL 72 hypotheses fail G4/G5 in a specific regime, that regime is "dead" → BLOCK exit gate.
+**Dead-regime detection:** If all currently validated hypotheses fail G4/G5 in
+a specific regime, that regime is "dead" -> BLOCK exit gate.
 
 #### `_drift.py` — Performance Trend Tracking
 
@@ -184,6 +208,61 @@ def reaudit_causality(
     For each (feature_id, cp), computes the maximum observation timestamp
     used by that feature on each date, and asserts it's strictly before the CP.
     """
+```
+
+#### `_lead_time.py` — Anti-Nowcast Lead-Time Analysis
+
+Separates genuine prediction from nowcasting. For every validated
+(hypothesis, CP), report skill by lead-time bucket and whether the observed Tmax
+had already occurred before the cutoff. Skill that appears only after the answer
+is effectively known blocks Onda 3.
+
+**Interface:**
+```python
+def lead_time_skill(
+    features: pl.DataFrame,
+    labels: pl.DataFrame,
+    validated_hypotheses: list[HypothesisResult],
+    *,
+    cp_set: tuple[str, ...] = ("20:00","21:00","22:00","23:00"),
+    seed: int = 42,
+) -> pl.DataFrame:
+    """Return skill by hypothesis_id, cp, lead_time_bucket, tmax_already_seen."""
+```
+
+#### `_tmax_hour.py` — Physical Tmax-Hour Stratification
+
+Evaluates feature skill by regime, month, and observed/expected Tmax-hour
+buckets. Fixed CPs remain contractual evaluation cutoffs, but they must not be
+treated as the physical clock of Tmax.
+
+**Interface:**
+```python
+def tmax_hour_stratification(
+    features: pl.DataFrame,
+    labels: pl.DataFrame,
+    validated_hypotheses: list[HypothesisResult],
+    *,
+    cp_set: tuple[str, ...] = ("20:00","21:00","22:00","23:00"),
+) -> pl.DataFrame:
+    """Return skill by hypothesis_id, cp, regime, month, tmax_hour_bucket."""
+```
+
+#### `_late_spike.py` — Late-Spike Evidence Pack
+
+Builds an artifact of days where one or more CPs looked settled (`k_cp` near the
+eventual market consensus) but final Tmax increased later. This is not a
+trading artifact. It is future model research material, especially for
+Open-Meteo/NWP features.
+
+**Interface:**
+```python
+def late_spike_candidates(
+    labels: pl.DataFrame,
+    *,
+    cp_set: tuple[str, ...] = ("20:00","21:00","22:00","23:00"),
+) -> pl.DataFrame:
+    """Return dates/CPs where Tmax increased after the cutoff."""
 ```
 
 #### `_report.py` — Report Generator
@@ -232,11 +311,14 @@ Flow:
 2. Load validated feature contract
 3. Per-year replication → year matrix
 4. Regime sensitivity → regime cross-tab
-5. Drift analysis → trend dict + write snapshot
-6. Causal re-audit → clean/violating lists
-7. Evaluate go/no-go criteria
-8. Render report
-9. Print verdict to stdout
+5. Drift analysis -> trend dict + write snapshot
+6. Causal re-audit -> clean/violating lists
+7. Lead-time anti-nowcast analysis
+8. Physical Tmax-hour stratification
+9. Late-spike evidence pack
+10. Evaluate go/no-go criteria
+11. Render report
+12. Print verdict to stdout
 
 ### 3.6 Go/No-Go Criteria
 
@@ -247,9 +329,15 @@ Flow:
 | R3 | Causal firewall clean | 0 violations in validated features | **BLOCK** if any violation |
 | R4 | MAE gap stable over calendar time | Mann-Kendall p > 0.05 | WARNING if declining |
 | R5 | Gates re-pass on fresh pooled run | All G1-G5 pass | **BLOCK** if any gate fails |
+| R6 | Anti-nowcast lead-time check | Skill exists before Tmax is effectively known | **BLOCK** if skill is only post-answer |
+| R7 | Physical Tmax-hour stratification | Skill is not only a fixed-CP artifact | **BLOCK** if fixed CP timing creates apparent skill |
+| R8 | Late-spike evidence pack | Artifact produced for future modeling | WARNING if absent |
 
-**Go:** All BLOCK criteria pass. Foundation is robust → Onda 3 may proceed.
-**No-Go:** >= 1 BLOCK criterion fails → Onda 3 remains blocked until root cause is addressed and the robustness report reruns.
+**Go:** All BLOCK criteria pass. Foundation is robust for the next active gate.
+This historical Onda 4 result does not by itself authorize Onda 3. If a
+required intervening wave such as Onda C is registered, that wave must pass
+before any Onda 3 design review starts.
+**No-Go:** >= 1 BLOCK criterion fails -> Onda 3 remains blocked until root cause is addressed and the robustness report reruns.
 
 ### 3.7 Test Strategy
 
@@ -261,6 +349,9 @@ Each module gets a unit-test file in `tests/`:
 | `_regime_analysis.py` | `tests/test_robustness_regime.py` | Dead-regime detection with synthetic data; cross-tab completeness |
 | `_drift.py` | `tests/test_robustness_drift.py` | Mann-Kendall on known trend/no-trend series; snapshot round-trips |
 | `_causal_audit.py` | `tests/test_robustness_causal.py` | Known-violation synthetic features flagged; clean features pass |
+| `_lead_time.py` | `tests/test_robustness_lead_time.py` | Tmax-already-seen rows are separated from predictive rows |
+| `_tmax_hour.py` | `tests/test_robustness_tmax_hour.py` | Month/regime/Tmax-hour buckets are complete |
+| `_late_spike.py` | `tests/test_robustness_late_spike.py` | Synthetic late-spike days are detected |
 | `_report.py` | `tests/test_robustness_report.py` | Report renders without crashing; sections present; verdict matches inputs |
 | CLI | `tests/test_robustness_cli.py` (or extend existing) | `robustness` subcommand exits 0 on valid inputs |
 
@@ -308,6 +399,9 @@ These are untracked (quarentena/ is in .gitignore), so no git history is affecte
 
 - Live trading execution (separate ADR)
 - Position sizing, EV, Sharpe, drawdown (old-project concepts, quarantined)
+- Shadow trading / shadow decisions
 - Polymarket API integration
-- Onda 3 model building (gated on this robustness report's "go")
+- Onda 3 model building (historically depended on this robustness report's
+  "go"; current work also requires Onda C and the active ADR sequence)
+- Open-Meteo/NWP ingestion implementation (future Onda 3+ model input focused on late spikes)
 - Modifying any existing Onda 0/1/2 code beyond what the robustness package needs to import

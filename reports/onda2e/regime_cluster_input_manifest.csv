@@ -1,0 +1,17 @@
+feature,source,included_in_clustering,causal_availability,leakage_class,transform,missing_rate,notes
+drct_sin_mean,obs.drct,true,valid < CP,causal_input,mean(sin(direction)) over valid < CP,0.0032532991202346043,Circular wind direction component.
+drct_cos_mean,obs.drct,true,valid < CP,causal_input,mean(cos(direction)) over valid < CP,0.0032532991202346043,Circular wind direction component.
+sknt_mean,obs.sknt,true,valid < CP,causal_input,mean over valid < CP,0.0032532991202346043,Wind speed.
+qnh_hpa_mean,obs.alti,true,valid < CP,causal_input,altimeter inches Hg to hPa,0.0032532991202346043,QNH proxy.
+relh_mean,obs.relh,true,valid < CP,causal_input,mean over valid < CP,0.0037573313782991204,Relative humidity.
+dewpoint_depression_mean,obs.dw_depression_c_int or tmp-dwp,true,valid < CP,causal_input,mean over valid < CP,0.0033907624633431085,Near-surface moisture spread.
+precip_pre_cp_sum,obs.p01i,true,valid < CP,causal_input,sum over valid < CP,0.030379398826979473,Pre-CP rain.
+cloud_cover_score_mean,obs.skyc1,true,valid < CP,causal_input,CLR/SKC=0 FEW=1 SCT=2 BKN=3 OVC=4,0.08948863636363637,Cloud cover proxy.
+temp_slope_pre_cp,obs.tmp_c_int,true,valid < CP,causal_input,last-first temperature slope over valid < CP,0.0048570381231671554,Causal warming/cooling slope.
+tmax_int,labels,false,excluded,excluded_outcome_or_quarantined_baseline,excluded,,Outcome.
+tmax_hour,labels,false,excluded,excluded_outcome_or_quarantined_baseline,excluded,,Outcome timing.
+remaining_warming,labels plus k_cp,false,excluded,excluded_outcome_or_quarantined_baseline,excluded,,Evaluation target.
+tmax_anomaly,labels,false,excluded,excluded_outcome_or_quarantined_baseline,excluded,,External validation only.
+regime_label,features,false,excluded,excluded_outcome_or_quarantined_baseline,excluded,,Quarantined baseline label.
+regime_flags,features,false,excluded,excluded_outcome_or_quarantined_baseline,excluded,,Quarantined baseline flags.
+foehn_score,features,false,excluded,excluded_outcome_or_quarantined_baseline,excluded,,Derived heuristic score; profile only.

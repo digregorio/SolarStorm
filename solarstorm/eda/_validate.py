@@ -13,7 +13,8 @@ from dataclasses import dataclass, field
 import numpy as np
 import polars as pl
 
-from solarstorm.eda._hypotheses import Hypothesis, run_hypothesis_test
+from solarstorm.baselines._climatology import fit_climatology
+from solarstorm.baselines._empirical import _dist_p50, fit_empirical_conditional
 from solarstorm.eval._bootstrap import bootstrap_ci_diff
 from solarstorm.eval._gates import GateResult, apply_all_gates
 from solarstorm.eval._walkforward import expanding_walk_forward_splits
@@ -42,6 +43,63 @@ class HypothesisResult:
     n_days: int = 0
     status: str = "pending"
     blocked_reason: str | None = None
+    best_null_name: str | None = None
+    best_null_mae: float | None = None
+
+
+@dataclass(frozen=True)
+class _OLSChallenger:
+    """Small OLS model for remaining_warming, supporting numeric and one-hot features."""
+
+    intercept: float
+    slope: float | None = None
+    categories: tuple[str, ...] = ()
+    category_coefficients: tuple[float, ...] = ()
+
+    @property
+    def is_numeric(self) -> bool:
+        return self.slope is not None
+
+    def predict_remaining_warming(self, value: object) -> float | None:
+        if value is None:
+            return None
+        if self.is_numeric:
+            try:
+                x = float(value)
+            except (TypeError, ValueError):
+                return None
+            if not np.isfinite(x):
+                return None
+            return self.intercept + self.slope * x  # type: ignore[operator]
+
+        if not self.categories:
+            return None
+        key = str(value)
+        if key == self.categories[0]:
+            return self.intercept
+        try:
+            idx = self.categories.index(key) - 1
+        except ValueError:
+            return self.intercept
+        if idx < 0 or idx >= len(self.category_coefficients):
+            return self.intercept
+        return self.intercept + self.category_coefficients[idx]
+
+    def __iter__(self):
+        """Backward-compatible unpacking for older numeric-only callers."""
+        yield self.intercept
+        yield self.slope if self.slope is not None else 0.0
+
+
+_NULL_PRIORITY = (
+    "L0_persistence",
+    "L1_dminus1",
+    "L2_climatology_doy",
+    "L4_empirical_conditional",
+    "calibrated_cp_mean_rw",
+)
+
+_SKILL_EPSILON = 1e-9
 
 
 # ---------------------------------------------------------------------------
@@ -59,18 +117,21 @@ def _fit_ols_challenger(
     train_labels: pl.DataFrame,
     feature_column: str,
     cp_str: str,
-) -> tuple[float, float] | None:
-    """Fit univariate OLS: remaining_warming ~ feature_value.
+) -> _OLSChallenger | None:
+    """Fit OLS: remaining_warming ~ feature_value.
 
-    Returns ``(intercept, slope)`` or ``None`` when the feature is not
-    numeric or has fewer than 5 training rows.
+    Numeric features use a univariate slope.  Categorical/string/boolean
+    features are encoded as one-hot indicators with the first sorted category
+    as the reference level.
     """
     k_col = _kcp_col(cp_str)
+    if k_col not in train_labels.columns or feature_column not in train_features.columns:
+        return None
 
     joined = train_features.join(train_labels, on="date_local", how="inner")
 
     try:
-        feat_vals = joined[feature_column].to_numpy()
+        feat_series = joined[feature_column]
     except Exception:
         return None
 
@@ -78,24 +139,54 @@ def _fit_ols_challenger(
     kcp = joined[k_col].to_numpy().astype(float)
     rw = tmax - kcp
 
-    # Reject non-numeric features
-    if not np.issubdtype(feat_vals.dtype, np.number):
+    feat_vals = feat_series.to_numpy()
+    if np.issubdtype(feat_vals.dtype, np.number):
+        mask = ~(np.isnan(feat_vals) | np.isnan(rw))
+        x = feat_vals[mask].astype(float)
+        y = rw[mask]
+
+        if len(x) < 5:
+            return None
+
+        design = np.vstack([np.ones_like(x), x]).T
+        try:
+            intercept, slope = np.linalg.lstsq(design, y, rcond=None)[0]
+        except Exception:
+            return None
+
+        return _OLSChallenger(intercept=float(intercept), slope=float(slope))
+
+    joined_non_null = joined.filter(pl.col(feature_column).is_not_null())
+    if joined_non_null.height < 5:
         return None
 
-    mask = ~(np.isnan(feat_vals) | np.isnan(rw))
-    X = feat_vals[mask].astype(float)
-    y = rw[mask]
-
-    if len(X) < 5:
+    categories = sorted(str(v) for v in joined_non_null[feature_column].unique().to_list() if v is not None)
+    if len(categories) < 2:
         return None
 
-    A = np.vstack([np.ones_like(X), X]).T
+    y = (
+        joined_non_null["tmax_int"].to_numpy().astype(float)
+        - joined_non_null[k_col].to_numpy().astype(float)
+    )
+    cat_values = [str(v) for v in joined_non_null[feature_column].to_list()]
+    if len(cat_values) < 5:
+        return None
+
+    columns: list[np.ndarray] = [np.ones(len(cat_values))]
+    for category in categories[1:]:
+        columns.append(np.array([1.0 if value == category else 0.0 for value in cat_values]))
+    design = np.vstack(columns).T
+
     try:
-        intercept, slope = np.linalg.lstsq(A, y, rcond=None)[0]
+        coefs = np.linalg.lstsq(design, y, rcond=None)[0]
     except Exception:
         return None
 
-    return (float(intercept), float(slope))
+    return _OLSChallenger(
+        intercept=float(coefs[0]),
+        categories=tuple(categories),
+        category_coefficients=tuple(float(c) for c in coefs[1:]),
+    )
 
 
 def _default_test_starts(labels: pl.DataFrame) -> list[dt.date]:
@@ -105,8 +196,10 @@ def _default_test_starts(labels: pl.DataFrame) -> list[dt.date]:
         raise ValueError("No complete days in labels")
     first_test_year = max(first_complete.year + 5, 2014)
     # Cap at 2025 so we don't generate future splits with no data
-    last_year = min(first_test_year, 2025)
-    return [dt.date(y, 1, 1) for y in range(first_test_year, 2026)]
+    last_year = 2025
+    if first_test_year > last_year:
+        return []
+    return [dt.date(y, 1, 1) for y in range(first_test_year, last_year + 1)]
 
 
 def _bootstrap_p_value(
@@ -144,10 +237,195 @@ def _mode_share(predictions: np.ndarray) -> float:
     """Fraction of predictions equal to the most common rounded value."""
     if len(predictions) == 0:
         return 0.0
-    rounded = np.round(predictions).astype(int)
-    values, counts = np.unique(rounded, return_counts=True)
+    from solarstorm.data._settlement import integer_settlement
+
+    rounded = np.array([integer_settlement(float(p)) for p in predictions])
+    _, counts = np.unique(rounded, return_counts=True)
     mode_count = counts.max()
     return float(mode_count) / len(predictions)
+
+
+def _is_missing(value: object) -> bool:
+    if value is None:
+        return True
+    try:
+        return bool(np.isnan(value))  # type: ignore[arg-type]
+    except TypeError:
+        return False
+
+
+def _add_null_prediction(
+    nulls: dict[str, dict[str, float]],
+    name: str,
+    *,
+    pred: float,
+    truth: float,
+) -> None:
+    if not np.isfinite(pred):
+        return
+    nulls[name] = {
+        "pred": float(pred),
+        "error": float(abs(pred - truth)),
+    }
+
+
+def _fit_cp_mean_remaining_warming(train_labels: pl.DataFrame, cp_str: str) -> float | None:
+    """Train-only intercept null: mean(Tmax - k_cp) for one CP."""
+    k_col = _kcp_col(cp_str)
+    if k_col not in train_labels.columns:
+        return None
+
+    vals: list[float] = []
+    for row in train_labels.iter_rows(named=True):
+        tmax = row.get("tmax_int")
+        kcp = row.get(k_col)
+        if _is_missing(tmax) or _is_missing(kcp):
+            continue
+        vals.append(float(tmax) - float(kcp))
+
+    if len(vals) < 5:
+        return None
+    return float(np.mean(vals))
+
+
+def _build_split_null_predictions(
+    *,
+    labels_ok: pl.DataFrame,
+    train_labels: pl.DataFrame,
+    test_labels: pl.DataFrame,
+    cp_set: tuple[str, ...],
+    split_train_start: dt.date,
+    split_train_end: dt.date,
+) -> dict[str, dict[dt.date, dict[str, dict[str, float]]]]:
+    """Compute train-only null predictions for every test day and CP."""
+    nulls_by_cp_date: dict[str, dict[dt.date, dict[str, dict[str, float]]]] = {
+        cp_str: {} for cp_str in cp_set
+    }
+
+    tmax_by_date: dict[dt.date, int] = {
+        row["date_local"]: int(row["tmax_int"])
+        for row in labels_ok.iter_rows(named=True)
+        if not _is_missing(row.get("tmax_int"))
+    }
+
+    try:
+        climo = fit_climatology(
+            labels_ok,
+            train_start=split_train_start,
+            train_end=split_train_end,
+        )
+    except ValueError:
+        climo = None
+
+    support_k = [
+        int(v)
+        for v in train_labels["tmax_int"].drop_nulls().unique().sort().to_list()
+    ] if "tmax_int" in train_labels.columns else []
+    try:
+        empirical = fit_empirical_conditional(
+            labels_ok,
+            train_window=(split_train_start, split_train_end),
+        ) if support_k else None
+    except ValueError:
+        empirical = None
+
+    mean_rw_by_cp = {
+        cp_str: _fit_cp_mean_remaining_warming(train_labels, cp_str)
+        for cp_str in cp_set
+    }
+
+    for row in test_labels.iter_rows(named=True):
+        d = row["date_local"]
+        truth = row.get("tmax_int")
+        if _is_missing(truth):
+            continue
+        truth_f = float(truth)
+
+        for cp_str in cp_set:
+            k_col = _kcp_col(cp_str)
+            nulls: dict[str, dict[str, float]] = {}
+
+            kcp = row.get(k_col)
+            if not _is_missing(kcp):
+                kcp_f = float(kcp)
+                _add_null_prediction(
+                    nulls, "L0_persistence", pred=kcp_f, truth=truth_f,
+                )
+
+                mean_rw = mean_rw_by_cp.get(cp_str)
+                if mean_rw is not None:
+                    _add_null_prediction(
+                        nulls, "calibrated_cp_mean_rw",
+                        pred=kcp_f + mean_rw,
+                        truth=truth_f,
+                    )
+
+                if empirical is not None and support_k:
+                    dist, _source = empirical.predict_dist(
+                        month=d.month,
+                        cp=cp_str,
+                        k_cp=int(kcp_f),
+                        support_k=support_k,
+                    )
+                    _add_null_prediction(
+                        nulls, "L4_empirical_conditional",
+                        pred=float(_dist_p50(dist)),
+                        truth=truth_f,
+                    )
+
+            tmax_dminus1 = tmax_by_date.get(d - dt.timedelta(days=1))
+            if tmax_dminus1 is not None:
+                _add_null_prediction(
+                    nulls, "L1_dminus1",
+                    pred=float(tmax_dminus1),
+                    truth=truth_f,
+                )
+
+            if climo is not None:
+                _add_null_prediction(
+                    nulls, "L2_climatology_doy",
+                    pred=float(climo.tmax_dec_for(d)),
+                    truth=truth_f,
+                )
+
+            if nulls:
+                nulls_by_cp_date[cp_str][d] = nulls
+
+    return nulls_by_cp_date
+
+
+def _select_best_null(
+    day_data: list[dict],
+) -> tuple[str, np.ndarray, np.ndarray, float]:
+    """Pick the lowest-MAE null on the same days used by a hypothesis result."""
+    candidates: list[tuple[float, int, str, np.ndarray, np.ndarray]] = []
+    for priority, name in enumerate(_NULL_PRIORITY):
+        errors: list[float] = []
+        preds: list[float] = []
+        complete = True
+        for day in day_data:
+            null_result = day.get("nulls", {}).get(name)
+            if null_result is None:
+                complete = False
+                break
+            errors.append(float(null_result["error"]))
+            preds.append(float(null_result["pred"]))
+        if not complete or not errors:
+            continue
+        err_arr = np.array(errors)
+        pred_arr = np.array(preds)
+        candidates.append((float(np.mean(err_arr)), priority, name, err_arr, pred_arr))
+
+    if not candidates:
+        errors = np.array([d["baseline_error"] for d in day_data])
+        preds = np.array([d["baseline_pred"] for d in day_data])
+        return "L0_persistence", errors, preds, float(np.mean(errors))
+
+    best_mae, _priority, best_name, best_errors, best_preds = min(
+        candidates,
+        key=lambda item: (item[0], item[1]),
+    )
+    return best_name, best_errors, best_preds, best_mae
 
 
 # ---------------------------------------------------------------------------
@@ -163,14 +441,16 @@ def _benjamini_hochberg(
 
     Only results with a non-``None`` p_value are considered.
     """
-    m = len(results)
-    if m == 0:
-        return results
-
     # Collect (original_index, result) for those with a p_value
     indexed: list[tuple[int, HypothesisResult]] = [
         (i, r) for i, r in enumerate(results) if r.p_value is not None
     ]
+    # FDR denominator m = number of tests WITH a p-value, not the total result
+    # count (blocked/all-null results without a p-value must not inflate m) (#12).
+    m = len(indexed)
+    if m == 0:
+        return results
+
     indexed.sort(key=lambda x: x[1].p_value)  # type: ignore[return-value]
 
     # largest k such that p_k <= (k/m) * alpha
@@ -211,9 +491,8 @@ def _compute_single_result(
             regime=regime, status="rejected", n_days=n_days,
         )
 
-    baseline_errors = np.array([d["baseline_error"] for d in day_data])
+    best_null_name, baseline_errors, baseline_preds, baseline_mae = _select_best_null(day_data)
     challenger_errors = np.array([d["challenger_error"] for d in day_data])
-    baseline_preds = np.array([d["baseline_pred"] for d in day_data])
     challenger_preds = np.array([d["challenger_pred"] for d in day_data])
     tmax_arr = np.array([d["tmax"] for d in day_data])
 
@@ -226,10 +505,9 @@ def _compute_single_result(
     p_value = _bootstrap_p_value(baseline_errors, challenger_errors, seed=seed)
 
     # Passes rule (frozen): ci95[0] > 0.0
-    passes = ci_lo > 0.0
+    passes = ci_lo > _SKILL_EPSILON
 
     # MAEs
-    baseline_mae = float(np.mean(baseline_errors))
     challenger_mae = float(np.mean(challenger_errors))
 
     # G4: corr_diff = r(model, truth) - r(baseline, truth)
@@ -250,7 +528,7 @@ def _compute_single_result(
         p50_mode_share=p50_mode,
         corr_diff=corr_diff,
         skill_ci_lo=ci_lo,
-        per_cp_passed=True,
+        per_cp_passed=challenger_mae < baseline_mae - _SKILL_EPSILON,
     )
 
     return HypothesisResult(
@@ -267,6 +545,8 @@ def _compute_single_result(
         gate_results=gates,
         n_days=n_days,
         status="pending",
+        best_null_name=best_null_name,
+        best_null_mae=baseline_mae,
     )
 
 
@@ -344,13 +624,6 @@ def validate_hypotheses(
     # ------------------------------------------------------------------
     blocked = dict(BLOCKED_FEATURES)
 
-    # Build set of non-blocked hyp ids for fast lookup
-    active_hyp_ids = {
-        h.id for h in hypotheses
-        if h.feature_column not in blocked
-        and h.feature_column in features.columns
-    }
-
     # ------------------------------------------------------------------
     # 4. Walk-forward accumulation
     #    per_day: {(hyp_id, cp_str) -> [day_record]}
@@ -368,25 +641,15 @@ def validate_hypotheses(
         if test_labels.height < 30:
             continue
 
-        # -- 4a. Per-CP baseline errors (L0 persistence) --
-        baseline_errors: dict[str, dict[dt.date, float]] = {}
-        baseline_preds: dict[str, dict[dt.date, float]] = {}
-        for cp_str in cp_set:
-            k_col = _kcp_col(cp_str)
-            cp_err: dict[dt.date, float] = {}
-            cp_pred: dict[dt.date, float] = {}
-            for row in test_labels.iter_rows(named=True):
-                d = row["date_local"]
-                kcp = row.get(k_col)
-                tmax = row["tmax_int"]
-                if kcp is None or tmax is None:
-                    continue
-                kcp_int = int(kcp)
-                tmax_int = int(tmax)
-                cp_pred[d] = float(kcp_int)
-                cp_err[d] = float(abs(kcp_int - tmax_int))
-            baseline_errors[cp_str] = cp_err
-            baseline_preds[cp_str] = cp_pred
+        # -- 4a. Per-CP null baselines, all fit on this split's train window --
+        null_predictions = _build_split_null_predictions(
+            labels_ok=labels_ok,
+            train_labels=train_labels,
+            test_labels=test_labels,
+            cp_set=cp_set,
+            split_train_start=split.train_start,
+            split_train_end=split.train_end,
+        )
 
         # -- 4b. For each active (hyp, CP), fit challenger --
         for hyp in hypotheses:
@@ -412,8 +675,6 @@ def validate_hypotheses(
                 )
                 if ols is None:
                     continue
-
-                intercept, slope = ols
 
                 # Test features with non-null feature
                 test_feats = features.filter(
@@ -442,21 +703,26 @@ def validate_hypotheses(
 
                     kcp_int = int(kcp)
                     tmax_int = int(tmax)
-                    pred_rw = intercept + slope * float(feat_val)
+                    pred_rw = ols.predict_remaining_warming(feat_val)
+                    if pred_rw is None:
+                        continue
                     pred_tmax = float(kcp_int) + pred_rw
                     challenger_error = float(abs(pred_tmax - tmax_int))
 
-                    # Get baseline error from precomputed dict
-                    baseline_err = baseline_errors.get(cp_str, {}).get(d)
-                    if baseline_err is None:
-                        baseline_err = float(abs(kcp_int - tmax_int))
-                    baseline_p = baseline_preds.get(cp_str, {}).get(d, float(kcp_int))
+                    nulls = null_predictions.get(cp_str, {}).get(d, {})
+                    l0 = nulls.get("L0_persistence")
+                    if l0 is None:
+                        l0 = {
+                            "pred": float(kcp_int),
+                            "error": float(abs(kcp_int - tmax_int)),
+                        }
 
                     per_day.setdefault(key, []).append({
                         "date": d,
                         "regime": regime,
-                        "baseline_pred": baseline_p,
-                        "baseline_error": baseline_err,
+                        "baseline_pred": l0["pred"],
+                        "baseline_error": l0["error"],
+                        "nulls": nulls,
                         "challenger_pred": pred_tmax,
                         "challenger_error": challenger_error,
                         "tmax": tmax_int,
@@ -586,6 +852,8 @@ def validate_hypotheses(
                 "ci_lo": r.ci_lo,
                 "ci_hi": r.ci_hi,
                 "p_value": r.p_value,
+                "best_null_name": r.best_null_name,
+                "best_null_mae": r.best_null_mae,
             }
             for r in validated
         ],
@@ -593,7 +861,7 @@ def validate_hypotheses(
             {"id": r.id, "feature_column": r.feature_column, "reason": r.blocked_reason}
             for r in blocked_list
         ],
-        "generated": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "generated": dt.datetime.now(dt.UTC).isoformat(),
         "alpha": alpha,
         "n_hypotheses_tested": max(0, len(all_results) - len(blocked_list)),
         "n_validated": len(validated),

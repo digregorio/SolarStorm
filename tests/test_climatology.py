@@ -1,5 +1,7 @@
 import datetime as dt
+
 import polars as pl
+
 from solarstorm.baselines._climatology import fit_climatology
 
 
@@ -15,7 +17,7 @@ def test_fit_climatology_doy_smoothing():
     rows = []
     for doy in range(1, 366):
         d = dt.date(2022, 1, 1) + dt.timedelta(days=doy - 1)
-        t = int(round(20 - 10 * __import__("math").sin((doy - 80) * 2 * 3.14159 / 365)))
+        t = round(20 - 10 * __import__("math").sin((doy - 80) * 2 * 3.14159 / 365))
         rows.append((d, t))
     labels = _make_label_rows(rows)
     climo = fit_climatology(

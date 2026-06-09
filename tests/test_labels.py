@@ -3,7 +3,10 @@ import datetime as dt
 import pytest
 
 from solarstorm.data._labels import (
-    build_tmax_labels, DayCompleteParams, remaining_warming, risco_de_flip,
+    DayCompleteParams,
+    build_tmax_labels,
+    remaining_warming,
+    risco_de_flip,
 )
 
 
@@ -33,8 +36,7 @@ def test_build_tmax_labels_emits_k_cp_for_each_checkpoint(sample_obs_calm_day):
         col = f"k_cp__cp_{cp_str.replace(':', '')}"
         assert col in row, f"missing column {col}"
         # k_cp should be the max integer temp before the CP
-        cp = cp_to_utc(d, cp_str, "Pacific/Auckland")
-        cp_hour = cp.hour
+        cp_to_utc(d, cp_str, "Pacific/Auckland")
         # For CP 20Z (8am NZST): temp ~8°C, k_cp should reflect that
         assert isinstance(row[col], int) or row[col] is None
 

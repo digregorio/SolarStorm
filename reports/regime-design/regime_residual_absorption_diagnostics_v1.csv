@@ -1,0 +1,7 @@
+diagnostic_item,status,detail,n_rows,production_status
+residual_row_count,WARN,351 v2 residual rows were evaluated for absorption.,351,EXPERIMENT_ONLY
+residual_low_confidence_share,WARN,0.937322 residual rows are low confidence.,329,EXPERIMENT_ONLY
+invalid_absorption_targets,PASS,0 residual rows lack a valid physical nearest alternative.,0,EXPERIMENT_ONLY
+absorbed_row_count,PASS,351 residual rows were absorbed into physical macros.,351,EXPERIMENT_ONLY
+v21_macro_count,PASS,2 v2.1 macros remain.,2,EXPERIMENT_ONLY
+production_status,PASS,v2.1 assignments remain NOT_PRODUCTION.,21824,EXPERIMENT_ONLY

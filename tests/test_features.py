@@ -13,15 +13,16 @@ from zoneinfo import ZoneInfo
 import polars as pl
 import pytest
 
-from solarstorm.features.builder import (
-    build_features,
-    build_coverage_manifest,
-    BLOCKED_FEATURES,
-)
 from solarstorm.eda._catalog import SEED_HYPOTHESES
+from solarstorm.features.builder import (
+    BLOCKED_FEATURES,
+    _obs_by_date,
+    build_coverage_manifest,
+    build_features,
+)
 
 TZ = ZoneInfo("Pacific/Auckland")
-UTC = dt.timezone.utc
+UTC = dt.UTC
 
 # ---------------------------------------------------------------------------
 # Test helpers — synthetic obs / labels
@@ -154,6 +155,19 @@ def test_build_features_returns_one_row_per_date_cp():
         )
 
     assert "regime_label" in result.columns
+
+
+def test_obs_by_date_partitions_once_by_local_date():
+    """Date partitions preserve local-day grouping without repeated global scans."""
+    dates = [dt.date(2025, 6, 15), dt.date(2025, 6, 16)]
+    obs = _make_obs(dates, [16, 18])
+
+    groups = _obs_by_date(obs)
+
+    assert list(groups) == dates
+    assert groups[dates[0]].height == 2
+    assert groups[dates[1]].height == 2
+    assert set(groups[dates[0]]["date_local"].to_list()) == {dates[0]}
 
 
 def test_post_cp_obs_do_not_leak():
@@ -294,6 +308,42 @@ def test_foehn_score_computation():
         score = row["foehn_score"].to_list()[0]
         # nw_flow_strength=18, mean_dwp_dep=8.0 → 144
         assert score is not None and score > 130, f"expected ~144, got {score}"
+
+
+def test_late_full_day_tmax_does_not_override_causal_regime_label():
+    """A late ex-post Tmax must not be injected into the CP regime feature."""
+    d = dt.date(2025, 6, 15)
+    rows = []
+    for local_hour, tmp in [(5, 10), (6, 11), (7, 12), (21, 21)]:
+        ts_local = dt.datetime(d.year, d.month, d.day, local_hour, tzinfo=TZ)
+        rows.append({
+            "valid": ts_local.astimezone(UTC),
+            "ts_local": ts_local,
+            "tmp_c_int": tmp,
+            "dwp_c_int": 8,
+            "dw_depression_c_int": tmp - 8,
+            "sknt": 10.0,
+            "drct": 330.0,
+            "alti": 30.00,
+            "p01i": 0.0,
+            "skyc1": "CLR",
+            "skyl1": None,
+            "skyc2": None,
+            "skyl2": None,
+            "skyc3": None,
+            "skyl3": None,
+            "skyc4": None,
+            "skyl4": None,
+            "wxcodes": None,
+            "dq_tmp_c_int": "ok",
+        })
+    obs = pl.DataFrame(rows)
+    labels = _make_labels([d], tmax=[21], tmax_hour=[21])
+
+    result = build_features(obs, labels)
+
+    assert set(result["regime_label"].to_list()) == {"standard_nw"}
+    assert "late_warming" not in set(result["regime_label"].to_list())
 
 
 def test_prefrontal_warming_window():

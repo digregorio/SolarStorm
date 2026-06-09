@@ -1,0 +1,6 @@
+method,candidate_version,macro_count,dead_regimes,protected_regression_flag,coverage_share,low_confidence_share,mean_entropy,mean_margin,classifiability_score,stability_score,interpretability_score,decision_update,production_status,notes
+distance_softmax_v2,v2,3,0,true,1.0,0.9317265395894428,1.3619983976780021,0.2820127208861567,-0.03468917828713762,0.5141972837862826,0.7,KEEP_IN_REGIME_DESIGN_REVIEW,EXPERIMENT_ONLY,Evaluation for distance_softmax_v2.
+distance_softmax_v22,v2.2,3,0,false,1.0,0.8225806451612904,1.2082276931552347,0.3302694596330814,0.053919325465834625,0.6154294479346255,0.9,BLOCK_ONDA_C_PROMOTION,EXPERIMENT_ONLY,Evaluation for distance_softmax_v22.
+train_only_gmm,v2.2,3,0,false,1.0,0.13700513196480937,0.24844773678868828,0.7905502011474923,0.09332420901508638,0.07991328465901584,0.9,BLOCK_ONDA_C_PROMOTION,EXPERIMENT_ONLY,Evaluation for train_only_gmm.
+som_topological,v2.2,3,0,false,1.0,0.0,0.0,0.8359658758726267,0.0974627786174116,0.523509298265365,0.9,BLOCK_ONDA_C_PROMOTION,EXPERIMENT_ONLY,Evaluation for som_topological.
+michelangeli_stability,v2.2,3,0,false,1.0,0.00018328445747800586,0.0,0.8359658758726267,0.0974627786174116,0.523509298265365,0.9,BLOCK_ONDA_C_PROMOTION,EXPERIMENT_ONLY,Evaluation for michelangeli_stability.

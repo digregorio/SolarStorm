@@ -1,0 +1,3402 @@
+[
+  {
+    "id": "H1",
+    "feature_column": "slope_3h",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H1",
+    "feature_column": "slope_3h",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.11110484897450035,
+    "ci_lo": 0.08777251105563667,
+    "ci_hi": 0.13502211925783492,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 1509,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.3085802683646388,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.1975 vs best_null_mae=1.3086"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1325"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0878 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H1",
+    "feature_column": "slope_3h",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": 0.0552509466297566,
+    "ci_lo": 0.0397996508768674,
+    "ci_hi": 0.0691782737520765,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.0497 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1037"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0398 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=22:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H1",
+    "feature_column": "slope_3h",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 0.042013956226293225,
+    "ci_lo": 0.034815349606290964,
+    "ci_hi": 0.049134419316587345,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=0.8826 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1064"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0348 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=23:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H2",
+    "feature_column": "hours_to_expected_peak",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H2",
+    "feature_column": "hours_to_expected_peak",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H2",
+    "feature_column": "hours_to_expected_peak",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H2",
+    "feature_column": "hours_to_expected_peak",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H3",
+    "feature_column": "regime_label",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": -0.0035593847820669655,
+    "ci_lo": -0.005998398216525296,
+    "ci_hi": -0.001046904067676358,
+    "p_value": 0.9973,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.6510 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1202"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0060 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=20:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H3",
+    "feature_column": "regime_label",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.002634049453779541,
+    "ci_lo": -0.0004796678358356231,
+    "ci_hi": 0.005772606636409031,
+    "p_value": 0.0436,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.4363 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1037"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0005 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H3",
+    "feature_column": "regime_label",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": -0.0013035824214040481,
+    "ci_lo": -0.004057436496139682,
+    "ci_hi": 0.0011903803213627487,
+    "p_value": 0.8385,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.1063 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1026"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0041 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=22:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H3",
+    "feature_column": "regime_label",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 0.002428071268430143,
+    "ci_lo": 0.0006159345920994213,
+    "ci_hi": 0.004162086487455713,
+    "p_value": 0.0036,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=0.9222 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1105"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0006 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=23:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H4",
+    "feature_column": "dewpoint_depression",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": -0.005975432610006104,
+    "ci_lo": -0.013265360086244654,
+    "ci_hi": 0.001118321864328435,
+    "p_value": 0.9444,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.6534 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1164"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0133 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=20:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H4",
+    "feature_column": "dewpoint_depression",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.013881634998825998,
+    "ci_lo": 0.007939023293333344,
+    "ci_hi": 0.020079544882722407,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.4251 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1020"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0079 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H4",
+    "feature_column": "dewpoint_depression",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": -0.00031755003986888575,
+    "ci_lo": -0.00453136513961786,
+    "ci_hi": 0.004212113652286769,
+    "p_value": 0.5579,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.1053 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1030"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0045 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=22:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H4",
+    "feature_column": "dewpoint_depression",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 0.0035290270700130133,
+    "ci_lo": 0.0007479441885612729,
+    "ci_hi": 0.006264462911332334,
+    "p_value": 0.0064,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=0.9211 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1105"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0007 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=23:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H5",
+    "feature_column": "tmax_dminus1",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": -0.004672457281656994,
+    "ci_lo": -0.011205132227673845,
+    "ci_hi": 0.0010369311264664934,
+    "p_value": 0.9384,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.6521 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1202"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0112 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=20:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H5",
+    "feature_column": "tmax_dminus1",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.001767293760687405,
+    "ci_lo": -3.64729594449941e-05,
+    "ci_hi": 0.003461460774695896,
+    "p_value": 0.0188,
+    "fdr_adjusted": true,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.4372 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.0913"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H5",
+    "feature_column": "tmax_dminus1",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": -0.00033185787409895084,
+    "ci_lo": -0.000654476952869476,
+    "ci_hi": -6.882721070361535e-06,
+    "p_value": 0.9785,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.1053 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1026"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0007 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=22:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H5",
+    "feature_column": "tmax_dminus1",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": -0.00015532817605568017,
+    "ci_lo": -0.00033786329917966096,
+    "ci_hi": 3.51865949159563e-05,
+    "p_value": 0.9447,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=0.9248 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1105"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0003 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=23:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H6",
+    "feature_column": "tmin_delta_tmax",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": 0.09679986850065925,
+    "ci_lo": 0.07229551964628521,
+    "ci_hi": 0.12255285492970838,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.5506 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1116"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0723 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=20:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H6",
+    "feature_column": "tmin_delta_tmax",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.10820872556937355,
+    "ci_lo": 0.09022516501090526,
+    "ci_hi": 0.12529742470278155,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.3308 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1040"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0902 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H6",
+    "feature_column": "tmin_delta_tmax",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": 0.024583867894483413,
+    "ci_lo": 0.012325023612438807,
+    "ci_hi": 0.03678742789626101,
+    "p_value": 0.0003,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.0804 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1047"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0123 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=22:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H6",
+    "feature_column": "tmin_delta_tmax",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 0.04330967583056933,
+    "ci_lo": 0.035901378430154646,
+    "ci_hi": 0.05094930637162594,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=0.8813 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1047"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0359 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=23:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H7",
+    "feature_column": "intraday_regime_change",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H7",
+    "feature_column": "intraday_regime_change",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H7",
+    "feature_column": "intraday_regime_change",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H7",
+    "feature_column": "intraday_regime_change",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H8",
+    "feature_column": "wind_dir_change_s_to_n",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": 0.0,
+    "ci_lo": -4.440892098500626e-16,
+    "ci_hi": 6.661338147750939e-16,
+    "p_value": 0.6298,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.6474 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1202"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=20:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H8",
+    "feature_column": "wind_dir_change_s_to_n",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": -6.661338147750939e-16,
+    "ci_lo": -6.661338147750939e-16,
+    "ci_hi": 0.0,
+    "p_value": 0.9967,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.4390 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1030"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=21:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H8",
+    "feature_column": "wind_dir_change_s_to_n",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": 0.0,
+    "ci_lo": -2.220446049250313e-16,
+    "ci_hi": 4.440892098500626e-16,
+    "p_value": 0.6941,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.1050 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1026"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=22:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H8",
+    "feature_column": "wind_dir_change_s_to_n",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 3.3306690738754696e-16,
+    "ci_lo": 1.1102230246251565e-16,
+    "ci_hi": 6.661338147750939e-16,
+    "p_value": 0.0188,
+    "fdr_adjusted": true,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=0.9246 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1105"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=23:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H9",
+    "feature_column": "day_sequence_pattern",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": -0.015580060041869404,
+    "ci_lo": -0.02094970403499552,
+    "ci_hi": -0.010226058619940187,
+    "p_value": 1.0,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.6630 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1202"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0209 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=20:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H9",
+    "feature_column": "day_sequence_pattern",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": -0.0006441476177834193,
+    "ci_lo": -0.0051023872820540545,
+    "ci_hi": 0.003889160763305597,
+    "p_value": 0.6118,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.4396 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1044"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0051 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=21:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H9",
+    "feature_column": "day_sequence_pattern",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": -0.005633578310728415,
+    "ci_lo": -0.008117090866833336,
+    "ci_hi": -0.002939155579309216,
+    "p_value": 1.0,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.1106 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1026"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0081 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=22:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H9",
+    "feature_column": "day_sequence_pattern",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": -0.0008076949379822729,
+    "ci_lo": -0.002936932926823765,
+    "ci_hi": 0.0012756927775072837,
+    "p_value": 0.7768,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=0.9254 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1105"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0029 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=23:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H10",
+    "feature_column": "precip_disruption",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": 0.1437309974917218,
+    "ci_lo": 0.11425591962981285,
+    "ci_hi": 0.17287091229169743,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.5037 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1064"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.1143 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=20:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H10",
+    "feature_column": "precip_disruption",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.1556972332369344,
+    "ci_lo": 0.13275449403301334,
+    "ci_hi": 0.17693474502700268,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.2833 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1071"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.1328 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H10",
+    "feature_column": "precip_disruption",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": 0.04395600906400987,
+    "ci_lo": 0.03027723283193628,
+    "ci_hi": 0.05808832085095863,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.0610 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1013"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0303 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=22:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H10",
+    "feature_column": "precip_disruption",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 0.04332590635470546,
+    "ci_lo": 0.03495898044718178,
+    "ci_hi": 0.05173004689266596,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=0.8813 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1016"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0350 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=23:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H11",
+    "feature_column": "tmax_hour_by_regime_month",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H11",
+    "feature_column": "tmax_hour_by_regime_month",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H11",
+    "feature_column": "tmax_hour_by_regime_month",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H11",
+    "feature_column": "tmax_hour_by_regime_month",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H12",
+    "feature_column": "cloud_cover_suppression",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": 0.05463208738739489,
+    "ci_lo": 0.035646171994994334,
+    "ci_hi": 0.07445277348657814,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2584,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.5414196999562486,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.4868 vs best_null_mae=1.5414"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1184"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0356 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=20:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H12",
+    "feature_column": "cloud_cover_suppression",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.086377130293958,
+    "ci_lo": 0.07272896745663743,
+    "ci_hi": 0.10098666022692636,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2623,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.3632540758664582,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.2769 vs best_null_mae=1.3633"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1144"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0727 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H12",
+    "feature_column": "cloud_cover_suppression",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": 0.004220891374405733,
+    "ci_lo": -0.0027317297511597885,
+    "ci_hi": 0.012500870378014726,
+    "p_value": 0.1406,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2654,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.065814470405156,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.0616 vs best_null_mae=1.0658"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1051"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0027 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=22:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H12",
+    "feature_column": "cloud_cover_suppression",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 0.02354434223635371,
+    "ci_lo": 0.020398919560141605,
+    "ci_hi": 0.026679031518610192,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2681,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.913684380018094,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=0.8901 vs best_null_mae=0.9137"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1104"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0204 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=23:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H13",
+    "feature_column": "pressure_trend_3h",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H13",
+    "feature_column": "pressure_trend_3h",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": -0.02386979549166024,
+    "ci_lo": -0.09715459995027934,
+    "ci_hi": 0.0066763218932004,
+    "p_value": 0.7701,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 1509,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.3085802683646388,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.3325 vs best_null_mae=1.3086"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1484"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0972 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=21:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H13",
+    "feature_column": "pressure_trend_3h",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": -0.02876920109158876,
+    "ci_lo": -0.07432413652918962,
+    "ci_hi": 0.0017393563240741686,
+    "p_value": 0.9525,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.1337 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1020"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0743 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=22:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H13",
+    "feature_column": "pressure_trend_3h",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": -0.01764227838085053,
+    "ci_lo": -0.04690976666150239,
+    "ci_hi": 0.002195870588899281,
+    "p_value": 0.9452,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=0.9423 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1095"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0469 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=23:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H14",
+    "feature_column": "foehn_score",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": -0.015649412128981632,
+    "ci_lo": -0.021532737873247797,
+    "ci_hi": -0.009243551339958713,
+    "p_value": 1.0,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.6630 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1205"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0215 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=20:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H14",
+    "feature_column": "foehn_score",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.008823500291248454,
+    "ci_lo": 0.0025925951874984556,
+    "ci_hi": 0.015804864965222397,
+    "p_value": 0.0035,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.4301 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1047"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0026 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H14",
+    "feature_column": "foehn_score",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": -0.0054659044100757725,
+    "ci_lo": -0.010677171470447437,
+    "ci_hi": 0.00018167274501411566,
+    "p_value": 0.9757,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.1104 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1037"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0107 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=22:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H14",
+    "feature_column": "foehn_score",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 0.006868902350367856,
+    "ci_lo": 0.002468145606373182,
+    "ci_hi": 0.011540420629853144,
+    "p_value": 0.0017,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=0.9177 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1105"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0025 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=23:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H15",
+    "feature_column": "late_warming_anomaly",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H15",
+    "feature_column": "late_warming_anomaly",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H15",
+    "feature_column": "late_warming_anomaly",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H15",
+    "feature_column": "late_warming_anomaly",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H16",
+    "feature_column": "regime_score_argmax",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": -0.0035593847820669655,
+    "ci_lo": -0.005998398216525296,
+    "ci_hi": -0.001046904067676358,
+    "p_value": 0.9973,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.6510 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1202"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0060 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=20:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H16",
+    "feature_column": "regime_score_argmax",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.002634049453779541,
+    "ci_lo": -0.0004796678358356231,
+    "ci_hi": 0.005772606636409031,
+    "p_value": 0.0436,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.4363 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1037"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0005 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H16",
+    "feature_column": "regime_score_argmax",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": -0.0013035824214040481,
+    "ci_lo": -0.004057436496139682,
+    "ci_hi": 0.0011903803213627487,
+    "p_value": 0.8385,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.1063 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1026"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0041 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=22:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H16",
+    "feature_column": "regime_score_argmax",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 0.002428071268430143,
+    "ci_lo": 0.0006159345920994213,
+    "ci_hi": 0.004162086487455713,
+    "p_value": 0.0036,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=0.9222 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1105"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0006 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=23:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H17",
+    "feature_column": "warming_rate_06_09",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H17",
+    "feature_column": "warming_rate_06_09",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.11110484897450035,
+    "ci_lo": 0.08777251105563667,
+    "ci_hi": 0.13502211925783492,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 1509,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.3085802683646388,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.1975 vs best_null_mae=1.3086"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1325"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0878 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H17",
+    "feature_column": "warming_rate_06_09",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": 0.0552509466297566,
+    "ci_lo": 0.0397996508768674,
+    "ci_hi": 0.0691782737520765,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.0497 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1037"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0398 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=22:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H17",
+    "feature_column": "warming_rate_06_09",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 0.042013956226293225,
+    "ci_lo": 0.034815349606290964,
+    "ci_hi": 0.049134419316587345,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=0.8826 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1064"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0348 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=23:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H18",
+    "feature_column": "nocturnal_plateau_flag",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": 0.0,
+    "ci_lo": -4.440892098500626e-16,
+    "ci_hi": 6.661338147750939e-16,
+    "p_value": 0.6298,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.6474 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1202"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=20:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H18",
+    "feature_column": "nocturnal_plateau_flag",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": -6.661338147750939e-16,
+    "ci_lo": -6.661338147750939e-16,
+    "ci_hi": 0.0,
+    "p_value": 0.9967,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.4390 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1030"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=21:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H18",
+    "feature_column": "nocturnal_plateau_flag",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": 0.0,
+    "ci_lo": -2.220446049250313e-16,
+    "ci_hi": 4.440892098500626e-16,
+    "p_value": 0.6941,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.1050 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1026"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=22:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H18",
+    "feature_column": "nocturnal_plateau_flag",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 3.3306690738754696e-16,
+    "ci_lo": 1.1102230246251565e-16,
+    "ci_hi": 6.661338147750939e-16,
+    "p_value": 0.0188,
+    "fdr_adjusted": true,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=0.9246 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1105"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=23:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H19",
+    "feature_column": "sst_maritime_cap",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "BLOCKED",
+    "blocked_reason": "Requires Cook Strait SST \u2014 no METAR source available (H19)",
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H19",
+    "feature_column": "sst_maritime_cap",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "BLOCKED",
+    "blocked_reason": "Requires Cook Strait SST \u2014 no METAR source available (H19)",
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H19",
+    "feature_column": "sst_maritime_cap",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "BLOCKED",
+    "blocked_reason": "Requires Cook Strait SST \u2014 no METAR source available (H19)",
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H19",
+    "feature_column": "sst_maritime_cap",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "BLOCKED",
+    "blocked_reason": "Requires Cook Strait SST \u2014 no METAR source available (H19)",
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H20",
+    "feature_column": "dewpoint_collapse_rate_3h",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "p_value": null,
+    "fdr_adjusted": false,
+    "passes": null,
+    "n_days": 0,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": null,
+    "best_null_mae": null
+  },
+  {
+    "id": "H20",
+    "feature_column": "dewpoint_collapse_rate_3h",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.05489800971058356,
+    "ci_lo": 0.03547004321982433,
+    "ci_hi": 0.07365941341091516,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 1509,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.3085802683646388,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.2537 vs best_null_mae=1.3086"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1378"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0355 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H20",
+    "feature_column": "dewpoint_collapse_rate_3h",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": 0.018120691863825922,
+    "ci_lo": 0.005784279961897278,
+    "ci_hi": 0.03079463150661914,
+    "p_value": 0.0026,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.0868 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1068"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0058 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=22:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H20",
+    "feature_column": "dewpoint_collapse_rate_3h",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 0.028032021677834806,
+    "ci_lo": 0.020608388811723784,
+    "ci_hi": 0.03594932670619913,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2913,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=0.8966 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1085"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0206 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=23:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H21",
+    "feature_column": "prefrontal_warming_window",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": 0.0,
+    "ci_lo": -4.440892098500626e-16,
+    "ci_hi": 6.661338147750939e-16,
+    "p_value": 0.6298,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.6474 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1202"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=20:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H21",
+    "feature_column": "prefrontal_warming_window",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": -0.00036885782266371514,
+    "ci_lo": -0.0010651848532201912,
+    "ci_hi": 0.0003627434370043425,
+    "p_value": 0.8353,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.4393 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1044"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0011 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=21:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H21",
+    "feature_column": "prefrontal_warming_window",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": 0.00021536800426669167,
+    "ci_lo": -0.0022718938874482174,
+    "ci_hi": 0.0026602287528426083,
+    "p_value": 0.4387,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.1047 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1026"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0023 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=22:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H21",
+    "feature_column": "prefrontal_warming_window",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": -5.040817929946595e-05,
+    "ci_lo": -0.001604361347358637,
+    "ci_hi": 0.0015340184440411936,
+    "p_value": 0.5254,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=0.9247 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1105"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0016 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=23:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H22",
+    "feature_column": "nw_sector_not_foehn",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": 0.0,
+    "ci_lo": -4.440892098500626e-16,
+    "ci_hi": 6.661338147750939e-16,
+    "p_value": 0.6298,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.6473970809310723,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.6474 vs best_null_mae=1.6474"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1202"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=20:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H22",
+    "feature_column": "nw_sector_not_foehn",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": -6.661338147750939e-16,
+    "ci_lo": -6.661338147750939e-16,
+    "ci_hi": 0.0,
+    "p_value": 0.9967,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.4389710439557697,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.4390 vs best_null_mae=1.4390"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1030"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=21:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H22",
+    "feature_column": "nw_sector_not_foehn",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": 0.0,
+    "ci_lo": -2.220446049250313e-16,
+    "ci_hi": 4.440892098500626e-16,
+    "p_value": 0.6941,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.104956189837483,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.1050 vs best_null_mae=1.1050"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1026"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=22:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H22",
+    "feature_column": "nw_sector_not_foehn",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 3.3306690738754696e-16,
+    "ci_lo": 1.1102230246251565e-16,
+    "ci_hi": 6.661338147750939e-16,
+    "p_value": 0.0188,
+    "fdr_adjusted": true,
+    "passes": false,
+    "n_days": 2913,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.9246119177917839,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=0.9246 vs best_null_mae=0.9246"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1105"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0000 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=23:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H23",
+    "feature_column": "cloud_base_transparency",
+    "cp": "20:00",
+    "regime": "all",
+    "effect_size": -3.522344484019335e-05,
+    "ci_lo": -0.00919397723850027,
+    "ci_hi": 0.009464229039826244,
+    "p_value": 0.4984,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2584,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.5414196999562486,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.5415 vs best_null_mae=1.5414"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1246"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0092 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=20:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H23",
+    "feature_column": "cloud_base_transparency",
+    "cp": "21:00",
+    "regime": "all",
+    "effect_size": 0.032605682434330596,
+    "ci_lo": 0.025208752608006396,
+    "ci_hi": 0.038911088282141106,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2623,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.3632540758664582,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=1.3306 vs best_null_mae=1.3633"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1064"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0252 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=21:00: beats null"
+      }
+    }
+  },
+  {
+    "id": "H23",
+    "feature_column": "cloud_base_transparency",
+    "cp": "22:00",
+    "regime": "all",
+    "effect_size": -0.00969815535856644,
+    "ci_lo": -0.013644694286933462,
+    "ci_hi": -0.005500047215281046,
+    "p_value": 1.0,
+    "fdr_adjusted": false,
+    "passes": false,
+    "n_days": 2654,
+    "status": "rejected",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 1.065814470405156,
+    "gates": {
+      "G1": {
+        "passed": false,
+        "status": "KILL",
+        "detail": "model_mae=1.0755 vs best_null_mae=1.0658"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1051"
+      },
+      "G4": {
+        "passed": false,
+        "status": "NOWCAST_SUSPECT",
+        "detail": "morning CP \u2014 MAE skill CI lo=-0.0136 (NOWCAST_SUSPECT \u2014 CI includes zero)"
+      },
+      "G5": {
+        "passed": false,
+        "status": "STAY_OUT",
+        "detail": "CP=22:00: loses to null \u2192 stay_out"
+      }
+    }
+  },
+  {
+    "id": "H23",
+    "feature_column": "cloud_base_transparency",
+    "cp": "23:00",
+    "regime": "all",
+    "effect_size": 0.01681801692639029,
+    "ci_lo": 0.01479408573126347,
+    "ci_hi": 0.01896912036318988,
+    "p_value": 0.0001,
+    "fdr_adjusted": true,
+    "passes": true,
+    "n_days": 2681,
+    "status": "validated",
+    "blocked_reason": null,
+    "best_null_name": "calibrated_cp_mean_rw",
+    "best_null_mae": 0.913684380018094,
+    "gates": {
+      "G1": {
+        "passed": true,
+        "status": "OK",
+        "detail": "model_mae=0.8969 vs best_null_mae=0.9137"
+      },
+      "G2": {
+        "passed": true,
+        "status": "OK",
+        "detail": "fallback_rate=0.0000"
+      },
+      "G3": {
+        "passed": true,
+        "status": "OK",
+        "detail": "p50_mode_share=0.1089"
+      },
+      "G4": {
+        "passed": true,
+        "status": "OK",
+        "detail": "morning CP \u2014 MAE skill CI lo=0.0148 (OK)"
+      },
+      "G5": {
+        "passed": true,
+        "status": "OK",
+        "detail": "CP=23:00: beats null"
+      }
+    }
+  }
+]

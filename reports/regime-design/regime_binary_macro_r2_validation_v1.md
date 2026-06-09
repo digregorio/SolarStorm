@@ -1,0 +1,203 @@
+# Regime Binary Macro R2 Validation Report - 2026-06-09
+
+This is an experiment-only candidate validation report.
+Status: `EXPERIMENT_ONLY`; no production assets are modified.
+
+- **Gate Decision Status**: `READY_FOR_ONDA3_DESIGN_REVIEW`
+- **Rationale**: Binary macro candidate validated (apto para design review com ressalva). R2 passed for both macros, but macro_non_southerly has weak sensitivity (passes 3/92 hypothesis rows vs 47/92 for macro_southerly_flow). Stability score: 0.8089 (>= 0.7). Predictive classifiability (AUC-ROC): 0.9886 (>= 0.80).
+
+## CEXP-002B Causal R2 Robustness Gate Check
+
+| Macro | R2 Status |
+|---|---|
+| macro_southerly_flow | **PASS** |
+| macro_non_southerly | **PASS** |
+
+## Hypothesis R2 Screening Detail
+
+| Regime | Hypothesis ID | Feature Column | CP | Passes | N Days | Status |
+|---|---|---|---|---|---:|---|
+| macro_non_southerly | H1 | slope_3h | 20:00 | False | 0 | rejected |
+| macro_non_southerly | H10 | precip_disruption | 20:00 | False | 255 | rejected |
+| macro_non_southerly | H11 | tmax_hour_by_regime_month | 20:00 | False | 0 | rejected |
+| macro_non_southerly | H12 | cloud_cover_suppression | 20:00 | False | 214 | rejected |
+| macro_non_southerly | H13 | pressure_trend_3h | 20:00 | False | 0 | rejected |
+| macro_non_southerly | H14 | foehn_score | 20:00 | False | 255 | rejected |
+| macro_non_southerly | H15 | late_warming_anomaly | 20:00 | False | 0 | rejected |
+| macro_non_southerly | H16 | regime_score_argmax | 20:00 | False | 255 | rejected |
+| macro_non_southerly | H17 | warming_rate_06_09 | 20:00 | False | 0 | rejected |
+| macro_non_southerly | H18 | nocturnal_plateau_flag | 20:00 | False | 255 | rejected |
+| macro_non_southerly | H19 | sst_maritime_cap | 20:00 | False | 0 | BLOCKED |
+| macro_non_southerly | H2 | hours_to_expected_peak | 20:00 | False | 0 | rejected |
+| macro_non_southerly | H20 | dewpoint_collapse_rate_3h | 20:00 | False | 0 | rejected |
+| macro_non_southerly | H21 | prefrontal_warming_window | 20:00 | False | 255 | rejected |
+| macro_non_southerly | H22 | nw_sector_not_foehn | 20:00 | False | 255 | rejected |
+| macro_non_southerly | H23 | cloud_base_transparency | 20:00 | False | 214 | rejected |
+| macro_non_southerly | H3 | regime_label | 20:00 | False | 0 | rejected |
+| macro_non_southerly | H4 | dewpoint_depression | 20:00 | False | 255 | rejected |
+| macro_non_southerly | H5 | tmax_dminus1 | 20:00 | False | 255 | rejected |
+| macro_non_southerly | H6 | tmin_delta_tmax | 20:00 | False | 255 | rejected |
+| macro_non_southerly | H7 | intraday_regime_change | 20:00 | False | 0 | rejected |
+| macro_non_southerly | H8 | wind_dir_change_s_to_n | 20:00 | False | 255 | rejected |
+| macro_non_southerly | H9 | day_sequence_pattern | 20:00 | False | 255 | rejected |
+| macro_non_southerly | H1 | slope_3h | 21:00 | False | 135 | rejected |
+| macro_non_southerly | H10 | precip_disruption | 21:00 | True | 255 | validated |
+| macro_non_southerly | H11 | tmax_hour_by_regime_month | 21:00 | False | 0 | rejected |
+| macro_non_southerly | H12 | cloud_cover_suppression | 21:00 | False | 217 | rejected |
+| macro_non_southerly | H13 | pressure_trend_3h | 21:00 | False | 135 | rejected |
+| macro_non_southerly | H14 | foehn_score | 21:00 | False | 255 | rejected |
+| macro_non_southerly | H15 | late_warming_anomaly | 21:00 | False | 0 | rejected |
+| macro_non_southerly | H16 | regime_score_argmax | 21:00 | False | 255 | rejected |
+| macro_non_southerly | H17 | warming_rate_06_09 | 21:00 | False | 135 | rejected |
+| macro_non_southerly | H18 | nocturnal_plateau_flag | 21:00 | False | 255 | rejected |
+| macro_non_southerly | H19 | sst_maritime_cap | 21:00 | False | 0 | BLOCKED |
+| macro_non_southerly | H2 | hours_to_expected_peak | 21:00 | False | 0 | rejected |
+| macro_non_southerly | H20 | dewpoint_collapse_rate_3h | 21:00 | False | 135 | rejected |
+| macro_non_southerly | H21 | prefrontal_warming_window | 21:00 | False | 255 | rejected |
+| macro_non_southerly | H22 | nw_sector_not_foehn | 21:00 | False | 255 | rejected |
+| macro_non_southerly | H23 | cloud_base_transparency | 21:00 | False | 217 | rejected |
+| macro_non_southerly | H3 | regime_label | 21:00 | False | 0 | rejected |
+| macro_non_southerly | H4 | dewpoint_depression | 21:00 | False | 255 | rejected |
+| macro_non_southerly | H5 | tmax_dminus1 | 21:00 | False | 255 | rejected |
+| macro_non_southerly | H6 | tmin_delta_tmax | 21:00 | True | 255 | validated |
+| macro_non_southerly | H7 | intraday_regime_change | 21:00 | False | 0 | rejected |
+| macro_non_southerly | H8 | wind_dir_change_s_to_n | 21:00 | False | 255 | rejected |
+| macro_non_southerly | H9 | day_sequence_pattern | 21:00 | False | 255 | rejected |
+| macro_non_southerly | H1 | slope_3h | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H10 | precip_disruption | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H11 | tmax_hour_by_regime_month | 22:00 | False | 0 | rejected |
+| macro_non_southerly | H12 | cloud_cover_suppression | 22:00 | False | 220 | rejected |
+| macro_non_southerly | H13 | pressure_trend_3h | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H14 | foehn_score | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H15 | late_warming_anomaly | 22:00 | False | 0 | rejected |
+| macro_non_southerly | H16 | regime_score_argmax | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H17 | warming_rate_06_09 | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H18 | nocturnal_plateau_flag | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H19 | sst_maritime_cap | 22:00 | False | 0 | BLOCKED |
+| macro_non_southerly | H2 | hours_to_expected_peak | 22:00 | False | 0 | rejected |
+| macro_non_southerly | H20 | dewpoint_collapse_rate_3h | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H21 | prefrontal_warming_window | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H22 | nw_sector_not_foehn | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H23 | cloud_base_transparency | 22:00 | True | 220 | validated |
+| macro_non_southerly | H3 | regime_label | 22:00 | False | 0 | rejected |
+| macro_non_southerly | H4 | dewpoint_depression | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H5 | tmax_dminus1 | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H6 | tmin_delta_tmax | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H7 | intraday_regime_change | 22:00 | False | 0 | rejected |
+| macro_non_southerly | H8 | wind_dir_change_s_to_n | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H9 | day_sequence_pattern | 22:00 | False | 255 | rejected |
+| macro_non_southerly | H1 | slope_3h | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H10 | precip_disruption | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H11 | tmax_hour_by_regime_month | 23:00 | False | 0 | rejected |
+| macro_non_southerly | H12 | cloud_cover_suppression | 23:00 | False | 223 | rejected |
+| macro_non_southerly | H13 | pressure_trend_3h | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H14 | foehn_score | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H15 | late_warming_anomaly | 23:00 | False | 0 | rejected |
+| macro_non_southerly | H16 | regime_score_argmax | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H17 | warming_rate_06_09 | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H18 | nocturnal_plateau_flag | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H19 | sst_maritime_cap | 23:00 | False | 0 | BLOCKED |
+| macro_non_southerly | H2 | hours_to_expected_peak | 23:00 | False | 0 | rejected |
+| macro_non_southerly | H20 | dewpoint_collapse_rate_3h | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H21 | prefrontal_warming_window | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H22 | nw_sector_not_foehn | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H23 | cloud_base_transparency | 23:00 | False | 223 | rejected |
+| macro_non_southerly | H3 | regime_label | 23:00 | False | 0 | rejected |
+| macro_non_southerly | H4 | dewpoint_depression | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H5 | tmax_dminus1 | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H6 | tmin_delta_tmax | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H7 | intraday_regime_change | 23:00 | False | 0 | rejected |
+| macro_non_southerly | H8 | wind_dir_change_s_to_n | 23:00 | False | 255 | rejected |
+| macro_non_southerly | H9 | day_sequence_pattern | 23:00 | False | 255 | rejected |
+| macro_southerly_flow | H1 | slope_3h | 20:00 | False | 0 | rejected |
+| macro_southerly_flow | H10 | precip_disruption | 20:00 | True | 110 | validated |
+| macro_southerly_flow | H11 | tmax_hour_by_regime_month | 20:00 | False | 0 | rejected |
+| macro_southerly_flow | H12 | cloud_cover_suppression | 20:00 | True | 107 | validated |
+| macro_southerly_flow | H13 | pressure_trend_3h | 20:00 | False | 0 | rejected |
+| macro_southerly_flow | H14 | foehn_score | 20:00 | True | 110 | validated |
+| macro_southerly_flow | H15 | late_warming_anomaly | 20:00 | False | 0 | rejected |
+| macro_southerly_flow | H16 | regime_score_argmax | 20:00 | True | 110 | validated |
+| macro_southerly_flow | H17 | warming_rate_06_09 | 20:00 | False | 0 | rejected |
+| macro_southerly_flow | H18 | nocturnal_plateau_flag | 20:00 | True | 110 | validated |
+| macro_southerly_flow | H19 | sst_maritime_cap | 20:00 | False | 0 | BLOCKED |
+| macro_southerly_flow | H2 | hours_to_expected_peak | 20:00 | False | 0 | rejected |
+| macro_southerly_flow | H20 | dewpoint_collapse_rate_3h | 20:00 | False | 0 | rejected |
+| macro_southerly_flow | H21 | prefrontal_warming_window | 20:00 | True | 110 | validated |
+| macro_southerly_flow | H22 | nw_sector_not_foehn | 20:00 | True | 110 | validated |
+| macro_southerly_flow | H23 | cloud_base_transparency | 20:00 | True | 107 | validated |
+| macro_southerly_flow | H3 | regime_label | 20:00 | False | 0 | rejected |
+| macro_southerly_flow | H4 | dewpoint_depression | 20:00 | True | 110 | validated |
+| macro_southerly_flow | H5 | tmax_dminus1 | 20:00 | True | 110 | validated |
+| macro_southerly_flow | H6 | tmin_delta_tmax | 20:00 | True | 110 | validated |
+| macro_southerly_flow | H7 | intraday_regime_change | 20:00 | False | 0 | rejected |
+| macro_southerly_flow | H8 | wind_dir_change_s_to_n | 20:00 | True | 110 | validated |
+| macro_southerly_flow | H9 | day_sequence_pattern | 20:00 | True | 110 | validated |
+| macro_southerly_flow | H1 | slope_3h | 21:00 | True | 55 | validated |
+| macro_southerly_flow | H10 | precip_disruption | 21:00 | True | 110 | validated |
+| macro_southerly_flow | H11 | tmax_hour_by_regime_month | 21:00 | False | 0 | rejected |
+| macro_southerly_flow | H12 | cloud_cover_suppression | 21:00 | True | 108 | validated |
+| macro_southerly_flow | H13 | pressure_trend_3h | 21:00 | True | 55 | validated |
+| macro_southerly_flow | H14 | foehn_score | 21:00 | True | 110 | validated |
+| macro_southerly_flow | H15 | late_warming_anomaly | 21:00 | False | 0 | rejected |
+| macro_southerly_flow | H16 | regime_score_argmax | 21:00 | True | 110 | validated |
+| macro_southerly_flow | H17 | warming_rate_06_09 | 21:00 | True | 55 | validated |
+| macro_southerly_flow | H18 | nocturnal_plateau_flag | 21:00 | True | 110 | validated |
+| macro_southerly_flow | H19 | sst_maritime_cap | 21:00 | False | 0 | BLOCKED |
+| macro_southerly_flow | H2 | hours_to_expected_peak | 21:00 | False | 0 | rejected |
+| macro_southerly_flow | H20 | dewpoint_collapse_rate_3h | 21:00 | True | 55 | validated |
+| macro_southerly_flow | H21 | prefrontal_warming_window | 21:00 | True | 110 | validated |
+| macro_southerly_flow | H22 | nw_sector_not_foehn | 21:00 | True | 110 | validated |
+| macro_southerly_flow | H23 | cloud_base_transparency | 21:00 | True | 108 | validated |
+| macro_southerly_flow | H3 | regime_label | 21:00 | False | 0 | rejected |
+| macro_southerly_flow | H4 | dewpoint_depression | 21:00 | True | 110 | validated |
+| macro_southerly_flow | H5 | tmax_dminus1 | 21:00 | True | 110 | validated |
+| macro_southerly_flow | H6 | tmin_delta_tmax | 21:00 | True | 110 | validated |
+| macro_southerly_flow | H7 | intraday_regime_change | 21:00 | False | 0 | rejected |
+| macro_southerly_flow | H8 | wind_dir_change_s_to_n | 21:00 | True | 110 | validated |
+| macro_southerly_flow | H9 | day_sequence_pattern | 21:00 | True | 110 | validated |
+| macro_southerly_flow | H1 | slope_3h | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H10 | precip_disruption | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H11 | tmax_hour_by_regime_month | 22:00 | False | 0 | rejected |
+| macro_southerly_flow | H12 | cloud_cover_suppression | 22:00 | True | 108 | validated |
+| macro_southerly_flow | H13 | pressure_trend_3h | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H14 | foehn_score | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H15 | late_warming_anomaly | 22:00 | False | 0 | rejected |
+| macro_southerly_flow | H16 | regime_score_argmax | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H17 | warming_rate_06_09 | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H18 | nocturnal_plateau_flag | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H19 | sst_maritime_cap | 22:00 | False | 0 | BLOCKED |
+| macro_southerly_flow | H2 | hours_to_expected_peak | 22:00 | False | 0 | rejected |
+| macro_southerly_flow | H20 | dewpoint_collapse_rate_3h | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H21 | prefrontal_warming_window | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H22 | nw_sector_not_foehn | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H23 | cloud_base_transparency | 22:00 | True | 108 | validated |
+| macro_southerly_flow | H3 | regime_label | 22:00 | False | 0 | rejected |
+| macro_southerly_flow | H4 | dewpoint_depression | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H5 | tmax_dminus1 | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H6 | tmin_delta_tmax | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H7 | intraday_regime_change | 22:00 | False | 0 | rejected |
+| macro_southerly_flow | H8 | wind_dir_change_s_to_n | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H9 | day_sequence_pattern | 22:00 | True | 110 | validated |
+| macro_southerly_flow | H1 | slope_3h | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H10 | precip_disruption | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H11 | tmax_hour_by_regime_month | 23:00 | False | 0 | rejected |
+| macro_southerly_flow | H12 | cloud_cover_suppression | 23:00 | False | 108 | rejected |
+| macro_southerly_flow | H13 | pressure_trend_3h | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H14 | foehn_score | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H15 | late_warming_anomaly | 23:00 | False | 0 | rejected |
+| macro_southerly_flow | H16 | regime_score_argmax | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H17 | warming_rate_06_09 | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H18 | nocturnal_plateau_flag | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H19 | sst_maritime_cap | 23:00 | False | 0 | BLOCKED |
+| macro_southerly_flow | H2 | hours_to_expected_peak | 23:00 | False | 0 | rejected |
+| macro_southerly_flow | H20 | dewpoint_collapse_rate_3h | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H21 | prefrontal_warming_window | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H22 | nw_sector_not_foehn | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H23 | cloud_base_transparency | 23:00 | False | 108 | rejected |
+| macro_southerly_flow | H3 | regime_label | 23:00 | False | 0 | rejected |
+| macro_southerly_flow | H4 | dewpoint_depression | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H5 | tmax_dminus1 | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H6 | tmin_delta_tmax | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H7 | intraday_regime_change | 23:00 | False | 0 | rejected |
+| macro_southerly_flow | H8 | wind_dir_change_s_to_n | 23:00 | False | 110 | rejected |
+| macro_southerly_flow | H9 | day_sequence_pattern | 23:00 | False | 110 | rejected |

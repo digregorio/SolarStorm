@@ -36,7 +36,8 @@ The temperature parsed from METAR is validated against plausibility bounds: `TMP
 
 ### Enabled
 - Direct compliance with Polymarket settlement rules.
-- `risco_de_flip` enables risk-aware position sizing: a forecast at 18.5 has zero flip risk; a forecast at 18.0 has 0.5.
+- `risco_de_flip` preserves bracket-boundary risk for future uncertainty-aware
+  modeling. It does not authorize position sizing before the model gate passes.
 - Auditable trace from METAR text to binary settlement outcome.
 
 ### Prevents

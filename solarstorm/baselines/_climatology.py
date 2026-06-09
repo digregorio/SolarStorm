@@ -1,4 +1,4 @@
-"""Climatology baselines: DOY-smoothed mean, CP×month, Tmax-hour distribution."""
+"""Climatology baselines: DOY-smoothed mean, CP x month, Tmax-hour distribution."""
 from __future__ import annotations
 
 import datetime as dt

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "WCT-PRES-008",
+    "domain": "PRES",
+    "claim": "Pressure gradient across Cook Strait (proxy: difference in QNH tendency between NZWN and synoptic neighbors) drives the northerly jet strength; this blocked thesis requires additional station data",
+    "key_strata": "BLOCKED \u2014 requires 2nd station",
+    "status": "E0_candidate",
+    "source_section": "Quick-Reference Registry",
+    "registry_complete": true,
+    "priority": 1,
+    "testability": "blocked_external_data",
+    "testability_reason": "Requires data not currently in obs/labels/features."
+  },
+  {
+    "id": "WCT-GAP-014",
+    "domain": "GAP",
+    "claim": "No quantification of Cook Strait channeling speed amplification; airport speed may not represent the regional NW; all speed thresholds may be airport-specific",
+    "key_strata": "Site calibration gap",
+    "status": "E0_candidate",
+    "source_section": "DOMAIN: GAP \u2014 50 Additional Gap Theses",
+    "registry_complete": true,
+    "priority": 3,
+    "testability": "blocked_external_data",
+    "testability_reason": "Requires data not currently in obs/labels/features."
+  },
+  {
+    "id": "WCT-GAP-024",
+    "domain": "GAP",
+    "claim": "ENSO/IOD effects on Wellington Tmax are not registered; interannual variability from ENSO may explain long-term residuals",
+    "key_strata": "BLOCKED \u2014 requires ENSO index",
+    "status": "E0_candidate",
+    "source_section": "DOMAIN: GAP \u2014 50 Additional Gap Theses",
+    "registry_complete": true,
+    "priority": 3,
+    "testability": "blocked_external_data",
+    "testability_reason": "Requires data not currently in obs/labels/features."
+  },
+  {
+    "id": "WCT-GAP-025",
+    "domain": "GAP",
+    "claim": "No quantification of the physical Tmax ceiling effect (SST cap, mixing cap, urban heat island absence); upper bounds on Tmax by month and regime are not defined",
+    "key_strata": "Missing upper bound study",
+    "status": "E0_candidate",
+    "source_section": "DOMAIN: GAP \u2014 50 Additional Gap Theses",
+    "registry_complete": true,
+    "priority": 3,
+    "testability": "blocked_external_data",
+    "testability_reason": "Requires data not currently in obs/labels/features."
+  },
+  {
+    "id": "WCT-GAP-031",
+    "domain": "GAP",
+    "claim": "No study of convective days (summer afternoon thunderstorm); convective initiation effectively limits Tmax by vertical mixing and cloud shading",
+    "key_strata": "Missing event type",
+    "status": "E0_candidate",
+    "source_section": "DOMAIN: GAP \u2014 50 Additional Gap Theses",
+    "registry_complete": true,
+    "priority": 3,
+    "testability": "blocked_external_data",
+    "testability_reason": "Requires data not currently in obs/labels/features."
+  },
+  {
+    "id": "WCT-GAP-047",
+    "domain": "GAP",
+    "claim": "No analysis of temperature inversion strength at dawn; the inversion lid constrains morning warming amplitude; proxy evidence may be available from surface dewpoint vs temperature spread",
+    "key_strata": "Missing proxy",
+    "status": "E0_candidate",
+    "source_section": "DOMAIN: GAP \u2014 50 Additional Gap Theses",
+    "registry_complete": true,
+    "priority": 3,
+    "testability": "blocked_external_data",
+    "testability_reason": "Requires data not currently in obs/labels/features."
+  }
+]

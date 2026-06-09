@@ -1,0 +1,5 @@
+audit_item,status,detail
+clustering_inputs,PASS,All included clustering inputs are aggregated from observations with valid < CP.
+outcome_exclusion,PASS,"tmax_int, tmax_hour, remaining_warming, and tmax_anomaly are excluded from clustering and used only for external audit."
+baseline_regime_exclusion,PASS,Current regime_label and regime_flags are excluded from clustering to avoid learning the quarantined ontology.
+power,PASS,Cluster matrix contains 21824 date/CP rows before null filtering.

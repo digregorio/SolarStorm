@@ -1,0 +1,1042 @@
+{
+  "generated_at": "2026-06-05T14:13:06.196306+00:00",
+  "window": {
+    "start": "2026-05-06",
+    "end": "2026-06-04"
+  },
+  "by_cp": {
+    "20:00": [
+      {
+        "level": "L0",
+        "name": "persistence",
+        "mae": 2.357142857142857,
+        "rmse": 2.951996902824546,
+        "bias": -2.357142857142857,
+        "bracket_match": 0.10714285714285714,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L1",
+        "name": "dminus1",
+        "mae": 1.5714285714285714,
+        "rmse": 2.104417123236605,
+        "bias": -0.14285714285714285,
+        "bracket_match": 0.17857142857142858,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L2",
+        "name": "climatology_doy",
+        "mae": 1.6428571428571428,
+        "rmse": 2.220038609702865,
+        "bias": -0.2857142857142857,
+        "bracket_match": 0.2857142857142857,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L4",
+        "name": "empirical_conditional",
+        "mae": 1.4285714285714286,
+        "rmse": 2.0,
+        "bias": -1.0,
+        "bracket_match": 0.32142857142857145,
+        "rps": 0.0,
+        "fallback_rate": 0.25,
+        "n": 28
+      }
+    ],
+    "21:00": [
+      {
+        "level": "L0",
+        "name": "persistence",
+        "mae": 2.25,
+        "rmse": 2.758104939472546,
+        "bias": -2.25,
+        "bracket_match": 0.10714285714285714,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L1",
+        "name": "dminus1",
+        "mae": 1.5714285714285714,
+        "rmse": 2.104417123236605,
+        "bias": -0.14285714285714285,
+        "bracket_match": 0.17857142857142858,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L2",
+        "name": "climatology_doy",
+        "mae": 1.6428571428571428,
+        "rmse": 2.220038609702865,
+        "bias": -0.2857142857142857,
+        "bracket_match": 0.2857142857142857,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L4",
+        "name": "empirical_conditional",
+        "mae": 1.4642857142857142,
+        "rmse": 2.0959143930173156,
+        "bias": -1.0357142857142858,
+        "bracket_match": 0.35714285714285715,
+        "rps": 0.0,
+        "fallback_rate": 0.21428571428571427,
+        "n": 28
+      }
+    ],
+    "22:00": [
+      {
+        "level": "L0",
+        "name": "persistence",
+        "mae": 1.8214285714285714,
+        "rmse": 2.306822180279306,
+        "bias": -1.8214285714285714,
+        "bracket_match": 0.14285714285714285,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L1",
+        "name": "dminus1",
+        "mae": 1.5714285714285714,
+        "rmse": 2.104417123236605,
+        "bias": -0.14285714285714285,
+        "bracket_match": 0.17857142857142858,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L2",
+        "name": "climatology_doy",
+        "mae": 1.6428571428571428,
+        "rmse": 2.220038609702865,
+        "bias": -0.2857142857142857,
+        "bracket_match": 0.2857142857142857,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L4",
+        "name": "empirical_conditional",
+        "mae": 1.25,
+        "rmse": 1.9364916731037085,
+        "bias": -0.32142857142857145,
+        "bracket_match": 0.35714285714285715,
+        "rps": 0.0,
+        "fallback_rate": 0.21428571428571427,
+        "n": 28
+      }
+    ],
+    "23:00": [
+      {
+        "level": "L0",
+        "name": "persistence",
+        "mae": 1.3214285714285714,
+        "rmse": 1.7828548534783835,
+        "bias": -1.3214285714285714,
+        "bracket_match": 0.25,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L1",
+        "name": "dminus1",
+        "mae": 1.5714285714285714,
+        "rmse": 2.104417123236605,
+        "bias": -0.14285714285714285,
+        "bracket_match": 0.17857142857142858,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L2",
+        "name": "climatology_doy",
+        "mae": 1.6428571428571428,
+        "rmse": 2.220038609702865,
+        "bias": -0.2857142857142857,
+        "bracket_match": 0.2857142857142857,
+        "rps": 0.0,
+        "fallback_rate": null,
+        "n": 28
+      },
+      {
+        "level": "L4",
+        "name": "empirical_conditional",
+        "mae": 1.1785714285714286,
+        "rmse": 1.8027756377319946,
+        "bias": -0.6071428571428571,
+        "bracket_match": 0.35714285714285715,
+        "rps": 0.0,
+        "fallback_rate": 0.14285714285714285,
+        "n": 28
+      }
+    ]
+  },
+  "best_nulls": {
+    "20:00": "empirical_conditional",
+    "21:00": "empirical_conditional",
+    "22:00": "empirical_conditional",
+    "23:00": "empirical_conditional"
+  },
+  "segments": {
+    "disrupted": [
+      {
+        "name": "persistence",
+        "mae": 1.6666666666666667,
+        "n": 3
+      },
+      {
+        "name": "dminus1",
+        "mae": 1.3333333333333333,
+        "n": 3
+      },
+      {
+        "name": "climatology_doy",
+        "mae": 2.0,
+        "n": 3
+      },
+      {
+        "name": "empirical_conditional",
+        "mae": 0.3333333333333333,
+        "n": 3
+      }
+    ],
+    "foehn_nw": [
+      {
+        "name": "persistence",
+        "mae": 1.6666666666666667,
+        "n": 6
+      },
+      {
+        "name": "persistence",
+        "mae": 1.8,
+        "n": 5
+      },
+      {
+        "name": "persistence",
+        "mae": 1.4,
+        "n": 5
+      },
+      {
+        "name": "persistence",
+        "mae": 0.8333333333333334,
+        "n": 6
+      },
+      {
+        "name": "dminus1",
+        "mae": 1.5,
+        "n": 6
+      },
+      {
+        "name": "dminus1",
+        "mae": 1.6,
+        "n": 5
+      },
+      {
+        "name": "dminus1",
+        "mae": 1.6,
+        "n": 5
+      },
+      {
+        "name": "dminus1",
+        "mae": 1.6666666666666667,
+        "n": 6
+      },
+      {
+        "name": "climatology_doy",
+        "mae": 3.0,
+        "n": 6
+      },
+      {
+        "name": "climatology_doy",
+        "mae": 3.4,
+        "n": 5
+      },
+      {
+        "name": "climatology_doy",
+        "mae": 3.4,
+        "n": 5
+      },
+      {
+        "name": "climatology_doy",
+        "mae": 3.0,
+        "n": 6
+      },
+      {
+        "name": "empirical_conditional",
+        "mae": 2.3333333333333335,
+        "n": 6
+      },
+      {
+        "name": "empirical_conditional",
+        "mae": 2.6,
+        "n": 5
+      },
+      {
+        "name": "empirical_conditional",
+        "mae": 3.0,
+        "n": 5
+      },
+      {
+        "name": "empirical_conditional",
+        "mae": 2.0,
+        "n": 6
+      }
+    ],
+    "transition": [
+      {
+        "name": "persistence",
+        "mae": 2.6842105263157894,
+        "n": 19
+      },
+      {
+        "name": "persistence",
+        "mae": 2.347826086956522,
+        "n": 23
+      },
+      {
+        "name": "persistence",
+        "mae": 1.9130434782608696,
+        "n": 23
+      },
+      {
+        "name": "persistence",
+        "mae": 1.4545454545454546,
+        "n": 22
+      },
+      {
+        "name": "dminus1",
+        "mae": 1.631578947368421,
+        "n": 19
+      },
+      {
+        "name": "dminus1",
+        "mae": 1.565217391304348,
+        "n": 23
+      },
+      {
+        "name": "dminus1",
+        "mae": 1.565217391304348,
+        "n": 23
+      },
+      {
+        "name": "dminus1",
+        "mae": 1.5454545454545454,
+        "n": 22
+      },
+      {
+        "name": "climatology_doy",
+        "mae": 1.1578947368421053,
+        "n": 19
+      },
+      {
+        "name": "climatology_doy",
+        "mae": 1.2608695652173914,
+        "n": 23
+      },
+      {
+        "name": "climatology_doy",
+        "mae": 1.2608695652173914,
+        "n": 23
+      },
+      {
+        "name": "climatology_doy",
+        "mae": 1.2727272727272727,
+        "n": 22
+      },
+      {
+        "name": "empirical_conditional",
+        "mae": 1.3157894736842106,
+        "n": 19
+      },
+      {
+        "name": "empirical_conditional",
+        "mae": 1.2173913043478262,
+        "n": 23
+      },
+      {
+        "name": "empirical_conditional",
+        "mae": 0.8695652173913043,
+        "n": 23
+      },
+      {
+        "name": "empirical_conditional",
+        "mae": 0.9545454545454546,
+        "n": 22
+      }
+    ]
+  },
+  "gates": {
+    "20:00": {
+      "L0_persistence": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=2.3571 vs best_null_mae=1.4286"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=20:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L1_dminus1": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.5714 vs best_null_mae=1.4286"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=20:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L2_climatology_doy": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.6429 vs best_null_mae=1.4286"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=20:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L4_empirical_conditional": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.4286 vs best_null_mae=1.4286"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.2500"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": true,
+          "status": "OK",
+          "detail": "CP=20:00: beats null"
+        }
+      }
+    },
+    "21:00": {
+      "L0_persistence": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=2.2500 vs best_null_mae=1.4643"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=21:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L1_dminus1": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.5714 vs best_null_mae=1.4643"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=21:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L2_climatology_doy": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.6429 vs best_null_mae=1.4643"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=21:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L4_empirical_conditional": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.4643 vs best_null_mae=1.4643"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.2143"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": true,
+          "status": "OK",
+          "detail": "CP=21:00: beats null"
+        }
+      }
+    },
+    "22:00": {
+      "L0_persistence": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.8214 vs best_null_mae=1.2500"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=22:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L1_dminus1": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.5714 vs best_null_mae=1.2500"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=22:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L2_climatology_doy": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.6429 vs best_null_mae=1.2500"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=22:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L4_empirical_conditional": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.2500 vs best_null_mae=1.2500"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.2143"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": true,
+          "status": "OK",
+          "detail": "CP=22:00: beats null"
+        }
+      }
+    },
+    "23:00": {
+      "L0_persistence": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.3214 vs best_null_mae=1.1786"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=23:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L1_dminus1": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.5714 vs best_null_mae=1.1786"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=23:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L2_climatology_doy": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.6429 vs best_null_mae=1.1786"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.0000"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": false,
+          "status": "STAY_OUT",
+          "detail": "CP=23:00: loses to null \u2192 stay_out"
+        }
+      },
+      "L4_empirical_conditional": {
+        "G1": {
+          "passed": false,
+          "status": "KILL",
+          "detail": "model_mae=1.1786 vs best_null_mae=1.1786"
+        },
+        "G2": {
+          "passed": true,
+          "status": "OK",
+          "detail": "fallback_rate=0.1429"
+        },
+        "G3": {
+          "passed": true,
+          "status": "OK",
+          "detail": "p50_mode_share=0.0000"
+        },
+        "G4": {
+          "passed": false,
+          "status": "NOWCAST_SUSPECT",
+          "detail": "morning CP \u2014 skill_ci_lo unavailable; cannot clear anti-nowcaster gate"
+        },
+        "G5": {
+          "passed": true,
+          "status": "OK",
+          "detail": "CP=23:00: beats null"
+        }
+      }
+    }
+  },
+  "summary": "Best null varies by CP. 16 aggregated baseline results across 4 CPs.",
+  "feature_nulls": [
+    {
+      "name": "slope_3h",
+      "cp": "22:00",
+      "mae": 0.9642857142857143,
+      "n": 28,
+      "corr_diff": 0.016631876151845137
+    },
+    {
+      "name": "slope_3h",
+      "cp": "23:00",
+      "mae": 0.7857142857142857,
+      "n": 28,
+      "corr_diff": 6.515900049508527e-05
+    },
+    {
+      "name": "regime_label",
+      "cp": "21:00",
+      "mae": 1.4285714285714286,
+      "n": 28,
+      "corr_diff": -0.03228344780650316
+    },
+    {
+      "name": "regime_label",
+      "cp": "22:00",
+      "mae": 1.0357142857142858,
+      "n": 28,
+      "corr_diff": 0.0
+    },
+    {
+      "name": "regime_label",
+      "cp": "23:00",
+      "mae": 0.8214285714285714,
+      "n": 28,
+      "corr_diff": 0.0
+    },
+    {
+      "name": "dewpoint_depression",
+      "cp": "21:00",
+      "mae": 1.2857142857142858,
+      "n": 28,
+      "corr_diff": -0.0035130988196442337
+    },
+    {
+      "name": "dewpoint_depression",
+      "cp": "23:00",
+      "mae": 0.8214285714285714,
+      "n": 28,
+      "corr_diff": 0.0
+    },
+    {
+      "name": "tmin_delta_tmax",
+      "cp": "20:00",
+      "mae": 1.1071428571428572,
+      "n": 28,
+      "corr_diff": 0.004760506682888854
+    },
+    {
+      "name": "tmin_delta_tmax",
+      "cp": "21:00",
+      "mae": 1.1428571428571428,
+      "n": 28,
+      "corr_diff": -0.011581126666509789
+    },
+    {
+      "name": "tmin_delta_tmax",
+      "cp": "22:00",
+      "mae": 1.0714285714285714,
+      "n": 28,
+      "corr_diff": -0.030667223841728486
+    },
+    {
+      "name": "tmin_delta_tmax",
+      "cp": "23:00",
+      "mae": 0.75,
+      "n": 28,
+      "corr_diff": 0.02305542109517178
+    },
+    {
+      "name": "precip_disruption",
+      "cp": "20:00",
+      "mae": 1.7142857142857142,
+      "n": 28,
+      "corr_diff": 0.00733357240863608
+    },
+    {
+      "name": "precip_disruption",
+      "cp": "21:00",
+      "mae": 1.2857142857142858,
+      "n": 28,
+      "corr_diff": 0.022653258194866632
+    },
+    {
+      "name": "precip_disruption",
+      "cp": "22:00",
+      "mae": 0.9285714285714286,
+      "n": 28,
+      "corr_diff": 0.020044733336766374
+    },
+    {
+      "name": "precip_disruption",
+      "cp": "23:00",
+      "mae": 1.0,
+      "n": 28,
+      "corr_diff": 0.012041096583026767
+    },
+    {
+      "name": "cloud_cover_suppression",
+      "cp": "20:00",
+      "mae": 0.96,
+      "n": 25,
+      "corr_diff": -0.011895289435655654
+    },
+    {
+      "name": "cloud_cover_suppression",
+      "cp": "21:00",
+      "mae": 1.1153846153846154,
+      "n": 26,
+      "corr_diff": 0.012254917234119866
+    },
+    {
+      "name": "cloud_cover_suppression",
+      "cp": "23:00",
+      "mae": 0.7307692307692307,
+      "n": 26,
+      "corr_diff": 0.0
+    },
+    {
+      "name": "foehn_score",
+      "cp": "21:00",
+      "mae": 1.25,
+      "n": 28,
+      "corr_diff": -0.05248160854009287
+    },
+    {
+      "name": "foehn_score",
+      "cp": "23:00",
+      "mae": 0.8214285714285714,
+      "n": 28,
+      "corr_diff": 0.0
+    },
+    {
+      "name": "regime_score_argmax",
+      "cp": "21:00",
+      "mae": 1.4285714285714286,
+      "n": 28,
+      "corr_diff": -0.03228344780650316
+    },
+    {
+      "name": "regime_score_argmax",
+      "cp": "22:00",
+      "mae": 1.0357142857142858,
+      "n": 28,
+      "corr_diff": 0.0
+    },
+    {
+      "name": "regime_score_argmax",
+      "cp": "23:00",
+      "mae": 0.8214285714285714,
+      "n": 28,
+      "corr_diff": 0.0
+    },
+    {
+      "name": "warming_rate_06_09",
+      "cp": "22:00",
+      "mae": 0.9642857142857143,
+      "n": 28,
+      "corr_diff": 0.016631876151845137
+    },
+    {
+      "name": "warming_rate_06_09",
+      "cp": "23:00",
+      "mae": 0.7857142857142857,
+      "n": 28,
+      "corr_diff": 6.515900049508527e-05
+    },
+    {
+      "name": "dewpoint_collapse_rate_3h",
+      "cp": "22:00",
+      "mae": 0.8928571428571429,
+      "n": 28,
+      "corr_diff": 0.03183809133614979
+    },
+    {
+      "name": "dewpoint_collapse_rate_3h",
+      "cp": "23:00",
+      "mae": 0.7857142857142857,
+      "n": 28,
+      "corr_diff": -0.0015538182437021542
+    },
+    {
+      "name": "nw_sector_not_foehn",
+      "cp": "20:00",
+      "mae": 1.5,
+      "n": 28,
+      "corr_diff": 0.0
+    },
+    {
+      "name": "cloud_base_transparency",
+      "cp": "21:00",
+      "mae": 1.0769230769230769,
+      "n": 26,
+      "corr_diff": 0.0
+    },
+    {
+      "name": "cloud_base_transparency",
+      "cp": "23:00",
+      "mae": 0.7307692307692307,
+      "n": 26,
+      "corr_diff": 0.0
+    }
+  ]
+}
