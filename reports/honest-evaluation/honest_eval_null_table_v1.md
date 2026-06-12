@@ -1,0 +1,36 @@
+# honest_eval_null_table_v1
+
+| month | cp | rw_median | n_train_rows | production_status |
+| --- | --- | --- | --- | --- |
+| 0 | 20:00 | 3.000 | 4187 | EXPERIMENT_ONLY |
+| 1 | 20:00 | 3.000 | 355 | EXPERIMENT_ONLY |
+| 2 | 20:00 | 4.000 | 309 | EXPERIMENT_ONLY |
+| 3 | 20:00 | 3.000 | 341 | EXPERIMENT_ONLY |
+| 4 | 20:00 | 2.500 | 332 | EXPERIMENT_ONLY |
+| 5 | 20:00 | 2.000 | 342 | EXPERIMENT_ONLY |
+| 6 | 20:00 | 2.000 | 331 | EXPERIMENT_ONLY |
+| 7 | 20:00 | 2.000 | 338 | EXPERIMENT_ONLY |
+| 8 | 20:00 | 2.000 | 351 | EXPERIMENT_ONLY |
+| 9 | 20:00 | 3.000 | 360 | EXPERIMENT_ONLY |
+| 10 | 20:00 | 3.000 | 371 | EXPERIMENT_ONLY |
+| 11 | 20:00 | 3.000 | 361 | EXPERIMENT_ONLY |
+| 12 | 20:00 | 3.000 | 396 | EXPERIMENT_ONLY |
+| 0 | 21:00 | 2.000 | 4188 | EXPERIMENT_ONLY |
+| 1 | 21:00 | 3.000 | 355 | EXPERIMENT_ONLY |
+| 2 | 21:00 | 3.000 | 309 | EXPERIMENT_ONLY |
+| 3 | 21:00 | 3.000 | 341 | EXPERIMENT_ONLY |
+| 4 | 21:00 | 2.000 | 332 | EXPERIMENT_ONLY |
+| 5 | 21:00 | 2.000 | 342 | EXPERIMENT_ONLY |
+| 6 | 21:00 | 2.000 | 331 | EXPERIMENT_ONLY |
+| 7 | 21:00 | 2.000 | 339 | EXPERIMENT_ONLY |
+| 8 | 21:00 | 2.000 | 351 | EXPERIMENT_ONLY |
+| 9 | 21:00 | 2.000 | 360 | EXPERIMENT_ONLY |
+| 10 | 21:00 | 2.000 | 371 | EXPERIMENT_ONLY |
+| 11 | 21:00 | 2.000 | 361 | EXPERIMENT_ONLY |
+| 12 | 21:00 | 2.000 | 396 | EXPERIMENT_ONLY |
+| 0 | 22:00 | 2.000 | 4189 | EXPERIMENT_ONLY |
+| 1 | 22:00 | 2.000 | 355 | EXPERIMENT_ONLY |
+| 2 | 22:00 | 2.000 | 310 | EXPERIMENT_ONLY |
+| 3 | 22:00 | 2.000 | 341 | EXPERIMENT_ONLY |
+
+_Showing 30 of 52 rows. Full table is in CSV._

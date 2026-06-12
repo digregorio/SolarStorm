@@ -1,0 +1,2 @@
+decision_status,decision_rationale,current_n_valid_outer_folds,single_runs_contract_status,production_status
+CURRENT_COVERAGE_SUPPORTS_TWO_STRICT_FOLDS,Current strict common-row Open-Meteo coverage already supports at least two nested outer folds.,2,BLOCKED_BY_REQUEST_CONTRACT,EXPERIMENT_ONLY

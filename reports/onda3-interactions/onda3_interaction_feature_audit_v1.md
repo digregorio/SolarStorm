@@ -1,0 +1,8 @@
+# onda3_interaction_feature_audit_v1
+
+| feature | source_feature | macro_value | interaction_type | production_status |
+| --- | --- | --- | --- | --- |
+| foehn_score_x_macro_non_southerly | foehn_score | macro_non_southerly | continuous_x_binary_macro | EXPERIMENT_ONLY |
+| foehn_score_x_macro_southerly_flow | foehn_score | macro_southerly_flow | continuous_x_binary_macro | EXPERIMENT_ONLY |
+| cloud_cover_suppression_x_macro_non_southerly | cloud_cover_suppression | macro_non_southerly | continuous_x_binary_macro | EXPERIMENT_ONLY |
+| cloud_cover_suppression_x_macro_southerly_flow | cloud_cover_suppression | macro_southerly_flow | continuous_x_binary_macro | EXPERIMENT_ONLY |

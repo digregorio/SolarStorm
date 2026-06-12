@@ -1,0 +1,4 @@
+outer_test_year,evaluation_year,candidate_id,candidate_label,mae,any_cp_exact_pct,cp23_exact_pct,n_days_with_cp23,cp23_exact_days,n_days,n_cp_rows,selection_rule,production_status
+2023,2023,onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,1.0399041923002685,44.93150684931507,31.780821917808222,365,116,365,1460,validation_mae_then_cp23_exact_then_onda3d,EXPERIMENT_ONLY
+2024,2024,onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,1.0703720071319096,43.71584699453552,31.147540983606557,366,114,366,1464,validation_mae_then_cp23_exact_then_onda3d,EXPERIMENT_ONLY
+2025,2025,onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,1.0770312009470235,43.83561643835616,30.41095890410959,365,111,365,1460,validation_mae_then_cp23_exact_then_onda3d,EXPERIMENT_ONLY

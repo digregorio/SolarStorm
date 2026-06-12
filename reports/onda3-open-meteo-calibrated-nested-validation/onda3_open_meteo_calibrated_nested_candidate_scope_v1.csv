@@ -1,0 +1,33 @@
+stage,outer_test_year,evaluation_year,candidate_id,candidate_label,train_start,train_end,train_start_year,train_end_year,evaluation_start,evaluation_end,n_train_rows,n_rows,production_status
+validation,2024,2023,local_only_onda3f,Local-only Onda 3F,2012-01-01,,2012,,2023-01-01,2023-12-31,0,1456,EXPERIMENT_ONLY
+validation,2024,2023,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2012-01-01,,2012,,2023-01-01,2023-12-31,0,1456,EXPERIMENT_ONLY
+validation,2024,2023,om_family_inverse_mae_weighted,om family inverse mae weighted,2012-01-01,,2012,,2023-01-01,2023-12-31,0,1456,EXPERIMENT_ONLY
+validation,2024,2023,om_family_mean_raw,om family mean raw,2012-01-01,,2012,,2023-01-01,2023-12-31,0,1456,EXPERIMENT_ONLY
+validation,2024,2023,om_family_median_raw,om family median raw,2012-01-01,,2012,,2023-01-01,2023-12-31,0,1456,EXPERIMENT_ONLY
+validation,2024,2023,om_family_recent_bias_corrected,om family recent bias corrected,2012-01-01,,2012,,2023-01-01,2023-12-31,0,1456,EXPERIMENT_ONLY
+validation,2024,2023,om_family_regime_bias_corrected,om family regime bias corrected,2012-01-01,,2012,,2023-01-01,2023-12-31,0,1456,EXPERIMENT_ONLY
+validation,2024,2023,om_gfs_previous_runs_raw,om gfs previous runs raw,2012-01-01,,2012,,2023-01-01,2023-12-31,0,1456,EXPERIMENT_ONLY
+test,2024,2024,local_only_onda3f,Local-only Onda 3F,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+test,2024,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+test,2024,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+test,2024,2024,om_family_mean_raw,om family mean raw,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+test,2024,2024,om_family_median_raw,om family median raw,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+test,2024,2024,om_family_recent_bias_corrected,om family recent bias corrected,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+test,2024,2024,om_family_regime_bias_corrected,om family regime bias corrected,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+test,2024,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+validation,2025,2024,local_only_onda3f,Local-only Onda 3F,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+validation,2025,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+validation,2025,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+validation,2025,2024,om_family_mean_raw,om family mean raw,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+validation,2025,2024,om_family_median_raw,om family median raw,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+validation,2025,2024,om_family_recent_bias_corrected,om family recent bias corrected,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+validation,2025,2024,om_family_regime_bias_corrected,om family regime bias corrected,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+validation,2025,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2012-01-01,2023-12-30,2012,2023,2024-01-01,2024-12-31,1456,1388,EXPERIMENT_ONLY
+test,2025,2025,local_only_onda3f,Local-only Onda 3F,2012-01-01,2024-12-31,2012,2024,2025-01-01,2025-12-31,2844,1460,EXPERIMENT_ONLY
+test,2025,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2012-01-01,2024-12-31,2012,2024,2025-01-01,2025-12-31,2844,1460,EXPERIMENT_ONLY
+test,2025,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2012-01-01,2024-12-31,2012,2024,2025-01-01,2025-12-31,2844,1460,EXPERIMENT_ONLY
+test,2025,2025,om_family_mean_raw,om family mean raw,2012-01-01,2024-12-31,2012,2024,2025-01-01,2025-12-31,2844,1460,EXPERIMENT_ONLY
+test,2025,2025,om_family_median_raw,om family median raw,2012-01-01,2024-12-31,2012,2024,2025-01-01,2025-12-31,2844,1460,EXPERIMENT_ONLY
+test,2025,2025,om_family_recent_bias_corrected,om family recent bias corrected,2012-01-01,2024-12-31,2012,2024,2025-01-01,2025-12-31,2844,1460,EXPERIMENT_ONLY
+test,2025,2025,om_family_regime_bias_corrected,om family regime bias corrected,2012-01-01,2024-12-31,2012,2024,2025-01-01,2025-12-31,2844,1460,EXPERIMENT_ONLY
+test,2025,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2012-01-01,2024-12-31,2012,2024,2025-01-01,2025-12-31,2844,1460,EXPERIMENT_ONLY

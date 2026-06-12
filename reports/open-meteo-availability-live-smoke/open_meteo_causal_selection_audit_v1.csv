@@ -1,0 +1,5 @@
+probe_id,source_id,endpoint,model,date_local,cp,cp_utc,target_valid_time_utc,selected_run_time_utc,selected_available_time_utc,selected_lead_h,causal_class,success,error,production_status
+om_probe_00001,historical_forecast_best_match,historical_forecast,best_match,2024-07-15,23:00,2024-07-15T11:00:00+00:00,2024-07-15T11:00:00+00:00,,,,seamless_historical_forecast,true,,EXPERIMENT_ONLY
+om_probe_00002,previous_runs_gfs_temperature,previous_runs,gfs_seamless,2024-07-15,23:00,2024-07-15T11:00:00+00:00,2024-07-15T11:00:00+00:00,,,,fixed_lead_forecast,true,,EXPERIMENT_ONLY
+om_probe_00003,single_runs_ecmwf_ifs_hres,single_runs,ecmwf_ifs025,2024-07-15,23:00,2024-07-15T11:00:00+00:00,2024-07-15T11:00:00+00:00,2024-07-15T00:00:00+00:00,2024-07-15T06:10:00+00:00,11,forecast_snapshot,false,http_400,EXPERIMENT_ONLY
+om_probe_00004,historical_weather_era5,historical_weather,era5,2024-07-15,23:00,2024-07-15T11:00:00+00:00,2024-07-15T11:00:00+00:00,,,,reanalysis_not_forecast,true,,EXPERIMENT_ONLY

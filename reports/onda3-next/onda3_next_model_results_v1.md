@@ -1,0 +1,12 @@
+# onda3_next_model_results_v1
+
+| model_name | cp | n_train | n_test | mae | beats_train_mean_null | production_status |
+| --- | --- | --- | --- | --- | --- | --- |
+| train_mean_null | 20:00 | 4937 | 519 | 2.811951591985803 | False | EXPERIMENT_ONLY |
+| ridge_challenger | 20:00 | 4937 | 519 | 1.3760822291051817 | True | EXPERIMENT_ONLY |
+| train_mean_null | 21:00 | 4937 | 519 | 2.811951591985803 | False | EXPERIMENT_ONLY |
+| ridge_challenger | 21:00 | 4937 | 519 | 1.3119629668574029 | True | EXPERIMENT_ONLY |
+| train_mean_null | 22:00 | 4937 | 519 | 2.811951591985803 | False | EXPERIMENT_ONLY |
+| ridge_challenger | 22:00 | 4937 | 519 | 1.1980791074677786 | True | EXPERIMENT_ONLY |
+| train_mean_null | 23:00 | 4937 | 519 | 2.811951591985803 | False | EXPERIMENT_ONLY |
+| ridge_challenger | 23:00 | 4937 | 519 | 1.1972739153096013 | True | EXPERIMENT_ONLY |

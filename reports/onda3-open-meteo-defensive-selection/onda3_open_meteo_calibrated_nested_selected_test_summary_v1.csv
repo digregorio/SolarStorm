@@ -1,0 +1,2 @@
+outer_test_year,evaluation_year,candidate_id,candidate_label,mae,any_cp_exact_pct,cp23_exact_pct,n_days_with_cp23,cp23_exact_days,n_days,n_cp_rows,selection_rule,production_status
+2025,2025,om_family_recent_bias_corrected,om family recent bias corrected,0.8258065144596652,38.63013698630137,38.63013698630137,365,141,365,1460,validation_mae_then_non_southerly_guard_then_cp23,EXPERIMENT_ONLY

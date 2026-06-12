@@ -1,0 +1,21 @@
+slice_id,slice_label,iteration_id,iteration_label,n_cp_rows,n_unique_dates,mae,exact_bracket_pct,production_status
+calm_radiative_regime_label,regime_label == calm_radiative,onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,54,16,1.6605508136358662,24.074074074074073,EXPERIMENT_ONLY
+calm_radiative_regime_label,regime_label == calm_radiative,onda3_e_continuous_2012_start,Onda 3E continuous 2012-start,54,16,1.6561204043748647,25.925925925925924,EXPERIMENT_ONLY
+calm_radiative_regime_label,regime_label == calm_radiative,onda3_e_legacy_2009_start,Onda 3E legacy 2009-start,54,16,1.6605508136358662,24.074074074074073,EXPERIMENT_ONLY
+calm_radiative_regime_label,regime_label == calm_radiative,onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,54,16,1.1134379936570813,40.74074074074074,EXPERIMENT_ONLY
+top_quartile_foehn_score,top 25pct rows by foehn_score,onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,1096,305,1.0245377391730184,32.93795620437956,EXPERIMENT_ONLY
+top_quartile_foehn_score,top 25pct rows by foehn_score,onda3_e_continuous_2012_start,Onda 3E continuous 2012-start,1096,305,1.0256555058970656,32.57299270072993,EXPERIMENT_ONLY
+top_quartile_foehn_score,top 25pct rows by foehn_score,onda3_e_legacy_2009_start,Onda 3E legacy 2009-start,1096,305,1.0245377391730184,32.93795620437956,EXPERIMENT_ONLY
+top_quartile_foehn_score,top 25pct rows by foehn_score,onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,1096,305,0.9263430093173749,36.13138686131387,EXPERIMENT_ONLY
+top_quartile_foehn_score_macro_non_southerly,top 25pct rows by foehn_score inside macro_non_southerly,onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,1067,299,0.9977262371630569,33.364573570759134,EXPERIMENT_ONLY
+top_quartile_foehn_score_macro_non_southerly,top 25pct rows by foehn_score inside macro_non_southerly,onda3_e_continuous_2012_start,Onda 3E continuous 2012-start,1067,299,1.0000351194338406,32.80224929709466,EXPERIMENT_ONLY
+top_quartile_foehn_score_macro_non_southerly,top 25pct rows by foehn_score inside macro_non_southerly,onda3_e_legacy_2009_start,Onda 3E legacy 2009-start,1067,299,0.9977262371630569,33.364573570759134,EXPERIMENT_ONLY
+top_quartile_foehn_score_macro_non_southerly,top 25pct rows by foehn_score inside macro_non_southerly,onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,1067,299,0.9110295068846164,36.17619493908153,EXPERIMENT_ONLY
+top_quartile_cloud_cover_suppression,top 25pct rows by cloud_cover_suppression,onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,1002,260,1.1737499002870024,27.445109780439118,EXPERIMENT_ONLY
+top_quartile_cloud_cover_suppression,top 25pct rows by cloud_cover_suppression,onda3_e_continuous_2012_start,Onda 3E continuous 2012-start,1002,260,1.1725861909679156,27.045908183632733,EXPERIMENT_ONLY
+top_quartile_cloud_cover_suppression,top 25pct rows by cloud_cover_suppression,onda3_e_legacy_2009_start,Onda 3E legacy 2009-start,1002,260,1.1737499002870024,27.445109780439118,EXPERIMENT_ONLY
+top_quartile_cloud_cover_suppression,top 25pct rows by cloud_cover_suppression,onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,1002,260,1.1093569137695054,28.2435129740519,EXPERIMENT_ONLY
+top_quartile_cloud_cover_suppression_macro_non_southerly,top 25pct rows by cloud_cover_suppression inside macro_non_southerly,onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,645,177,1.193457186488857,26.356589147286826,EXPERIMENT_ONLY
+top_quartile_cloud_cover_suppression_macro_non_southerly,top 25pct rows by cloud_cover_suppression inside macro_non_southerly,onda3_e_continuous_2012_start,Onda 3E continuous 2012-start,645,177,1.194639017960888,25.426356589147286,EXPERIMENT_ONLY
+top_quartile_cloud_cover_suppression_macro_non_southerly,top 25pct rows by cloud_cover_suppression inside macro_non_southerly,onda3_e_legacy_2009_start,Onda 3E legacy 2009-start,645,177,1.193457186488857,26.356589147286826,EXPERIMENT_ONLY
+top_quartile_cloud_cover_suppression_macro_non_southerly,top 25pct rows by cloud_cover_suppression inside macro_non_southerly,onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,645,177,1.1295514758420093,27.596899224806204,EXPERIMENT_ONLY

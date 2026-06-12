@@ -1,0 +1,2 @@
+decision_status,decision_rationale,n_outer_folds,selected_mean_test_mae,always_local_mean_test_mae,always_open_meteo_augmented_mean_test_mae,always_gfs_previous_runs_mean_test_mae,production_status
+KEEP_CALIBRATED_OPEN_METEO_IN_EXPERIMENT_REVIEW,"Calibrated Open-Meteo improved or was selected, but coverage/fold support is not sufficient for a final model decision.",1,0.8258065144596652,1.0662765512517574,0.7609956986376547,1.426499546010817,EXPERIMENT_ONLY

@@ -1,0 +1,13 @@
+scenario_id,outer_test_year,stage,evaluation_year,train_start,train_end,n_train_rows,n_evaluation_rows,fold_stage_valid,blocker,leakage_status,production_status
+current_strict_common_rows,2024,validation,2023,2012-01-01,,0,1456,false,missing_prior_train_rows,STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY
+current_strict_common_rows,2024,test,2024,2012-01-01,2023-12-30,1456,1388,true,"",STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY
+current_strict_common_rows,2025,validation,2024,2012-01-01,2023-12-30,1456,1388,true,"",STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY
+current_strict_common_rows,2025,test,2025,2012-01-01,2024-12-31,2844,1460,true,"",STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY
+previous_runs_history_from_2022,2024,validation,2023,2012-01-01,2022-12-31,1460,1460,true,"",STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY
+previous_runs_history_from_2022,2024,test,2024,2012-01-01,2023-12-31,2920,1464,true,"",STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY
+previous_runs_history_from_2022,2025,validation,2024,2012-01-01,2023-12-31,2920,1464,true,"",STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY
+previous_runs_history_from_2022,2025,test,2025,2012-01-01,2024-12-31,4384,1460,true,"",STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY
+alternate_fixed_leads_current_cache,2024,validation,2023,2012-01-01,,0,1456,false,missing_prior_train_rows,STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY
+alternate_fixed_leads_current_cache,2024,test,2024,2012-01-01,2023-12-30,1456,1388,true,"",STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY
+alternate_fixed_leads_current_cache,2025,validation,2024,2012-01-01,2023-12-30,1456,1388,true,"",STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY
+alternate_fixed_leads_current_cache,2025,test,2025,2012-01-01,2024-12-31,2844,1460,true,"",STRICT_COMMON_ROWS_NO_FUTURE_ROWS,EXPERIMENT_ONLY

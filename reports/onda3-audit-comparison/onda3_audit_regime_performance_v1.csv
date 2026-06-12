@@ -1,0 +1,9 @@
+iteration_id,iteration_label,binary_macro_regime_label,n_cp_rows,n_unique_dates,mae,exact_bracket_rows,exact_bracket_pct,production_status
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_non_southerly,3225,833,1.17233142894162,901,27.93798449612403,EXPERIMENT_ONLY
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_southerly_flow,1159,319,1.1734002644245032,345,29.767040552200175,EXPERIMENT_ONLY
+onda3_e_continuous_2012_start,Onda 3E continuous 2012-start,macro_non_southerly,3225,833,1.1703152848203007,897,27.813953488372096,EXPERIMENT_ONLY
+onda3_e_continuous_2012_start,Onda 3E continuous 2012-start,macro_southerly_flow,1159,319,1.170955122968579,351,30.28472821397757,EXPERIMENT_ONLY
+onda3_e_legacy_2009_start,Onda 3E legacy 2009-start,macro_non_southerly,3225,833,1.17233142894162,901,27.93798449612403,EXPERIMENT_ONLY
+onda3_e_legacy_2009_start,Onda 3E legacy 2009-start,macro_southerly_flow,1159,319,1.1734002644245032,345,29.767040552200175,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,macro_non_southerly,3225,833,1.064892361998118,984,30.511627906976745,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,macro_southerly_flow,1159,319,1.0536050413209066,371,32.01035375323555,EXPERIMENT_ONLY

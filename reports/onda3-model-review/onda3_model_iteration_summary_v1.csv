@@ -1,0 +1,5 @@
+iteration_id,iteration_label,n_result_rows,n_challenger_rows,weighted_null_mae,weighted_challenger_mae,weighted_mae_lift,all_challenger_rows_beat_null,has_line_level_predictions,production_status
+onda3_a_baseline_first,Onda 3A baseline-first aggregate ridge,2,1,2.811951591985803,1.348721920474219,1.4632296715115842,true,false,EXPERIMENT_ONLY
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,8,4,2.811951591985803,1.270849554684991,1.5411020373008122,true,true,EXPERIMENT_ONLY
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,24,12,2.952370539476527,1.2025741670844041,1.749796372392123,true,true,EXPERIMENT_ONLY
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,24,12,2.952370539476527,1.172613997446333,1.7797565420301942,true,true,EXPERIMENT_ONLY

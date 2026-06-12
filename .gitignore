@@ -92,10 +92,11 @@ authorized_keys
 *.sqlite3
 *.db
 
-# Ruff / mypy / pytest caches
+# Ruff / mypy / pytest / uv caches
 .ruff_cache/
 .mypy_cache/
 .pytest_cache/
+.uv-cache/
 .coverage
 htmlcov/
 

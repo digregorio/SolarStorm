@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import warnings
 
 import polars as pl
 
@@ -70,3 +71,30 @@ def test_baseline_model_imputes_missing_numeric_features_from_train_window():
     challenger = results.filter(pl.col("model_name") == "ridge_challenger").row(0, named=True)
     assert challenger["mae"] == challenger["mae"]
     assert uncertainty.row(0, named=True)["residual_abs_p90"] == uncertainty.row(0, named=True)["residual_abs_p90"]
+
+
+def test_baseline_model_handles_all_missing_train_feature_without_warning():
+    matrix = pl.DataFrame(
+        {
+            "date_local": [
+                dt.date(2024, 1, 1),
+                dt.date(2024, 1, 2),
+                dt.date(2025, 1, 1),
+            ],
+            "cp": ["20:00", "20:00", "20:00"],
+            "k_cp": [None, None, 22.0],
+            "cloud_cover_suppression": [1.0, 2.0, 4.0],
+            "tmax_int": [22, 23, 25],
+            "fold": ["train", "train", "test"],
+        }
+    )
+
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter("always")
+        run_onda3_baseline_model(
+            matrix,
+            feature_columns=["k_cp", "cloud_cover_suppression"],
+            target_column="tmax_int",
+        )
+
+    assert not caught

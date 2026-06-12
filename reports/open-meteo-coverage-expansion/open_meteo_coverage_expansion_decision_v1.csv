@@ -1,0 +1,2 @@
+decision_status,decision_rationale,current_n_valid_outer_folds,single_runs_contract_status,production_status
+COVERAGE_EXPANSION_REQUIRES_2022_HISTORY,Current 2023+ strict common-row coverage supports only one full outer fold; a causal Previous Runs backfill to 2022 is the minimal path shown here to reach two folds without leakage.,1,BLOCKED_BY_REQUEST_CONTRACT,EXPERIMENT_ONLY

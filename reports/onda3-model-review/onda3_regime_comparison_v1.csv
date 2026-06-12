@@ -1,0 +1,3 @@
+comparison,binary_macro_regime_label,onda3_c_mae,onda3_d_mae,mae_delta,onda3_c_exact_bracket_pct,onda3_d_exact_bracket_pct,exact_bracket_pct_delta,n_cp_rows,production_status
+onda3_d_minus_onda3_c,macro_non_southerly,1.195087931072141,1.17233142894162,-0.02275650213052094,27.348837209302324,27.93798449612403,0.5891472868217065,3225,EXPERIMENT_ONLY
+onda3_d_minus_onda3_c,macro_southerly_flow,1.2234051516741795,1.1734002644245032,-0.05000488724967633,30.71613459879206,29.767040552200175,-0.9490940465918847,1159,EXPERIMENT_ONLY

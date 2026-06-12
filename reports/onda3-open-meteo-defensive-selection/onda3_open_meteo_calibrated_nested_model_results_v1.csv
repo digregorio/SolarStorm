@@ -1,0 +1,31 @@
+stage,outer_test_year,evaluation_year,candidate_id,candidate_label,test_year,cp,model_name,n_test,mae,exact_bracket_pct,production_status
+test,2024,2024,local_only_onda3f,Local-only Onda 3F,2024,ALL,ridge_challenger,1388,1.0611235852728234,28.962536023054753,EXPERIMENT_ONLY
+test,2024,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024,ALL,ridge_challenger,1388,0.7589523278690488,42.002881844380404,EXPERIMENT_ONLY
+test,2024,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024,ALL,provider_candidate,1388,1.264647752129061,16.138328530259365,EXPERIMENT_ONLY
+test,2024,2024,om_family_mean_raw,om family mean raw,2024,ALL,provider_candidate,1388,1.3189048991354466,15.85014409221902,EXPERIMENT_ONLY
+test,2024,2024,om_family_median_raw,om family median raw,2024,ALL,provider_candidate,1388,1.3485590778097984,16.714697406340058,EXPERIMENT_ONLY
+test,2024,2024,om_family_month_bias_corrected,om family month bias corrected,2024,ALL,provider_candidate,1388,0.757678449391693,40.345821325648416,EXPERIMENT_ONLY
+test,2024,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024,ALL,provider_candidate,1388,0.7166820365033622,42.363112391930834,EXPERIMENT_ONLY
+test,2024,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024,ALL,provider_candidate,1388,0.7354554772358184,39.481268011527376,EXPERIMENT_ONLY
+test,2024,2024,om_family_season_bias_corrected,om family season bias corrected,2024,ALL,provider_candidate,1388,0.7396154001453108,42.93948126801153,EXPERIMENT_ONLY
+test,2024,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024,ALL,provider_candidate,1388,1.4302593659942362,13.8328530259366,EXPERIMENT_ONLY
+validation,2025,2024,local_only_onda3f,Local-only Onda 3F,2024,ALL,ridge_challenger,1388,1.0611235852728234,28.962536023054753,EXPERIMENT_ONLY
+validation,2025,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024,ALL,ridge_challenger,1388,0.7589523278690488,42.002881844380404,EXPERIMENT_ONLY
+validation,2025,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024,ALL,provider_candidate,1388,1.264647752129061,16.138328530259365,EXPERIMENT_ONLY
+validation,2025,2024,om_family_mean_raw,om family mean raw,2024,ALL,provider_candidate,1388,1.3189048991354466,15.85014409221902,EXPERIMENT_ONLY
+validation,2025,2024,om_family_median_raw,om family median raw,2024,ALL,provider_candidate,1388,1.3485590778097984,16.714697406340058,EXPERIMENT_ONLY
+validation,2025,2024,om_family_month_bias_corrected,om family month bias corrected,2024,ALL,provider_candidate,1388,0.757678449391693,40.345821325648416,EXPERIMENT_ONLY
+validation,2025,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024,ALL,provider_candidate,1388,0.7166820365033622,42.363112391930834,EXPERIMENT_ONLY
+validation,2025,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024,ALL,provider_candidate,1388,0.7354554772358184,39.481268011527376,EXPERIMENT_ONLY
+validation,2025,2024,om_family_season_bias_corrected,om family season bias corrected,2024,ALL,provider_candidate,1388,0.7396154001453108,42.93948126801153,EXPERIMENT_ONLY
+validation,2025,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024,ALL,provider_candidate,1388,1.4302593659942362,13.8328530259366,EXPERIMENT_ONLY
+test,2025,2025,local_only_onda3f,Local-only Onda 3F,2025,ALL,ridge_challenger,1460,1.0714295172306914,30.753424657534246,EXPERIMENT_ONLY
+test,2025,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025,ALL,ridge_challenger,1460,0.7630390694062604,41.50684931506849,EXPERIMENT_ONLY
+test,2025,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025,ALL,provider_candidate,1460,1.2107920403666472,19.726027397260275,EXPERIMENT_ONLY
+test,2025,2025,om_family_mean_raw,om family mean raw,2025,ALL,provider_candidate,1460,1.292876712328767,17.80821917808219,EXPERIMENT_ONLY
+test,2025,2025,om_family_median_raw,om family median raw,2025,ALL,provider_candidate,1460,1.3299999999999998,18.356164383561644,EXPERIMENT_ONLY
+test,2025,2025,om_family_month_bias_corrected,om family month bias corrected,2025,ALL,provider_candidate,1460,0.8177262522176715,38.63013698630137,EXPERIMENT_ONLY
+test,2025,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025,ALL,provider_candidate,1460,0.8258065144596651,38.63013698630137,EXPERIMENT_ONLY
+test,2025,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025,ALL,provider_candidate,1460,0.8573018487151092,33.21917808219178,EXPERIMENT_ONLY
+test,2025,2025,om_family_season_bias_corrected,om family season bias corrected,2025,ALL,provider_candidate,1460,0.7830872917037299,42.19178082191781,EXPERIMENT_ONLY
+test,2025,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025,ALL,provider_candidate,1460,1.4227397260273975,15.342465753424658,EXPERIMENT_ONLY

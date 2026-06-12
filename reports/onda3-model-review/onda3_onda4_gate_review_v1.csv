@@ -1,0 +1,5 @@
+review_id,review_label,source_iteration_id,n_gates,n_pass,blocked_gates,m3_detail,m4_detail,decision_status,production_status
+onda4_review_onda3_a,Onda 4M review on Onda 3A,onda3_a_baseline_first,8,8,"",null_mae=2.8120; challenger_mae=1.3487; lift=1.4632,first_review_single_test_year_recorded,READY_FOR_ONDA3_NEXT_MODEL_ITERATION,EXPERIMENT_ONLY
+onda4_review_onda3_b,Onda 4M review on Onda 3B,onda3_b_cp_specific_holdout,8,8,"",null_mae=2.8120; challenger_mae=1.2708; lift=1.5411; challenger_failures=0,first_review_single_test_year_recorded,READY_FOR_ONDA3_NEXT_MODEL_ITERATION,EXPERIMENT_ONLY
+onda4_review_onda3_c,Onda 4M review on Onda 3C,onda3_c_rolling_temporal,8,8,"",null_mae=2.9522; challenger_mae=1.2026; lift=1.7496; challenger_failures=0,"rolling_temporal_diagnostics; test_years=2023,2024,2025",READY_FOR_ONDA3_NEXT_MODEL_ITERATION,EXPERIMENT_ONLY
+onda4_review_onda3_d,Onda 4M review on Onda 3D,onda3_d_binary_macro_interactions,8,8,"",null_mae=2.9522; challenger_mae=1.1726; lift=1.7796; challenger_failures=0,"rolling_temporal_diagnostics; test_years=2023,2024,2025",READY_FOR_ONDA3_NEXT_MODEL_ITERATION,EXPERIMENT_ONLY

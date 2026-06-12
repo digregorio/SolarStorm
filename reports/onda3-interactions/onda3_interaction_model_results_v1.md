@@ -1,0 +1,28 @@
+# onda3_interaction_model_results_v1
+
+| model_name | cp | n_train | n_test | mae | beats_train_mean_null | production_status | test_year |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| train_mean_null | 20:00 | 4206 | 365 | 2.901045473198757 | False | EXPERIMENT_ONLY | 2023 |
+| ridge_challenger | 20:00 | 4206 | 365 | 1.2408036552638424 | True | EXPERIMENT_ONLY | 2023 |
+| train_mean_null | 21:00 | 4206 | 365 | 2.901045473198757 | False | EXPERIMENT_ONLY | 2023 |
+| ridge_challenger | 21:00 | 4206 | 365 | 1.160047899655754 | True | EXPERIMENT_ONLY | 2023 |
+| train_mean_null | 22:00 | 4206 | 365 | 2.901045473198757 | False | EXPERIMENT_ONLY | 2023 |
+| ridge_challenger | 22:00 | 4206 | 365 | 1.0756289562734336 | True | EXPERIMENT_ONLY | 2023 |
+| train_mean_null | 23:00 | 4206 | 365 | 2.901045473198757 | False | EXPERIMENT_ONLY | 2023 |
+| ridge_challenger | 23:00 | 4206 | 365 | 1.0842245506158878 | True | EXPERIMENT_ONLY | 2023 |
+| train_mean_null | 20:00 | 4571 | 366 | 3.1402611856883444 | False | EXPERIMENT_ONLY | 2024 |
+| ridge_challenger | 20:00 | 4571 | 366 | 1.2982372441222527 | True | EXPERIMENT_ONLY | 2024 |
+| train_mean_null | 21:00 | 4571 | 366 | 3.1402611856883444 | False | EXPERIMENT_ONLY | 2024 |
+| ridge_challenger | 21:00 | 4571 | 366 | 1.1935159165818656 | True | EXPERIMENT_ONLY | 2024 |
+| train_mean_null | 22:00 | 4571 | 366 | 3.1402611856883444 | False | EXPERIMENT_ONLY | 2024 |
+| ridge_challenger | 22:00 | 4571 | 366 | 1.1272397054576053 | True | EXPERIMENT_ONLY | 2024 |
+| train_mean_null | 23:00 | 4571 | 366 | 3.1402611856883444 | False | EXPERIMENT_ONLY | 2024 |
+| ridge_challenger | 23:00 | 4571 | 366 | 1.1225216046022026 | True | EXPERIMENT_ONLY | 2024 |
+| train_mean_null | 20:00 | 4937 | 365 | 2.8152901906487493 | False | EXPERIMENT_ONLY | 2025 |
+| ridge_challenger | 20:00 | 4937 | 365 | 1.2903412248060548 | True | EXPERIMENT_ONLY | 2025 |
+| train_mean_null | 21:00 | 4937 | 365 | 2.8152901906487493 | False | EXPERIMENT_ONLY | 2025 |
+| ridge_challenger | 21:00 | 4937 | 365 | 1.2381508057435093 | True | EXPERIMENT_ONLY | 2025 |
+| train_mean_null | 22:00 | 4937 | 365 | 2.8152901906487493 | False | EXPERIMENT_ONLY | 2025 |
+| ridge_challenger | 22:00 | 4937 | 365 | 1.1228737810053278 | True | EXPERIMENT_ONLY | 2025 |
+| train_mean_null | 23:00 | 4937 | 365 | 2.8152901906487493 | False | EXPERIMENT_ONLY | 2025 |
+| ridge_challenger | 23:00 | 4937 | 365 | 1.117642738979003 | True | EXPERIMENT_ONLY | 2025 |

@@ -1,0 +1,7 @@
+iteration_id,iteration_label,binary_macro_regime_label,n_cp_rows,n_unique_dates,mae,exact_bracket_rows,exact_bracket_pct
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,macro_non_southerly,1458,377,1.2501869908525018,409,28.052126200274348
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,macro_southerly_flow,618,168,1.3195971567363984,180,29.126213592233007
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,macro_non_southerly,3225,833,1.195087931072141,882,27.348837209302324
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,macro_southerly_flow,1159,319,1.2234051516741795,356,30.71613459879206
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_non_southerly,3225,833,1.17233142894162,901,27.93798449612403
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_southerly_flow,1159,319,1.1734002644245032,345,29.767040552200175

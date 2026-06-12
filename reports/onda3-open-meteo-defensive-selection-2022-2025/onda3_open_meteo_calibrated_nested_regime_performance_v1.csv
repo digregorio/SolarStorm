@@ -1,0 +1,81 @@
+stage,outer_test_year,candidate_id,candidate_label,binary_macro_regime_label,n_cp_rows,n_unique_dates,mae,exact_bracket_pct,production_status
+test,2024,local_only_onda3f,Local-only Onda 3F,macro_non_southerly,1073,277,1.072716117661352,28.611369990680334,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,macro_southerly_flow,315,89,1.0065974111339147,28.57142857142857,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,macro_non_southerly,1073,277,1.3941732670557616,12.022367194780987,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,macro_southerly_flow,315,89,0.8234386171565224,30.158730158730158,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,macro_non_southerly,1073,277,1.456924510717614,11.276794035414724,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,macro_southerly_flow,315,89,0.8487619047619048,31.428571428571427,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,macro_non_southerly,1073,277,1.4797763280521903,12.022367194780987,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,macro_southerly_flow,315,89,0.9015873015873016,32.698412698412696,EXPERIMENT_ONLY
+test,2024,om_family_month_bias_corrected,om family month bias corrected,macro_non_southerly,1073,277,0.7675159776613358,39.235787511649576,EXPERIMENT_ONLY
+test,2024,om_family_month_bias_corrected,om family month bias corrected,macro_southerly_flow,315,89,0.6934152137417519,53.01587301587302,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,macro_non_southerly,1073,277,0.7148953091022056,41.47250698974837,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,macro_southerly_flow,315,89,0.7227682539682541,45.3968253968254,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,macro_non_southerly,1073,277,0.7021921737216364,41.845293569431504,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,macro_southerly_flow,315,89,0.8487619047619048,31.428571428571427,EXPERIMENT_ONLY
+test,2024,om_family_season_bias_corrected,om family season bias corrected,macro_non_southerly,1073,277,0.7394531992807855,42.124883504193846,EXPERIMENT_ONLY
+test,2024,om_family_season_bias_corrected,om family season bias corrected,macro_southerly_flow,315,89,0.7373963443963443,44.44444444444444,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,macro_non_southerly,1073,277,1.5843429636533084,7.921714818266542,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,macro_southerly_flow,315,89,0.9053968253968253,33.96825396825397,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_non_southerly,1073,277,0.8745893662017227,34.01677539608574,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_southerly_flow,315,89,0.7306708334482941,47.61904761904761,EXPERIMENT_ONLY
+validation,2024,local_only_onda3f,Local-only Onda 3F,macro_non_southerly,1069,275,1.0540698840699976,31.898971000935454,EXPERIMENT_ONLY
+validation,2024,local_only_onda3f,Local-only Onda 3F,macro_southerly_flow,387,104,1.0676487203943323,32.55813953488372,EXPERIMENT_ONLY
+validation,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,macro_non_southerly,1069,275,1.5556265011387942,13.657623947614594,EXPERIMENT_ONLY
+validation,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,macro_southerly_flow,387,104,1.0435717848263142,21.188630490956072,EXPERIMENT_ONLY
+validation,2024,om_family_mean_raw,om family mean raw,macro_non_southerly,1069,275,1.5728250701590272,13.283442469597755,EXPERIMENT_ONLY
+validation,2024,om_family_mean_raw,om family mean raw,macro_southerly_flow,387,104,1.0574935400516794,23.25581395348837,EXPERIMENT_ONLY
+validation,2024,om_family_median_raw,om family median raw,macro_non_southerly,1069,275,1.5728250701590272,13.283442469597755,EXPERIMENT_ONLY
+validation,2024,om_family_median_raw,om family median raw,macro_southerly_flow,387,104,1.0574935400516794,23.25581395348837,EXPERIMENT_ONLY
+validation,2024,om_family_month_bias_corrected,om family month bias corrected,macro_non_southerly,1069,275,0.935563154905051,31.15060804490178,EXPERIMENT_ONLY
+validation,2024,om_family_month_bias_corrected,om family month bias corrected,macro_southerly_flow,387,104,0.7392348467352344,41.08527131782946,EXPERIMENT_ONLY
+validation,2024,om_family_recent_bias_corrected,om family recent bias corrected,macro_non_southerly,1069,275,0.9094786404739632,31.898971000935454,EXPERIMENT_ONLY
+validation,2024,om_family_recent_bias_corrected,om family recent bias corrected,macro_southerly_flow,387,104,0.7156158484065459,45.21963824289406,EXPERIMENT_ONLY
+validation,2024,om_family_regime_bias_corrected,om family regime bias corrected,macro_non_southerly,1069,275,0.9342507539522008,30.495790458372312,EXPERIMENT_ONLY
+validation,2024,om_family_regime_bias_corrected,om family regime bias corrected,macro_southerly_flow,387,104,1.0645958445997028,23.25581395348837,EXPERIMENT_ONLY
+validation,2024,om_family_season_bias_corrected,om family season bias corrected,macro_non_southerly,1069,275,0.8830047091602238,35.07951356407858,EXPERIMENT_ONLY
+validation,2024,om_family_season_bias_corrected,om family season bias corrected,macro_southerly_flow,387,104,0.7238897882031646,46.770025839793284,EXPERIMENT_ONLY
+validation,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,macro_non_southerly,1069,275,1.5362956033676332,13.84471468662301,EXPERIMENT_ONLY
+validation,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,macro_southerly_flow,387,104,1.05968992248062,23.772609819121445,EXPERIMENT_ONLY
+validation,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_non_southerly,1069,275,0.9316782228377584,33.86342376052385,EXPERIMENT_ONLY
+validation,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_southerly_flow,387,104,0.8643916992606975,36.69250645994832,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,macro_non_southerly,1020,265,1.080155517407174,31.56862745098039,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,macro_southerly_flow,440,121,1.0035931774791682,30.0,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,macro_non_southerly,1020,265,1.358597299557055,15.588235294117647,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,macro_southerly_flow,440,121,0.8681525758797929,29.318181818181817,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,macro_non_southerly,1020,265,1.4668039215686273,14.215686274509803,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,macro_southerly_flow,440,121,0.8896818181818181,26.136363636363637,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,macro_non_southerly,1020,265,1.5170588235294118,12.84313725490196,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,macro_southerly_flow,440,121,0.8963636363636364,31.136363636363633,EXPERIMENT_ONLY
+test,2025,om_family_month_bias_corrected,om family month bias corrected,macro_non_southerly,1020,265,0.8288526261839391,34.80392156862745,EXPERIMENT_ONLY
+test,2025,om_family_month_bias_corrected,om family month bias corrected,macro_southerly_flow,440,121,0.7919332943867784,47.5,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,macro_non_southerly,1020,265,0.8603027450980392,35.588235294117645,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,macro_southerly_flow,440,121,0.7458379797979797,45.68181818181819,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,macro_non_southerly,1020,265,0.8425929972044152,36.27450980392157,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,macro_southerly_flow,440,121,0.8913996408535362,26.136363636363637,EXPERIMENT_ONLY
+test,2025,om_family_season_bias_corrected,om family season bias corrected,macro_non_southerly,1020,265,0.7716312378486748,39.509803921568626,EXPERIMENT_ONLY
+test,2025,om_family_season_bias_corrected,om family season bias corrected,macro_southerly_flow,440,121,0.8096445074586308,48.40909090909091,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,macro_non_southerly,1020,265,1.5557843137254903,11.07843137254902,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,macro_southerly_flow,440,121,1.1143181818181818,25.227272727272727,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_non_southerly,1020,265,0.8025825490143363,41.47058823529412,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_southerly_flow,440,121,0.8164937477056504,41.13636363636364,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,macro_non_southerly,1073,277,1.072716117661352,28.611369990680334,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,macro_southerly_flow,315,89,1.0065974111339147,28.57142857142857,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,macro_non_southerly,1073,277,1.3941732670557616,12.022367194780987,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,macro_southerly_flow,315,89,0.8234386171565224,30.158730158730158,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,macro_non_southerly,1073,277,1.456924510717614,11.276794035414724,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,macro_southerly_flow,315,89,0.8487619047619048,31.428571428571427,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,macro_non_southerly,1073,277,1.4797763280521903,12.022367194780987,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,macro_southerly_flow,315,89,0.9015873015873016,32.698412698412696,EXPERIMENT_ONLY
+validation,2025,om_family_month_bias_corrected,om family month bias corrected,macro_non_southerly,1073,277,0.7675159776613358,39.235787511649576,EXPERIMENT_ONLY
+validation,2025,om_family_month_bias_corrected,om family month bias corrected,macro_southerly_flow,315,89,0.6934152137417519,53.01587301587302,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,macro_non_southerly,1073,277,0.7148953091022056,41.47250698974837,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,macro_southerly_flow,315,89,0.7227682539682541,45.3968253968254,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,macro_non_southerly,1073,277,0.7021921737216364,41.845293569431504,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,macro_southerly_flow,315,89,0.8487619047619048,31.428571428571427,EXPERIMENT_ONLY
+validation,2025,om_family_season_bias_corrected,om family season bias corrected,macro_non_southerly,1073,277,0.7394531992807855,42.124883504193846,EXPERIMENT_ONLY
+validation,2025,om_family_season_bias_corrected,om family season bias corrected,macro_southerly_flow,315,89,0.7373963443963443,44.44444444444444,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,macro_non_southerly,1073,277,1.5843429636533084,7.921714818266542,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,macro_southerly_flow,315,89,0.9053968253968253,33.96825396825397,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_non_southerly,1073,277,0.8745893662017227,34.01677539608574,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_southerly_flow,315,89,0.7306708334482941,47.61904761904761,EXPERIMENT_ONLY

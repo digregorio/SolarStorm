@@ -1,0 +1,4 @@
+test_year,model_name,cp,residual_abs_p50,residual_abs_p90,abstention_rule,production_status
+2023,ridge_challenger,ALL,0.8610761292996747,2.190780650546471,abstain when pooled CP/regime slice support is weak,EXPERIMENT_ONLY
+2024,ridge_challenger,ALL,0.8919122686776575,2.256138156057495,abstain when pooled CP/regime slice support is weak,EXPERIMENT_ONLY
+2025,ridge_challenger,ALL,0.8454952498049764,2.247181628157897,abstain when pooled CP/regime slice support is weak,EXPERIMENT_ONLY

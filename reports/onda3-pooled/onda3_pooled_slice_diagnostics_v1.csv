@@ -1,0 +1,7 @@
+iteration_id,iteration_label,slice_column,slice_value,rows,mae,production_status
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,cp,20:00,1096,1.1371715632280486,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,cp,21:00,1096,1.0540009800553312,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,cp,22:00,1096,1.0280809910244086,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,cp,23:00,1096,1.0283797780415385,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,binary_macro_regime_label,macro_non_southerly,3225,1.0648923619981183,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,binary_macro_regime_label,macro_southerly_flow,1159,1.0536050413209068,EXPERIMENT_ONLY

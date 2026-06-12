@@ -1,0 +1,9 @@
+candidate_id,n_rows,n_dates,n_cps,min_provider_families,max_provider_families,min_date,max_date,production_status
+om_family_inverse_mae_weighted,5844,1461,4,1,6,2022-01-01,2025-12-31,EXPERIMENT_ONLY
+om_family_mean_raw,5844,1461,4,1,6,2022-01-01,2025-12-31,EXPERIMENT_ONLY
+om_family_median_raw,5844,1461,4,1,6,2022-01-01,2025-12-31,EXPERIMENT_ONLY
+om_family_month_bias_corrected,5844,1461,4,1,6,2022-01-01,2025-12-31,EXPERIMENT_ONLY
+om_family_recent_bias_corrected,5844,1461,4,1,6,2022-01-01,2025-12-31,EXPERIMENT_ONLY
+om_family_regime_bias_corrected,5844,1461,4,1,6,2022-01-01,2025-12-31,EXPERIMENT_ONLY
+om_family_season_bias_corrected,5844,1461,4,1,6,2022-01-01,2025-12-31,EXPERIMENT_ONLY
+om_gfs_previous_runs_raw,5764,1441,4,2,6,2022-01-01,2025-12-31,EXPERIMENT_ONLY

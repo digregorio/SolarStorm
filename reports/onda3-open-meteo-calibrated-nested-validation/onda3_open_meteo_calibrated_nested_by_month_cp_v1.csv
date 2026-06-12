@@ -1,0 +1,1153 @@
+stage,outer_test_year,candidate_id,candidate_label,month,cp,n_cp_rows,mae,exact_bracket_pct,production_status
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-01,20:00,12,2.1742526526442663,8.333333333333332,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-01,21:00,12,2.086937658887376,16.666666666666664,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-01,22:00,12,2.0211431261871993,16.666666666666664,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-01,23:00,12,2.0675898610777517,8.333333333333332,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-02,20:00,29,1.2911989314800374,27.586206896551722,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-02,21:00,29,1.3419296224093675,13.793103448275861,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-02,22:00,29,1.2989959795469117,13.793103448275861,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-02,23:00,29,1.3107272241009107,13.793103448275861,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-03,20:00,31,1.1590733472965522,19.35483870967742,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-03,21:00,31,1.0575613843018734,22.58064516129032,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-03,22:00,31,1.0226964681385797,25.806451612903224,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-03,23:00,31,0.9981824843333175,25.806451612903224,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-04,20:00,30,0.9051649372720914,46.666666666666664,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-04,21:00,30,0.9380812512104406,43.333333333333336,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-04,22:00,30,1.1015511848677184,20.0,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-04,23:00,30,1.1145147389112797,30.0,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-05,20:00,31,1.124984138885052,25.806451612903224,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-05,21:00,31,0.9524734622849569,38.70967741935484,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-05,22:00,31,1.0400668495014398,35.483870967741936,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-05,23:00,31,1.0042337044158618,29.03225806451613,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-06,20:00,30,1.001527188419281,36.666666666666664,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-06,21:00,30,1.0285627015230874,36.666666666666664,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-06,22:00,30,0.9606804991397005,26.666666666666668,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-06,23:00,30,0.9550330275934686,23.333333333333332,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-07,20:00,31,0.8765483700941454,35.483870967741936,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-07,21:00,31,0.8348843412946907,38.70967741935484,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-07,22:00,31,0.7515012925256338,38.70967741935484,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-07,23:00,31,0.7265178520562892,35.483870967741936,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-08,20:00,31,0.9130535109504002,29.03225806451613,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-08,21:00,31,0.8581661513741166,29.03225806451613,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-08,22:00,31,0.9560237568929427,22.58064516129032,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-08,23:00,31,0.9209288251986496,22.58064516129032,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-09,20:00,30,1.0637285650274846,23.333333333333332,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-09,21:00,30,0.9955378238406027,26.666666666666668,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-09,22:00,30,1.0205538698625534,26.666666666666668,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-09,23:00,30,0.9886527658876576,30.0,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-10,20:00,31,1.138199712130714,32.25806451612903,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-10,21:00,31,0.8822267150342217,35.483870967741936,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-10,22:00,31,0.8186264029324996,41.935483870967744,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-10,23:00,31,0.8132057755073238,41.935483870967744,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-11,20:00,30,1.0628757006665623,26.666666666666668,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-11,21:00,30,0.9675900409419658,30.0,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-11,22:00,30,0.9789090164465788,26.666666666666668,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-11,23:00,30,0.9720973663828064,30.0,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-12,20:00,31,1.3756079014315676,25.806451612903224,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-12,21:00,31,1.2071693414979794,29.03225806451613,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-12,22:00,31,1.1717580895532944,35.483870967741936,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,2024-12,23:00,31,1.2332757825208611,29.03225806451613,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-01,20:00,12,2.460460124874189,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-01,21:00,12,2.460460124874189,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-01,22:00,12,2.460460124874189,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-01,23:00,12,2.460460124874189,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-02,20:00,29,1.840682690920455,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-02,21:00,29,1.840682690920455,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-02,22:00,29,1.840682690920455,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-02,23:00,29,1.840682690920455,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-03,20:00,31,1.4615899608495835,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-03,21:00,31,1.4615899608495835,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-03,22:00,31,1.4615899608495835,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-03,23:00,31,1.4615899608495835,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-04,20:00,30,1.4199382570194554,3.3333333333333335,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-04,21:00,30,1.4199382570194554,3.3333333333333335,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-04,22:00,30,1.4199382570194554,3.3333333333333335,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-04,23:00,30,1.4199382570194554,3.3333333333333335,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-05,20:00,31,0.9478715998752397,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-05,21:00,31,0.9478715998752397,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-05,22:00,31,0.9478715998752397,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-05,23:00,31,0.9478715998752397,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-06,20:00,30,0.905119995683034,30.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-06,21:00,30,0.905119995683034,30.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-06,22:00,30,0.905119995683034,30.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-06,23:00,30,0.905119995683034,30.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-07,20:00,31,0.8232795806426807,38.70967741935484,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-07,21:00,31,0.8232795806426807,38.70967741935484,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-07,22:00,31,0.8232795806426807,38.70967741935484,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-07,23:00,31,0.8232795806426807,38.70967741935484,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-08,20:00,31,1.0335384362757394,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-08,21:00,31,1.0335384362757394,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-08,22:00,31,1.0335384362757394,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-08,23:00,31,1.0335384362757394,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-09,20:00,30,1.0662493483966422,10.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-09,21:00,30,1.0662493483966422,10.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-09,22:00,30,1.0662493483966422,10.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-09,23:00,30,1.0662493483966422,10.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-10,20:00,31,1.2081769022761049,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-10,21:00,31,1.2081769022761049,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-10,22:00,31,1.2081769022761049,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-10,23:00,31,1.2081769022761049,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-11,20:00,30,1.1284627952009172,10.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-11,21:00,30,1.1284627952009172,10.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-11,22:00,30,1.1284627952009172,10.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-11,23:00,30,1.1284627952009172,10.0,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-12,20:00,31,1.6331028286161116,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-12,21:00,31,1.6331028286161116,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-12,22:00,31,1.6331028286161116,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-12,23:00,31,1.6331028286161116,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-01,20:00,12,2.458333333333334,8.333333333333332,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-01,21:00,12,2.458333333333334,8.333333333333332,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-01,22:00,12,2.458333333333334,8.333333333333332,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-01,23:00,12,2.458333333333334,8.333333333333332,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-02,20:00,29,1.9248275862068969,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-02,21:00,29,1.9248275862068969,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-02,22:00,29,1.9248275862068969,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-02,23:00,29,1.9248275862068969,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-03,20:00,31,1.5774193548387097,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-03,21:00,31,1.5774193548387097,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-03,22:00,31,1.5774193548387097,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-03,23:00,31,1.5774193548387097,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-04,20:00,30,1.455333333333333,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-04,21:00,30,1.455333333333333,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-04,22:00,30,1.455333333333333,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-04,23:00,30,1.455333333333333,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-05,20:00,31,0.9541935483870967,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-05,21:00,31,0.9541935483870967,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-05,22:00,31,0.9541935483870967,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-05,23:00,31,0.9541935483870967,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-06,20:00,30,0.9120000000000001,30.0,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-06,21:00,30,0.9120000000000001,30.0,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-06,22:00,30,0.9120000000000001,30.0,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-06,23:00,30,0.9120000000000001,30.0,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-07,20:00,31,0.8232258064516128,38.70967741935484,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-07,21:00,31,0.8232258064516128,38.70967741935484,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-07,22:00,31,0.8232258064516128,38.70967741935484,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-07,23:00,31,0.8232258064516128,38.70967741935484,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-08,20:00,31,1.0683870967741937,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-08,21:00,31,1.0683870967741937,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-08,22:00,31,1.0683870967741937,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-08,23:00,31,1.0683870967741937,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-09,20:00,30,1.128666666666667,10.0,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-09,21:00,30,1.128666666666667,10.0,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-09,22:00,30,1.128666666666667,10.0,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-09,23:00,30,1.128666666666667,10.0,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-10,20:00,31,1.2735483870967745,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-10,21:00,31,1.2735483870967745,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-10,22:00,31,1.2735483870967745,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-10,23:00,31,1.2735483870967745,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-11,20:00,30,1.2459999999999998,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-11,21:00,30,1.2459999999999998,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-11,22:00,30,1.2459999999999998,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-11,23:00,30,1.2459999999999998,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-12,20:00,31,1.7251612903225806,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-12,21:00,31,1.7251612903225806,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-12,22:00,31,1.7251612903225806,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_mean_raw,om family mean raw,2024-12,23:00,31,1.7251612903225806,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-01,20:00,12,2.4250000000000003,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-01,21:00,12,2.4250000000000003,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-01,22:00,12,2.4250000000000003,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-01,23:00,12,2.4250000000000003,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-02,20:00,29,1.8775862068965519,17.24137931034483,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-02,21:00,29,1.8775862068965519,17.24137931034483,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-02,22:00,29,1.8775862068965519,17.24137931034483,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-02,23:00,29,1.8775862068965519,17.24137931034483,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-03,20:00,31,1.5774193548387099,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-03,21:00,31,1.5774193548387099,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-03,22:00,31,1.5774193548387099,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-03,23:00,31,1.5774193548387099,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-04,20:00,30,1.47,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-04,21:00,30,1.47,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-04,22:00,30,1.47,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-04,23:00,30,1.47,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-05,20:00,31,0.970967741935484,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-05,21:00,31,0.970967741935484,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-05,22:00,31,0.970967741935484,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-05,23:00,31,0.970967741935484,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-06,20:00,30,0.9399999999999998,36.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-06,21:00,30,0.9399999999999998,36.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-06,22:00,30,0.9399999999999998,36.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-06,23:00,30,0.9399999999999998,36.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-07,20:00,31,0.8290322580645161,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-07,21:00,31,0.8290322580645161,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-07,22:00,31,0.8290322580645161,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-07,23:00,31,0.8290322580645161,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-08,20:00,31,1.1096774193548389,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-08,21:00,31,1.1096774193548389,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-08,22:00,31,1.1096774193548389,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-08,23:00,31,1.1096774193548389,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-09,20:00,30,1.2066666666666666,10.0,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-09,21:00,30,1.2066666666666666,10.0,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-09,22:00,30,1.2066666666666666,10.0,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-09,23:00,30,1.2066666666666666,10.0,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-10,20:00,31,1.3258064516129031,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-10,21:00,31,1.3258064516129031,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-10,22:00,31,1.3258064516129031,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-10,23:00,31,1.3258064516129031,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-11,20:00,30,1.3566666666666667,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-11,21:00,30,1.3566666666666667,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-11,22:00,30,1.3566666666666667,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-11,23:00,30,1.3566666666666667,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-12,20:00,31,1.7741935483870968,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-12,21:00,31,1.7741935483870968,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-12,22:00,31,1.7741935483870968,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_median_raw,om family median raw,2024-12,23:00,31,1.7741935483870968,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-01,20:00,12,1.3541666666666667,33.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-01,21:00,12,1.3541666666666667,33.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-01,22:00,12,1.3541666666666667,33.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-01,23:00,12,1.3541666666666667,33.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-02,20:00,29,0.7722758620689656,34.48275862068966,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-02,21:00,29,0.7722758620689656,34.48275862068966,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-02,22:00,29,0.7722758620689656,34.48275862068966,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-02,23:00,29,0.7722758620689656,34.48275862068966,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-03,20:00,31,0.7330236559139783,45.16129032258064,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-03,21:00,31,0.7330236559139783,45.16129032258064,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-03,22:00,31,0.7330236559139783,45.16129032258064,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-03,23:00,31,0.7330236559139783,45.16129032258064,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-04,20:00,30,0.830195555555555,36.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-04,21:00,30,0.830195555555555,36.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-04,22:00,30,0.830195555555555,36.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-04,23:00,30,0.830195555555555,36.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-05,20:00,31,0.6111397849462362,51.61290322580645,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-05,21:00,31,0.6111397849462362,51.61290322580645,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-05,22:00,31,0.6111397849462362,51.61290322580645,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-05,23:00,31,0.6111397849462362,51.61290322580645,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-06,20:00,30,0.6520711111111112,43.333333333333336,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-06,21:00,30,0.6520711111111112,43.333333333333336,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-06,22:00,30,0.6520711111111112,43.333333333333336,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-06,23:00,30,0.6520711111111112,43.333333333333336,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-07,20:00,31,0.5944602150537635,41.935483870967744,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-07,21:00,31,0.5944602150537635,41.935483870967744,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-07,22:00,31,0.5944602150537635,41.935483870967744,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-07,23:00,31,0.5944602150537635,41.935483870967744,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-08,20:00,31,0.6019268817204304,41.935483870967744,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-08,21:00,31,0.6019268817204304,41.935483870967744,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-08,22:00,31,0.6019268817204304,41.935483870967744,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-08,23:00,31,0.6019268817204304,41.935483870967744,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-09,20:00,30,0.4711200000000001,63.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-09,21:00,30,0.4711200000000001,63.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-09,22:00,30,0.4711200000000001,63.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-09,23:00,30,0.4711200000000001,63.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-10,20:00,31,0.7252301075268821,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-10,21:00,31,0.7252301075268821,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-10,22:00,31,0.7252301075268821,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-10,23:00,31,0.7252301075268821,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-11,20:00,30,0.544542222222222,60.0,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-11,21:00,30,0.544542222222222,60.0,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-11,22:00,30,0.544542222222222,60.0,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-11,23:00,30,0.544542222222222,60.0,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-12,20:00,31,1.0924387096774193,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-12,21:00,31,1.0924387096774193,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-12,22:00,31,1.0924387096774193,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_recent_bias_corrected,om family recent bias corrected,2024-12,23:00,31,1.0924387096774193,19.35483870967742,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-01,20:00,12,1.2000000000000004,41.66666666666667,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-01,21:00,12,1.2000000000000004,41.66666666666667,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-01,22:00,12,1.2000000000000004,41.66666666666667,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-01,23:00,12,1.2000000000000004,41.66666666666667,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-02,20:00,29,0.6090689762095699,44.827586206896555,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-02,21:00,29,0.5580344934509491,48.275862068965516,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-02,22:00,29,0.5580344934509491,48.275862068965516,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-02,23:00,29,0.5580344934509491,48.275862068965516,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-03,20:00,31,0.9110258760717734,35.483870967741936,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-03,21:00,31,0.9110258760717734,35.483870967741936,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-03,22:00,31,0.9110258760717734,35.483870967741936,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-03,23:00,31,0.8652300882818508,35.483870967741936,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-04,20:00,30,0.8491454453618009,33.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-04,21:00,30,0.8491454453618009,33.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-04,22:00,30,0.8491454453618009,33.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-04,23:00,30,0.8491454453618009,33.33333333333333,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-05,20:00,31,0.6741227997912822,48.38709677419355,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-05,21:00,31,0.6698230474417776,48.38709677419355,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-05,22:00,31,0.6589705045059225,48.38709677419355,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-05,23:00,31,0.6589705045059225,48.38709677419355,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-06,20:00,30,0.6725984365026064,40.0,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-06,21:00,30,0.6725984365026064,40.0,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-06,22:00,30,0.6725984365026064,40.0,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-06,23:00,30,0.6725984365026064,40.0,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-07,20:00,31,0.7031506562274117,41.935483870967744,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-07,21:00,31,0.7031506562274117,41.935483870967744,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-07,22:00,31,0.6918177286558961,41.935483870967744,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-07,23:00,31,0.6620974088525527,48.38709677419355,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-08,20:00,31,0.6830215541839694,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-08,21:00,31,0.6583512715690678,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-08,22:00,31,0.6583512715690678,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-08,23:00,31,0.6429988223456508,35.483870967741936,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-09,20:00,30,0.5547255286202085,50.0,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-09,21:00,30,0.5547255286202085,50.0,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-09,22:00,30,0.5852588619535418,50.0,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-09,23:00,30,0.5931879399677265,46.666666666666664,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-10,20:00,31,0.8018721828268115,25.806451612903224,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-10,21:00,31,0.7705818602461664,29.03225806451613,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-10,22:00,31,0.7717177411868213,29.03225806451613,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-10,23:00,31,0.7717177411868213,29.03225806451613,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-11,20:00,30,0.6142448424750742,50.0,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-11,21:00,30,0.6677696121227706,43.333333333333336,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-11,22:00,30,0.6677696121227706,43.333333333333336,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-11,23:00,30,0.6677696121227706,43.333333333333336,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-12,20:00,31,0.8899560237307659,29.03225806451613,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-12,21:00,31,0.8899560237307659,29.03225806451613,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-12,22:00,31,0.8884647492728073,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_family_regime_bias_corrected,om family regime bias corrected,2024-12,23:00,31,0.8502574515467364,32.25806451612903,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-01,20:00,12,2.575,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-01,21:00,12,2.575,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-01,22:00,12,2.575,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-01,23:00,12,2.575,16.666666666666664,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-02,20:00,29,1.8206896551724139,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-02,21:00,29,1.8206896551724139,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-02,22:00,29,1.8206896551724139,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-02,23:00,29,1.8206896551724139,13.793103448275861,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-03,20:00,31,1.4806451612903229,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-03,21:00,31,1.4806451612903229,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-03,22:00,31,1.4806451612903229,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-03,23:00,31,1.4806451612903229,9.67741935483871,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-04,20:00,30,1.5966666666666667,10.0,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-04,21:00,30,1.5966666666666667,10.0,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-04,22:00,30,1.5966666666666667,10.0,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-04,23:00,30,1.5966666666666667,10.0,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-05,20:00,31,1.1612903225806452,22.58064516129032,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-05,21:00,31,1.1612903225806452,22.58064516129032,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-05,22:00,31,1.1612903225806452,22.58064516129032,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-05,23:00,31,1.1612903225806452,22.58064516129032,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-06,20:00,30,1.0633333333333332,26.666666666666668,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-06,21:00,30,1.0633333333333332,26.666666666666668,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-06,22:00,30,1.0633333333333332,26.666666666666668,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-06,23:00,30,1.0633333333333332,26.666666666666668,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-07,20:00,31,0.9612903225806451,22.58064516129032,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-07,21:00,31,0.9612903225806451,22.58064516129032,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-07,22:00,31,0.9612903225806451,22.58064516129032,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-07,23:00,31,0.9612903225806451,22.58064516129032,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-08,20:00,31,1.3129032258064515,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-08,21:00,31,1.3129032258064515,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-08,22:00,31,1.3129032258064515,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-08,23:00,31,1.3129032258064515,16.129032258064516,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-09,20:00,30,1.3366666666666664,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-09,21:00,30,1.3366666666666664,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-09,22:00,30,1.3366666666666664,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-09,23:00,30,1.3366666666666664,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-10,20:00,31,1.4645161290322577,3.225806451612903,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-10,21:00,31,1.4645161290322577,3.225806451612903,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-10,22:00,31,1.4645161290322577,3.225806451612903,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-10,23:00,31,1.4645161290322577,3.225806451612903,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-11,20:00,30,1.3833333333333333,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-11,21:00,30,1.3833333333333333,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-11,22:00,30,1.3833333333333333,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-11,23:00,30,1.3833333333333333,6.666666666666667,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-12,20:00,31,1.7225806451612902,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-12,21:00,31,1.7225806451612902,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-12,22:00,31,1.7225806451612902,12.903225806451612,EXPERIMENT_ONLY
+test,2024,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-12,23:00,31,1.7225806451612902,12.903225806451612,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-01,20:00,12,1.8068981919375402,16.666666666666664,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-01,21:00,12,1.72758258371175,16.666666666666664,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-01,22:00,12,1.716031093333963,16.666666666666664,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-01,23:00,12,1.711879724014927,16.666666666666664,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-02,20:00,29,0.9731182814833698,31.03448275862069,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-02,21:00,29,0.9170770159997588,24.137931034482758,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-02,22:00,29,0.9235736914161001,24.137931034482758,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-02,23:00,29,0.9047934997228486,24.137931034482758,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-03,20:00,31,0.9003790607874778,35.483870967741936,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-03,21:00,31,0.8522961934293348,48.38709677419355,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-03,22:00,31,0.8424988251112331,45.16129032258064,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-03,23:00,31,0.8049630514668291,45.16129032258064,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-04,20:00,30,0.8684454934369877,30.0,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-04,21:00,30,0.8527356967078725,30.0,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-04,22:00,30,0.8185057569473447,33.33333333333333,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-04,23:00,30,0.8521647615456179,33.33333333333333,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-05,20:00,31,0.766319935937762,41.935483870967744,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-05,21:00,31,0.6806188689060618,54.83870967741935,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-05,22:00,31,0.6351890800344991,54.83870967741935,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-05,23:00,31,0.6307905834001154,54.83870967741935,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-06,20:00,30,0.5523703721915131,50.0,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-06,21:00,30,0.5661041716227708,43.333333333333336,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-06,22:00,30,0.5247254567362727,50.0,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-06,23:00,30,0.5322719200587056,50.0,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-07,20:00,31,0.680795983355022,48.38709677419355,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-07,21:00,31,0.6550552105512362,51.61290322580645,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-07,22:00,31,0.6814294810295157,41.935483870967744,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-07,23:00,31,0.6252294051583761,48.38709677419355,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-08,20:00,31,0.6458297913222514,48.38709677419355,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-08,21:00,31,0.6171668063511176,45.16129032258064,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-08,22:00,31,0.6389913246877513,51.61290322580645,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-08,23:00,31,0.6166625350163121,51.61290322580645,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-09,20:00,30,0.728022501843668,36.666666666666664,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-09,21:00,30,0.7019072759550614,40.0,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-09,22:00,30,0.6980965796856446,36.666666666666664,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-09,23:00,30,0.6718419799180625,36.666666666666664,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-10,20:00,31,0.7866330817485527,48.38709677419355,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-10,21:00,31,0.7285320317463102,45.16129032258064,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-10,22:00,31,0.7020309572904218,45.16129032258064,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-10,23:00,31,0.6990676388668942,48.38709677419355,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-11,20:00,30,0.6855825842939692,40.0,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-11,21:00,30,0.6770510547007412,46.666666666666664,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-11,22:00,30,0.6809017309816308,50.0,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-11,23:00,30,0.6653904387878943,53.333333333333336,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-12,20:00,31,0.777777668807956,38.70967741935484,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-12,21:00,31,0.6928961444850222,45.16129032258064,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-12,22:00,31,0.7087759239806403,38.70967741935484,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-12,23:00,31,0.7189506272973271,41.935483870967744,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-01,20:00,31,1.5120567975193209,25.806451612903224,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-01,21:00,31,1.3843232985712388,25.806451612903224,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-01,22:00,31,1.447365290351359,25.806451612903224,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-01,23:00,31,1.3656760190869928,25.806451612903224,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-02,20:00,28,1.2196116782209159,21.428571428571427,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-02,21:00,28,1.1077634195340404,28.57142857142857,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-02,22:00,28,1.1226424310695056,32.142857142857146,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-02,23:00,28,1.1228772544208228,28.57142857142857,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-03,20:00,31,1.2991288292318326,19.35483870967742,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-03,21:00,31,1.0927762594162298,32.25806451612903,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-03,22:00,31,1.0763244041952598,35.483870967741936,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-03,23:00,31,1.0659236460432573,35.483870967741936,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-04,20:00,30,0.9766171800929908,33.33333333333333,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-04,21:00,30,0.9043550751506391,30.0,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-04,22:00,30,0.8269641748179554,46.666666666666664,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-04,23:00,30,0.9007578499149205,36.666666666666664,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-05,20:00,31,0.7330171954384421,48.38709677419355,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-05,21:00,31,0.6698964607649956,61.29032258064516,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-05,22:00,31,0.7188826537575759,38.70967741935484,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-05,23:00,31,0.7329214573772912,35.483870967741936,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-06,20:00,30,1.3105443740039084,10.0,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-06,21:00,30,1.3539739639738277,10.0,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-06,22:00,30,1.4124805377779366,20.0,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-06,23:00,30,1.394629991871491,26.666666666666668,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-07,20:00,31,0.9050690781943974,35.483870967741936,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-07,21:00,31,0.8830372325592288,38.70967741935484,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-07,22:00,31,0.8964491936609026,29.03225806451613,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-07,23:00,31,0.9537006583115236,22.58064516129032,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-08,20:00,31,0.9529410716887319,35.483870967741936,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-08,21:00,31,0.926971156016353,29.03225806451613,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-08,22:00,31,0.8322521384132933,35.483870967741936,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-08,23:00,31,0.8629270992335417,32.25806451612903,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-09,20:00,30,1.3559711893189113,23.333333333333332,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-09,21:00,30,1.4125216988324945,20.0,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-09,22:00,30,1.1423146409244709,26.666666666666668,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-09,23:00,30,1.2144704698111302,23.333333333333332,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-10,20:00,31,0.828155887602166,35.483870967741936,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-10,21:00,31,0.8403613678106626,41.935483870967744,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-10,22:00,31,0.8577226908632107,41.935483870967744,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-10,23:00,31,0.8518105491917896,35.483870967741936,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-11,20:00,30,1.0456001643410826,33.33333333333333,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-11,21:00,30,0.992196981830807,40.0,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-11,22:00,30,1.0291684665561174,40.0,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-11,23:00,30,1.0081184591229768,43.333333333333336,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-12,20:00,31,1.4246489697306548,9.67741935483871,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-12,21:00,31,1.247459210873792,19.35483870967742,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-12,22:00,31,1.1565616700597041,22.58064516129032,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,2025-12,23:00,31,1.1211714777682322,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-01,20:00,31,1.080109969949092,32.25806451612903,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-01,21:00,31,1.080109969949092,32.25806451612903,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-01,22:00,31,1.080109969949092,32.25806451612903,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-01,23:00,31,1.080109969949092,32.25806451612903,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-02,20:00,28,1.5803123091580595,10.714285714285714,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-02,21:00,28,1.5803123091580595,10.714285714285714,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-02,22:00,28,1.5803123091580595,10.714285714285714,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-02,23:00,28,1.5803123091580595,10.714285714285714,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-03,20:00,31,1.6491493804574537,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-03,21:00,31,1.6491493804574537,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-03,22:00,31,1.6491493804574537,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-03,23:00,31,1.6491493804574537,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-04,20:00,30,1.1771152241222327,23.333333333333332,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-04,21:00,30,1.1771152241222327,23.333333333333332,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-04,22:00,30,1.1771152241222327,23.333333333333332,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-04,23:00,30,1.1771152241222327,23.333333333333332,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-05,20:00,31,1.1395323170309322,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-05,21:00,31,1.1395323170309322,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-05,22:00,31,1.1395323170309322,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-05,23:00,31,1.1395323170309322,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-06,20:00,30,0.754766615667975,33.33333333333333,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-06,21:00,30,0.754766615667975,33.33333333333333,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-06,22:00,30,0.754766615667975,33.33333333333333,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-06,23:00,30,0.754766615667975,33.33333333333333,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-07,20:00,31,0.8644044301566368,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-07,21:00,31,0.8644044301566368,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-07,22:00,31,0.8644044301566368,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-07,23:00,31,0.8644044301566368,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-08,20:00,31,0.8437643407555754,48.38709677419355,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-08,21:00,31,0.8437643407555754,48.38709677419355,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-08,22:00,31,0.8437643407555754,48.38709677419355,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-08,23:00,31,0.8437643407555754,48.38709677419355,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-09,20:00,30,1.3577935202094997,10.0,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-09,21:00,30,1.3577935202094997,10.0,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-09,22:00,30,1.3577935202094997,10.0,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-09,23:00,30,1.3577935202094997,10.0,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-10,20:00,31,1.0063371074844276,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-10,21:00,31,1.0063371074844276,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-10,22:00,31,1.0063371074844276,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-10,23:00,31,1.0063371074844276,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-11,20:00,30,1.5654238324725622,0.0,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-11,21:00,30,1.5654238324725622,0.0,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-11,22:00,30,1.5654238324725622,0.0,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-11,23:00,30,1.5654238324725622,0.0,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-12,20:00,31,1.546940334915318,9.67741935483871,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-12,21:00,31,1.546940334915318,9.67741935483871,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-12,22:00,31,1.546940334915318,9.67741935483871,EXPERIMENT_ONLY
+test,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2025-12,23:00,31,1.546940334915318,9.67741935483871,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-01,20:00,31,1.1038709677419354,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-01,21:00,31,1.1038709677419354,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-01,22:00,31,1.1038709677419354,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-01,23:00,31,1.1038709677419354,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-02,20:00,28,1.6111904761904765,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-02,21:00,28,1.6111904761904765,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-02,22:00,28,1.6111904761904765,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-02,23:00,28,1.6111904761904765,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-03,20:00,31,1.709677419354839,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-03,21:00,31,1.709677419354839,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-03,22:00,31,1.709677419354839,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-03,23:00,31,1.709677419354839,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-04,20:00,30,1.2005555555555554,23.333333333333332,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-04,21:00,30,1.2005555555555554,23.333333333333332,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-04,22:00,30,1.2005555555555554,23.333333333333332,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-04,23:00,30,1.2005555555555554,23.333333333333332,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-05,20:00,31,1.1537634408602153,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-05,21:00,31,1.1537634408602153,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-05,22:00,31,1.1537634408602153,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-05,23:00,31,1.1537634408602153,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-06,20:00,30,0.7822222222222219,33.33333333333333,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-06,21:00,30,0.7822222222222219,33.33333333333333,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-06,22:00,30,0.7822222222222219,33.33333333333333,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-06,23:00,30,0.7822222222222219,33.33333333333333,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-07,20:00,31,0.9086021505376344,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-07,21:00,31,0.9086021505376344,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-07,22:00,31,0.9086021505376344,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-07,23:00,31,0.9086021505376344,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-08,20:00,31,0.9161290322580645,35.483870967741936,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-08,21:00,31,0.9161290322580645,35.483870967741936,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-08,22:00,31,0.9161290322580645,35.483870967741936,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-08,23:00,31,0.9161290322580645,35.483870967741936,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-09,20:00,30,1.5194444444444444,10.0,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-09,21:00,30,1.5194444444444444,10.0,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-09,22:00,30,1.5194444444444444,10.0,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-09,23:00,30,1.5194444444444444,10.0,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-10,20:00,31,1.2075268817204303,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-10,21:00,31,1.2075268817204303,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-10,22:00,31,1.2075268817204303,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-10,23:00,31,1.2075268817204303,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-11,20:00,30,1.7355555555555555,0.0,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-11,21:00,30,1.7355555555555555,0.0,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-11,22:00,30,1.7355555555555555,0.0,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-11,23:00,30,1.7355555555555555,0.0,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-12,20:00,31,1.6989247311827953,3.225806451612903,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-12,21:00,31,1.6989247311827953,3.225806451612903,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-12,22:00,31,1.6989247311827953,3.225806451612903,EXPERIMENT_ONLY
+test,2025,om_family_mean_raw,om family mean raw,2025-12,23:00,31,1.6989247311827953,3.225806451612903,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-01,20:00,31,1.132258064516129,35.483870967741936,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-01,21:00,31,1.132258064516129,35.483870967741936,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-01,22:00,31,1.132258064516129,35.483870967741936,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-01,23:00,31,1.132258064516129,35.483870967741936,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-02,20:00,28,1.682142857142857,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-02,21:00,28,1.682142857142857,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-02,22:00,28,1.682142857142857,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-02,23:00,28,1.682142857142857,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-03,20:00,31,1.65,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-03,21:00,31,1.65,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-03,22:00,31,1.65,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-03,23:00,31,1.65,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-04,20:00,30,1.188333333333333,30.0,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-04,21:00,30,1.188333333333333,30.0,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-04,22:00,30,1.188333333333333,30.0,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-04,23:00,30,1.188333333333333,30.0,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-05,20:00,31,1.1806451612903226,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-05,21:00,31,1.1806451612903226,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-05,22:00,31,1.1806451612903226,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-05,23:00,31,1.1806451612903226,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-06,20:00,30,0.8216666666666664,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-06,21:00,30,0.8216666666666664,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-06,22:00,30,0.8216666666666664,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-06,23:00,30,0.8216666666666664,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-07,20:00,31,0.9741935483870966,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-07,21:00,31,0.9741935483870966,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-07,22:00,31,0.9741935483870966,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-07,23:00,31,0.9741935483870966,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-08,20:00,31,0.9516129032258067,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-08,21:00,31,0.9516129032258067,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-08,22:00,31,0.9516129032258067,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-08,23:00,31,0.9516129032258067,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-09,20:00,30,1.6516666666666666,3.3333333333333335,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-09,21:00,30,1.6516666666666666,3.3333333333333335,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-09,22:00,30,1.6516666666666666,3.3333333333333335,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-09,23:00,30,1.6516666666666666,3.3333333333333335,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-10,20:00,31,1.2564516129032257,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-10,21:00,31,1.2564516129032257,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-10,22:00,31,1.2564516129032257,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-10,23:00,31,1.2564516129032257,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-11,20:00,30,1.7916666666666672,3.3333333333333335,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-11,21:00,30,1.7916666666666672,3.3333333333333335,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-11,22:00,30,1.7916666666666672,3.3333333333333335,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-11,23:00,30,1.7916666666666672,3.3333333333333335,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-12,20:00,31,1.7177419354838712,0.0,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-12,21:00,31,1.7177419354838712,0.0,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-12,22:00,31,1.7177419354838712,0.0,EXPERIMENT_ONLY
+test,2025,om_family_median_raw,om family median raw,2025-12,23:00,31,1.7177419354838712,0.0,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-01,20:00,31,0.9906838709677421,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-01,21:00,31,0.9906838709677421,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-01,22:00,31,0.9906838709677421,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-01,23:00,31,0.9906838709677421,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-02,20:00,28,1.3700190476190477,21.428571428571427,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-02,21:00,28,1.3700190476190477,21.428571428571427,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-02,22:00,28,1.3700190476190477,21.428571428571427,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-02,23:00,28,1.3700190476190477,21.428571428571427,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-03,20:00,31,1.251845161290323,22.58064516129032,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-03,21:00,31,1.251845161290323,22.58064516129032,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-03,22:00,31,1.251845161290323,22.58064516129032,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-03,23:00,31,1.251845161290323,22.58064516129032,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-04,20:00,30,0.8991481481481477,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-04,21:00,30,0.8991481481481477,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-04,22:00,30,0.8991481481481477,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-04,23:00,30,0.8991481481481477,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-05,20:00,31,0.7887455197132617,38.70967741935484,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-05,21:00,31,0.7887455197132617,38.70967741935484,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-05,22:00,31,0.7887455197132617,38.70967741935484,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-05,23:00,31,0.7887455197132617,38.70967741935484,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-06,20:00,30,0.5600592592592589,53.333333333333336,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-06,21:00,30,0.5600592592592589,53.333333333333336,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-06,22:00,30,0.5600592592592589,53.333333333333336,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-06,23:00,30,0.5600592592592589,53.333333333333336,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-07,20:00,31,0.7414767025089606,32.25806451612903,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-07,21:00,31,0.7414767025089606,32.25806451612903,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-07,22:00,31,0.7414767025089606,32.25806451612903,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-07,23:00,31,0.7414767025089606,32.25806451612903,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-08,20:00,31,0.7024372759856629,45.16129032258064,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-08,21:00,31,0.7024372759856629,45.16129032258064,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-08,22:00,31,0.7024372759856629,45.16129032258064,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-08,23:00,31,0.7024372759856629,45.16129032258064,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-09,20:00,30,0.7087333333333331,40.0,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-09,21:00,30,0.7087333333333331,40.0,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-09,22:00,30,0.7087333333333331,40.0,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-09,23:00,30,0.7087333333333331,40.0,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-10,20:00,31,0.5135627240143367,54.83870967741935,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-10,21:00,31,0.5135627240143367,54.83870967741935,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-10,22:00,31,0.5135627240143367,54.83870967741935,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-10,23:00,31,0.5135627240143367,54.83870967741935,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-11,20:00,30,0.6804888888888893,46.666666666666664,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-11,21:00,30,0.6804888888888893,46.666666666666664,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-11,22:00,30,0.6804888888888893,46.666666666666664,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-11,23:00,30,0.6804888888888893,46.666666666666664,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-12,20:00,31,0.7404731182795696,51.61290322580645,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-12,21:00,31,0.7404731182795696,51.61290322580645,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-12,22:00,31,0.7404731182795696,51.61290322580645,EXPERIMENT_ONLY
+test,2025,om_family_recent_bias_corrected,om family recent bias corrected,2025-12,23:00,31,0.7404731182795696,51.61290322580645,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-01,20:00,31,1.1322045070809545,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-01,21:00,31,1.1322045070809545,25.806451612903224,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-01,22:00,31,1.1531359887724353,19.35483870967742,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-01,23:00,31,1.1219412456422082,22.58064516129032,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-02,20:00,28,1.3957560489559508,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-02,21:00,28,1.3957560489559508,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-02,22:00,28,1.3957560489559508,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-02,23:00,28,1.3957560489559508,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-03,20:00,31,1.232081678446087,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-03,21:00,31,1.2261611222662605,9.67741935483871,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-03,22:00,31,1.2285010628195165,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-03,23:00,31,1.2285010628195165,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-04,20:00,30,0.82678498622239,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-04,21:00,30,0.82678498622239,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-04,22:00,30,0.82678498622239,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-04,23:00,30,0.7942011287800421,26.666666666666668,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-05,20:00,31,0.7224693374818018,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-05,21:00,31,0.7274576979739867,38.70967741935484,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-05,22:00,31,0.695493219172152,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-05,23:00,31,0.700481579664337,38.70967741935484,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-06,20:00,30,0.5221203290289741,60.0,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-06,21:00,30,0.552327625878062,56.666666666666664,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-06,22:00,30,0.552327625878062,56.666666666666664,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-06,23:00,30,0.5221203290289741,60.0,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-07,20:00,31,0.8005505106705031,32.25806451612903,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-07,21:00,31,0.7911803109777227,32.25806451612903,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-07,22:00,31,0.779643952311785,32.25806451612903,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-07,23:00,31,0.7629579114321958,35.483870967741936,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-08,20:00,31,0.7227651934227967,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-08,21:00,31,0.7227651934227967,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-08,22:00,31,0.7227651934227967,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-08,23:00,31,0.7227651934227967,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-09,20:00,30,0.7878691376164028,30.0,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-09,21:00,30,0.7878691376164028,30.0,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-09,22:00,30,0.7878691376164028,30.0,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-09,23:00,30,0.7878691376164028,30.0,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-10,20:00,31,0.5731672900618906,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-10,21:00,31,0.5411636784719703,45.16129032258064,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-10,22:00,31,0.5411636784719703,45.16129032258064,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-10,23:00,31,0.5775944279503847,45.16129032258064,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-11,20:00,30,0.8326030608384158,33.33333333333333,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-11,21:00,30,0.8326030608384158,33.33333333333333,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-11,22:00,30,0.8661959237743443,30.0,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-11,23:00,30,0.8661959237743443,30.0,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-12,20:00,31,0.8349372759793778,38.70967741935484,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-12,21:00,31,0.8138693138556972,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-12,22:00,31,0.7695909678464306,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_family_regime_bias_corrected,om family regime bias corrected,2025-12,23:00,31,0.7695909678464306,41.935483870967744,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-01,20:00,31,1.006451612903226,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-01,21:00,31,1.006451612903226,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-01,22:00,31,1.006451612903226,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-01,23:00,31,1.006451612903226,29.03225806451613,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-02,20:00,28,1.8357142857142859,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-02,21:00,28,1.8357142857142859,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-02,22:00,28,1.8357142857142859,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-02,23:00,28,1.8357142857142859,14.285714285714285,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-03,20:00,31,1.7709677419354841,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-03,21:00,31,1.7709677419354841,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-03,22:00,31,1.7709677419354841,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-03,23:00,31,1.7709677419354841,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-04,20:00,30,1.7066666666666668,10.0,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-04,21:00,30,1.7066666666666668,10.0,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-04,22:00,30,1.7066666666666668,10.0,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-04,23:00,30,1.7066666666666668,10.0,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-05,20:00,31,1.3225806451612903,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-05,21:00,31,1.3225806451612903,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-05,22:00,31,1.3225806451612903,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-05,23:00,31,1.3225806451612903,16.129032258064516,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-06,20:00,30,1.1566666666666667,13.333333333333334,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-06,21:00,30,1.1566666666666667,13.333333333333334,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-06,22:00,30,1.1566666666666667,13.333333333333334,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-06,23:00,30,1.1566666666666667,13.333333333333334,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-07,20:00,31,1.2774193548387094,19.35483870967742,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-07,21:00,31,1.2774193548387094,19.35483870967742,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-07,22:00,31,1.2774193548387094,19.35483870967742,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-07,23:00,31,1.2774193548387094,19.35483870967742,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-08,20:00,31,1.2870967741935484,22.58064516129032,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-08,21:00,31,1.2870967741935484,22.58064516129032,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-08,22:00,31,1.2870967741935484,22.58064516129032,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-08,23:00,31,1.2870967741935484,22.58064516129032,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-09,20:00,30,1.4733333333333334,13.333333333333334,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-09,21:00,30,1.4733333333333334,13.333333333333334,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-09,22:00,30,1.4733333333333334,13.333333333333334,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-09,23:00,30,1.4733333333333334,13.333333333333334,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-10,20:00,31,1.2838709677419353,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-10,21:00,31,1.2838709677419353,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-10,22:00,31,1.2838709677419353,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-10,23:00,31,1.2838709677419353,12.903225806451612,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-11,20:00,30,1.5066666666666668,16.666666666666664,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-11,21:00,30,1.5066666666666668,16.666666666666664,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-11,22:00,30,1.5066666666666668,16.666666666666664,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-11,23:00,30,1.5066666666666668,16.666666666666664,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-12,20:00,31,1.4903225806451612,0.0,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-12,21:00,31,1.4903225806451612,0.0,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-12,22:00,31,1.4903225806451612,0.0,EXPERIMENT_ONLY
+test,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2025-12,23:00,31,1.4903225806451612,0.0,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-01,20:00,31,0.7988860520573643,48.38709677419355,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-01,21:00,31,0.8145064535115276,38.70967741935484,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-01,22:00,31,0.7841765054875596,38.70967741935484,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-01,23:00,31,0.7482086571999873,38.70967741935484,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-02,20:00,28,1.1638803728200366,28.57142857142857,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-02,21:00,28,1.1419958882625225,32.142857142857146,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-02,22:00,28,1.1379410305723878,28.57142857142857,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-02,23:00,28,1.1398702131047398,32.142857142857146,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-03,20:00,31,1.027984953835985,32.25806451612903,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-03,21:00,31,0.9594904860940519,32.25806451612903,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-03,22:00,31,1.0069406286071738,32.25806451612903,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-03,23:00,31,0.9976086582715091,35.483870967741936,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-04,20:00,30,0.8622115560414899,23.333333333333332,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-04,21:00,30,0.8382724846565672,30.0,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-04,22:00,30,0.8602525120428869,26.666666666666668,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-04,23:00,30,0.8524281081207489,23.333333333333332,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-05,20:00,31,0.5266430401613238,54.83870967741935,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-05,21:00,31,0.4991159412621465,54.83870967741935,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-05,22:00,31,0.47218213532066594,61.29032258064516,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-05,23:00,31,0.4868927693015112,61.29032258064516,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-06,20:00,30,0.7216249466695501,36.666666666666664,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-06,21:00,30,0.719588048567757,30.0,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-06,22:00,30,0.7528844178252125,40.0,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-06,23:00,30,0.7418802874950081,46.666666666666664,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-07,20:00,31,0.6369810255016561,51.61290322580645,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-07,21:00,31,0.6291268301848826,54.83870967741935,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-07,22:00,31,0.6287986491011075,51.61290322580645,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-07,23:00,31,0.6275233118082978,54.83870967741935,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-08,20:00,31,0.6956560474337373,51.61290322580645,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-08,21:00,31,0.6832367941081834,48.38709677419355,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-08,22:00,31,0.7750907708191505,35.483870967741936,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-08,23:00,31,0.7848345128580432,35.483870967741936,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-09,20:00,30,0.6048487226727363,46.666666666666664,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-09,21:00,30,0.5971413492100548,46.666666666666664,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-09,22:00,30,0.4999053286942727,56.666666666666664,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-09,23:00,30,0.513845730613726,53.333333333333336,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-10,20:00,31,0.6188035344058647,51.61290322580645,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-10,21:00,31,0.7153697954478239,54.83870967741935,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-10,22:00,31,0.717790619927585,51.61290322580645,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-10,23:00,31,0.7662198411379787,51.61290322580645,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-11,20:00,30,0.844075220334938,26.666666666666668,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-11,21:00,30,0.8218481977563037,33.33333333333333,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-11,22:00,30,0.7989930780312446,33.33333333333333,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-11,23:00,30,0.7822360096453725,33.33333333333333,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-12,20:00,31,0.8136923923951759,25.806451612903224,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-12,21:00,31,0.7548525870942115,41.935483870967744,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-12,22:00,31,0.7089275243198718,41.935483870967744,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025-12,23:00,31,0.6860308129434647,45.16129032258064,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-01,20:00,12,2.1742526526442663,8.333333333333332,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-01,21:00,12,2.086937658887376,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-01,22:00,12,2.0211431261871993,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-01,23:00,12,2.0675898610777517,8.333333333333332,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-02,20:00,29,1.2911989314800374,27.586206896551722,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-02,21:00,29,1.3419296224093675,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-02,22:00,29,1.2989959795469117,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-02,23:00,29,1.3107272241009107,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-03,20:00,31,1.1590733472965522,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-03,21:00,31,1.0575613843018734,22.58064516129032,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-03,22:00,31,1.0226964681385797,25.806451612903224,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-03,23:00,31,0.9981824843333175,25.806451612903224,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-04,20:00,30,0.9051649372720914,46.666666666666664,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-04,21:00,30,0.9380812512104406,43.333333333333336,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-04,22:00,30,1.1015511848677184,20.0,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-04,23:00,30,1.1145147389112797,30.0,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-05,20:00,31,1.124984138885052,25.806451612903224,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-05,21:00,31,0.9524734622849569,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-05,22:00,31,1.0400668495014398,35.483870967741936,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-05,23:00,31,1.0042337044158618,29.03225806451613,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-06,20:00,30,1.001527188419281,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-06,21:00,30,1.0285627015230874,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-06,22:00,30,0.9606804991397005,26.666666666666668,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-06,23:00,30,0.9550330275934686,23.333333333333332,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-07,20:00,31,0.8765483700941454,35.483870967741936,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-07,21:00,31,0.8348843412946907,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-07,22:00,31,0.7515012925256338,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-07,23:00,31,0.7265178520562892,35.483870967741936,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-08,20:00,31,0.9130535109504002,29.03225806451613,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-08,21:00,31,0.8581661513741166,29.03225806451613,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-08,22:00,31,0.9560237568929427,22.58064516129032,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-08,23:00,31,0.9209288251986496,22.58064516129032,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-09,20:00,30,1.0637285650274846,23.333333333333332,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-09,21:00,30,0.9955378238406027,26.666666666666668,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-09,22:00,30,1.0205538698625534,26.666666666666668,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-09,23:00,30,0.9886527658876576,30.0,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-10,20:00,31,1.138199712130714,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-10,21:00,31,0.8822267150342217,35.483870967741936,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-10,22:00,31,0.8186264029324996,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-10,23:00,31,0.8132057755073238,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-11,20:00,30,1.0628757006665623,26.666666666666668,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-11,21:00,30,0.9675900409419658,30.0,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-11,22:00,30,0.9789090164465788,26.666666666666668,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-11,23:00,30,0.9720973663828064,30.0,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-12,20:00,31,1.3756079014315676,25.806451612903224,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-12,21:00,31,1.2071693414979794,29.03225806451613,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-12,22:00,31,1.1717580895532944,35.483870967741936,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,2024-12,23:00,31,1.2332757825208611,29.03225806451613,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-01,20:00,12,2.460460124874189,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-01,21:00,12,2.460460124874189,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-01,22:00,12,2.460460124874189,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-01,23:00,12,2.460460124874189,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-02,20:00,29,1.840682690920455,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-02,21:00,29,1.840682690920455,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-02,22:00,29,1.840682690920455,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-02,23:00,29,1.840682690920455,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-03,20:00,31,1.4615899608495835,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-03,21:00,31,1.4615899608495835,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-03,22:00,31,1.4615899608495835,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-03,23:00,31,1.4615899608495835,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-04,20:00,30,1.4199382570194554,3.3333333333333335,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-04,21:00,30,1.4199382570194554,3.3333333333333335,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-04,22:00,30,1.4199382570194554,3.3333333333333335,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-04,23:00,30,1.4199382570194554,3.3333333333333335,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-05,20:00,31,0.9478715998752397,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-05,21:00,31,0.9478715998752397,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-05,22:00,31,0.9478715998752397,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-05,23:00,31,0.9478715998752397,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-06,20:00,30,0.905119995683034,30.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-06,21:00,30,0.905119995683034,30.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-06,22:00,30,0.905119995683034,30.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-06,23:00,30,0.905119995683034,30.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-07,20:00,31,0.8232795806426807,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-07,21:00,31,0.8232795806426807,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-07,22:00,31,0.8232795806426807,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-07,23:00,31,0.8232795806426807,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-08,20:00,31,1.0335384362757394,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-08,21:00,31,1.0335384362757394,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-08,22:00,31,1.0335384362757394,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-08,23:00,31,1.0335384362757394,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-09,20:00,30,1.0662493483966422,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-09,21:00,30,1.0662493483966422,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-09,22:00,30,1.0662493483966422,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-09,23:00,30,1.0662493483966422,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-10,20:00,31,1.2081769022761049,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-10,21:00,31,1.2081769022761049,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-10,22:00,31,1.2081769022761049,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-10,23:00,31,1.2081769022761049,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-11,20:00,30,1.1284627952009172,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-11,21:00,30,1.1284627952009172,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-11,22:00,30,1.1284627952009172,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-11,23:00,30,1.1284627952009172,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-12,20:00,31,1.6331028286161116,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-12,21:00,31,1.6331028286161116,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-12,22:00,31,1.6331028286161116,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_inverse_mae_weighted,om family inverse mae weighted,2024-12,23:00,31,1.6331028286161116,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-01,20:00,12,2.458333333333334,8.333333333333332,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-01,21:00,12,2.458333333333334,8.333333333333332,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-01,22:00,12,2.458333333333334,8.333333333333332,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-01,23:00,12,2.458333333333334,8.333333333333332,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-02,20:00,29,1.9248275862068969,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-02,21:00,29,1.9248275862068969,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-02,22:00,29,1.9248275862068969,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-02,23:00,29,1.9248275862068969,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-03,20:00,31,1.5774193548387097,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-03,21:00,31,1.5774193548387097,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-03,22:00,31,1.5774193548387097,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-03,23:00,31,1.5774193548387097,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-04,20:00,30,1.455333333333333,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-04,21:00,30,1.455333333333333,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-04,22:00,30,1.455333333333333,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-04,23:00,30,1.455333333333333,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-05,20:00,31,0.9541935483870967,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-05,21:00,31,0.9541935483870967,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-05,22:00,31,0.9541935483870967,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-05,23:00,31,0.9541935483870967,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-06,20:00,30,0.9120000000000001,30.0,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-06,21:00,30,0.9120000000000001,30.0,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-06,22:00,30,0.9120000000000001,30.0,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-06,23:00,30,0.9120000000000001,30.0,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-07,20:00,31,0.8232258064516128,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-07,21:00,31,0.8232258064516128,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-07,22:00,31,0.8232258064516128,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-07,23:00,31,0.8232258064516128,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-08,20:00,31,1.0683870967741937,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-08,21:00,31,1.0683870967741937,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-08,22:00,31,1.0683870967741937,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-08,23:00,31,1.0683870967741937,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-09,20:00,30,1.128666666666667,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-09,21:00,30,1.128666666666667,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-09,22:00,30,1.128666666666667,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-09,23:00,30,1.128666666666667,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-10,20:00,31,1.2735483870967745,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-10,21:00,31,1.2735483870967745,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-10,22:00,31,1.2735483870967745,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-10,23:00,31,1.2735483870967745,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-11,20:00,30,1.2459999999999998,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-11,21:00,30,1.2459999999999998,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-11,22:00,30,1.2459999999999998,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-11,23:00,30,1.2459999999999998,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-12,20:00,31,1.7251612903225806,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-12,21:00,31,1.7251612903225806,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-12,22:00,31,1.7251612903225806,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_mean_raw,om family mean raw,2024-12,23:00,31,1.7251612903225806,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-01,20:00,12,2.4250000000000003,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-01,21:00,12,2.4250000000000003,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-01,22:00,12,2.4250000000000003,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-01,23:00,12,2.4250000000000003,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-02,20:00,29,1.8775862068965519,17.24137931034483,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-02,21:00,29,1.8775862068965519,17.24137931034483,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-02,22:00,29,1.8775862068965519,17.24137931034483,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-02,23:00,29,1.8775862068965519,17.24137931034483,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-03,20:00,31,1.5774193548387099,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-03,21:00,31,1.5774193548387099,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-03,22:00,31,1.5774193548387099,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-03,23:00,31,1.5774193548387099,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-04,20:00,30,1.47,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-04,21:00,30,1.47,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-04,22:00,30,1.47,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-04,23:00,30,1.47,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-05,20:00,31,0.970967741935484,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-05,21:00,31,0.970967741935484,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-05,22:00,31,0.970967741935484,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-05,23:00,31,0.970967741935484,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-06,20:00,30,0.9399999999999998,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-06,21:00,30,0.9399999999999998,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-06,22:00,30,0.9399999999999998,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-06,23:00,30,0.9399999999999998,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-07,20:00,31,0.8290322580645161,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-07,21:00,31,0.8290322580645161,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-07,22:00,31,0.8290322580645161,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-07,23:00,31,0.8290322580645161,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-08,20:00,31,1.1096774193548389,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-08,21:00,31,1.1096774193548389,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-08,22:00,31,1.1096774193548389,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-08,23:00,31,1.1096774193548389,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-09,20:00,30,1.2066666666666666,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-09,21:00,30,1.2066666666666666,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-09,22:00,30,1.2066666666666666,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-09,23:00,30,1.2066666666666666,10.0,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-10,20:00,31,1.3258064516129031,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-10,21:00,31,1.3258064516129031,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-10,22:00,31,1.3258064516129031,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-10,23:00,31,1.3258064516129031,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-11,20:00,30,1.3566666666666667,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-11,21:00,30,1.3566666666666667,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-11,22:00,30,1.3566666666666667,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-11,23:00,30,1.3566666666666667,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-12,20:00,31,1.7741935483870968,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-12,21:00,31,1.7741935483870968,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-12,22:00,31,1.7741935483870968,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_median_raw,om family median raw,2024-12,23:00,31,1.7741935483870968,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-01,20:00,12,1.3541666666666667,33.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-01,21:00,12,1.3541666666666667,33.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-01,22:00,12,1.3541666666666667,33.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-01,23:00,12,1.3541666666666667,33.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-02,20:00,29,0.7722758620689656,34.48275862068966,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-02,21:00,29,0.7722758620689656,34.48275862068966,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-02,22:00,29,0.7722758620689656,34.48275862068966,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-02,23:00,29,0.7722758620689656,34.48275862068966,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-03,20:00,31,0.7330236559139783,45.16129032258064,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-03,21:00,31,0.7330236559139783,45.16129032258064,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-03,22:00,31,0.7330236559139783,45.16129032258064,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-03,23:00,31,0.7330236559139783,45.16129032258064,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-04,20:00,30,0.830195555555555,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-04,21:00,30,0.830195555555555,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-04,22:00,30,0.830195555555555,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-04,23:00,30,0.830195555555555,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-05,20:00,31,0.6111397849462362,51.61290322580645,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-05,21:00,31,0.6111397849462362,51.61290322580645,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-05,22:00,31,0.6111397849462362,51.61290322580645,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-05,23:00,31,0.6111397849462362,51.61290322580645,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-06,20:00,30,0.6520711111111112,43.333333333333336,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-06,21:00,30,0.6520711111111112,43.333333333333336,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-06,22:00,30,0.6520711111111112,43.333333333333336,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-06,23:00,30,0.6520711111111112,43.333333333333336,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-07,20:00,31,0.5944602150537635,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-07,21:00,31,0.5944602150537635,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-07,22:00,31,0.5944602150537635,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-07,23:00,31,0.5944602150537635,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-08,20:00,31,0.6019268817204304,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-08,21:00,31,0.6019268817204304,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-08,22:00,31,0.6019268817204304,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-08,23:00,31,0.6019268817204304,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-09,20:00,30,0.4711200000000001,63.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-09,21:00,30,0.4711200000000001,63.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-09,22:00,30,0.4711200000000001,63.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-09,23:00,30,0.4711200000000001,63.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-10,20:00,31,0.7252301075268821,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-10,21:00,31,0.7252301075268821,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-10,22:00,31,0.7252301075268821,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-10,23:00,31,0.7252301075268821,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-11,20:00,30,0.544542222222222,60.0,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-11,21:00,30,0.544542222222222,60.0,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-11,22:00,30,0.544542222222222,60.0,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-11,23:00,30,0.544542222222222,60.0,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-12,20:00,31,1.0924387096774193,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-12,21:00,31,1.0924387096774193,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-12,22:00,31,1.0924387096774193,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_recent_bias_corrected,om family recent bias corrected,2024-12,23:00,31,1.0924387096774193,19.35483870967742,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-01,20:00,12,1.2000000000000004,41.66666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-01,21:00,12,1.2000000000000004,41.66666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-01,22:00,12,1.2000000000000004,41.66666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-01,23:00,12,1.2000000000000004,41.66666666666667,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-02,20:00,29,0.6090689762095699,44.827586206896555,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-02,21:00,29,0.5580344934509491,48.275862068965516,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-02,22:00,29,0.5580344934509491,48.275862068965516,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-02,23:00,29,0.5580344934509491,48.275862068965516,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-03,20:00,31,0.9110258760717734,35.483870967741936,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-03,21:00,31,0.9110258760717734,35.483870967741936,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-03,22:00,31,0.9110258760717734,35.483870967741936,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-03,23:00,31,0.8652300882818508,35.483870967741936,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-04,20:00,30,0.8491454453618009,33.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-04,21:00,30,0.8491454453618009,33.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-04,22:00,30,0.8491454453618009,33.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-04,23:00,30,0.8491454453618009,33.33333333333333,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-05,20:00,31,0.6741227997912822,48.38709677419355,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-05,21:00,31,0.6698230474417776,48.38709677419355,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-05,22:00,31,0.6589705045059225,48.38709677419355,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-05,23:00,31,0.6589705045059225,48.38709677419355,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-06,20:00,30,0.6725984365026064,40.0,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-06,21:00,30,0.6725984365026064,40.0,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-06,22:00,30,0.6725984365026064,40.0,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-06,23:00,30,0.6725984365026064,40.0,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-07,20:00,31,0.7031506562274117,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-07,21:00,31,0.7031506562274117,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-07,22:00,31,0.6918177286558961,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-07,23:00,31,0.6620974088525527,48.38709677419355,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-08,20:00,31,0.6830215541839694,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-08,21:00,31,0.6583512715690678,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-08,22:00,31,0.6583512715690678,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-08,23:00,31,0.6429988223456508,35.483870967741936,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-09,20:00,30,0.5547255286202085,50.0,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-09,21:00,30,0.5547255286202085,50.0,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-09,22:00,30,0.5852588619535418,50.0,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-09,23:00,30,0.5931879399677265,46.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-10,20:00,31,0.8018721828268115,25.806451612903224,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-10,21:00,31,0.7705818602461664,29.03225806451613,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-10,22:00,31,0.7717177411868213,29.03225806451613,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-10,23:00,31,0.7717177411868213,29.03225806451613,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-11,20:00,30,0.6142448424750742,50.0,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-11,21:00,30,0.6677696121227706,43.333333333333336,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-11,22:00,30,0.6677696121227706,43.333333333333336,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-11,23:00,30,0.6677696121227706,43.333333333333336,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-12,20:00,31,0.8899560237307659,29.03225806451613,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-12,21:00,31,0.8899560237307659,29.03225806451613,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-12,22:00,31,0.8884647492728073,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_family_regime_bias_corrected,om family regime bias corrected,2024-12,23:00,31,0.8502574515467364,32.25806451612903,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-01,20:00,12,2.575,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-01,21:00,12,2.575,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-01,22:00,12,2.575,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-01,23:00,12,2.575,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-02,20:00,29,1.8206896551724139,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-02,21:00,29,1.8206896551724139,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-02,22:00,29,1.8206896551724139,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-02,23:00,29,1.8206896551724139,13.793103448275861,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-03,20:00,31,1.4806451612903229,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-03,21:00,31,1.4806451612903229,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-03,22:00,31,1.4806451612903229,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-03,23:00,31,1.4806451612903229,9.67741935483871,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-04,20:00,30,1.5966666666666667,10.0,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-04,21:00,30,1.5966666666666667,10.0,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-04,22:00,30,1.5966666666666667,10.0,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-04,23:00,30,1.5966666666666667,10.0,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-05,20:00,31,1.1612903225806452,22.58064516129032,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-05,21:00,31,1.1612903225806452,22.58064516129032,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-05,22:00,31,1.1612903225806452,22.58064516129032,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-05,23:00,31,1.1612903225806452,22.58064516129032,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-06,20:00,30,1.0633333333333332,26.666666666666668,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-06,21:00,30,1.0633333333333332,26.666666666666668,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-06,22:00,30,1.0633333333333332,26.666666666666668,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-06,23:00,30,1.0633333333333332,26.666666666666668,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-07,20:00,31,0.9612903225806451,22.58064516129032,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-07,21:00,31,0.9612903225806451,22.58064516129032,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-07,22:00,31,0.9612903225806451,22.58064516129032,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-07,23:00,31,0.9612903225806451,22.58064516129032,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-08,20:00,31,1.3129032258064515,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-08,21:00,31,1.3129032258064515,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-08,22:00,31,1.3129032258064515,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-08,23:00,31,1.3129032258064515,16.129032258064516,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-09,20:00,30,1.3366666666666664,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-09,21:00,30,1.3366666666666664,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-09,22:00,30,1.3366666666666664,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-09,23:00,30,1.3366666666666664,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-10,20:00,31,1.4645161290322577,3.225806451612903,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-10,21:00,31,1.4645161290322577,3.225806451612903,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-10,22:00,31,1.4645161290322577,3.225806451612903,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-10,23:00,31,1.4645161290322577,3.225806451612903,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-11,20:00,30,1.3833333333333333,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-11,21:00,30,1.3833333333333333,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-11,22:00,30,1.3833333333333333,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-11,23:00,30,1.3833333333333333,6.666666666666667,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-12,20:00,31,1.7225806451612902,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-12,21:00,31,1.7225806451612902,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-12,22:00,31,1.7225806451612902,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,om_gfs_previous_runs_raw,om gfs previous runs raw,2024-12,23:00,31,1.7225806451612902,12.903225806451612,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-01,20:00,12,1.8068981919375402,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-01,21:00,12,1.72758258371175,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-01,22:00,12,1.716031093333963,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-01,23:00,12,1.711879724014927,16.666666666666664,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-02,20:00,29,0.9731182814833698,31.03448275862069,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-02,21:00,29,0.9170770159997588,24.137931034482758,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-02,22:00,29,0.9235736914161001,24.137931034482758,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-02,23:00,29,0.9047934997228486,24.137931034482758,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-03,20:00,31,0.9003790607874778,35.483870967741936,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-03,21:00,31,0.8522961934293348,48.38709677419355,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-03,22:00,31,0.8424988251112331,45.16129032258064,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-03,23:00,31,0.8049630514668291,45.16129032258064,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-04,20:00,30,0.8684454934369877,30.0,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-04,21:00,30,0.8527356967078725,30.0,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-04,22:00,30,0.8185057569473447,33.33333333333333,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-04,23:00,30,0.8521647615456179,33.33333333333333,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-05,20:00,31,0.766319935937762,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-05,21:00,31,0.6806188689060618,54.83870967741935,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-05,22:00,31,0.6351890800344991,54.83870967741935,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-05,23:00,31,0.6307905834001154,54.83870967741935,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-06,20:00,30,0.5523703721915131,50.0,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-06,21:00,30,0.5661041716227708,43.333333333333336,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-06,22:00,30,0.5247254567362727,50.0,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-06,23:00,30,0.5322719200587056,50.0,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-07,20:00,31,0.680795983355022,48.38709677419355,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-07,21:00,31,0.6550552105512362,51.61290322580645,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-07,22:00,31,0.6814294810295157,41.935483870967744,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-07,23:00,31,0.6252294051583761,48.38709677419355,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-08,20:00,31,0.6458297913222514,48.38709677419355,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-08,21:00,31,0.6171668063511176,45.16129032258064,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-08,22:00,31,0.6389913246877513,51.61290322580645,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-08,23:00,31,0.6166625350163121,51.61290322580645,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-09,20:00,30,0.728022501843668,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-09,21:00,30,0.7019072759550614,40.0,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-09,22:00,30,0.6980965796856446,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-09,23:00,30,0.6718419799180625,36.666666666666664,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-10,20:00,31,0.7866330817485527,48.38709677419355,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-10,21:00,31,0.7285320317463102,45.16129032258064,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-10,22:00,31,0.7020309572904218,45.16129032258064,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-10,23:00,31,0.6990676388668942,48.38709677419355,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-11,20:00,30,0.6855825842939692,40.0,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-11,21:00,30,0.6770510547007412,46.666666666666664,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-11,22:00,30,0.6809017309816308,50.0,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-11,23:00,30,0.6653904387878943,53.333333333333336,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-12,20:00,31,0.777777668807956,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-12,21:00,31,0.6928961444850222,45.16129032258064,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-12,22:00,31,0.7087759239806403,38.70967741935484,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024-12,23:00,31,0.7189506272973271,41.935483870967744,EXPERIMENT_ONLY

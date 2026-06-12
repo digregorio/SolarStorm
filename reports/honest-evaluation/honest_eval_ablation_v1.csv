@@ -1,0 +1,4 @@
+test_year,n_train,n_test,full_mae,ablated_mae,mae_delta_ablated_minus_full,ablated_features,production_status
+2023,16824,1460,1.1162320953600253,1.4512976499139083,0.335065554553883,"tmax_dminus1,slope_3h,warming_rate_06_09",EXPERIMENT_ONLY
+2024,18284,1464,1.104387930454194,1.4276607662846679,0.32327283583047395,"tmax_dminus1,slope_3h,warming_rate_06_09",EXPERIMENT_ONLY
+2025,19748,1460,1.1084744216633111,1.3640565119742567,0.2555820903109456,"tmax_dminus1,slope_3h,warming_rate_06_09",EXPERIMENT_ONLY

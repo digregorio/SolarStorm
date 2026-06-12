@@ -69,15 +69,17 @@ def build_onda4_model_review(inputs: dict[str, pl.DataFrame]) -> dict[str, pl.Da
     slices = inputs["slice_diagnostics"]
     uncertainty = inputs["uncertainty"]
     decision = inputs["decision"]
+    temporal_diagnostics = inputs.get("temporal_diagnostics")
 
     included_blocked = manifest.filter(
         pl.col("included_in_onda3")
         & (pl.col("leakage_class") == "blocked_target_or_proxy")
     )
-    null_mae = float(baseline["mae"][0])
-    challenger_mae = float(challenger["mae"][0])
+    null_mae = float(baseline["mae"].mean())
+    challenger_mae = float(challenger["mae"].mean())
     lift = null_mae - challenger_mae
-    challenger_beats = bool(challenger["beats_train_mean_null"][0]) and lift > 0
+    challenger_failures = challenger.filter(~pl.col("beats_train_mean_null"))
+    challenger_beats = challenger_failures.is_empty() and lift > 0
     low_support_slices = (
         slices.filter(pl.col("rows") < 30) if "rows" in slices.columns else slices
     )
@@ -91,6 +93,18 @@ def build_onda4_model_review(inputs: dict[str, pl.DataFrame]) -> dict[str, pl.Da
         or not abstention_rule.strip()
     )
     decision_ready = str(decision["decision_status"][0]) == "READY_FOR_ONDA4_MODEL_RERUN"
+    temporal_invalid = False
+    temporal_detail = "first_review_single_test_year_recorded"
+    if temporal_diagnostics is not None and not temporal_diagnostics.is_empty():
+        temporal_invalid = not bool(
+            temporal_diagnostics.select((pl.col("status") == "PASS").all()).item()
+        )
+        test_years = (
+            str(temporal_diagnostics["test_years"][0])
+            if "test_years" in temporal_diagnostics.columns
+            else "not_recorded"
+        )
+        temporal_detail = f"rolling_temporal_diagnostics; test_years={test_years}"
 
     gate_results = pl.DataFrame(
         [
@@ -114,15 +128,15 @@ def build_onda4_model_review(inputs: dict[str, pl.DataFrame]) -> dict[str, pl.Da
                 "gate_status": _status(not challenger_beats),
                 "detail": (
                     f"null_mae={null_mae:.4f}; challenger_mae={challenger_mae:.4f}; "
-                    f"lift={lift:.4f}"
+                    f"lift={lift:.4f}; challenger_failures={challenger_failures.height}"
                 ),
                 "production_status": "EXPERIMENT_ONLY",
             },
             {
                 "gate_id": "M4",
                 "gate_name": "Temporal robustness",
-                "gate_status": "PASS",
-                "detail": "first_review_single_test_year_recorded",
+                "gate_status": _status(temporal_invalid),
+                "detail": temporal_detail,
                 "production_status": "EXPERIMENT_ONLY",
             },
             {

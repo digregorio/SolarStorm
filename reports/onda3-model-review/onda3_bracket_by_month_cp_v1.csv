@@ -1,0 +1,361 @@
+iteration_id,iteration_label,month,cp,n_cp_rows,exact_bracket_rows,exact_bracket_pct,mae
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-01,20:00,31,8,25.806451612903224,1.688144000541277
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-01,21:00,31,11,35.483870967741936,1.5268370511523517
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-01,22:00,31,12,38.70967741935484,1.464454261002333
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-01,23:00,31,11,35.483870967741936,1.4713118004235368
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-02,20:00,28,6,21.428571428571427,1.6054333809720671
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-02,21:00,28,6,21.428571428571427,1.2785157471468023
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-02,22:00,28,9,32.142857142857146,1.2241103551954642
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-02,23:00,28,9,32.142857142857146,1.2269651988923727
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-03,20:00,31,5,16.129032258064516,1.5369100165933605
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-03,21:00,31,8,25.806451612903224,1.3627487191179413
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-03,22:00,31,12,38.70967741935484,1.2375628468274402
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-03,23:00,31,12,38.70967741935484,1.2057565820802896
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-04,20:00,30,7,23.333333333333332,1.153706020856927
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-04,21:00,30,6,20.0,1.1741370772200312
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-04,22:00,30,13,43.333333333333336,0.9920896761691371
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-04,23:00,30,12,40.0,1.0254441833073202
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-05,20:00,31,9,29.03225806451613,0.92521445731796
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-05,21:00,31,9,29.03225806451613,1.0006405959930107
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-05,22:00,31,11,35.483870967741936,0.910678086532414
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-05,23:00,31,9,29.03225806451613,0.9339309592485744
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-06,20:00,30,9,30.0,1.4568362238125485
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-06,21:00,30,6,20.0,1.5169341937180931
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-06,22:00,30,6,20.0,1.4945086013120208
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-06,23:00,30,6,20.0,1.4727013841755379
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-07,20:00,31,7,22.58064516129032,1.1777797574275986
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-07,21:00,31,9,29.03225806451613,1.2528101382436634
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-07,22:00,31,9,29.03225806451613,1.0282607554725047
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-07,23:00,31,9,29.03225806451613,0.9955583963385719
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-08,20:00,31,12,38.70967741935484,1.1263746385583937
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-08,21:00,31,10,32.25806451612903,1.1507244945804667
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-08,22:00,31,14,45.16129032258064,1.002370919513246
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-08,23:00,31,13,41.935483870967744,0.9964363502086581
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-09,20:00,30,8,26.666666666666668,1.5377150663543835
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-09,21:00,30,9,30.0,1.6054257045551565
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-09,22:00,30,9,30.0,1.1688434822961957
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-09,23:00,30,8,26.666666666666668,1.1618766335477384
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-10,20:00,31,9,29.03225806451613,1.0132717312032933
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-10,21:00,31,8,25.806451612903224,1.0147378634189395
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-10,22:00,31,11,35.483870967741936,0.8921621570917896
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-10,23:00,31,7,22.58064516129032,0.9369999294815751
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-11,20:00,30,9,30.0,1.1088310496023297
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-11,21:00,30,11,36.666666666666664,0.9981755753631406
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-11,22:00,30,9,30.0,1.1133294134243565
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-11,23:00,30,8,26.666666666666668,1.127310711922694
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-12,20:00,31,7,22.58064516129032,1.397788028034918
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-12,21:00,31,8,25.806451612903224,1.225184568320336
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-12,22:00,31,11,35.483870967741936,1.0355756354404557
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2025-12,23:00,31,9,29.03225806451613,1.0421305018282225
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-01,20:00,31,4,12.903225806451612,1.8923463300705379
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-01,21:00,31,6,19.35483870967742,1.5349459367865634
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-01,22:00,31,9,29.03225806451613,1.4238268895315094
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-01,23:00,31,9,29.03225806451613,1.4030976616896196
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-02,20:00,28,7,25.0,1.8112965916017654
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-02,21:00,28,6,21.428571428571427,1.6547538522944618
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-02,22:00,28,7,25.0,1.5459887304193638
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-02,23:00,28,7,25.0,1.5771788644880869
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-03,20:00,31,6,19.35483870967742,1.6693741231379688
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-03,21:00,31,4,12.903225806451612,1.5853598577300492
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-03,22:00,31,5,16.129032258064516,1.584508085227783
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-03,23:00,31,5,16.129032258064516,1.585048462130615
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-04,20:00,30,10,33.33333333333333,1.1850885207713897
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-04,21:00,30,11,36.666666666666664,1.2880945476701051
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-04,22:00,30,9,30.0,1.218206677512114
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-04,23:00,30,9,30.0,1.155123224696167
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-05,20:00,31,9,29.03225806451613,1.1511673801453801
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-05,21:00,31,10,32.25806451612903,1.1474015236252602
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-05,22:00,31,9,29.03225806451613,1.060559967568689
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-05,23:00,31,8,25.806451612903224,1.0682109944494622
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-06,20:00,3,1,33.33333333333333,1.441148959214491
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-06,21:00,3,1,33.33333333333333,1.483701613604989
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-06,22:00,3,0,0.0,1.2640663755647334
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,2026-06,23:00,3,1,33.33333333333333,1.2675044557645105
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-01,20:00,31,3,9.67741935483871,1.5870454284675988
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-01,21:00,31,10,32.25806451612903,1.402860973271206
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-01,22:00,31,11,35.483870967741936,1.254215309030545
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-01,23:00,31,12,38.70967741935484,1.1866432685408534
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-02,20:00,28,4,14.285714285714285,1.3992216243538316
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-02,21:00,28,6,21.428571428571427,1.2002929700107627
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-02,22:00,28,10,35.714285714285715,1.0064704202100336
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-02,23:00,28,11,39.285714285714285,1.0032299780020566
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-03,20:00,31,5,16.129032258064516,1.4872684440672452
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-03,21:00,31,6,19.35483870967742,1.4160139115740837
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-03,22:00,31,8,25.806451612903224,1.3173327870226332
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-03,23:00,31,7,22.58064516129032,1.3255699957374067
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-04,20:00,30,9,30.0,1.1503522409864735
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-04,21:00,30,6,20.0,1.2102983116464339
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-04,22:00,30,10,33.33333333333333,1.067004575931202
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-04,23:00,30,10,33.33333333333333,1.0594340511111693
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-05,20:00,31,11,35.483870967741936,1.1061457215030388
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-05,21:00,31,10,32.25806451612903,1.0766496810676078
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-05,22:00,31,9,29.03225806451613,1.0803672356912186
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-05,23:00,31,9,29.03225806451613,1.0847863231900479
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-06,20:00,30,11,36.666666666666664,0.8463862186916838
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-06,21:00,30,12,40.0,0.8429870411148198
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-06,22:00,30,10,33.33333333333333,0.8714839916270151
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-06,23:00,30,10,33.33333333333333,0.868507779898931
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-07,20:00,31,3,9.67741935483871,1.559591435842317
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-07,21:00,31,3,9.67741935483871,1.5508870638346226
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-07,22:00,31,6,19.35483870967742,1.2593025082825386
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-07,23:00,31,7,22.58064516129032,1.2331751053204785
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-08,20:00,31,8,25.806451612903224,1.2814604658603654
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-08,21:00,31,9,29.03225806451613,1.261090694751492
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-08,22:00,31,9,29.03225806451613,1.1005885917356513
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-08,23:00,31,9,29.03225806451613,1.0783760995319371
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-09,20:00,30,11,36.666666666666664,0.9605096976793981
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-09,21:00,30,13,43.333333333333336,0.9385919877377948
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-09,22:00,30,11,36.666666666666664,0.9774975051657666
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-09,23:00,30,11,36.666666666666664,0.9865101192739352
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-10,20:00,31,2,6.451612903225806,1.8597332487371139
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-10,21:00,31,5,16.129032258064516,1.2946250289396342
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-10,22:00,31,7,22.58064516129032,1.2444992252155267
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-10,23:00,31,7,22.58064516129032,1.2541686323522805
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-11,20:00,30,10,33.33333333333333,1.2178685719687623
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-11,21:00,30,8,26.666666666666668,1.0025321005280354
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-11,22:00,30,9,30.0,0.9432592879410824
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-11,23:00,30,9,30.0,0.9732322738982003
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-12,20:00,31,7,22.58064516129032,1.456286814157692
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-12,21:00,31,9,29.03225806451613,1.3130214691382138
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-12,22:00,31,8,25.806451612903224,1.3496001249005718
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2023-12,23:00,31,8,25.806451612903224,1.3641526945563596
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-01,20:00,31,6,19.35483870967742,2.117472625081026
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-01,21:00,31,8,25.806451612903224,1.6481532228661369
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-01,22:00,31,6,19.35483870967742,1.6292416380802097
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-01,23:00,31,7,22.58064516129032,1.6253145458652793
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-02,20:00,29,4,13.793103448275861,1.6340366833600577
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-02,21:00,29,6,20.689655172413794,1.5117248839586603
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-02,22:00,29,4,13.793103448275861,1.4669066742841246
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-02,23:00,29,5,17.24137931034483,1.4577593789975092
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-03,20:00,31,6,19.35483870967742,1.3975485144015154
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-03,21:00,31,6,19.35483870967742,1.441665814897091
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-03,22:00,31,6,19.35483870967742,1.3246882076575428
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-03,23:00,31,6,19.35483870967742,1.2941394758359521
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-04,20:00,30,9,30.0,1.0382013370999306
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-04,21:00,30,11,36.666666666666664,1.061947024228405
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-04,22:00,30,8,26.666666666666668,1.1486267318785721
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-04,23:00,30,9,30.0,1.199323521555765
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-05,20:00,31,6,19.35483870967742,1.2285585948681077
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-05,21:00,31,8,25.806451612903224,1.154020186327421
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-05,22:00,31,9,29.03225806451613,0.9561059622212296
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-05,23:00,31,9,29.03225806451613,0.9597635610274474
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-06,20:00,30,11,36.666666666666664,1.1263430864810142
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-06,21:00,30,11,36.666666666666664,1.1466094500644677
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-06,22:00,30,13,43.333333333333336,0.8878711519538055
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-06,23:00,30,12,40.0,0.8676553245726696
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-07,20:00,31,10,32.25806451612903,1.1239232412030304
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-07,21:00,31,12,38.70967741935484,1.0723599260774503
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-07,22:00,31,12,38.70967741935484,0.8875765192169102
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-07,23:00,31,12,38.70967741935484,0.8695409086825999
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-08,20:00,31,7,22.58064516129032,1.11761674664469
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-08,21:00,31,8,25.806451612903224,1.1362593324953119
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-08,22:00,31,6,19.35483870967742,1.2116102737920242
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-08,23:00,31,5,16.129032258064516,1.1939032177107998
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-09,20:00,30,9,30.0,1.0752332481568248
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-09,21:00,30,8,26.666666666666668,1.1133287358297816
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-09,22:00,30,7,23.333333333333332,1.1591147567783584
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-09,23:00,30,6,20.0,1.2030818566933787
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-10,20:00,31,7,22.58064516129032,1.345460369866215
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-10,21:00,31,10,32.25806451612903,0.9990904158068233
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-10,22:00,31,10,32.25806451612903,0.9461245252643533
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-10,23:00,31,9,29.03225806451613,0.9576519633153446
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-11,20:00,30,9,30.0,1.3181738264655303
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-11,21:00,30,11,36.666666666666664,0.9237006574820167
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-11,22:00,30,12,40.0,0.8945611619871765
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-11,23:00,30,12,40.0,0.8941248307926177
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-12,20:00,31,7,22.58064516129032,1.5138668070050765
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-12,21:00,31,8,25.806451612903224,1.2605159607844727
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-12,22:00,31,10,32.25806451612903,1.1276292226528906
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2024-12,23:00,31,10,32.25806451612903,1.159078662521071
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-01,20:00,31,8,25.806451612903224,1.688144000541277
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-01,21:00,31,11,35.483870967741936,1.5268370511523517
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-01,22:00,31,12,38.70967741935484,1.464454261002333
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-01,23:00,31,11,35.483870967741936,1.4713118004235368
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-02,20:00,28,6,21.428571428571427,1.6054333809720671
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-02,21:00,28,6,21.428571428571427,1.2785157471468023
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-02,22:00,28,9,32.142857142857146,1.2241103551954642
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-02,23:00,28,9,32.142857142857146,1.2269651988923727
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-03,20:00,31,5,16.129032258064516,1.5369100165933605
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-03,21:00,31,8,25.806451612903224,1.3627487191179413
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-03,22:00,31,12,38.70967741935484,1.2375628468274402
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-03,23:00,31,12,38.70967741935484,1.2057565820802896
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-04,20:00,30,7,23.333333333333332,1.153706020856927
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-04,21:00,30,6,20.0,1.1741370772200312
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-04,22:00,30,13,43.333333333333336,0.9920896761691371
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-04,23:00,30,12,40.0,1.0254441833073202
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-05,20:00,31,9,29.03225806451613,0.92521445731796
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-05,21:00,31,9,29.03225806451613,1.0006405959930107
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-05,22:00,31,11,35.483870967741936,0.910678086532414
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-05,23:00,31,9,29.03225806451613,0.9339309592485744
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-06,20:00,30,9,30.0,1.4568362238125485
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-06,21:00,30,6,20.0,1.5169341937180931
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-06,22:00,30,6,20.0,1.4945086013120208
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-06,23:00,30,6,20.0,1.4727013841755379
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-07,20:00,31,7,22.58064516129032,1.1777797574275986
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-07,21:00,31,9,29.03225806451613,1.2528101382436634
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-07,22:00,31,9,29.03225806451613,1.0282607554725047
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-07,23:00,31,9,29.03225806451613,0.9955583963385719
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-08,20:00,31,12,38.70967741935484,1.1263746385583937
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-08,21:00,31,10,32.25806451612903,1.1507244945804667
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-08,22:00,31,14,45.16129032258064,1.002370919513246
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-08,23:00,31,13,41.935483870967744,0.9964363502086581
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-09,20:00,30,8,26.666666666666668,1.5377150663543835
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-09,21:00,30,9,30.0,1.6054257045551565
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-09,22:00,30,9,30.0,1.1688434822961957
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-09,23:00,30,8,26.666666666666668,1.1618766335477384
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-10,20:00,31,9,29.03225806451613,1.0132717312032933
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-10,21:00,31,8,25.806451612903224,1.0147378634189395
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-10,22:00,31,11,35.483870967741936,0.8921621570917896
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-10,23:00,31,7,22.58064516129032,0.9369999294815751
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-11,20:00,30,9,30.0,1.1088310496023297
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-11,21:00,30,11,36.666666666666664,0.9981755753631406
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-11,22:00,30,9,30.0,1.1133294134243565
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-11,23:00,30,8,26.666666666666668,1.127310711922694
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-12,20:00,31,7,22.58064516129032,1.397788028034918
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-12,21:00,31,8,25.806451612903224,1.225184568320336
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-12,22:00,31,11,35.483870967741936,1.0355756354404557
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,2025-12,23:00,31,9,29.03225806451613,1.0421305018282223
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-01,20:00,31,5,16.129032258064516,1.6263283113314204
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-01,21:00,31,7,22.58064516129032,1.48738808099734
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-01,22:00,31,11,35.483870967741936,1.3509514977027668
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-01,23:00,31,11,35.483870967741936,1.297560223636759
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-02,20:00,28,6,21.428571428571427,1.2964103115054257
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-02,21:00,28,5,17.857142857142858,1.122603190343609
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-02,22:00,28,7,25.0,0.958448111718189
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-02,23:00,28,9,32.142857142857146,0.9721474602107859
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-03,20:00,31,7,22.58064516129032,1.2195750389040498
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-03,21:00,31,7,22.58064516129032,1.1595174252266234
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-03,22:00,31,9,29.03225806451613,1.1967916900169562
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-03,23:00,31,9,29.03225806451613,1.2316047424625436
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-04,20:00,30,9,30.0,1.0465646827030335
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-04,21:00,30,4,13.333333333333334,1.099558833826709
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-04,22:00,30,10,33.33333333333333,0.8654090754803409
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-04,23:00,30,9,30.0,0.8711808479737201
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-05,20:00,31,9,29.03225806451613,1.0820273080869434
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-05,21:00,31,11,35.483870967741936,1.0622043863078618
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-05,22:00,31,10,32.25806451612903,1.0603454066681033
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-05,23:00,31,10,32.25806451612903,1.0631112583074787
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-06,20:00,30,15,50.0,0.8851223991590089
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-06,21:00,30,12,40.0,0.9122475036515947
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-06,22:00,30,13,43.333333333333336,0.9076474162086537
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-06,23:00,30,11,36.666666666666664,0.9993578729253317
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-07,20:00,31,6,19.35483870967742,1.391463380731075
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-07,21:00,31,3,9.67741935483871,1.5048314307136281
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-07,22:00,31,6,19.35483870967742,1.1876396617710345
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-07,23:00,31,7,22.58064516129032,1.1516105988886298
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-08,20:00,31,11,35.483870967741936,1.2084439991106894
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-08,21:00,31,9,29.03225806451613,1.2157529983786706
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-08,22:00,31,10,32.25806451612903,1.0434159045129634
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-08,23:00,31,10,32.25806451612903,1.0017556283712243
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-09,20:00,30,11,36.666666666666664,0.9131622001037412
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-09,21:00,30,12,40.0,0.8618926364248118
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-09,22:00,30,12,40.0,0.8953100065179487
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-09,23:00,30,12,40.0,0.911329639901109
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-10,20:00,31,3,9.67741935483871,1.5580298549179066
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-10,21:00,31,6,19.35483870967742,1.2125262308430695
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-10,22:00,31,7,22.58064516129032,1.2113906174083993
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-10,23:00,31,5,16.129032258064516,1.2295313191168282
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-11,20:00,30,7,23.333333333333332,1.2129614155756157
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-11,21:00,30,8,26.666666666666668,0.9698719935729819
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-11,22:00,30,9,30.0,0.8874516014429263
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-11,23:00,30,9,30.0,0.9159324057098341
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-12,20:00,31,6,19.35483870967742,1.4257296721730337
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-12,21:00,31,8,25.806451612903224,1.2828589643213937
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-12,22:00,31,9,29.03225806451613,1.3073193807003536
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2023-12,23:00,31,8,25.806451612903224,1.3341103935261247
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-01,20:00,31,5,16.129032258064516,2.08991836401973
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-01,21:00,31,6,19.35483870967742,1.7225665659974905
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-01,22:00,31,5,16.129032258064516,1.7281832214049588
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-01,23:00,31,5,16.129032258064516,1.743898336576533
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-02,20:00,29,7,24.137931034482758,1.5202277558053672
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-02,21:00,29,4,13.793103448275861,1.471355577873596
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-02,22:00,29,6,20.689655172413794,1.4047983368048802
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-02,23:00,29,7,24.137931034482758,1.3780810969698754
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-03,20:00,31,6,19.35483870967742,1.405369330262253
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-03,21:00,31,6,19.35483870967742,1.393704935969968
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-03,22:00,31,8,25.806451612903224,1.2438849976993727
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-03,23:00,31,8,25.806451612903224,1.2107862812946721
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-04,20:00,30,10,33.33333333333333,0.9931837901249788
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-04,21:00,30,11,36.666666666666664,1.0218078276507638
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-04,22:00,30,8,26.666666666666668,1.0742537619694832
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-04,23:00,30,6,20.0,1.1384185589216296
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-05,20:00,31,8,25.806451612903224,1.1356153012315955
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-05,21:00,31,6,19.35483870967742,1.0613150671049096
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-05,22:00,31,10,32.25806451612903,0.8840065666177331
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-05,23:00,31,10,32.25806451612903,0.8842943564869827
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-06,20:00,30,8,26.666666666666668,1.2172606299284958
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-06,21:00,30,8,26.666666666666668,1.2142114945131135
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-06,22:00,30,13,43.333333333333336,0.8983321633672371
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-06,23:00,30,13,43.333333333333336,0.8907350830719939
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-07,20:00,31,10,32.25806451612903,1.091576954268201
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-07,21:00,31,12,38.70967741935484,1.060610342384901
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-07,22:00,31,10,32.25806451612903,0.9104866443425474
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-07,23:00,31,10,32.25806451612903,0.8768571062881744
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-08,20:00,31,10,32.25806451612903,1.0676861276551484
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-08,21:00,31,9,29.03225806451613,1.076187088161744
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-08,22:00,31,7,22.58064516129032,1.1711924703259706
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-08,23:00,31,7,22.58064516129032,1.1723812744180102
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-09,20:00,30,9,30.0,1.1054244414455041
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-09,21:00,30,9,30.0,1.1267009089419793
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-09,22:00,30,4,13.333333333333334,1.2192832381224088
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-09,23:00,30,5,16.666666666666664,1.1539547576510756
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-10,20:00,31,8,25.806451612903224,1.2835302667646389
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-10,21:00,31,9,29.03225806451613,1.000280249150343
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-10,22:00,31,10,32.25806451612903,0.9150337421261545
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-10,23:00,31,9,29.03225806451613,0.925802592870886
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-11,20:00,30,6,20.0,1.2073964232410006
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-11,21:00,30,8,26.666666666666668,0.9427786179343223
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-11,22:00,30,9,30.0,0.959903413409874
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-11,23:00,30,10,33.33333333333333,0.9509923415362082
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-12,20:00,31,8,25.806451612903224,1.4543768134819641
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-12,21:00,31,10,32.25806451612903,1.233482468631391
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-12,22:00,31,11,35.483870967741936,1.1239027808404212
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2024-12,23:00,31,9,29.03225806451613,1.1490617693825667
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-01,20:00,31,7,22.58064516129032,1.6761173982624622
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-01,21:00,31,11,35.483870967741936,1.5472399042045393
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-01,22:00,31,8,25.806451612903224,1.5253706411564176
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-01,23:00,31,11,35.483870967741936,1.4715869059989253
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-02,20:00,28,6,21.428571428571427,1.468059174718851
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-02,21:00,28,3,10.714285714285714,1.2625910506919242
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-02,22:00,28,6,21.428571428571427,1.2185498971754656
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-02,23:00,28,6,21.428571428571427,1.2201587588667497
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-03,20:00,31,4,12.903225806451612,1.589940506922398
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-03,21:00,31,9,29.03225806451613,1.3555957271933599
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-03,22:00,31,11,35.483870967741936,1.310079869738695
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-03,23:00,31,12,38.70967741935484,1.274618474377739
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-04,20:00,30,6,20.0,1.1932183876856095
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-04,21:00,30,7,23.333333333333332,1.1941565402577232
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-04,22:00,30,11,36.666666666666664,1.0329281173904128
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-04,23:00,30,10,33.33333333333333,1.0709683753029389
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-05,20:00,31,13,41.935483870967744,0.8645120202729437
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-05,21:00,31,12,38.70967741935484,0.8969939495709964
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-05,22:00,31,12,38.70967741935484,0.8599157046014138
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-05,23:00,31,10,32.25806451612903,0.8582157157623006
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-06,20:00,30,10,33.33333333333333,1.4233248934527754
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-06,21:00,30,8,26.666666666666668,1.4108947240511929
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-06,22:00,30,10,33.33333333333333,1.323319348416807
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-06,23:00,30,10,33.33333333333333,1.3673380136410487
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-07,20:00,31,9,29.03225806451613,1.1441299278326291
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-07,21:00,31,9,29.03225806451613,1.1643852763740725
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-07,22:00,31,7,22.58064516129032,1.04645361659646
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-07,23:00,31,8,25.806451612903224,0.954741066545727
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-08,20:00,31,7,22.58064516129032,1.1277080949877407
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-08,21:00,31,9,29.03225806451613,1.1379556545390004
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-08,22:00,31,12,38.70967741935484,0.9542156462620275
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-08,23:00,31,11,35.483870967741936,0.9439308878475008
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-09,20:00,30,7,23.333333333333332,1.5182407920166985
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-09,21:00,30,8,26.666666666666668,1.6007296407814615
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-09,22:00,30,11,36.666666666666664,1.0887480451501248
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-09,23:00,30,9,30.0,1.1286904989113207
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-10,20:00,31,9,29.03225806451613,0.9803183653882639
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-10,21:00,31,12,38.70967741935484,0.9471675639195385
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-10,22:00,31,16,51.61290322580645,0.873461484588593
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-10,23:00,31,14,45.16129032258064,0.9072441177255364
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-11,20:00,30,11,36.666666666666664,1.1006016534616039
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-11,21:00,30,13,43.333333333333336,1.0434977808575976
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-11,22:00,30,11,36.666666666666664,1.1208055165736204
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-11,23:00,30,12,40.0,1.0963524746408466
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-12,20:00,31,7,22.58064516129032,1.4175097625781283
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-12,21:00,31,6,19.35483870967742,1.3085372177006795
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-12,22:00,31,6,19.35483870967742,1.1322934280274446
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,2025-12,23:00,31,6,19.35483870967742,1.1340071415546078

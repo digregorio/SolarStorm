@@ -1,0 +1,13 @@
+stage,outer_test_year,candidate_id,candidate_label,binary_macro_regime_label,n_cp_rows,n_unique_dates,mae,exact_bracket_pct,production_status
+test,2024,local_only_onda3f,Local-only Onda 3F,macro_non_southerly,1132,292,1.092564672156246,28.71024734982332,EXPERIMENT_ONLY
+test,2024,local_only_onda3f,Local-only Onda 3F,macro_southerly_flow,332,94,1.1354639369413364,27.40963855421687,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_non_southerly,1132,292,0.9501365983776733,37.36749116607774,EXPERIMENT_ONLY
+test,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_southerly_flow,332,94,0.8154800589440817,53.915662650602414,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,macro_non_southerly,1020,265,1.0940183294622725,31.274509803921568,EXPERIMENT_ONLY
+test,2025,local_only_onda3f,Local-only Onda 3F,macro_southerly_flow,440,121,1.0504564436032995,28.40909090909091,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_non_southerly,1020,265,0.8453800938336542,36.56862745098039,EXPERIMENT_ONLY
+test,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_southerly_flow,440,121,0.8634203756052957,35.90909090909091,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,macro_non_southerly,1132,292,1.092564672156246,28.71024734982332,EXPERIMENT_ONLY
+validation,2025,local_only_onda3f,Local-only Onda 3F,macro_southerly_flow,332,94,1.1354639369413364,27.40963855421687,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_non_southerly,1132,292,0.9501365983776733,37.36749116607774,EXPERIMENT_ONLY
+validation,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,macro_southerly_flow,332,94,0.8154800589440817,53.915662650602414,EXPERIMENT_ONLY

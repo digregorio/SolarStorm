@@ -1,0 +1,2 @@
+n_feature_rows,n_dates,n_cps,n_models,n_provider_families,n_overlapping_provider_families,min_date,max_date,production_status
+8760,365,4,6,6,6,2022-01-01,2022-12-31,EXPERIMENT_ONLY

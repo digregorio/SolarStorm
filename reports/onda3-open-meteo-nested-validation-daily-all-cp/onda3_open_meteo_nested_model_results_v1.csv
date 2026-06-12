@@ -1,0 +1,7 @@
+stage,outer_test_year,evaluation_year,candidate_id,candidate_label,test_year,cp,model_name,n_train,n_test,mae,beats_train_mean_null,exact_bracket_pct,production_status
+test,2024,2024,local_only_onda3f,Local-only Onda 3F,2024,ALL,ridge_challenger,1460,1464,1.1022931939517722,true,28.415300546448087,EXPERIMENT_ONLY
+test,2024,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024,ALL,ridge_challenger,1460,1464,0.9195997328777058,true,41.12021857923497,EXPERIMENT_ONLY
+validation,2025,2024,local_only_onda3f,Local-only Onda 3F,2024,ALL,ridge_challenger,1460,1464,1.1022931939517722,true,28.415300546448087,EXPERIMENT_ONLY
+validation,2025,2024,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2024,ALL,ridge_challenger,1460,1464,0.9195997328777058,true,41.12021857923497,EXPERIMENT_ONLY
+test,2025,2025,local_only_onda3f,Local-only Onda 3F,2025,ALL,ridge_challenger,2924,1460,1.0808900898883356,true,30.41095890410959,EXPERIMENT_ONLY
+test,2025,2025,open_meteo_augmented_onda3f,Open-Meteo augmented Onda 3F,2025,ALL,ridge_challenger,2924,1460,0.8508168910799023,true,36.36986301369863,EXPERIMENT_ONLY

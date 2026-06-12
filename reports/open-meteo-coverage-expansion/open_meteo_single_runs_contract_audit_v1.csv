@@ -1,0 +1,2 @@
+endpoint,n_probe_rows,n_success,n_http_400,contract_status,production_status
+single_runs,24,0,24,BLOCKED_BY_REQUEST_CONTRACT,EXPERIMENT_ONLY

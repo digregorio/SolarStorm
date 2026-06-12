@@ -1,0 +1,2 @@
+decision_status,decision_reason,n_feature_rows,n_provider_families,n_overlapping_provider_families,production_status
+OPEN_METEO_MULTI_PROVIDER_FEATURES_READY,at_least_two_provider_families_overlap,26304,6,6,EXPERIMENT_ONLY

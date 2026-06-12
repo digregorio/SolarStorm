@@ -3,7 +3,7 @@
 Living status tracker for the SolarStorm rewrite. See
 `docs/decisions/010-onda-waves.md` for the wave methodology.
 
-Last updated: 2026-06-09
+Last updated: 2026-06-12
 
 ## Project Focus
 
@@ -17,6 +17,74 @@ work are on hold until a production model passes its predictive gates.
 Core rule: no regime, feature, model input, or robustness repair may be promoted
 from EDA unless it passes the Evidence-to-Decision Gate in ADR-012. Descriptive
 tables are evidence, not permission to proceed.
+
+## Production Roadmap P0-P5 (Forensic v2, 2026-06-12)
+
+The forensic investigation v2 (`reports/forensic-investigation-v2.md`)
+supersedes the previous "next technical sprint order". Verified findings:
+
+- The M3 train-mean null (MAE 2.812) is a strawman. The honest null
+  `k_cp + train-only climatological remaining warming` scores MAE
+  1.62/1.39/1.10/0.85 at CPs 20:00-23:00 UTC and beats Onda 3F at CP 23:00
+  (0.850 vs 1.028) while nearly tying at CP 22:00.
+- At CP 23:00, 26.1% of days have already realized Tmax and 62.0% have
+  <= 1 C remaining; the M7 anti-nowcast gate is hardcoded PASS and the
+  lead-time check requires only 1 day. Anticipation has never been proven.
+- `k_cp` never reaches the model matrix (silently dropped by the allowlist
+  filter because `features.parquet` lacks it), and 6.8-9.0% of the best
+  Open-Meteo candidate predictions violate the physical floor
+  `prediction >= k_cp`.
+- Open-Meteo policies emit one prediction per day repeated across the four
+  CPs, discarding intraday information at the CPs where nowcast dominates.
+- The earlier `reports/forensic-investigation-report.md` mixed evidence from
+  the quarantined old project; its G1/G2/G4 diagnoses do not apply to this
+  repo. The `solarstorm/serving/`, `solarstorm/calib/`, and `scripts/` files
+  from that session are unaudited drafts, not project infrastructure; they
+  were moved to the gitignored `quarentena/` directory on 2026-06-12.
+
+Phases (each gated; everything stays `EXPERIMENT_ONLY` until the exit gates
+pass):
+
+1. **P0 Honest evaluation harness — implemented/generated.** Honest null per
+   CP, physical floor audit, remaining-warming strata, frozen gates H1-H4,
+   persistence ablation, `honest-evaluation` CLI. First generated artifact:
+   `reports/honest-evaluation/honest_evaluation_report_v1.md`; decision
+   `BLOCK_MODEL_PROMOTION_HONEST_NULL` for Onda 3F, as pre-registered.
+   Spec: `docs/superpowers/specs/2026-06-12-p0-honest-evaluation-design.md`.
+   Plan: `docs/superpowers/plans/2026-06-12-p0-honest-evaluation.md`.
+2. **P1 Horizon hybrid model — implemented/generated.** Target
+   `remaining_warming`, reconstruction `tmax = k_cp + max(0, rw)`, k_cp as a
+   real input, lead-aware NWP anchor blend, judged by the P0 gates plus the
+   pre-registered same-row MAE comparison against
+   `hybrid_local_only_covered_rows` on identical covered rows (spec success
+   criterion 2). First generated artifact:
+   `reports/onda3-hybrid/onda3_hybrid_model_report_v1.md`; decision
+   `READY_FOR_P2_DISTRIBUTION_DESIGN`, with all outputs still
+   `EXPERIMENT_ONLY`.
+   Spec: `docs/superpowers/specs/2026-06-12-p1-horizon-hybrid-model-design.md`.
+   Plan: `docs/superpowers/plans/2026-06-12-p1-horizon-hybrid-model.md`.
+3. **P2 Calibrated distribution.** EMOS/NGR trained on CRPS (or Analog
+   Ensemble) over the hybrid blend; ensemble members via the Open-Meteo
+   Ensemble API; bracket probabilities from the CDF; PIT/coverage gates.
+4. **P3 Late-spike risk and executable abstention.** Late-spike classifier
+   (4.1% of days rise >= 4 C after CP 23:00, summer-skewed) and a
+   `forecast_valid` rule replacing the current abstention string; thresholds
+   frozen ex-ante per ADR-012.
+5. **P4 Data expansion.** OM-M15 live forward collection extended with the
+   Forecast + Ensemble APIs and the MetService Point Forecast API
+   (forward-only; no deep history exists); UKMO Global / BOM ACCESS-G
+   Previous Runs backfill from 2024.
+6. **P5 Realized-EV harness and shadow trading.** Only after P0-P3 gates
+   pass; minimum-edge threshold, fractional Kelly, stay-out default, one
+   full summer season of shadow trading before any capital.
+
+Exit gates from EXPERIMENT_ONLY: honest skill (beat the honest null at every
+CP and on the `remaining_warming >= 2` stratum, in >= 2 folds plus mature
+forward data), anticipation (skill survives persistence ablation at early
+CPs), calibration (uniform PIT, IC80 coverage in [0.78, 0.84], CRPS below the
+climatological null), physics (zero floor violations), executable abstention
+with reported stay-out rate, and positive realized EV with non-negative CLV
+across one shadow-traded season.
 
 ## Onda 0: Scaffold
 
@@ -347,8 +415,8 @@ not be treated as final.
 
 ## Onda 4M: Model Robustness Review
 
-Status: first model review generated; next action is Onda 3 next model
-iteration under experiment-only constraints
+Status: binary-macro interaction model review generated for Onda 3D; next
+action is another experiment-only Onda 3 model iteration, not production
 
 Purpose: review the first Onda 3 baseline model result before any further model
 iteration can be treated as robust. This wave reads `reports/onda3/` and writes
@@ -395,6 +463,45 @@ First review result:
 - M1-M8 all pass.
 - M3 records null MAE 2.8120, challenger MAE 1.3487, and lift 1.4632.
 - M6 records residual absolute p50 1.0315 and p90 2.9818 with an abstention
+  rule present.
+- Decision status is `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`.
+- Production status remains `EXPERIMENT_ONLY`.
+
+Onda 3B review result:
+
+- CLI:
+  `python -m solarstorm onda4-model-review --onda3-dir ./reports/onda3-next --artifact-prefix onda3_next --output-dir ./reports/onda4-model-next`.
+- Generated artifacts live under `reports/onda4-model-next/`.
+- M1-M8 all pass.
+- M3 records null MAE 2.8120, challenger MAE 1.2708, lift 1.5411, and
+  challenger failures 0 across CP-specific rows.
+- M6 records residual absolute p50 1.0805 and p90 3.1088 with an abstention
+  rule present.
+- Decision status is `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`.
+- Production status remains `EXPERIMENT_ONLY`.
+
+Onda 3C rolling review result:
+
+- CLI:
+  `python -m solarstorm onda4-model-review --onda3-dir ./reports/onda3-rolling --artifact-prefix onda3_rolling --output-dir ./reports/onda4-model-rolling`.
+- Generated artifacts live under `reports/onda4-model-rolling/`.
+- M1-M8 all pass.
+- M3 records null MAE 2.9522, challenger MAE 1.2026, lift 1.7496, and
+  challenger failures 0 across 12 year x CP challenger rows.
+- M4 records rolling temporal diagnostics for test years `2023,2024,2025`.
+- Decision status is `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`.
+- Production status remains `EXPERIMENT_ONLY`.
+
+Onda 3D interaction review result:
+
+- CLI:
+  `python -m solarstorm onda4-model-review --onda3-dir ./reports/onda3-interactions --artifact-prefix onda3_interaction --output-dir ./reports/onda4-model-interactions`.
+- Generated artifacts live under `reports/onda4-model-interactions/`.
+- M1-M8 all pass.
+- M3 records null MAE 2.9522, challenger MAE 1.1726, lift 1.7796, and
+  challenger failures 0 across 12 year x CP challenger rows.
+- M4 records rolling temporal diagnostics for test years `2023,2024,2025`.
+- M6 records residual absolute p50 1.0198 and p90 2.6165 with an abstention
   rule present.
 - Decision status is `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`.
 - Production status remains `EXPERIMENT_ONLY`.
@@ -553,8 +660,8 @@ Blocked actions:
 
 ## Onda 3: Models
 
-Status: first baseline model generated; ready for experiment-only Onda 4 model
-rerun review; production remains blocked
+Status: Onda 3D binary-macro interaction model iteration reviewed by Onda 4M;
+ready for another experiment-only model iteration; production remains blocked
 
 The first model wave must target predictive power, not market execution.
 
@@ -590,6 +697,20 @@ Generated 2026-06-09 baseline state:
 - Missing numeric feature values are imputed from train-window means; the
   feature manifest still blocks full-day target/proxy columns.
 
+Generated 2026-06-09 Onda 3B state:
+
+- CLI: `python -m solarstorm onda3-next-model-iteration`.
+- Artifacts live under `reports/onda3-next/`.
+- The model now evaluates ridge challengers separately for CPs `20:00`,
+  `21:00`, `22:00`, and `23:00`.
+- It uses train-only one-hot encoding for experiment-only
+  `binary_macro_regime_label` context when available.
+- All four CP-specific ridge challengers beat the CP train-mean null:
+  MAE 1.3761 at `20:00`, 1.3120 at `21:00`, 1.1981 at `22:00`, and
+  1.1973 at `23:00`, versus null MAE 2.8120 for each CP.
+- Decision status is `READY_FOR_ONDA4_MODEL_RERUN`, with
+  `production_status = EXPERIMENT_ONLY`.
+
 Requirements:
 
 - Beat the best feature-null at each eligible CP/lead-time slice.
@@ -599,9 +720,460 @@ Requirements:
 - Evaluate by regime, month, lead time, and Tmax-hour bucket.
 - Treat late spikes as a specific physical risk class.
 
-Candidate inputs may include Open-Meteo/NWP in future work, especially to study
-late spikes. Production deployment, EV, market pricing, and execution remain on
-hold until a model passes its own predictive and uncertainty gates.
+The follow-up Onda 4M model robustness review of `reports/onda3-next/` has
+now run under `reports/onda4-model-next/`. The next allowed action is another
+experiment-only Onda 3 model iteration, not production deployment.
+
+Generated 2026-06-09 Onda 3C rolling temporal state:
+
+- CLI: `python -m solarstorm onda3-rolling-model-iteration --test-years 2023,2024,2025`.
+- Artifacts live under `reports/onda3-rolling/`.
+- The model reruns CP-specific ridge challengers in rolling annual splits for
+  test years 2023, 2024, and 2025.
+- All 12 year x CP ridge challenger rows beat their train-mean nulls.
+- Decision status is `READY_FOR_ONDA4_MODEL_RERUN`, with
+  `production_status = EXPERIMENT_ONLY`.
+- The follow-up Onda 4M review under `reports/onda4-model-rolling/` passes
+  M1-M8 and records temporal diagnostics for `2023,2024,2025`.
+
+Generated 2026-06-09 Onda 3D interaction state:
+
+- CLI: `python -m solarstorm onda3-interaction-model-iteration --test-years 2023,2024,2025`.
+- Artifacts live under `reports/onda3-interactions/`.
+- The model keeps the binary macro surface as the structural switch and adds
+  continuous x macro interactions for `foehn_score` and
+  `cloud_cover_suppression`.
+- Interaction features:
+  `foehn_score_x_macro_non_southerly`,
+  `foehn_score_x_macro_southerly_flow`,
+  `cloud_cover_suppression_x_macro_non_southerly`, and
+  `cloud_cover_suppression_x_macro_southerly_flow`.
+- Mean MAE delta versus the Onda 3C no-interaction rolling surface is
+  -0.0300; all 12 year x CP challenger rows improve versus the no-interaction
+  challenger.
+- Decision status is `READY_FOR_ONDA4_MODEL_RERUN`, with
+  `production_status = EXPERIMENT_ONLY`.
+- The follow-up Onda 4M review under `reports/onda4-model-interactions/`
+  passes M1-M8.
+
+Interpretation:
+
+- The current evidence supports the two-regime design as a structural switch,
+  not as a complete descriptive taxonomy for Wellington.
+- The predictive gain came from continuous features and their binary-macro
+  interactions, not from adding a third discrete regime.
+- Open-Meteo/NWP integration is now the active experiment track. Further
+  handcrafted local interactions stay paused until the provider calibration
+  and calibrated nested-validation sprints resolve whether NWP adds stable
+  predictive skill.
+
+Generated 2026-06-09 Onda 3E train-start sensitivity state:
+
+- CLI: `uv run tmax onda3-train-start-sensitivity --test-years 2023,2024,2025`.
+- Artifacts live under `reports/onda3-train-start-sensitivity/`.
+- The experiment compares `legacy_2009_start` (`train_start = 2009-04-23`) and
+  `continuous_2012_start` (`train_start = 2012-01-01`) using the Onda 3D
+  binary-macro interaction surface.
+- Weighted challenger MAE is 1.1726 for `legacy_2009_start` and 1.1705 for
+  `continuous_2012_start`, a small 2012-start gain of 0.0021 MAE.
+- Daily `any_cp_exact_pct` is 45.1642% for `legacy_2009_start` and 45.0730%
+  for `continuous_2012_start`, a 2012-start loss of 0.0912 percentage points.
+- Final `23:00` exact rate is 29.9270% for `legacy_2009_start` and 29.8358%
+  for `continuous_2012_start`.
+- Decision status is `KEEP_BOTH_STARTS_UNTIL_NESTED_VALIDATION`.
+- Open-Meteo/NWP is not integrated.
+- Production status remains `EXPERIMENT_ONLY`.
+
+Generated 2026-06-09 Onda 3F pooled temporal/regime state:
+
+- CLI: `uv run tmax onda3-pooled-model-iteration --test-years 2023,2024,2025`.
+- Artifacts live under `reports/onda3-pooled/`.
+- The experiment trains one pooled ridge challenger per test year with
+  `cp = ALL`, while retaining original CP values in line-level predictions and
+  bracket/slice diagnostics.
+- CP values are normalized to canonical `HH:MM` before cyclic encoding and
+  before joining binary macro assignments, so `Time`-typed feature checkpoints
+  do not collapse the CP signal or lose regime labels.
+- Added cyclic temporal inputs: `cp_sin`, `cp_cos`, `month_sin`, `month_cos`,
+  `doy_sin`, and `doy_cos`.
+- Weighted challenger MAE is 1.0619, versus 1.1726 for Onda 3D/legacy Onda 3E
+  and 1.1705 for continuous-2012 Onda 3E.
+- Daily `any_cp_exact_pct` is 44.4343%, lower than Onda 3E's roughly 45.1%,
+  while final `23:00` exact rate is 31.4781%, higher than Onda 3E's roughly
+  29.9%.
+- Decision status is `READY_FOR_ONDA3_AUDIT_COMPARISON`.
+- Invalid requested test years with no train/test fold now block cleanly as
+  `KEEP_IN_ONDA3_EXPERIMENT_REVIEW` instead of raising a schema error.
+- Open-Meteo/NWP is not integrated.
+- Production status remains `EXPERIMENT_ONLY`.
+
+Generated 2026-06-09 Onda 3G audit comparison state:
+
+- CLI: `uv run tmax onda3-audit-comparison`.
+- Artifacts live under `reports/onda3-audit-comparison/`.
+- The audit compares Onda 3D, Onda 3E legacy 2009-start, Onda 3E
+  continuous-2012-start, and Onda 3F from persisted local-data predictions; it
+  does not train a new model.
+- Versus Onda 3D, Onda 3F changes MAE by -0.1107, daily `any_cp_exact_pct` by
+  -0.7299 percentage points, and final `23:00` exact rate by +1.5511 percentage
+  points.
+- Onda 3F is the MAE winner overall and within both binary macro regimes, but
+  the headline exact-bracket tradeoff means Onda 3D remains an important
+  reference surface.
+- Post-review hardening is included: Onda 3G recomputes all bracket columns
+  from `actual`/`prediction`, requires all four canonical model surfaces, blocks
+  duplicate `date_local, cp` feature joins, and defines feature top-quartile
+  slices as top-25% row cardinality inside the audited prediction universe.
+- Decision status is `CARRY_ONDA3D_AND_ONDA3F_TO_NESTED_VALIDATION`.
+- Open-Meteo/NWP is not integrated.
+- Production status remains `EXPERIMENT_ONLY`.
+
+Generated 2026-06-09 Onda 3H nested validation state:
+
+- CLI: `uv run tmax onda3-nested-validation --test-years 2023,2024,2025 --train-start 2012-01-01`.
+- Artifacts live under `reports/onda3-nested-validation/`.
+- The nested harness compares Onda 3D and Onda 3F on identical outer folds:
+  validation uses train years ending at `Y-2`, then the selected design is
+  refit through `Y-1` before testing on `Y`.
+- Validation selected Onda 3F for all three outer folds: 2023, 2024, and 2025.
+- Selected test MAE by year: 2023 = 1.0399, 2024 = 1.0704, 2025 = 1.0770.
+  Mean selected test MAE is 1.0624 versus 1.1705 for always using Onda 3D.
+- Selected daily `any_cp_exact_pct` is 44.9315% in 2023, 43.7158% in 2024,
+  and 43.8356% in 2025. Selected final `23:00` exact rate is 31.7808%,
+  31.1475%, and 30.4110%, respectively.
+- Post-review hardening is included: binary macro assignments are required for
+  the CLI, feature selection now uses an explicit Onda 3H allowlist instead of
+  the permissive generic manifest, and `cp23` metrics expose denominator fields
+  before using `23:00` exact rate as a tie-break guardrail.
+- Decision status is `PROMOTE_NESTED_VALIDATION_AS_MODEL_SELECTION_HARNESS`.
+- Open-Meteo/NWP is not integrated.
+- Production status remains `EXPERIMENT_ONLY`.
+
+Pre-Open-Meteo model sequence:
+
+1. **Onda 3E train-start sensitivity - completed.** The generated result above
+   keeps both train starts until nested validation because the 2012-start MAE
+   gain is too small and trades off against exact-bracket performance. Spec:
+   `docs/superpowers/specs/2026-06-09-onda3e-train-start-sensitivity-design.md`.
+   Implementation plan:
+   `docs/superpowers/plans/2026-06-09-onda3e-train-start-sensitivity.md`.
+2. **Onda 3F pooled temporal/regime model - completed.** The generated result
+   improves MAE materially and improves the final `23:00` exact rate, but loses
+   daily `any_cp_exact`; it therefore advances to audit comparison rather than
+   production. Spec:
+   `docs/superpowers/specs/2026-06-09-onda3f-pooled-temporal-regime-design.md`.
+   Implementation plan:
+   `docs/superpowers/plans/2026-06-09-onda3f-pooled-temporal-regime.md`.
+3. **Onda 3G audit comparison against Onda 3D - completed.** The generated
+   result carries both Onda 3D and Onda 3F into nested validation because Onda
+   3F materially improves MAE and final `23:00` exact rate, but loses daily
+   `any_cp_exact`. Spec:
+   `docs/superpowers/specs/2026-06-09-onda3g-audit-comparison-design.md`.
+   Implementation plan:
+   `docs/superpowers/plans/2026-06-09-onda3g-audit-comparison.md`.
+4. **Onda 3H nested validation decision - completed.** The generated result
+   promotes nested walk-forward as the model-selection harness before
+   Open-Meteo/NWP integration. Onda 3F is selected by validation in all three
+   outer folds, but the result remains `EXPERIMENT_ONLY` and does not unlock
+   production. Spec:
+   `docs/superpowers/specs/2026-06-09-onda3h-nested-validation-design.md`.
+   Implementation plan:
+   `docs/superpowers/plans/2026-06-09-onda3h-nested-validation.md`.
+
+Open-Meteo integration gate:
+
+- Open-Meteo/NWP integration remains gated by
+  `open-meteo-availability-audit`, source eligibility, and nested validation.
+  Every artifact remains `EXPERIMENT_ONLY`.
+- The availability-first pass created source taxonomy, historical availability
+  probes, CP-causal run selection, blocked-source register, and decision
+  artifacts under `reports/open-meteo-availability/` and
+  `reports/open-meteo-availability-live-smoke/`.
+- The original Open-Meteo feature source remains
+  `previous_runs_gfs_temperature`: endpoint `previous_runs`, model
+  `gfs_seamless`, causal class `fixed_lead_forecast`. It is preserved in
+  `data/open_meteo_features.parquet` as the GFS-only pilot artifact.
+- The expanded multi-provider Open-Meteo feature table is now generated under
+  `data/open_meteo_multi_provider_features.parquet`. It is a long-format,
+  provider-keyed Previous Runs table, not yet a calibrated model feature set.
+- Historical Weather remains blocked as reanalysis, Historical Forecast remains
+  audit-only because it lacks per-row CP-causal run metadata, Forecast API is
+  forward-collection only for backtest purposes, and Single Runs remains blocked
+  until its endpoint/model request contract succeeds.
+- Open-Meteo causal feature integration is implemented as experiment-only.
+  `open-meteo-fetch` writes a raw response cache for feature-eligible sources,
+  and `open-meteo-build-features` writes `data/open_meteo_features.parquet`
+  only after the decision artifact allows the source.
+- The daily all-CP Open-Meteo pilot under
+  `reports/onda3-open-meteo-pilot-daily-all-cp/` improved same-row MAE versus
+  the local-only reference by -0.2801 on the covered 2024-2025 pilot surface.
+  This is a promising experiment result, not production approval.
+- The Open-Meteo nested validation run under
+  `reports/onda3-open-meteo-nested-validation-daily-all-cp/` selected the
+  Open-Meteo-augmented Onda 3F candidate in the only valid outer fold. Test
+  2025 MAE was 0.8508 versus 1.0809 for the local-only candidate on identical
+  covered rows, and test 2025 daily `any_cp_exact_pct` was 51.78% versus
+  46.03%. The decision is
+  `PROMOTE_OPEN_METEO_TO_NEXT_EXPERIMENT_ONLY_ITERATION`.
+- The current Open-Meteo result is still coverage-limited: because usable
+  features begin in 2023, nested validation has only one valid outer fold. The
+  project must not treat this as a final model-selection verdict.
+- OM-M1 multi-provider availability is now implemented. The plan-only artifacts
+  live under `reports/open-meteo-multi-provider-availability/`, and the bounded
+  live-smoke artifacts live under
+  `reports/open-meteo-multi-provider-availability-live-smoke/`. The live smoke
+  found `previous_runs` request success for `gfs_seamless`, `ecmwf_ifs025`,
+  `ecmwf_aifs025_single`, `icon_seamless`, `gem_global`, and `jma_seamless`
+  on the sampled 2024/2025 dates, while `single_runs` still returns HTTP 400
+  and remains blocked by request contract.
+- OM-M2 provider error atlas is now implemented under
+  `reports/open-meteo-provider-error-atlas/`. Because the historical feature
+  table currently contains only `gfs_seamless` Previous Runs rows, the first
+  atlas measures NOAA/GFS only: 4,304 provider-error rows and 198 metric rows.
+  Overall CP-sliced GFS Previous Runs MAE is 1.4207 C with signed bias
+  -1.2018 C and exact-bracket rate 15.24%. By binary macro regime, MAE is
+  1.5589 C for `macro_non_southerly` and 1.0382 C for
+  `macro_southerly_flow`.
+- OM-M3 historical multi-provider Previous Runs feature expansion is now
+  implemented. The generated table covers 2023-01-01 through 2025-12-31,
+  has 26,304 provider-keyed rows, 1,096 dates, four CPs, and six provider
+  families: `NOAA_GFS`, `ECMWF_IFS`, `ECMWF_AIFS`, `DWD_ICON`, `ECCC_GEM`,
+  and `JMA_GSM`. All rows remain `EXPERIMENT_ONLY`.
+- The provider error atlas has been recalculated on the OM-M3 table under
+  `reports/open-meteo-provider-error-atlas-multi-provider/`. The recalculated
+  dataset has 18,440 non-null provider-error rows and 873 metric rows. Overall
+  raw provider MAE ranks `icon_seamless` best at 1.0844 C, then `gem_global`
+  at 1.1674 C, `ecmwf_ifs025` at 1.3987 C, `gfs_seamless` at 1.4207 C,
+  `ecmwf_aifs025_single` at 1.7495 C, and `jma_seamless` at 1.7867 C. The
+  atlas shows broad cold bias across providers, so signed-bias calibration is
+  now a justified next experiment.
+- OM-M4 family-deduplicated provider calibration is now implemented under
+  `reports/open-meteo-provider-calibration/`. It generated 26,224 candidate
+  rows across six experiment-only candidates:
+  `om_gfs_previous_runs_raw`, `om_family_mean_raw`,
+  `om_family_median_raw`, `om_family_inverse_mae_weighted`,
+  `om_family_recent_bias_corrected`, and
+  `om_family_regime_bias_corrected`. The best overall calibration-table
+  candidate is `om_family_recent_bias_corrected`, with MAE 0.8225 C, signed
+  bias -0.2741 C, and exact-bracket rate 38.41%. This is a calibration
+  artifact, not a final model-selection decision.
+- OM-M5 calibrated nested validation is now implemented under
+  `reports/onda3-open-meteo-calibrated-nested-validation/`. It compares
+  local-only Onda 3F, current GFS-augmented Onda 3F, raw GFS Previous Runs,
+  and calibrated multi-provider candidates on identical covered rows. With the
+  strict common-row requirement, only one outer fold is valid. Validation
+  selects `om_family_recent_bias_corrected`; 2025 test MAE is 0.8258 C versus
+  0.7630 C for current GFS-augmented Onda 3F, 1.0714 C for local-only Onda 3F,
+  and 1.4227 C for raw GFS Previous Runs. Decision status is
+  `KEEP_CALIBRATED_OPEN_METEO_IN_EXPERIMENT_REVIEW`, so no final model
+  promotion, production, EV, pricing, shadow trading, or execution work is
+  unlocked.
+- OM-M6 calibrated error forensics is now implemented under
+  `reports/open-meteo-forensics/`. It confirmed that
+  `om_family_recent_bias_corrected` is unstable rather than uniformly bad:
+  paired 2024-2025 same-row MAE was 0.7726 C versus 0.7610 C for
+  `open_meteo_augmented_onda3f`, exact bracket was 40.45% versus 41.75%, and
+  the critical failure was `2025|macro_non_southerly` with MAE delta
+  +0.1065 C and exact delta -6.47 pp versus the augmented baseline.
+- OM-M7 stabilized calibration is now implemented under
+  `reports/open-meteo-provider-calibration-stabilized/`. It adds
+  `om_family_month_bias_corrected` and
+  `om_family_season_bias_corrected`, plus
+  `open_meteo_stabilized_calibration_support_v1.csv`. All rows remain
+  `EXPERIMENT_ONLY`. The new `season` candidate is the only stabilized
+  candidate close enough to continue review: full calibration-table MAE is
+  0.8791 C, worse than recent-bias 0.8225 C but with a less severe paired
+  2024-2025 trade-off once nested predictions are compared.
+- OM-M8 defensive selection is now implemented under
+  `reports/onda3-open-meteo-defensive-selection/`. The selector mode
+  `validation_mae_then_non_southerly_guard_then_cp23` emits
+  `onda3_open_meteo_defensive_selection_guardrail_v1.csv` and blocks
+  candidates that degrade validation `macro_non_southerly` versus
+  `open_meteo_augmented_onda3f`. On the available strict common-row fold,
+  validation still lets `om_family_recent_bias_corrected` through because its
+  2024 `macro_non_southerly` validation slice looks strong; the rule therefore
+  does not catch the 2025 drift failure.
+- OM-M8B stabilized forensics is generated under
+  `reports/open-meteo-forensics-stabilized/`, comparing
+  `om_family_season_bias_corrected` to `open_meteo_augmented_onda3f` on the
+  same paired 2024-2025 surface. The stabilized season candidate nearly ties
+  overall MAE, 0.7619 C versus 0.7610 C, and improves exact bracket by
+  +0.81 pp. However it fails the success gate because 2025 MAE worsens by
+  +0.0200 C and `2025|macro_non_southerly` exact drops by -2.55 pp, even
+  though the `macro_non_southerly` MAE delta stays within the +0.025 C guard.
+- OM-M9 decision: `KEEP_OPEN_METEO_AUGMENTED_ONDA3F_AS_EXPERIMENTAL_BASELINE`.
+  Stabilized calibration is not promoted. It is better than the earlier
+  recent-bias candidate for exact-bracket balance, but it does not beat the
+  augmented baseline by the required overall MAE or exact-bracket gates while
+  preserving `macro_non_southerly` stability. Current production status remains
+  `EXPERIMENT_ONLY`.
+- OM-M10 coverage/fold expansion is now implemented under
+  `reports/open-meteo-coverage-expansion/`. The strict common-row audit shows
+  current observed Open-Meteo coverage spans 2023-01-01 through 2025-12-31 with
+  1,076 common dates and 4,304 common `(date_local, cp)` rows, producing only
+  one valid outer fold. A counterfactual causal Previous Runs history beginning
+  2022-01-01 would produce two valid outer folds for test years 2024 and 2025
+  on 6,460 local feature-key rows. Alternate fixed leads over the current cache
+  do not expand dates, and Single Runs remains blocked by request contract
+  after 24/24 sampled probes returned HTTP 400. Decision:
+  `COVERAGE_EXPANSION_REQUIRES_2022_HISTORY`.
+- OM-M11 historical backfill feasibility and live backfill are now implemented
+  without overwriting the existing Open-Meteo feature tables. The dry-run
+  artifact under `reports/open-meteo-2022-backfill-feasibility/` records
+  `OPEN_METEO_2022_BACKFILL_FEASIBILITY_READY`. The live 2022 Previous Runs
+  backfill wrote `data/open_meteo_multi_provider_features_2022.parquet` with
+  8,760 rows, 365 dates, four CPs, six provider families, and
+  `OPEN_METEO_MULTI_PROVIDER_FEATURES_READY`. The existing
+  `data/open_meteo_features.parquet` and
+  `data/open_meteo_multi_provider_features.parquet` remain intact.
+- OM-M12 two-fold nested refresh is now generated on expanded 2022-2025
+  surfaces. New inputs are
+  `data/open_meteo_multi_provider_features_2022_2025.parquet` with 35,064
+  rows and `data/open_meteo_features_2022_2025.parquet` with 5,844 rows. The
+  refreshed coverage audit under `reports/open-meteo-coverage-expansion-2022-2025/`
+  records `CURRENT_COVERAGE_SUPPORTS_TWO_STRICT_FOLDS` with 1,441 common dates,
+  5,764 strict common rows, and two valid outer folds. The refreshed defensive
+  nested validation under `reports/onda3-open-meteo-defensive-selection-2022-2025/`
+  records `PROMOTE_CALIBRATED_OPEN_METEO_TO_NEXT_EXPERIMENT_ONLY_ITERATION`:
+  selected mean test MAE is 0.7824 versus 0.8244 for always using
+  `open_meteo_augmented_onda3f`, 1.0574 for local-only Onda 3F, and 1.4265
+  for raw GFS Previous Runs. All outputs remain `EXPERIMENT_ONLY`.
+- OM-M13 expanded-surface decision review is now implemented under
+  `reports/open-meteo-expanded-decision-review-2022-2025/`. It compares the
+  nested-selected policy, always-season, always-recent, and always-augmented
+  policies across overall, year, month, CP, binary macro regime, year-regime,
+  and month-CP slices. The explicit decision is
+  `PROMOTE_EXPANDED_OPEN_METEO_TO_NEXT_EXPERIMENT_ONLY_ITERATION`: the selected
+  policy improves MAE to 0.7835 from 0.8239 for always-augmented and improves
+  exact bracket by +1.30 pp, with no binary-macro MAE degradation. The review
+  also records that `always_season` is the strongest global policy on the
+  observed surface at MAE 0.7616, so the promotion is to the next experiment
+  iteration, not a final baseline or production promotion.
+- OM-M14 live-forward Forecast API collection is now implemented in safe
+  fixture-mode under `reports/open-meteo-forward-collection/`. The new module
+  `solarstorm/open_meteo/_forward_collection.py` normalizes forward Forecast
+  API rows, records `available_time_utc`, computes `cp_utc`, blocks rows that
+  fail `available_time_utc <= cp_utc`, rejects duplicate collection keys,
+  keeps unsettled target dates as `pending`, provides a maturity transition,
+  filters forward rows out of nested validation until `mature`, and builds
+  endpoint/model/horizon availability audits. The CLI
+  `open-meteo-forward-collection` writes raw response cache metadata,
+  normalized provider-feature parquet, maturity/causality/availability audits,
+  duplicate-key report, and a markdown report. The current generated smoke row
+  remains `pending` and `EXPERIMENT_ONLY`.
+- The OM-M14 design remains documented in
+  `docs/superpowers/specs/2026-06-11-open-meteo-forecast-forward-collection-design.md`
+  with its TDD implementation plan in
+  `docs/superpowers/plans/2026-06-11-open-meteo-forecast-forward-collection.md`.
+  It defines the unique collection key, CP-causal availability gate,
+  pending-to-mature lifecycle, duplicate rejection, raw cache, normalized
+  provider-feature table, and endpoint/model/horizon availability audit.
+
+Direction lock for the next Open-Meteo wave:
+
+1. Do not add more local handcrafted interactions until the Open-Meteo source
+   question is resolved.
+2. Do not call the current Open-Meteo feature set a production ensemble. The
+   project now has family-deduplicated and shrinkage-calibrated experiment
+   candidates, but nested validation leaves them in experiment review because
+   the strict common covered surface has only one valid outer fold.
+3. Preserve both Open-Meteo tables: `data/open_meteo_features.parquet` remains
+   the GFS-only pilot input, while
+   `data/open_meteo_multi_provider_features.parquet` is the provider-keyed
+   OM-M3 input for calibration experiments.
+4. Use the downloaded GitHub/quarantine projects as design references only,
+   especially their Open-Meteo multi-model parsing, model-family deduplication,
+   and recent signed-bias calibration patterns. Do not import their production
+   or trading assumptions.
+5. Treat the recalculated multi-provider atlas as the calibration baseline:
+   MAE, RMSE, signed bias, exact bracket, month, CP, and binary macro regime
+   slices are required in every calibration report.
+6. Coverage expansion has now been materialized for 2022-2025. The next NWP
+   work must be decision review and robustness on the two-fold expanded
+   surface, not another calibration formula.
+7. Production deployment, EV, market pricing, and execution remain on hold
+   until a model passes predictive, uncertainty, causality, and coverage gates.
+
+Sprint status:
+
+- Sprint OM-M1: multi-provider availability and request-contract audit -
+  implemented.
+- Sprint OM-M2: provider error/bias atlas on causal historical rows -
+  implemented first for GFS-only history, then recalculated on the OM-M3
+  multi-provider table.
+- Sprint OM-M3: historical multi-provider Previous Runs feature expansion -
+  implemented. It wrote
+  `data/open_meteo_multi_provider_features.parquet` without mutating
+  `data/features.parquet` or the current GFS-only
+  `data/open_meteo_features.parquet`.
+- Sprint OM-M4: family-deduplicated ensemble and signed-bias calibration -
+  implemented. It writes `reports/open-meteo-provider-calibration/` and keeps
+  all outputs `EXPERIMENT_ONLY`.
+- Sprint OM-M5: nested validation of calibrated Open-Meteo candidates against
+  local-only Onda 3F and current GFS Previous Runs augmentation - implemented
+  and kept in experiment review because only one strict common-row outer fold
+  is valid.
+- Sprint OM-M6: calibrated error forensics - implemented. It writes
+  `reports/open-meteo-forensics/` and identifies year/regime drift as the
+  reason calibrated candidates trail the augmented baseline.
+- Sprint OM-M7A: monthly and seasonal stabilized calibration candidates -
+  implemented. It writes
+  `reports/open-meteo-provider-calibration-stabilized/`.
+- Sprint OM-M7B: stabilized calibration support audit - implemented. It writes
+  `open_meteo_stabilized_calibration_support_v1.csv` and flags support or
+  adjustment risks.
+- Sprint OM-M8A: defensive non-southerly selector - implemented. It writes
+  `onda3_open_meteo_defensive_selection_guardrail_v1.csv` under
+  `reports/onda3-open-meteo-defensive-selection/`.
+- Sprint OM-M8B: stabilized nested revalidation and forensics refresh -
+  implemented. It writes `reports/onda3-open-meteo-defensive-selection/` and
+  `reports/open-meteo-forensics-stabilized/`.
+- Sprint OM-M9: decision gate - implemented. Decision is
+  `KEEP_OPEN_METEO_AUGMENTED_ONDA3F_AS_EXPERIMENTAL_BASELINE`.
+- Sprint OM-M10: coverage/fold expansion audit - implemented. Decision is
+  `COVERAGE_EXPANSION_REQUIRES_2022_HISTORY`; current coverage has one valid
+  strict common-row outer fold, while a causal Previous Runs backfill from
+  2022 would create two.
+- Sprint OM-M11: historical backfill feasibility and live 2022 backfill -
+  implemented. It writes `reports/open-meteo-2022-backfill-feasibility/`,
+  `reports/open-meteo-multi-provider-features-2022/`, and
+  `data/open_meteo_multi_provider_features_2022.parquet`.
+- Sprint OM-M12: two-fold nested refresh - implemented. It writes expanded
+  2022-2025 feature surfaces and refreshed atlas, calibration, nested,
+  forensics, and coverage artifacts under `reports/*-2022-2025/`.
+- Sprint OM-M13: expanded-surface decision review - implemented. Decision is
+  `PROMOTE_EXPANDED_OPEN_METEO_TO_NEXT_EXPERIMENT_ONLY_ITERATION`; artifacts
+  are under `reports/open-meteo-expanded-decision-review-2022-2025/`.
+- Sprint OM-M14: forward collection implementation - implemented in
+  fixture-mode. It writes `reports/open-meteo-forward-collection/` and keeps
+  rows out of validation until they become mature.
+
+Next technical sprint order from current state (superseded on 2026-06-12 by
+the Production Roadmap P0-P5; the OM items below are folded into P4):
+
+1. **P0 honest evaluation harness** (see Production Roadmap P0-P5). All new
+   model claims must be scored against the honest k_cp+climatology null
+   before any further Open-Meteo iteration.
+2. **P1 horizon hybrid model** judged by the P0 gates.
+3. **OM-M15 live-forward collection scheduler** (now P4 item 1). Add the
+   explicit `--live` collector/scheduler around the OM-M14 contract, with
+   retry metadata and duplicate-key protection, extended with the Forecast +
+   Ensemble APIs and the MetService Point Forecast API. Collected rows remain
+   `pending` until labels settle.
+4. **Expanded calibrated model iteration** (now folded into P1/P2). Carry the
+   OM-M13 promoted path into the hybrid iteration; include both the
+   nested-selected policy and `always_season` as anchor candidates.
+5. **Calibration freeze.** Do not add another calibration formula until the
+   P1 hybrid and forward collection identify a specific unresolved failure
+   mode.
+6. **Decision freeze remains active.** No production, EV, pricing, shadow
+   trading, or execution work starts before the P0-P3 exit gates pass.
+
+Detailed sprint guidance lives in
+`docs/superpowers/plans/2026-06-10-open-meteo-multi-provider-calibration-sprints.md`
+for OM-M1 through OM-M5 and
+`docs/superpowers/plans/2026-06-10-open-meteo-coverage-expansion-next-sprints.md`
+for OM-M11 onward.
 
 ## On Hold
 

@@ -1,0 +1,17 @@
+test_year,regime_label,candidate_id,n,mae,exact_bracket_pct
+2024,calm_radiative,local_only_reference,4,0.44706348715457533,75.0
+2024,calm_radiative,open_meteo_augmented,4,0.33871659758308503,100.0
+2024,southerly_disrupted,local_only_reference,1340,1.1790409112265634,26.940298507462686
+2024,southerly_disrupted,open_meteo_augmented,1340,0.9461635375089447,39.32835820895522
+2024,standard_nw,local_only_reference,61,1.0497053082107661,29.508196721311474
+2024,standard_nw,open_meteo_augmented,61,0.9979917504734849,24.59016393442623
+2024,strong_nw_foehn,local_only_reference,59,1.305899073444701,22.033898305084744
+2024,strong_nw_foehn,open_meteo_augmented,59,1.1145630965280493,33.89830508474576
+2025,calm_radiative,local_only_reference,30,1.2234762344683725,20.0
+2025,calm_radiative,open_meteo_augmented,30,0.9507536118373755,40.0
+2025,southerly_disrupted,local_only_reference,1340,1.219726812820796,25.0
+2025,southerly_disrupted,open_meteo_augmented,1340,0.8773058522141634,34.47761194029851
+2025,standard_nw,local_only_reference,42,1.16697520165157,21.428571428571427
+2025,standard_nw,open_meteo_augmented,42,0.7242150744919517,42.857142857142854
+2025,strong_nw_foehn,local_only_reference,48,0.8297683601059614,43.75
+2025,strong_nw_foehn,open_meteo_augmented,48,0.6991268983576294,52.083333333333336

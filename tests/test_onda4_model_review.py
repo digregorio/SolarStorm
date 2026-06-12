@@ -110,6 +110,56 @@ def test_model_review_blocks_included_target_proxy_feature():
     assert decision["decision_status"] == "BLOCK_MODEL_PROMOTION"
 
 
+def test_model_review_blocks_when_any_challenger_row_misses_null():
+    inputs = _valid_inputs()
+    inputs["baseline_results"] = pl.DataFrame(
+        {
+            "model_name": ["train_mean_null", "train_mean_null"],
+            "cp": ["20:00", "21:00"],
+            "mae": [2.0, 2.0],
+            "production_status": ["EXPERIMENT_ONLY", "EXPERIMENT_ONLY"],
+        }
+    )
+    inputs["challenger_results"] = pl.DataFrame(
+        {
+            "model_name": ["ridge_challenger", "ridge_challenger"],
+            "cp": ["20:00", "21:00"],
+            "mae": [1.0, 2.5],
+            "beats_train_mean_null": [True, False],
+            "production_status": ["EXPERIMENT_ONLY", "EXPERIMENT_ONLY"],
+        }
+    )
+
+    artifacts = build_onda4_model_review(inputs)
+
+    m3 = artifacts["onda4_model_gate_results_v1"].filter(
+        pl.col("gate_id") == "M3"
+    ).row(0, named=True)
+    decision = artifacts["onda4_model_decision_update_v1"].row(0, named=True)
+    assert m3["gate_status"] == "BLOCK"
+    assert decision["decision_status"] == "KEEP_IN_ONDA3_EXPERIMENT_REVIEW"
+
+
+def test_model_review_records_optional_temporal_diagnostics():
+    inputs = _valid_inputs()
+    inputs["temporal_diagnostics"] = pl.DataFrame(
+        {
+            "diagnostic": ["all_challengers_beat_null"],
+            "status": ["PASS"],
+            "test_years": ["2023,2024,2025"],
+            "production_status": ["EXPERIMENT_ONLY"],
+        }
+    )
+
+    artifacts = build_onda4_model_review(inputs)
+
+    m4 = artifacts["onda4_model_gate_results_v1"].filter(
+        pl.col("gate_id") == "M4"
+    ).row(0, named=True)
+    assert m4["gate_status"] == "PASS"
+    assert "test_years=2023,2024,2025" in m4["detail"]
+
+
 def test_model_review_artifact_writer(tmp_path: Path):
     artifacts = build_onda4_model_review(_valid_inputs())
 

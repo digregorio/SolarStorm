@@ -1,0 +1,2 @@
+decision_status,decision_rationale,ready_rows,partial_rows,blocked_rows,production_status
+OPEN_METEO_2022_BACKFILL_FEASIBILITY_READY,Previous Runs provider decisions allow a 2022 backfill attempt; dry-run did not mutate the current feature parquet.,96,0,0,EXPERIMENT_ONLY

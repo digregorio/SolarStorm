@@ -1,0 +1,2 @@
+decision_status,decision_rationale,n_paired_rows,overall_mae_delta_calibrated_minus_augmented,overall_exact_delta_calibrated_minus_augmented_pct,production_status
+KEEP_OPEN_METEO_FORENSICS_REVIEW,Open-Meteo augmented Onda 3F and calibrated candidates show different error/bracket tradeoffs; keep promotion frozen until slice causes are resolved.,2848,-0.06231270163454816,3.125,EXPERIMENT_ONLY

@@ -18,8 +18,14 @@ def _ridge_predict(
     train_x = np.asarray(train_x, dtype=float)
     test_x = np.asarray(test_x, dtype=float)
     train_y = np.asarray(train_y, dtype=float)
-    train_mean = np.nanmean(train_x, axis=0)
-    train_mean = np.where(np.isnan(train_mean), 0.0, train_mean)
+    non_nan_counts = np.sum(~np.isnan(train_x), axis=0)
+    train_sums = np.nansum(train_x, axis=0)
+    train_mean = np.divide(
+        train_sums,
+        non_nan_counts,
+        out=np.zeros_like(train_sums, dtype=float),
+        where=non_nan_counts > 0,
+    )
     train_x = np.where(np.isnan(train_x), train_mean, train_x)
     test_x = np.where(np.isnan(test_x), train_mean, test_x)
     train_std = train_x.std(axis=0)

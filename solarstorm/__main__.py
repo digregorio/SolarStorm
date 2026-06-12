@@ -29,6 +29,18 @@ from solarstorm.eda._catalog import SEED_HYPOTHESES
 from solarstorm.eda._validate import _fit_ols_challenger, validate_hypotheses
 from solarstorm.eval._leaderboard import build_leaderboard, export_leaderboard
 from solarstorm.features.builder import build_coverage_manifest, build_features
+from solarstorm.honest_eval import (
+    apply_physical_floor,
+    assign_remaining_warming_strata,
+    build_floor_violation_audit,
+    build_honest_comparison,
+    build_honest_gates,
+    build_kcp_long,
+    fit_honest_null,
+    predict_honest_null,
+    run_persistence_ablation,
+    write_honest_eval_artifacts,
+)
 from solarstorm.onda2e import (
     apply_decision_updates,
     build_cloud_cover_baseline_experiment,
@@ -103,12 +115,78 @@ from solarstorm.onda2e import (
 )
 from solarstorm.onda2e._full_eda import _build_cluster_matrix
 from solarstorm.onda3 import (
+    build_interaction_feature_manifest,
+    build_onda3_audit_comparison,
     build_onda3_design_matrix,
     build_onda3_feature_manifest,
+    build_onda3_interaction_iteration,
+    build_onda3_model_attempt_review,
+    build_onda3_nested_validation,
+    build_onda3_next_iteration,
+    build_onda3_pooled_iteration,
+    build_onda3_rolling_iteration,
     build_onda3_slice_diagnostics,
+    build_onda3_train_start_sensitivity,
+    load_onda3_audit_prediction_inputs,
+    normalize_pooled_cp_column,
     run_onda3_baseline_model,
+    select_onda3h_feature_columns,
+    write_onda3_audit_comparison_artifacts,
     write_onda3_baseline_artifacts,
+    write_onda3_interaction_artifacts,
+    write_onda3_model_attempt_review_artifacts,
+    write_onda3_nested_validation_artifacts,
+    write_onda3_next_artifacts,
+    write_onda3_pooled_artifacts,
+    write_onda3_rolling_artifacts,
+    write_onda3_train_start_sensitivity_artifacts,
 )
+from solarstorm.onda3._hybrid_iteration import (
+    build_hybrid_matrix,
+    build_onda3_hybrid_iteration,
+    judge_hybrid_candidates,
+    write_onda3_hybrid_artifacts,
+)
+from solarstorm.open_meteo import (
+    build_availability_summaries,
+    build_feature_source_eligibility,
+    build_forward_provider_features,
+    build_multi_provider_availability_artifacts,
+    build_multi_provider_backfill_feasibility_artifacts,
+    build_multi_provider_feature_artifacts,
+    build_multi_provider_probe_plan,
+    build_multi_provider_raw_response_cache,
+    build_multi_provider_registry,
+    build_open_meteo_calibrated_nested_validation,
+    build_open_meteo_coverage_expansion_artifacts,
+    build_open_meteo_expanded_decision_review_artifacts,
+    build_open_meteo_feature_artifacts,
+    build_open_meteo_forensics_artifacts,
+    build_open_meteo_nested_validation,
+    build_open_meteo_pilot,
+    build_probe_plan,
+    build_provider_calibration_artifacts,
+    build_provider_error_atlas_artifacts,
+    build_raw_response_cache,
+    build_source_registry_frame,
+    run_multi_provider_probe_plan,
+    run_probe_plan,
+    write_forward_collection_artifacts,
+    write_multi_provider_availability_artifacts,
+    write_multi_provider_backfill_feasibility_artifacts,
+    write_multi_provider_feature_artifacts,
+    write_open_meteo_availability_artifacts,
+    write_open_meteo_calibrated_nested_validation_artifacts,
+    write_open_meteo_coverage_expansion_artifacts,
+    write_open_meteo_expanded_decision_review_artifacts,
+    write_open_meteo_feature_artifacts,
+    write_open_meteo_forensics_artifacts,
+    write_open_meteo_nested_validation_artifacts,
+    write_open_meteo_pilot_artifacts,
+    write_provider_calibration_artifacts,
+    write_provider_error_atlas_artifacts,
+)
+from solarstorm.open_meteo._client import OpenMeteoClient
 from solarstorm.robustness._causal_audit import reaudit_causality
 from solarstorm.robustness._drift import compute_drift_trend, write_drift_snapshot
 from solarstorm.robustness._late_spike import (
@@ -167,6 +245,91 @@ def _find_latest_validated_contract(reports_dir: Path) -> Path | None:
         return parent_date, path.stat().st_mtime
 
     return max(candidates, key=sort_key)
+
+
+def _parse_open_meteo_csv_ints(value: str) -> list[int]:
+    parsed: list[int] = []
+    for token in value.split(","):
+        item = token.strip()
+        if not item:
+            continue
+        try:
+            parsed.append(int(item))
+        except ValueError:
+            print(f"ERROR: invalid comma-separated integer item: {item}")
+            raise typer.Exit(2) from None
+    if not parsed:
+        print("ERROR: invalid comma-separated integer item: <empty>")
+        raise typer.Exit(2)
+    return parsed
+
+
+def _parse_open_meteo_csv_strings(value: str) -> list[str]:
+    parsed = [token.strip() for token in value.split(",") if token.strip()]
+    if not parsed:
+        print("ERROR: invalid comma-separated string list: <empty>")
+        raise typer.Exit(2)
+    return parsed
+
+
+def _parse_open_meteo_dates(value: str) -> list[dt.date]:
+    parsed: list[dt.date] = []
+    for token in value.split(","):
+        item = token.strip()
+        if not item:
+            continue
+        try:
+            parsed.append(dt.date.fromisoformat(item))
+        except ValueError:
+            print(f"ERROR: invalid --dates item: {item}")
+            raise typer.Exit(2) from None
+    if not parsed:
+        print("ERROR: invalid --dates item: <empty>")
+        raise typer.Exit(2)
+    return parsed
+
+
+def _parse_open_meteo_date_range(value: str) -> list[dt.date]:
+    parts = [part.strip() for part in value.split(":")]
+    if len(parts) != 2 or not parts[0] or not parts[1]:
+        print(f"ERROR: invalid --date-range item: {value}")
+        raise typer.Exit(2)
+    try:
+        start = dt.date.fromisoformat(parts[0])
+        end = dt.date.fromisoformat(parts[1])
+    except ValueError:
+        print(f"ERROR: invalid --date-range item: {value}")
+        raise typer.Exit(2) from None
+    if end < start:
+        print(f"ERROR: invalid --date-range item: {value}")
+        raise typer.Exit(2)
+    days = (end - start).days
+    return [start + dt.timedelta(days=offset) for offset in range(days + 1)]
+
+
+def _parse_open_meteo_month_days(value: str) -> list[tuple[int, int]]:
+    parsed: list[tuple[int, int]] = []
+    for token in value.split(","):
+        item = token.strip()
+        if not item:
+            continue
+        parts = item.split("-")
+        if len(parts) != 2:
+            print(f"ERROR: invalid --month-days item: {item}")
+            raise typer.Exit(2)
+        try:
+            month = int(parts[0])
+            day = int(parts[1])
+            dt.date(2000, month, day)
+        except ValueError:
+            print(f"ERROR: invalid --month-days item: {item}")
+            raise typer.Exit(2) from None
+        parsed.append((month, day))
+
+    if not parsed:
+        print("ERROR: invalid --month-days item: <empty>")
+        raise typer.Exit(2)
+    return parsed
 
 
 @app.command()
@@ -2572,6 +2735,10 @@ def onda4_model_review(
         "./reports/onda3",
         help="Directory containing Onda 3 baseline artifacts",
     ),
+    artifact_prefix: str = typer.Option(
+        "onda3",
+        help="Artifact filename prefix to read, such as onda3 or onda3_next",
+    ),
     output_dir: str = typer.Option(
         "./reports/onda4-model",
         help="Output directory for Onda 4 model review artifacts",
@@ -2579,15 +2746,44 @@ def onda4_model_review(
 ):
     """Write experiment-only Onda 4 model robustness review artifacts."""
     base = Path(onda3_dir)
+    if artifact_prefix == "onda3":
+        baseline_results = pl.read_csv(base / "onda3_baseline_results_v1.csv")
+        challenger_results = pl.read_csv(base / "onda3_challenger_results_v1.csv")
+        design_matrix_audit = pl.read_csv(base / "onda3_design_matrix_audit_v1.csv")
+    else:
+        model_results = pl.read_csv(base / f"{artifact_prefix}_model_results_v1.csv")
+        baseline_results = model_results.filter(pl.col("model_name") == "train_mean_null")
+        challenger_results = model_results.filter(pl.col("model_name") == "ridge_challenger")
+        design_matrix_audit = pl.DataFrame(
+            [
+                {
+                    "joined_rows": int(
+                        baseline_results["n_train"].sum()
+                        + baseline_results["n_test"].sum()
+                    ),
+                    "train_rows": int(baseline_results["n_train"].sum()),
+                    "test_rows": int(baseline_results["n_test"].sum()),
+                    "production_status": "EXPERIMENT_ONLY",
+                }
+            ],
+            strict=False,
+        )
     inputs = {
-        "feature_manifest": pl.read_csv(base / "onda3_feature_manifest_v1.csv"),
-        "design_matrix_audit": pl.read_csv(base / "onda3_design_matrix_audit_v1.csv"),
-        "baseline_results": pl.read_csv(base / "onda3_baseline_results_v1.csv"),
-        "challenger_results": pl.read_csv(base / "onda3_challenger_results_v1.csv"),
-        "slice_diagnostics": pl.read_csv(base / "onda3_slice_diagnostics_v1.csv"),
-        "uncertainty": pl.read_csv(base / "onda3_uncertainty_abstention_v1.csv"),
-        "decision": pl.read_csv(base / "onda3_decision_update_v1.csv"),
+        "feature_manifest": pl.read_csv(base / f"{artifact_prefix}_feature_manifest_v1.csv"),
+        "design_matrix_audit": design_matrix_audit,
+        "baseline_results": baseline_results,
+        "challenger_results": challenger_results,
+        "slice_diagnostics": pl.read_csv(
+            base / f"{artifact_prefix}_slice_diagnostics_v1.csv"
+        ),
+        "uncertainty": pl.read_csv(
+            base / f"{artifact_prefix}_uncertainty_abstention_v1.csv"
+        ),
+        "decision": pl.read_csv(base / f"{artifact_prefix}_decision_update_v1.csv"),
     }
+    temporal_diagnostics_path = base / f"{artifact_prefix}_temporal_diagnostics_v1.csv"
+    if temporal_diagnostics_path.exists():
+        inputs["temporal_diagnostics"] = pl.read_csv(temporal_diagnostics_path)
     artifacts = build_onda4_model_review(inputs)
     paths = write_onda4_model_review_artifacts(
         artifacts,
@@ -2597,6 +2793,1532 @@ def onda4_model_review(
     decision = artifacts["onda4_model_decision_update_v1"].row(0, named=True)
     print(f"Onda 4 model review complete: {decision['decision_status']}")
     print(f"Report: {paths['onda4_model_robustness_report_md']}")
+
+
+@app.command("onda3-next-model-iteration")
+def onda3_next_model_iteration(
+    features_path: str = typer.Option("./data/features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/onda3-next"),
+    train_end: str = typer.Option("2024-12-31"),
+    test_start: str = typer.Option("2025-01-01"),
+):
+    """Write experiment-only Onda 3B next model iteration artifacts."""
+    features = pl.read_parquet(features_path)
+    labels = pl.read_parquet(labels_path)
+    assignments_path = Path(binary_assignments_path)
+    assignments = pl.read_csv(assignments_path) if assignments_path.exists() else None
+    manifest = build_onda3_feature_manifest(features)
+    matrix, _ = build_onda3_design_matrix(
+        features=features,
+        labels=labels,
+        binary_assignments=assignments,
+        train_end=dt.date.fromisoformat(train_end),
+        test_start=dt.date.fromisoformat(test_start),
+    )
+    numeric_features = [
+        row["feature"]
+        for row in manifest.filter(pl.col("included_in_onda3")).iter_rows(named=True)
+        if row["feature"] in matrix.columns and matrix.schema[row["feature"]].is_numeric()
+    ]
+    categorical_features = [
+        column for column in ["binary_macro_regime_label"] if column in matrix.columns
+    ]
+    artifacts = build_onda3_next_iteration(
+        matrix,
+        numeric_feature_columns=numeric_features,
+        categorical_feature_columns=categorical_features,
+    )
+    artifacts["onda3_next_feature_manifest_v1"] = manifest
+    paths = write_onda3_next_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["onda3_next_decision_update_v1"].row(0, named=True)
+    print(f"Onda 3B next model iteration complete: {decision['decision_status']}")
+    print(f"Report: {paths['onda3_next_report_md']}")
+
+
+@app.command("onda3-rolling-model-iteration")
+def onda3_rolling_model_iteration(
+    features_path: str = typer.Option("./data/features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/onda3-rolling"),
+    test_years: str = typer.Option("2023,2024,2025"),
+):
+    """Write experiment-only Onda 3C rolling temporal model artifacts."""
+    features = pl.read_parquet(features_path)
+    labels = pl.read_parquet(labels_path)
+    assignments_path = Path(binary_assignments_path)
+    assignments = pl.read_csv(assignments_path) if assignments_path.exists() else None
+    if features.schema.get("date_local") == pl.Utf8:
+        features = features.with_columns(pl.col("date_local").str.to_date())
+    if labels.schema.get("date_local") == pl.Utf8:
+        labels = labels.with_columns(pl.col("date_local").str.to_date())
+    matrix = features.join(
+        labels.select(["date_local", "tmax_int"]),
+        on="date_local",
+        how="inner",
+    )
+    if assignments is not None and not assignments.is_empty():
+        if assignments.schema.get("date_local") == pl.Utf8:
+            assignments = assignments.with_columns(pl.col("date_local").str.to_date())
+        matrix = matrix.join(
+            assignments.select(["date_local", "cp", "binary_macro_regime_label"]),
+            on=["date_local", "cp"],
+            how="left",
+        )
+
+    manifest = build_onda3_feature_manifest(features)
+    numeric_features = [
+        row["feature"]
+        for row in manifest.filter(pl.col("included_in_onda3")).iter_rows(named=True)
+        if row["feature"] in matrix.columns and matrix.schema[row["feature"]].is_numeric()
+    ]
+    categorical_features = [
+        column for column in ["binary_macro_regime_label"] if column in matrix.columns
+    ]
+    parsed_test_years = [
+        int(year.strip()) for year in test_years.split(",") if year.strip()
+    ]
+    artifacts = build_onda3_rolling_iteration(
+        matrix,
+        test_years=parsed_test_years,
+        numeric_feature_columns=numeric_features,
+        categorical_feature_columns=categorical_features,
+    )
+    artifacts["onda3_rolling_feature_manifest_v1"] = manifest
+    paths = write_onda3_rolling_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["onda3_rolling_decision_update_v1"].row(0, named=True)
+    print(f"Onda 3C rolling model iteration complete: {decision['decision_status']}")
+    print(f"Report: {paths['onda3_rolling_report_md']}")
+
+
+@app.command("onda3-interaction-model-iteration")
+def onda3_interaction_model_iteration(
+    features_path: str = typer.Option("./data/features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/onda3-interactions"),
+    test_years: str = typer.Option("2023,2024,2025"),
+):
+    """Write experiment-only Onda 3D binary-macro interaction artifacts."""
+    features = pl.read_parquet(features_path)
+    labels = pl.read_parquet(labels_path)
+    assignments_path = Path(binary_assignments_path)
+    assignments = pl.read_csv(assignments_path) if assignments_path.exists() else None
+    if features.schema.get("date_local") == pl.Utf8:
+        features = features.with_columns(pl.col("date_local").str.to_date())
+    if labels.schema.get("date_local") == pl.Utf8:
+        labels = labels.with_columns(pl.col("date_local").str.to_date())
+    matrix = features.join(
+        labels.select(["date_local", "tmax_int"]),
+        on="date_local",
+        how="inner",
+    )
+    if assignments is not None and not assignments.is_empty():
+        if assignments.schema.get("date_local") == pl.Utf8:
+            assignments = assignments.with_columns(pl.col("date_local").str.to_date())
+        matrix = matrix.join(
+            assignments.select(["date_local", "cp", "binary_macro_regime_label"]),
+            on=["date_local", "cp"],
+            how="left",
+        )
+
+    manifest = build_onda3_feature_manifest(features)
+    numeric_features = [
+        row["feature"]
+        for row in manifest.filter(pl.col("included_in_onda3")).iter_rows(named=True)
+        if row["feature"] in matrix.columns and matrix.schema[row["feature"]].is_numeric()
+    ]
+    categorical_features = [
+        column for column in ["binary_macro_regime_label"] if column in matrix.columns
+    ]
+    parsed_test_years = [
+        int(year.strip()) for year in test_years.split(",") if year.strip()
+    ]
+    artifacts = build_onda3_interaction_iteration(
+        matrix,
+        test_years=parsed_test_years,
+        numeric_feature_columns=numeric_features,
+        categorical_feature_columns=categorical_features,
+    )
+    artifacts["onda3_interaction_feature_manifest_v1"] = (
+        build_interaction_feature_manifest(
+            manifest,
+            artifacts["onda3_interaction_feature_audit_v1"],
+        )
+    )
+    paths = write_onda3_interaction_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["onda3_interaction_decision_update_v1"].row(0, named=True)
+    print(f"Onda 3D interaction model iteration complete: {decision['decision_status']}")
+    print(f"Report: {paths['onda3_interaction_report_md']}")
+
+
+@app.command("onda3-pooled-model-iteration")
+def onda3_pooled_model_iteration(
+    features_path: str = typer.Option("./data/features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/onda3-pooled"),
+    test_years: str = typer.Option("2023,2024,2025"),
+):
+    """Write experiment-only Onda 3F pooled temporal/regime artifacts."""
+    features = pl.read_parquet(features_path)
+    labels = pl.read_parquet(labels_path)
+    assignments_path = Path(binary_assignments_path)
+    assignments = pl.read_csv(assignments_path) if assignments_path.exists() else None
+    if features.schema.get("date_local") == pl.Utf8:
+        features = features.with_columns(pl.col("date_local").str.to_date())
+    if labels.schema.get("date_local") == pl.Utf8:
+        labels = labels.with_columns(pl.col("date_local").str.to_date())
+    features = normalize_pooled_cp_column(features)
+    matrix = features.join(
+        labels.select(["date_local", "tmax_int"]),
+        on="date_local",
+        how="inner",
+    )
+    if assignments is not None and not assignments.is_empty():
+        if assignments.schema.get("date_local") == pl.Utf8:
+            assignments = assignments.with_columns(pl.col("date_local").str.to_date())
+        assignments = normalize_pooled_cp_column(assignments)
+        matrix = matrix.join(
+            assignments.select(["date_local", "cp", "binary_macro_regime_label"]),
+            on=["date_local", "cp"],
+            how="left",
+        )
+
+    manifest = build_onda3_feature_manifest(features)
+    numeric_features = [
+        row["feature"]
+        for row in manifest.filter(pl.col("included_in_onda3")).iter_rows(named=True)
+        if row["feature"] in matrix.columns and matrix.schema[row["feature"]].is_numeric()
+    ]
+    categorical_features = [
+        column
+        for column in [
+            "binary_macro_regime_label",
+            "regime_label",
+            "regime_score_argmax",
+            "day_sequence_pattern",
+        ]
+        if column in matrix.columns
+    ]
+    parsed_test_years = [
+        int(year.strip()) for year in test_years.split(",") if year.strip()
+    ]
+    artifacts = build_onda3_pooled_iteration(
+        matrix,
+        test_years=parsed_test_years,
+        numeric_feature_columns=numeric_features,
+        categorical_feature_columns=categorical_features,
+    )
+    paths = write_onda3_pooled_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["onda3_pooled_decision_update_v1"].row(0, named=True)
+    print(f"Onda 3F pooled model iteration complete: {decision['decision_status']}")
+    print("Open-Meteo forecast data is not integrated in this experiment.")
+    print(f"Report: {paths['onda3_pooled_report_md']}")
+
+
+@app.command("honest-evaluation")
+def honest_evaluation(
+    predictions_path: str = typer.Option(
+        "./reports/onda3-pooled/onda3_pooled_predictions_v1.csv"
+    ),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    features_path: str = typer.Option("./data/features.parquet"),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/honest-evaluation"),
+    train_end_year: int = typer.Option(2022),
+    test_years: str = typer.Option("2023,2024,2025"),
+    ablation: bool = typer.Option(True, "--ablation/--no-ablation"),
+):
+    """P0: score predictions against the honest k_cp+climatology null."""
+    labels = pl.read_parquet(labels_path)
+    if labels.schema.get("date_local") == pl.Utf8:
+        labels = labels.with_columns(pl.col("date_local").str.to_date())
+    predictions = pl.read_csv(predictions_path)
+    if predictions.schema.get("date_local") == pl.Utf8:
+        predictions = predictions.with_columns(pl.col("date_local").str.to_date())
+    predictions = predictions.select(["date_local", "cp", "actual", "prediction"])
+
+    kcp = build_kcp_long(labels)
+    rows = predictions.join(kcp, on=["date_local", "cp"], how="inner")
+    null_table = fit_honest_null(labels, train_end_year=train_end_year)
+    scored = predict_honest_null(rows, null_table)
+    scored = assign_remaining_warming_strata(apply_physical_floor(scored))
+    comparison = build_honest_comparison(scored)
+    floor_audit = build_floor_violation_audit(scored)
+    gates, decision = build_honest_gates(
+        by_cp=comparison["by_cp"],
+        by_stratum=comparison["by_stratum"],
+        by_stratum_cp=comparison["by_stratum_cp"],
+        floor_audit=floor_audit,
+    )
+
+    ablation_frame = pl.DataFrame()
+    if ablation:
+        features = pl.read_parquet(features_path)
+        if features.schema.get("date_local") == pl.Utf8:
+            features = features.with_columns(pl.col("date_local").str.to_date())
+        features = normalize_pooled_cp_column(features)
+        matrix = features.join(
+            labels.select(["date_local", "tmax_int"]),
+            on="date_local",
+            how="inner",
+        )
+        assignments_file = Path(binary_assignments_path)
+        if assignments_file.exists():
+            assignments = pl.read_csv(assignments_file)
+            if assignments.schema.get("date_local") == pl.Utf8:
+                assignments = assignments.with_columns(pl.col("date_local").str.to_date())
+            assignments = normalize_pooled_cp_column(assignments)
+            matrix = matrix.join(
+                assignments.select(["date_local", "cp", "binary_macro_regime_label"]),
+                on=["date_local", "cp"],
+                how="left",
+            )
+        manifest = build_onda3_feature_manifest(features)
+        numeric_features = [
+            row["feature"]
+            for row in manifest.filter(pl.col("included_in_onda3")).iter_rows(named=True)
+            if row["feature"] in matrix.columns
+            and matrix.schema[row["feature"]].is_numeric()
+        ]
+        categorical_features = [
+            column for column in ["binary_macro_regime_label"] if column in matrix.columns
+        ]
+        ablation_frame = run_persistence_ablation(
+            matrix,
+            test_years=_parse_open_meteo_csv_ints(test_years),
+            numeric_feature_columns=numeric_features,
+            categorical_feature_columns=categorical_features,
+        )
+
+    artifacts = {
+        "honest_eval_null_table_v1": null_table.with_columns(
+            pl.lit("EXPERIMENT_ONLY").alias("production_status")
+        ),
+        "honest_eval_by_cp_v1": comparison["by_cp"],
+        "honest_eval_by_stratum_cp_v1": comparison["by_stratum_cp"],
+        "honest_eval_floor_audit_v1": floor_audit,
+        "honest_eval_ablation_v1": ablation_frame,
+        "honest_eval_gates_v1": gates,
+        "honest_eval_decision_v1": decision,
+    }
+    paths = write_honest_eval_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision_row = decision.row(0, named=True)
+    print(f"Honest evaluation complete: {decision_row['decision_status']}")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Report: {paths['honest_eval_report_md']}")
+
+
+@app.command("onda3-hybrid-model-iteration")
+def onda3_hybrid_model_iteration(
+    features_path: str = typer.Option("./data/features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    open_meteo_path: str = typer.Option("./data/open_meteo_features_2022_2025.parquet"),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/onda3-hybrid"),
+    test_years: str = typer.Option("2023,2024,2025"),
+    train_end_year: int = typer.Option(2022),
+):
+    """P1: horizon hybrid model on remaining warming, judged by honest gates."""
+    features = pl.read_parquet(features_path)
+    labels = pl.read_parquet(labels_path)
+    if features.schema.get("date_local") == pl.Utf8:
+        features = features.with_columns(pl.col("date_local").str.to_date())
+    if labels.schema.get("date_local") != pl.Date:
+        labels = labels.with_columns(pl.col("date_local").cast(pl.Date))
+    open_meteo_file = Path(open_meteo_path)
+    open_meteo = pl.read_parquet(open_meteo_file) if open_meteo_file.exists() else None
+    assignments_file = Path(binary_assignments_path)
+    assignments = None
+    if assignments_file.exists():
+        assignments = pl.read_csv(assignments_file)
+        if assignments.schema.get("date_local") == pl.Utf8:
+            assignments = assignments.with_columns(pl.col("date_local").str.to_date())
+
+    matrix = build_hybrid_matrix(
+        features=features,
+        labels=labels,
+        assignments=assignments,
+        open_meteo=open_meteo,
+    )
+    manifest = build_onda3_feature_manifest(features)
+    numeric_features = [
+        row["feature"]
+        for row in manifest.filter(pl.col("included_in_onda3")).iter_rows(named=True)
+        if row["feature"] in matrix.columns
+        and matrix.schema[row["feature"]].is_numeric()
+    ]
+    categorical_features = [
+        column for column in ["binary_macro_regime_label"] if column in matrix.columns
+    ]
+    parsed_test_years = [int(year.strip()) for year in test_years.split(",") if year.strip()]
+    artifacts = build_onda3_hybrid_iteration(
+        matrix,
+        test_years=parsed_test_years,
+        numeric_feature_columns=numeric_features,
+        categorical_feature_columns=categorical_features,
+    )
+    artifacts.update(
+        judge_hybrid_candidates(
+            predictions=artifacts["onda3_hybrid_predictions_v1"],
+            labels=labels,
+            train_end_year=train_end_year,
+        )
+    )
+    paths = write_onda3_hybrid_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["onda3_hybrid_decision_v1"].row(0, named=True)
+    print(f"Onda 3 P1 hybrid iteration complete: {decision['decision_status']}")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Report: {paths['onda3_hybrid_report_md']}")
+
+
+@app.command("onda3-train-start-sensitivity")
+def onda3_train_start_sensitivity(
+    features_path: str = typer.Option("./data/features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/onda3-train-start-sensitivity"),
+    test_years: str = typer.Option("2023,2024,2025"),
+):
+    """Write experiment-only Onda 3E train-start sensitivity artifacts."""
+    features = pl.read_parquet(features_path)
+    labels = pl.read_parquet(labels_path)
+    assignments_path = Path(binary_assignments_path)
+    assignments = pl.read_csv(assignments_path) if assignments_path.exists() else None
+    if features.schema.get("date_local") == pl.Utf8:
+        features = features.with_columns(pl.col("date_local").str.to_date())
+    if labels.schema.get("date_local") == pl.Utf8:
+        labels = labels.with_columns(pl.col("date_local").str.to_date())
+    matrix = features.join(
+        labels.select(["date_local", "tmax_int"]),
+        on="date_local",
+        how="inner",
+    )
+    if assignments is not None and not assignments.is_empty():
+        if assignments.schema.get("date_local") == pl.Utf8:
+            assignments = assignments.with_columns(pl.col("date_local").str.to_date())
+        matrix = matrix.join(
+            assignments.select(["date_local", "cp", "binary_macro_regime_label"]),
+            on=["date_local", "cp"],
+            how="left",
+        )
+
+    manifest = build_onda3_feature_manifest(features)
+    numeric_features = [
+        row["feature"]
+        for row in manifest.filter(pl.col("included_in_onda3")).iter_rows(named=True)
+        if row["feature"] in matrix.columns and matrix.schema[row["feature"]].is_numeric()
+    ]
+    categorical_features = [
+        column for column in ["binary_macro_regime_label"] if column in matrix.columns
+    ]
+    parsed_test_years = [
+        int(year.strip()) for year in test_years.split(",") if year.strip()
+    ]
+    artifacts = build_onda3_train_start_sensitivity(
+        matrix,
+        test_years=parsed_test_years,
+        numeric_feature_columns=numeric_features,
+        categorical_feature_columns=categorical_features,
+    )
+    paths = write_onda3_train_start_sensitivity_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["onda3_train_start_decision_update_v1"].row(0, named=True)
+    print(f"Onda 3E train-start sensitivity complete: {decision['decision_status']}")
+    print("Open-Meteo forecast data is not integrated in this experiment.")
+    print(f"Report: {paths['onda3_train_start_sensitivity_report_md']}")
+
+
+@app.command("onda3-audit-comparison")
+def onda3_audit_comparison(
+    reports_dir: str = typer.Option("./reports"),
+    features_path: str = typer.Option("./data/features.parquet"),
+    output_dir: str = typer.Option("./reports/onda3-audit-comparison"),
+):
+    """Write experiment-only Onda 3G audit comparison artifacts."""
+    required = [Path(reports_dir), Path(features_path)]
+    missing = [path for path in required if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    predictions = load_onda3_audit_prediction_inputs(Path(reports_dir))
+    features = pl.read_parquet(features_path)
+    try:
+        artifacts = build_onda3_audit_comparison(
+            predictions=predictions,
+            features=features,
+        )
+    except ValueError as exc:
+        print(f"ERROR: {exc}")
+        raise typer.Exit(2) from exc
+    paths = write_onda3_audit_comparison_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["onda3_audit_decision_update_v1"].row(0, named=True)
+    print(f"Onda 3G audit comparison complete: {decision['decision_status']}")
+    print("Open-Meteo forecast data is not integrated in this audit.")
+    print(f"Report: {paths['onda3_audit_comparison_report_md']}")
+
+
+@app.command("onda3-nested-validation")
+def onda3_nested_validation(
+    features_path: str = typer.Option("./data/features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/onda3-nested-validation"),
+    test_years: str = typer.Option("2023,2024,2025"),
+    train_start: str = typer.Option("2012-01-01"),
+):
+    """Write experiment-only Onda 3H nested validation artifacts."""
+    required = [Path(features_path), Path(labels_path)]
+    missing = [path for path in required if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    assignments_path = Path(binary_assignments_path)
+    if not assignments_path.exists():
+        print(f"ERROR: missing binary assignments path: {assignments_path}")
+        raise typer.Exit(2)
+
+    features = pl.read_parquet(features_path)
+    labels = pl.read_parquet(labels_path)
+    assignments = pl.read_csv(assignments_path)
+    required_assignment_columns = {
+        "date_local",
+        "cp",
+        "binary_macro_regime_label",
+    }
+    missing_assignment_columns = sorted(
+        required_assignment_columns - set(assignments.columns)
+    )
+    if assignments.is_empty() or missing_assignment_columns:
+        detail = (
+            "empty file"
+            if assignments.is_empty()
+            else "missing columns: " + ", ".join(missing_assignment_columns)
+        )
+        print(f"ERROR: invalid binary assignments artifact: {detail}")
+        raise typer.Exit(2)
+
+    if features.schema.get("date_local") == pl.Utf8:
+        features = features.with_columns(pl.col("date_local").str.to_date())
+    if labels.schema.get("date_local") == pl.Utf8:
+        labels = labels.with_columns(pl.col("date_local").str.to_date())
+    features = normalize_pooled_cp_column(features)
+    matrix = features.join(
+        labels.select(["date_local", "tmax_int"]),
+        on="date_local",
+        how="inner",
+    )
+    if assignments.schema.get("date_local") == pl.Utf8:
+        assignments = assignments.with_columns(pl.col("date_local").str.to_date())
+    assignments = normalize_pooled_cp_column(assignments)
+    matrix = matrix.join(
+        assignments.select(["date_local", "cp", "binary_macro_regime_label"]),
+        on=["date_local", "cp"],
+        how="left",
+    )
+    if matrix["binary_macro_regime_label"].null_count():
+        print("ERROR: binary assignments did not cover all feature date/cp rows")
+        raise typer.Exit(2)
+
+    numeric_features, categorical_features = select_onda3h_feature_columns(matrix)
+    parsed_test_years = [
+        int(year.strip()) for year in test_years.split(",") if year.strip()
+    ]
+    artifacts = build_onda3_nested_validation(
+        matrix,
+        test_years=parsed_test_years,
+        numeric_feature_columns=numeric_features,
+        categorical_feature_columns=categorical_features,
+        train_start=dt.date.fromisoformat(train_start),
+    )
+    paths = write_onda3_nested_validation_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["onda3_nested_decision_update_v1"].row(0, named=True)
+    print(f"Onda 3H nested validation complete: {decision['decision_status']}")
+    print("Open-Meteo forecast data is not integrated in this experiment.")
+    print(f"Report: {paths['onda3_nested_validation_report_md']}")
+
+
+@app.command("onda3-model-attempt-review")
+def onda3_model_attempt_review(
+    reports_dir: str = typer.Option("./reports"),
+    features_path: str = typer.Option("./data/features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    output_dir: str = typer.Option("./reports/onda3-model-review"),
+):
+    """Write pre-Open-Meteo Onda 3 model attempt review artifacts."""
+    required = [Path(features_path), Path(labels_path), Path(reports_dir)]
+    missing = [path for path in required if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    artifacts = build_onda3_model_attempt_review(
+        reports_dir=Path(reports_dir),
+        features_path=Path(features_path),
+        labels_path=Path(labels_path),
+    )
+    paths = write_onda3_model_attempt_review_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    print("Onda 3 model attempt review complete.")
+    print("Open-Meteo forecast data is not integrated in this review.")
+    print(f"Report: {paths['onda3_model_attempt_review_md']}")
+
+
+@app.command("open-meteo-availability-audit")
+def open_meteo_availability_audit(
+    output_dir: str = typer.Option("./reports/open-meteo-availability"),
+    data_dir: str = typer.Option("./data"),
+    years: str = typer.Option("2022,2023,2024,2025"),
+    cps: str = typer.Option("20:00,21:00,22:00,23:00"),
+    month_days: str = typer.Option("1-15,4-15,7-15,10-15"),
+    include_live_forecast: bool = typer.Option(False),
+    live: bool = typer.Option(False, help="Make bounded live Open-Meteo requests."),
+    timeout_seconds: int = typer.Option(20),
+):
+    """Write Open-Meteo availability audit artifacts without generating features."""
+    parsed_years = _parse_open_meteo_csv_ints(years)
+    parsed_cps = _parse_open_meteo_csv_strings(cps)
+    parsed_month_days = _parse_open_meteo_month_days(month_days)
+
+    registry = build_source_registry_frame()
+    probe_plan = build_probe_plan(
+        registry,
+        years=parsed_years,
+        cps=parsed_cps,
+        month_days=parsed_month_days,
+        include_live_forecast=include_live_forecast,
+    )
+    client = OpenMeteoClient(timeout_s=timeout_seconds) if live else None
+    probe_results = run_probe_plan(probe_plan, client=client, live=live)
+    summaries = build_availability_summaries(registry, probe_plan, probe_results)
+
+    try:
+        paths = write_open_meteo_availability_artifacts(
+            summaries,
+            output_dir=Path(output_dir),
+            today=dt.date.today(),
+            data_dir=Path(data_dir),
+        )
+    except AssertionError as exc:
+        print(f"ERROR: {exc}")
+        raise typer.Exit(1) from exc
+
+    print("Open-Meteo availability audit complete.")
+    if live:
+        print("Live bounded Open-Meteo probes were requested.")
+    else:
+        print("Plan-only mode; no network requests were made.")
+    print("Open-Meteo model features were not created.")
+    print(f"Report: {paths['availability_report_md']}")
+
+
+@app.command("open-meteo-multi-provider-availability")
+def open_meteo_multi_provider_availability(
+    output_dir: str = typer.Option(
+        "./reports/open-meteo-multi-provider-availability"
+    ),
+    dates: str = typer.Option("2024-07-15,2025-01-15"),
+    cps: str = typer.Option("20:00,21:00,22:00,23:00"),
+    models: str = typer.Option(
+        "gfs_seamless,ecmwf_ifs025,ecmwf_aifs025_single,"
+        "icon_seamless,gem_global,jma_seamless"
+    ),
+    endpoints: str = typer.Option("previous_runs,single_runs"),
+    live: bool = typer.Option(False, help="Make bounded live Open-Meteo requests."),
+    timeout_seconds: int = typer.Option(20),
+):
+    """Audit multi-provider Open-Meteo availability without generating features."""
+    registry = build_multi_provider_registry()
+    probe_plan = build_multi_provider_probe_plan(
+        dates=_parse_open_meteo_dates(dates),
+        cps=_parse_open_meteo_csv_strings(cps),
+        models=_parse_open_meteo_csv_strings(models),
+        endpoints=_parse_open_meteo_csv_strings(endpoints),
+    )
+    client = OpenMeteoClient(timeout_s=timeout_seconds) if live else None
+    probe_results = run_multi_provider_probe_plan(
+        probe_plan,
+        client=client,
+        live=live,
+    )
+    artifacts = build_multi_provider_availability_artifacts(
+        registry=registry,
+        probe_plan=probe_plan,
+        probe_results=probe_results,
+    )
+    paths = write_multi_provider_availability_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+
+    print("Open-Meteo multi-provider availability audit complete.")
+    if live:
+        print("Live bounded Open-Meteo probes were requested.")
+    else:
+        print("Plan-only mode; no network requests were made.")
+    print("Open-Meteo model features were not created.")
+    print(f"Report: {paths['open_meteo_multi_provider_availability_report_md']}")
+
+
+@app.command("open-meteo-build-multi-provider-features")
+def open_meteo_build_multi_provider_features(
+    provider_decision_path: str = typer.Option(
+        "./reports/open-meteo-multi-provider-availability-live-smoke/"
+        "open_meteo_multi_provider_decision_update_v1.csv"
+    ),
+    raw_responses_path: str | None = typer.Option(None),
+    output_features: str = typer.Option(
+        "./data/open_meteo_multi_provider_features.parquet"
+    ),
+    output_dir: str = typer.Option("./reports/open-meteo-multi-provider-features"),
+    dates: str = typer.Option("2024-07-15,2025-01-15"),
+    date_range: str | None = typer.Option(None),
+    cps: str = typer.Option("20:00,21:00,22:00,23:00"),
+    models: str = typer.Option(
+        "gfs_seamless,ecmwf_ifs025,ecmwf_aifs025_single,"
+        "icon_seamless,gem_global,jma_seamless"
+    ),
+    live: bool = typer.Option(False, help="Fetch bounded live Open-Meteo payloads."),
+    dry_run_feasibility: bool = typer.Option(
+        False,
+        help="Audit requested backfill coverage without writing feature parquet.",
+    ),
+    timeout_seconds: int = typer.Option(20),
+    fetch_window_days: int = typer.Option(31),
+):
+    """Build causal provider-keyed Previous Runs features for OM-M3."""
+    decision_file = Path(provider_decision_path)
+    raw_path = Path(raw_responses_path) if raw_responses_path else None
+    missing = [decision_file] if not decision_file.exists() else []
+    if raw_path is not None and not raw_path.exists():
+        missing.append(raw_path)
+    output_features_path = Path(output_features)
+    if raw_path is None and not live and not (
+        dry_run_feasibility and output_features_path.exists()
+    ):
+        print("ERROR: missing input paths: --raw-responses-path is required unless --live is set")
+        raise typer.Exit(2)
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    decision = pl.read_csv(decision_file)
+    parsed_dates = (
+        _parse_open_meteo_date_range(date_range)
+        if date_range
+        else _parse_open_meteo_dates(dates)
+    )
+    parsed_cps = _parse_open_meteo_csv_strings(cps)
+    parsed_models = _parse_open_meteo_csv_strings(models)
+
+    if dry_run_feasibility and raw_path is None and not live:
+        feasibility_features = pl.read_parquet(output_features_path)
+        feasibility = build_multi_provider_backfill_feasibility_artifacts(
+            provider_features=feasibility_features,
+            provider_decision_update=decision,
+            requested_start=min(parsed_dates),
+            requested_end=max(parsed_dates),
+            cps=parsed_cps,
+            models=parsed_models,
+        )
+        feasibility_paths = write_multi_provider_backfill_feasibility_artifacts(
+            feasibility,
+            output_dir=Path(output_dir),
+            today=dt.date.today(),
+        )
+        decision_row = feasibility[
+            "open_meteo_backfill_feasibility_decision_v1"
+        ].row(0, named=True)
+        print("Open-Meteo multi-provider backfill feasibility complete.")
+        print(f"Decision: {decision_row['decision_status']}")
+        print("production_status: EXPERIMENT_ONLY")
+        print(f"Report: {feasibility_paths['open_meteo_backfill_feasibility_report_md']}")
+        return
+
+    if live:
+        probe_plan = build_multi_provider_probe_plan(
+            dates=parsed_dates,
+            cps=parsed_cps,
+            models=parsed_models,
+            endpoints=["previous_runs"],
+        )
+        raw = build_multi_provider_raw_response_cache(
+            probe_plan=probe_plan,
+            provider_decision_update=decision,
+            client=OpenMeteoClient(timeout_s=timeout_seconds),
+            window_days=fetch_window_days,
+        )
+        raw_cache_path = (
+            Path(output_dir) / "open_meteo_multi_provider_raw_responses_v1.csv"
+        )
+        raw_cache_path.parent.mkdir(parents=True, exist_ok=True)
+        raw.write_csv(raw_cache_path)
+    else:
+        raw = pl.read_csv(raw_path, try_parse_dates=True)
+
+    artifacts = build_multi_provider_feature_artifacts(
+        raw_responses=raw,
+        provider_decision_update=decision,
+        dates=parsed_dates,
+        cps=parsed_cps,
+        models=parsed_models,
+    )
+    if dry_run_feasibility:
+        feasibility_features = artifacts["open_meteo_multi_provider_features_v1"]
+        if feasibility_features.is_empty() and output_features_path.exists():
+            feasibility_features = pl.read_parquet(output_features_path)
+        feasibility = build_multi_provider_backfill_feasibility_artifacts(
+            provider_features=feasibility_features,
+            provider_decision_update=decision,
+            requested_start=min(parsed_dates),
+            requested_end=max(parsed_dates),
+            cps=parsed_cps,
+            models=parsed_models,
+        )
+        feasibility_paths = write_multi_provider_backfill_feasibility_artifacts(
+            feasibility,
+            output_dir=Path(output_dir),
+            today=dt.date.today(),
+        )
+        decision_row = feasibility[
+            "open_meteo_backfill_feasibility_decision_v1"
+        ].row(0, named=True)
+        print("Open-Meteo multi-provider backfill feasibility complete.")
+        print(f"Decision: {decision_row['decision_status']}")
+        print("production_status: EXPERIMENT_ONLY")
+        print(f"Report: {feasibility_paths['open_meteo_backfill_feasibility_report_md']}")
+        return
+
+    paths = write_multi_provider_feature_artifacts(
+        artifacts,
+        output_features_path=output_features_path,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision_row = artifacts["open_meteo_multi_provider_feature_decision_v1"].row(
+        0,
+        named=True,
+    )
+
+    print("Open-Meteo multi-provider feature build complete.")
+    print("provider family coverage:")
+    print(f"  n_provider_families: {decision_row['n_provider_families']}")
+    print(
+        "  n_overlapping_provider_families: "
+        f"{decision_row['n_overlapping_provider_families']}"
+    )
+    print(f"Decision: {decision_row['decision_status']}")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Features: {paths['open_meteo_multi_provider_features_parquet']}")
+    print(f"Report: {paths['open_meteo_multi_provider_feature_report_md']}")
+    if decision_row["decision_status"] != "OPEN_METEO_MULTI_PROVIDER_FEATURES_READY":
+        raise typer.Exit(3)
+
+
+@app.command("open-meteo-provider-error-atlas")
+def open_meteo_provider_error_atlas(
+    features: str = typer.Option("./data/open_meteo_features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    provider_decision_path: str = typer.Option(
+        "./reports/open-meteo-multi-provider-availability/"
+        "open_meteo_multi_provider_decision_update_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/open-meteo-provider-error-atlas"),
+):
+    """Measure raw provider Tmax error and bias on causal Open-Meteo rows."""
+    required = [
+        Path(features),
+        Path(labels_path),
+        Path(provider_decision_path),
+    ]
+    assignments_file = Path(binary_assignments_path)
+    missing = [path for path in required if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    open_meteo_features = pl.read_parquet(features)
+    labels = pl.read_parquet(labels_path)
+    assignments = pl.read_csv(assignments_file) if assignments_file.exists() else None
+    provider_decision = pl.read_csv(provider_decision_path)
+    artifacts = build_provider_error_atlas_artifacts(
+        open_meteo_features=open_meteo_features,
+        labels=labels,
+        assignments=assignments,
+        provider_decision_update=provider_decision,
+    )
+    paths = write_provider_error_atlas_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    print("Open-Meteo provider error atlas complete.")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Report: {paths['open_meteo_provider_error_atlas_report_md']}")
+
+
+@app.command("open-meteo-provider-calibration")
+def open_meteo_provider_calibration(
+    provider_features: str = typer.Option(
+        "./data/open_meteo_multi_provider_features.parquet"
+    ),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    error_atlas_dir: str = typer.Option(
+        "./reports/open-meteo-provider-error-atlas-multi-provider"
+    ),
+    output_dir: str = typer.Option("./reports/open-meteo-provider-calibration"),
+    calibration_window_days: int = typer.Option(30),
+    min_bias_samples: int = typer.Option(30),
+    min_regime_bias_samples: int = typer.Option(60),
+    seasonal_calibration_window_days: int = typer.Option(730),
+    min_month_bias_samples: int = typer.Option(60),
+    min_season_bias_samples: int = typer.Option(90),
+    seasonal_max_abs_bias_adjustment: float = typer.Option(1.25),
+    seasonal_shrinkage_denominator: int = typer.Option(60),
+    max_abs_bias_adjustment: float = typer.Option(2.0),
+    shrinkage_denominator: int = typer.Option(30),
+):
+    """Build OM-M4 family-deduplicated and bias-calibrated provider candidates."""
+    provider_path = Path(provider_features)
+    labels_file = Path(labels_path)
+    missing = [path for path in [provider_path, labels_file] if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    _ = Path(error_atlas_dir)
+    features = pl.read_parquet(provider_path)
+    labels = pl.read_parquet(labels_file)
+    assignments_file = Path(binary_assignments_path)
+    assignments = pl.read_csv(assignments_file) if assignments_file.exists() else None
+    artifacts = build_provider_calibration_artifacts(
+        provider_features=features,
+        labels=labels,
+        assignments=assignments,
+        calibration_window_days=calibration_window_days,
+        min_bias_samples=min_bias_samples,
+        min_regime_bias_samples=min_regime_bias_samples,
+        seasonal_calibration_window_days=seasonal_calibration_window_days,
+        min_month_bias_samples=min_month_bias_samples,
+        min_season_bias_samples=min_season_bias_samples,
+        seasonal_max_abs_bias_adjustment=seasonal_max_abs_bias_adjustment,
+        seasonal_shrinkage_denominator=seasonal_shrinkage_denominator,
+        max_abs_bias_adjustment=max_abs_bias_adjustment,
+        shrinkage_denominator=shrinkage_denominator,
+    )
+    paths = write_provider_calibration_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["open_meteo_provider_calibration_decision_v1"].row(
+        0,
+        named=True,
+    )
+    print("Open-Meteo provider calibration complete.")
+    print(f"Decision: {decision['decision_status']}")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Candidates: {paths['open_meteo_provider_calibrated_candidates_parquet']}")
+    print(f"Report: {paths['open_meteo_provider_calibration_report_md']}")
+
+
+@app.command("open-meteo-fetch")
+def open_meteo_fetch(
+    decision_path: str = typer.Option(
+        "./reports/open-meteo-availability-live-smoke/"
+        "open_meteo_decision_update_v1.csv"
+    ),
+    output_path: str = typer.Option(
+        "./reports/open-meteo-features/open_meteo_raw_responses_v1.csv"
+    ),
+    years: str = typer.Option("2024"),
+    cps: str = typer.Option("20:00,21:00,22:00,23:00"),
+    month_days: str = typer.Option("7-15"),
+    timeout_seconds: int = typer.Option(20),
+):
+    """Fetch raw Open-Meteo responses for sources allowed by the feature gate."""
+    decision_file = Path(decision_path)
+    if not decision_file.exists():
+        print(f"ERROR: missing input paths: {decision_file}")
+        raise typer.Exit(2)
+
+    decision = pl.read_csv(decision_file)
+    eligibility = build_feature_source_eligibility(decision)
+    registry = build_source_registry_frame()
+    probe_plan = build_probe_plan(
+        registry,
+        years=_parse_open_meteo_csv_ints(years),
+        cps=_parse_open_meteo_csv_strings(cps),
+        month_days=_parse_open_meteo_month_days(month_days),
+        include_live_forecast=False,
+    )
+    raw = build_raw_response_cache(
+        probe_plan=probe_plan,
+        eligibility=eligibility,
+        client=OpenMeteoClient(timeout_s=timeout_seconds),
+    )
+    out = Path(output_path)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    raw.write_csv(out)
+    print("Open-Meteo raw response cache complete.")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Raw responses: {out}")
+
+
+@app.command("open-meteo-build-features")
+def open_meteo_build_features(
+    raw_responses_path: str = typer.Option(...),
+    decision_path: str = typer.Option(
+        "./reports/open-meteo-availability-live-smoke/"
+        "open_meteo_decision_update_v1.csv"
+    ),
+    data_dir: str = typer.Option("./data"),
+    output_dir: str = typer.Option("./reports/open-meteo-features"),
+    cps: str = typer.Option("20:00,21:00,22:00,23:00"),
+):
+    """Build experiment-only Open-Meteo feature artifacts from raw responses."""
+    raw_path = Path(raw_responses_path)
+    decision_file = Path(decision_path)
+    missing = [path for path in [raw_path, decision_file] if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    raw = pl.read_csv(raw_path, try_parse_dates=True)
+    decision = pl.read_csv(decision_file)
+    artifacts = build_open_meteo_feature_artifacts(
+        raw_responses=raw,
+        decision_update=decision,
+        cps=_parse_open_meteo_csv_strings(cps),
+    )
+    paths = write_open_meteo_feature_artifacts(
+        artifacts,
+        data_dir=Path(data_dir),
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    print("Open-Meteo feature build complete.")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Features: {paths['open_meteo_features_parquet']}")
+    print(f"Report: {paths['open_meteo_feature_report_md']}")
+
+
+@app.command("onda3-open-meteo-pilot")
+def onda3_open_meteo_pilot(
+    features_path: str = typer.Option("./data/features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    open_meteo_features_path: str = typer.Option("./data/open_meteo_features.parquet"),
+    output_dir: str = typer.Option("./reports/onda3-open-meteo-pilot"),
+    test_years: str = typer.Option("2024,2025"),
+):
+    """Run an experiment-only Open-Meteo augmented Onda 3 pilot."""
+    local_path = Path(features_path)
+    om_path = Path(open_meteo_features_path)
+    labels_file = Path(labels_path)
+    required_paths = [local_path, om_path]
+    if not local_path.exists() or "tmax_int" not in pl.read_parquet(local_path).columns:
+        required_paths.append(labels_file)
+    missing = [path for path in required_paths if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    local = pl.read_parquet(local_path)
+    if "tmax_int" not in local.columns:
+        labels = pl.read_parquet(labels_file)
+        if labels.schema.get("date_local") == pl.Utf8:
+            labels = labels.with_columns(pl.col("date_local").str.to_date())
+        local = local.join(
+            labels.select(["date_local", "tmax_int"]).unique(),
+            on="date_local",
+            how="inner",
+        )
+    om = pl.read_parquet(om_path)
+    numeric_features, categorical_features = select_onda3h_feature_columns(local)
+    om_numeric = [
+        column
+        for column in om.columns
+        if column.startswith("om_prev_d1_") and om.schema[column].is_numeric()
+    ]
+    artifacts = build_open_meteo_pilot(
+        local_features=local,
+        open_meteo_features=om,
+        test_years=_parse_open_meteo_csv_ints(test_years),
+        numeric_feature_columns=numeric_features,
+        categorical_feature_columns=categorical_features,
+        open_meteo_numeric_columns=om_numeric,
+    )
+    paths = write_open_meteo_pilot_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["onda3_open_meteo_pilot_decision_update_v1"].row(
+        0,
+        named=True,
+    )
+    print("Onda 3 Open-Meteo pilot complete.")
+    print(f"Decision: {decision['decision_status']}")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Report: {paths['onda3_open_meteo_pilot_report_md']}")
+
+
+@app.command("onda3-open-meteo-nested-validation")
+def onda3_open_meteo_nested_validation(
+    features_path: str = typer.Option("./data/features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    open_meteo_features_path: str = typer.Option("./data/open_meteo_features.parquet"),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/onda3-open-meteo-nested-validation"),
+    test_years: str = typer.Option("2024,2025"),
+    train_start: str = typer.Option("2012-01-01"),
+):
+    """Run Open-Meteo Onda 3F through nested validation folds."""
+    local_path = Path(features_path)
+    om_path = Path(open_meteo_features_path)
+    labels_file = Path(labels_path)
+    required_paths = [local_path, om_path]
+    if not local_path.exists() or "tmax_int" not in pl.read_parquet(local_path).columns:
+        required_paths.append(labels_file)
+    missing = [path for path in required_paths if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    local = normalize_pooled_cp_column(pl.read_parquet(local_path))
+    if "tmax_int" not in local.columns:
+        labels = pl.read_parquet(labels_file)
+        if labels.schema.get("date_local") == pl.Utf8:
+            labels = labels.with_columns(pl.col("date_local").str.to_date())
+        local = local.join(
+            labels.select(["date_local", "tmax_int"]).unique(),
+            on="date_local",
+            how="inner",
+        )
+
+    if "binary_macro_regime_label" not in local.columns:
+        assignments_file = Path(binary_assignments_path)
+        if assignments_file.exists():
+            assignments = pl.read_csv(assignments_file)
+            if assignments.schema.get("date_local") == pl.Utf8:
+                assignments = assignments.with_columns(pl.col("date_local").str.to_date())
+            assignments = normalize_pooled_cp_column(assignments)
+            required_assignment_columns = {
+                "date_local",
+                "cp",
+                "binary_macro_regime_label",
+            }
+            if required_assignment_columns.issubset(assignments.columns):
+                local = local.join(
+                    assignments.select(
+                        ["date_local", "cp", "binary_macro_regime_label"]
+                    ),
+                    on=["date_local", "cp"],
+                    how="left",
+                )
+        if "binary_macro_regime_label" in local.columns and local[
+            "binary_macro_regime_label"
+        ].null_count():
+            print("ERROR: binary assignments did not cover all feature date/cp rows")
+            raise typer.Exit(2)
+
+    om = pl.read_parquet(om_path)
+    numeric_features, categorical_features = select_onda3h_feature_columns(local)
+    om_numeric = [
+        column
+        for column in om.columns
+        if column.startswith("om_prev_d1_") and om.schema[column].is_numeric()
+    ]
+    artifacts = build_open_meteo_nested_validation(
+        local_features=local,
+        open_meteo_features=om,
+        test_years=_parse_open_meteo_csv_ints(test_years),
+        numeric_feature_columns=numeric_features,
+        categorical_feature_columns=categorical_features,
+        open_meteo_numeric_columns=om_numeric,
+        train_start=dt.date.fromisoformat(train_start),
+    )
+    paths = write_open_meteo_nested_validation_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["onda3_open_meteo_nested_decision_update_v1"].row(
+        0,
+        named=True,
+    )
+    print("Onda 3 Open-Meteo nested validation complete.")
+    print(f"Decision: {decision['decision_status']}")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Report: {paths['onda3_open_meteo_nested_report_md']}")
+
+
+@app.command("onda3-open-meteo-calibrated-nested-validation")
+def onda3_open_meteo_calibrated_nested_validation(
+    features_path: str = typer.Option("./data/features.parquet"),
+    labels_path: str = typer.Option("./data/labels.parquet"),
+    open_meteo_features_path: str = typer.Option("./data/open_meteo_features.parquet"),
+    calibrated_candidates_path: str = typer.Option(
+        "./reports/open-meteo-provider-calibration/"
+        "open_meteo_provider_calibrated_candidates_v1.parquet"
+    ),
+    binary_assignments_path: str = typer.Option(
+        "./reports/regime-design/regime_binary_macro_assignments_v1.csv"
+    ),
+    output_dir: str = typer.Option(
+        "./reports/onda3-open-meteo-calibrated-nested-validation"
+    ),
+    test_years: str = typer.Option("2024,2025"),
+    train_start: str = typer.Option("2012-01-01"),
+    selection_rule: str = typer.Option("validation_mae_then_cp23_exact_then_local"),
+):
+    """Run OM-M5 calibrated Open-Meteo candidates through nested validation."""
+    local_path = Path(features_path)
+    candidates_path = Path(calibrated_candidates_path)
+    labels_file = Path(labels_path)
+    required_paths = [local_path, candidates_path]
+    if not local_path.exists() or "tmax_int" not in pl.read_parquet(local_path).columns:
+        required_paths.append(labels_file)
+    missing = [path for path in required_paths if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    local = normalize_pooled_cp_column(pl.read_parquet(local_path))
+    if "tmax_int" not in local.columns:
+        labels = pl.read_parquet(labels_file)
+        if labels.schema.get("date_local") == pl.Utf8:
+            labels = labels.with_columns(pl.col("date_local").str.to_date())
+        local = local.join(
+            labels.select(["date_local", "tmax_int"]).unique(),
+            on="date_local",
+            how="inner",
+        )
+
+    if "binary_macro_regime_label" not in local.columns:
+        assignments_file = Path(binary_assignments_path)
+        if assignments_file.exists():
+            assignments = pl.read_csv(assignments_file)
+            if assignments.schema.get("date_local") == pl.Utf8:
+                assignments = assignments.with_columns(pl.col("date_local").str.to_date())
+            assignments = normalize_pooled_cp_column(assignments)
+            required_assignment_columns = {
+                "date_local",
+                "cp",
+                "binary_macro_regime_label",
+            }
+            if required_assignment_columns.issubset(assignments.columns):
+                local = local.join(
+                    assignments.select(
+                        ["date_local", "cp", "binary_macro_regime_label"]
+                    ),
+                    on=["date_local", "cp"],
+                    how="left",
+                )
+        if "binary_macro_regime_label" in local.columns and local[
+            "binary_macro_regime_label"
+        ].null_count():
+            print("ERROR: binary assignments did not cover all feature date/cp rows")
+            raise typer.Exit(2)
+
+    candidates = pl.read_parquet(candidates_path)
+    om_features_file = Path(open_meteo_features_path)
+    om_features = pl.read_parquet(om_features_file) if om_features_file.exists() else None
+    om_numeric = (
+        [
+            column
+            for column in om_features.columns
+            if column.startswith("om_prev_d1_") and om_features.schema[column].is_numeric()
+        ]
+        if om_features is not None
+        else []
+    )
+    numeric_features, categorical_features = select_onda3h_feature_columns(local)
+    artifacts = build_open_meteo_calibrated_nested_validation(
+        local_features=local,
+        open_meteo_features=om_features,
+        calibrated_candidates=candidates,
+        test_years=_parse_open_meteo_csv_ints(test_years),
+        numeric_feature_columns=numeric_features,
+        categorical_feature_columns=categorical_features,
+        open_meteo_numeric_columns=om_numeric,
+        train_start=dt.date.fromisoformat(train_start),
+        selection_rule=selection_rule,
+    )
+    paths = write_open_meteo_calibrated_nested_validation_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts[
+        "onda3_open_meteo_calibrated_nested_decision_update_v1"
+    ].row(0, named=True)
+    print("Onda 3 Open-Meteo calibrated nested validation complete.")
+    print(f"Decision: {decision['decision_status']}")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Report: {paths['onda3_open_meteo_calibrated_nested_report_md']}")
+
+
+@app.command("open-meteo-forensics")
+def open_meteo_forensics(
+    predictions_path: str = typer.Option(
+        "./reports/onda3-open-meteo-calibrated-nested-validation/"
+        "onda3_open_meteo_calibrated_nested_predictions_v1.csv"
+    ),
+    calibrated_candidates_path: str = typer.Option(
+        "./reports/open-meteo-provider-calibration/"
+        "open_meteo_provider_calibrated_candidates_v1.parquet"
+    ),
+    output_dir: str = typer.Option("./reports/open-meteo-forensics"),
+    augmented_candidate_id: str = typer.Option("open_meteo_augmented_onda3f"),
+    calibrated_candidate_id: str = typer.Option("om_family_recent_bias_corrected"),
+):
+    """Build OM-M6 pairwise forensic slices for Open-Meteo candidates."""
+    predictions_file = Path(predictions_path)
+    candidates_file = Path(calibrated_candidates_path)
+    missing = [path for path in [predictions_file] if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    predictions = pl.read_csv(predictions_file)
+    candidates = pl.read_parquet(candidates_file) if candidates_file.exists() else None
+    artifacts = build_open_meteo_forensics_artifacts(
+        predictions=predictions,
+        calibrated_candidates=candidates,
+        augmented_candidate_id=augmented_candidate_id,
+        calibrated_candidate_id=calibrated_candidate_id,
+    )
+    paths = write_open_meteo_forensics_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["open_meteo_forensics_decision_v1"].row(0, named=True)
+    print("Open-Meteo OM-M6 forensics complete.")
+    print(f"Decision: {decision['decision_status']}")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Report: {paths['open_meteo_forensics_report_md']}")
+
+
+@app.command("open-meteo-coverage-expansion")
+def open_meteo_coverage_expansion(
+    features_path: str = typer.Option("./data/features.parquet"),
+    open_meteo_features_path: str = typer.Option("./data/open_meteo_features.parquet"),
+    multi_provider_features_path: str = typer.Option(
+        "./data/open_meteo_multi_provider_features.parquet"
+    ),
+    calibrated_candidates_path: str = typer.Option(
+        "./reports/open-meteo-provider-calibration-stabilized/"
+        "open_meteo_provider_calibrated_candidates_v1.parquet"
+    ),
+    single_runs_probe_results_path: str = typer.Option(
+        "./reports/open-meteo-multi-provider-availability-live-smoke/"
+        "open_meteo_multi_provider_probe_results_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/open-meteo-coverage-expansion"),
+    test_years: str = typer.Option("2024,2025"),
+    train_start: str = typer.Option("2012-01-01"),
+    history_start: str = typer.Option("2022-01-01"),
+):
+    """Audit whether Open-Meteo coverage can support two strict outer folds."""
+    paths_to_check = [
+        Path(features_path),
+        Path(open_meteo_features_path),
+        Path(multi_provider_features_path),
+        Path(calibrated_candidates_path),
+        Path(single_runs_probe_results_path),
+    ]
+    missing = [path for path in paths_to_check if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    artifacts = build_open_meteo_coverage_expansion_artifacts(
+        local_features=pl.read_parquet(features_path),
+        open_meteo_features=pl.read_parquet(open_meteo_features_path),
+        multi_provider_features=pl.read_parquet(multi_provider_features_path),
+        calibrated_candidates=pl.read_parquet(calibrated_candidates_path),
+        single_runs_probe_results=pl.read_csv(
+            single_runs_probe_results_path,
+            try_parse_dates=True,
+        ),
+        test_years=_parse_open_meteo_csv_ints(test_years),
+        train_start=dt.date.fromisoformat(train_start),
+        history_start=dt.date.fromisoformat(history_start),
+    )
+    written = write_open_meteo_coverage_expansion_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["open_meteo_coverage_expansion_decision_v1"].row(
+        0,
+        named=True,
+    )
+    print("Open-Meteo coverage/fold expansion complete.")
+    print(f"Decision: {decision['decision_status']}")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Report: {written['open_meteo_coverage_expansion_report_md']}")
+
+
+@app.command("open-meteo-expanded-decision-review")
+def open_meteo_expanded_decision_review(
+    predictions_path: str = typer.Option(
+        "./reports/onda3-open-meteo-defensive-selection-2022-2025/"
+        "onda3_open_meteo_calibrated_nested_predictions_v1.csv"
+    ),
+    selection_path: str = typer.Option(
+        "./reports/onda3-open-meteo-defensive-selection-2022-2025/"
+        "onda3_open_meteo_calibrated_nested_selection_v1.csv"
+    ),
+    output_dir: str = typer.Option("./reports/open-meteo-expanded-decision-review-2022-2025"),
+):
+    """Review expanded Open-Meteo policy surfaces before baseline changes."""
+    paths_to_check = [Path(predictions_path), Path(selection_path)]
+    missing = [path for path in paths_to_check if not path.exists()]
+    if missing:
+        print(f"ERROR: missing input paths: {', '.join(str(path) for path in missing)}")
+        raise typer.Exit(2)
+
+    artifacts = build_open_meteo_expanded_decision_review_artifacts(
+        predictions=pl.read_csv(predictions_path, try_parse_dates=True),
+        selection=pl.read_csv(selection_path, try_parse_dates=True),
+    )
+    written = write_open_meteo_expanded_decision_review_artifacts(
+        artifacts,
+        output_dir=Path(output_dir),
+        today=dt.date.today(),
+    )
+    decision = artifacts["open_meteo_expanded_policy_decision_v1"].row(0, named=True)
+    print("Open-Meteo OM-M13 expanded-surface decision review complete.")
+    print(f"Decision: {decision['decision_status']}")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Report: {written['open_meteo_expanded_decision_review_report_md']}")
+
+
+@app.command("open-meteo-forward-collection")
+def open_meteo_forward_collection(
+    fixture: str = typer.Option(..., help="Fixture Forecast API JSON response."),
+    target_date_local: str = typer.Option(...),
+    cp: str = typer.Option(...),
+    model: str = typer.Option(...),
+    run_time_utc: str = typer.Option(...),
+    available_time_utc: str = typer.Option(...),
+    retrieved_at_utc: str = typer.Option(...),
+    endpoint: str = typer.Option("forecast"),
+    output_dir: str = typer.Option("./reports/open-meteo-forward-collection"),
+):
+    """Build OM-M14 fixture-mode forward collection artifacts without network."""
+    fixture_path = Path(fixture)
+    if not fixture_path.exists():
+        print(f"ERROR: missing input paths: {fixture_path}")
+        raise typer.Exit(2)
+
+    response_text = fixture_path.read_text(encoding="utf-8")
+    response = json.loads(response_text)
+    request_url = f"fixture://{fixture_path.name}"
+    rows = build_forward_provider_features(
+        target_date_local=target_date_local,
+        cp=cp,
+        endpoint=endpoint,
+        model=model,
+        run_time_utc=run_time_utc,
+        available_time_utc=available_time_utc,
+        retrieved_at_utc=retrieved_at_utc,
+        response=response,
+        settled_labels=pl.DataFrame(
+            {"target_date_local": [], "label_settled_at_utc": []}
+        ),
+        request_url=request_url,
+    )
+    artifacts = write_forward_collection_artifacts(
+        output_dir=Path(output_dir),
+        collection_request={
+            "target_date_local": target_date_local,
+            "cp": cp,
+            "endpoint": endpoint,
+            "model": model,
+            "run_time_utc": run_time_utc,
+            "available_time_utc": available_time_utc,
+            "retrieved_at_utc": retrieved_at_utc,
+            "request_url": request_url,
+            "http_status": 200,
+        },
+        response_text=response_text,
+        normalized_rows=rows,
+    )
+    print("Open-Meteo OM-M14 forward collection complete.")
+    print("production_status: EXPERIMENT_ONLY")
+    print(f"Report: {artifacts.report_path}")
 
 
 if __name__ == "__main__":

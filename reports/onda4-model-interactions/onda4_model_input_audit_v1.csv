@@ -1,0 +1,8 @@
+artifact,present,rows,production_status
+baseline_results,true,12,EXPERIMENT_ONLY
+challenger_results,true,12,EXPERIMENT_ONLY
+decision,true,1,EXPERIMENT_ONLY
+design_matrix_audit,true,1,EXPERIMENT_ONLY
+feature_manifest,true,30,EXPERIMENT_ONLY
+slice_diagnostics,true,18,EXPERIMENT_ONLY
+uncertainty,true,12,EXPERIMENT_ONLY

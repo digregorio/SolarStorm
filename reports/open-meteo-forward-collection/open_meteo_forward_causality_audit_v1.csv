@@ -1,0 +1,2 @@
+target_date_local,cp,model,available_time_utc,cp_utc,causality_status,production_status
+2026-06-12,20:00,gfs_seamless,2026-06-11T18:10:00Z,2026-06-12T08:00:00Z,pass,EXPERIMENT_ONLY

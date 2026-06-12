@@ -1,0 +1,30 @@
+# onda3_next_feature_manifest_v1
+
+| feature | included_in_onda3 | leakage_class | feature_role | production_status |
+| --- | --- | --- | --- | --- |
+| date_local | False | identifier | join_key | EXPERIMENT_ONLY |
+| cp | False | identifier | join_key | EXPERIMENT_ONLY |
+| regime_label | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| regime_flags | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| slope_3h | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| hours_to_expected_peak | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| dewpoint_depression | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| tmax_dminus1 | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| tmin_delta_tmax | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| intraday_regime_change | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| wind_dir_change_s_to_n | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| day_sequence_pattern | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| precip_disruption | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| tmax_hour_by_regime_month | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| cloud_cover_suppression | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| pressure_trend_3h | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| foehn_score | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| late_warming_anomaly | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| regime_score_argmax | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| warming_rate_06_09 | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| nocturnal_plateau_flag | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| sst_maritime_cap | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| dewpoint_collapse_rate_3h | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| prefrontal_warming_window | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| nw_sector_not_foehn | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |
+| cloud_base_transparency | True | causal_pre_cp_or_experiment_only | candidate_input | EXPERIMENT_ONLY |

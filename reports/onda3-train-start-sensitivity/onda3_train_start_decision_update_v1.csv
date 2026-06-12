@@ -1,0 +1,2 @@
+decision_status,decision_rationale,continuous_minus_legacy_weighted_mae,continuous_minus_legacy_any_cp_exact_pct,production_status
+KEEP_BOTH_STARTS_UNTIL_NESTED_VALIDATION,The train-start variants are too close or trade MAE against exact-bracket performance.,-0.002129558334551085,-0.09124087591241192,EXPERIMENT_ONLY

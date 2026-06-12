@@ -1,0 +1,9 @@
+iteration_id,iteration_label,split_type,train_period,validation_period,test_period,row_unit,n_train_reported,n_test_reported,production_status
+onda3_a_baseline_first,Onda 3A baseline-first aggregate ridge,fixed_holdout,2009-04-23 to 2024-12-31,none; no separate validation split persisted,2025-01-01 to 2026-06-03,all_cp_rows,19748,2076,EXPERIMENT_ONLY
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,fixed_holdout,2009-04-23 to 2024-12-31,none; no separate validation split persisted,2025-01-01 to 2026-06-03,per_cp_model_rows,4937,519,EXPERIMENT_ONLY
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,rolling_year_2023,2009-04-23 to 2022-12-31,none; no separate validation split persisted,2023-01-01 to 2023-12-31,per_cp_model_rows,4206,365,EXPERIMENT_ONLY
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,rolling_year_2024,2009-04-23 to 2023-12-31,none; no separate validation split persisted,2024-01-01 to 2024-12-31,per_cp_model_rows,4571,366,EXPERIMENT_ONLY
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,rolling_year_2025,2009-04-23 to 2024-12-31,none; no separate validation split persisted,2025-01-01 to 2025-12-31,per_cp_model_rows,4937,365,EXPERIMENT_ONLY
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,rolling_year_2023,2009-04-23 to 2022-12-31,none; no separate validation split persisted,2023-01-01 to 2023-12-31,per_cp_model_rows,4206,365,EXPERIMENT_ONLY
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,rolling_year_2024,2009-04-23 to 2023-12-31,none; no separate validation split persisted,2024-01-01 to 2024-12-31,per_cp_model_rows,4571,366,EXPERIMENT_ONLY
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,rolling_year_2025,2009-04-23 to 2024-12-31,none; no separate validation split persisted,2025-01-01 to 2025-12-31,per_cp_model_rows,4937,365,EXPERIMENT_ONLY

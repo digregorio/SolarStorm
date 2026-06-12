@@ -1,0 +1,2 @@
+decision_status,decision_rationale,augmented_minus_local_mae,production_status
+PROMOTE_OPEN_METEO_TO_NEXT_EXPERIMENT_ONLY_ITERATION,Open-Meteo augmented candidate improved same-row MAE.,-0.2801135758300398,EXPERIMENT_ONLY

@@ -1,0 +1,17 @@
+iteration_id,iteration_label,binary_macro_regime_label,cp,n_cp_rows,mae,exact_bracket_rows,exact_bracket_pct,variant_id,train_start,production_status
+continuous_2012_start,Onda 3E continuous 2012-start binary-macro interactions,macro_non_southerly,20:00,804,1.294750675293539,205,25.497512437810943,continuous_2012_start,2012-01-01,EXPERIMENT_ONLY
+continuous_2012_start,Onda 3E continuous 2012-start binary-macro interactions,macro_non_southerly,21:00,806,1.1814864257879487,220,27.29528535980149,continuous_2012_start,2012-01-01,EXPERIMENT_ONLY
+continuous_2012_start,Onda 3E continuous 2012-start binary-macro interactions,macro_non_southerly,22:00,806,1.0929535017131164,241,29.900744416873447,continuous_2012_start,2012-01-01,EXPERIMENT_ONLY
+continuous_2012_start,Onda 3E continuous 2012-start binary-macro interactions,macro_non_southerly,23:00,809,1.1125941520934557,231,28.553770086526576,continuous_2012_start,2012-01-01,EXPERIMENT_ONLY
+continuous_2012_start,Onda 3E continuous 2012-start binary-macro interactions,macro_southerly_flow,20:00,292,1.222370088367983,79,27.054794520547947,continuous_2012_start,2012-01-01,EXPERIMENT_ONLY
+continuous_2012_start,Onda 3E continuous 2012-start binary-macro interactions,macro_southerly_flow,21:00,290,1.2251425472460769,83,28.620689655172416,continuous_2012_start,2012-01-01,EXPERIMENT_ONLY
+continuous_2012_start,Onda 3E continuous 2012-start binary-macro interactions,macro_southerly_flow,22:00,290,1.1446860230364915,93,32.068965517241374,continuous_2012_start,2012-01-01,EXPERIMENT_ONLY
+continuous_2012_start,Onda 3E continuous 2012-start binary-macro interactions,macro_southerly_flow,23:00,287,1.0904342729449032,96,33.44947735191638,continuous_2012_start,2012-01-01,EXPERIMENT_ONLY
+legacy_2009_start,Onda 3E legacy 2009-start binary-macro interactions,macro_non_southerly,20:00,804,1.2966521576783054,207,25.74626865671642,legacy_2009_start,2009-04-23,EXPERIMENT_ONLY
+legacy_2009_start,Onda 3E legacy 2009-start binary-macro interactions,macro_non_southerly,21:00,806,1.1859509858100663,215,26.674937965260547,legacy_2009_start,2009-04-23,EXPERIMENT_ONLY
+legacy_2009_start,Onda 3E legacy 2009-start binary-macro interactions,macro_non_southerly,22:00,806,1.0942365740928008,245,30.3970223325062,legacy_2009_start,2009-04-23,EXPERIMENT_ONLY
+legacy_2009_start,Onda 3E legacy 2009-start binary-macro interactions,macro_non_southerly,23:00,809,1.1130152661083514,234,28.924598269468483,legacy_2009_start,2009-04-23,EXPERIMENT_ONLY
+legacy_2009_start,Onda 3E legacy 2009-start binary-macro interactions,macro_southerly_flow,20:00,292,1.220939650003081,79,27.054794520547947,legacy_2009_start,2009-04-23,EXPERIMENT_ONLY
+legacy_2009_start,Onda 3E legacy 2009-start binary-macro interactions,macro_southerly_flow,21:00,290,1.2285960633682085,82,28.27586206896552,legacy_2009_start,2009-04-23,EXPERIMENT_ONLY
+legacy_2009_start,Onda 3E legacy 2009-start binary-macro interactions,macro_southerly_flow,22:00,290,1.1485122502945995,90,31.03448275862069,legacy_2009_start,2009-04-23,EXPERIMENT_ONLY
+legacy_2009_start,Onda 3E legacy 2009-start binary-macro interactions,macro_southerly_flow,23:00,287,1.0944080756267776,94,32.752613240418114,legacy_2009_start,2009-04-23,EXPERIMENT_ONLY

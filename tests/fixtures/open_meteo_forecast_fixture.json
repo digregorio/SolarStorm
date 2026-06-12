@@ -1,0 +1,17 @@
+{
+  "generationtime_ms": 1.0,
+  "hourly": {
+    "temperature_2m": [
+      13.4
+    ],
+    "time": [
+      "2026-06-12T08:00"
+    ]
+  },
+  "hourly_units": {
+    "temperature_2m": "C",
+    "time": "iso8601"
+  },
+  "latitude": -41.3272,
+  "longitude": 174.8053
+}

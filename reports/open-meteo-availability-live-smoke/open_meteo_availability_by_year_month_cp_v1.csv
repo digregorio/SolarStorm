@@ -1,0 +1,5 @@
+source_id,endpoint,model,calendar_year,month,cp,causal_class,n_probes,n_success,success_pct,production_status
+historical_forecast_best_match,historical_forecast,best_match,2024,2024-07,23:00,seamless_historical_forecast,1,1,100.0,EXPERIMENT_ONLY
+historical_weather_era5,historical_weather,era5,2024,2024-07,23:00,reanalysis_not_forecast,1,1,100.0,EXPERIMENT_ONLY
+previous_runs_gfs_temperature,previous_runs,gfs_seamless,2024,2024-07,23:00,fixed_lead_forecast,1,1,100.0,EXPERIMENT_ONLY
+single_runs_ecmwf_ifs_hres,single_runs,ecmwf_ifs025,2024,2024-07,23:00,forecast_snapshot,1,0,0.0,EXPERIMENT_ONLY

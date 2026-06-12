@@ -604,6 +604,110 @@ Current decision:
 - The next allowed action is a next Onda 3 model iteration, not production
   deployment or market execution.
 
+## Generated 2026-06-09 Onda 3B Next Model Iteration State
+
+The next Onda 3 model iteration has generated a CP-specific experiment surface
+under `reports/onda3-next/`.
+
+Generated artifacts:
+
+- `reports/onda3-next/onda3_next_feature_manifest_v1.csv`
+- `reports/onda3-next/onda3_next_model_results_v1.csv`
+- `reports/onda3-next/onda3_next_predictions_v1.csv`
+- `reports/onda3-next/onda3_next_slice_diagnostics_v1.csv`
+- `reports/onda3-next/onda3_next_uncertainty_abstention_v1.csv`
+- `reports/onda3-next/onda3_next_decision_update_v1.csv`
+- `reports/onda3-next/onda3_next_model_report_v1.md`
+
+The run evaluates ridge challengers separately for CPs `20:00`, `21:00`,
+`22:00`, and `23:00`, with train-only categorical encoding for
+`binary_macro_regime_label`. Each challenger beats its CP train-mean null.
+`onda3_next_decision_update_v1.csv` records
+`decision_status = READY_FOR_ONDA4_MODEL_RERUN` and
+`production_status = EXPERIMENT_ONLY`.
+
+The follow-up Onda 4M review of this Onda 3B artifact surface has now run under
+`reports/onda4-model-next/`. M1-M8 all pass, M3 records null MAE 2.8120,
+challenger MAE 1.2708, lift 1.5411, and challenger failures 0, and
+`onda4_model_decision_update_v1.csv` records
+`decision_status = READY_FOR_ONDA3_NEXT_MODEL_ITERATION` with
+`production_status = EXPERIMENT_ONLY`.
+
+This authorizes another experiment-only Onda 3 model iteration. No production
+model, deployment, or market execution is authorized.
+
+## Generated 2026-06-09 Onda 3C Rolling Temporal Model State
+
+Onda 3C has generated a rolling annual temporal validation surface under
+`reports/onda3-rolling/`. It reruns the CP-specific ridge challenger with
+train windows before each test year and test years `2023,2024,2025`.
+
+Generated artifacts:
+
+- `reports/onda3-rolling/onda3_rolling_feature_manifest_v1.csv`
+- `reports/onda3-rolling/onda3_rolling_model_results_v1.csv`
+- `reports/onda3-rolling/onda3_rolling_predictions_v1.csv`
+- `reports/onda3-rolling/onda3_rolling_slice_diagnostics_v1.csv`
+- `reports/onda3-rolling/onda3_rolling_uncertainty_abstention_v1.csv`
+- `reports/onda3-rolling/onda3_rolling_temporal_diagnostics_v1.csv`
+- `reports/onda3-rolling/onda3_rolling_decision_update_v1.csv`
+- `reports/onda3-rolling/onda3_rolling_model_report_v1.md`
+
+All 12 year x CP challenger rows beat their train-mean nulls.
+`onda3_rolling_decision_update_v1.csv` records
+`decision_status = READY_FOR_ONDA4_MODEL_RERUN` and
+`production_status = EXPERIMENT_ONLY`.
+
+The follow-up Onda 4M review of this Onda 3C surface has now run under
+`reports/onda4-model-rolling/`. M1-M8 all pass, M3 records null MAE 2.9522,
+challenger MAE 1.2026, lift 1.7496, and challenger failures 0, and M4 records
+rolling temporal diagnostics for `2023,2024,2025`.
+
+This authorizes another experiment-only Onda 3 model iteration. No production
+model, deployment, or market execution is authorized.
+
+## Generated 2026-06-09 Onda 3D Binary-Macro Interaction State
+
+Onda 3D has tested the hypothesis that the binary macro surface should remain a
+structural switch while continuous features explain residual variance inside
+each macro. It adds continuous x macro interactions for `foehn_score` and
+`cloud_cover_suppression` under `reports/onda3-interactions/`.
+
+Generated interaction features:
+
+- `foehn_score_x_macro_non_southerly`
+- `foehn_score_x_macro_southerly_flow`
+- `cloud_cover_suppression_x_macro_non_southerly`
+- `cloud_cover_suppression_x_macro_southerly_flow`
+
+Generated artifacts:
+
+- `reports/onda3-interactions/onda3_interaction_feature_manifest_v1.csv`
+- `reports/onda3-interactions/onda3_interaction_feature_audit_v1.csv`
+- `reports/onda3-interactions/onda3_interaction_model_results_v1.csv`
+- `reports/onda3-interactions/onda3_interaction_predictions_v1.csv`
+- `reports/onda3-interactions/onda3_interaction_slice_diagnostics_v1.csv`
+- `reports/onda3-interactions/onda3_interaction_uncertainty_abstention_v1.csv`
+- `reports/onda3-interactions/onda3_interaction_temporal_diagnostics_v1.csv`
+- `reports/onda3-interactions/onda3_interaction_challenger_comparison_v1.csv`
+- `reports/onda3-interactions/onda3_interaction_decision_update_v1.csv`
+- `reports/onda3-interactions/onda3_interaction_model_report_v1.md`
+
+The interaction challenger improves all 12 year x CP rows versus the Onda 3C
+no-interaction challenger. Mean MAE delta is -0.0300. The decision update
+records `decision_status = READY_FOR_ONDA4_MODEL_RERUN` and
+`production_status = EXPERIMENT_ONLY`.
+
+The follow-up Onda 4M review of this Onda 3D surface has now run under
+`reports/onda4-model-interactions/`. M1-M8 all pass, M3 records null MAE
+2.9522, challenger MAE 1.1726, lift 1.7796, and challenger failures 0, and M4
+records rolling temporal diagnostics for `2023,2024,2025`.
+
+This supports the two-regime design as a structural switch for the current
+station-only model. It does not prove that Wellington has only two descriptive
+meteorological regimes, and it does not authorize production deployment or
+market execution. Open-Meteo/NWP ingestion remains future work.
+
 ## References
 
 - `reports/onda2e/thesis_atlas_v1.md`
@@ -615,5 +719,11 @@ Current decision:
 - `docs/superpowers/plans/2026-06-09-onda3-baseline-model.md`
 - `docs/superpowers/specs/2026-06-09-onda4-model-robustness-review-design.md`
 - `docs/superpowers/plans/2026-06-09-onda4-model-robustness-review.md`
+- `docs/superpowers/specs/2026-06-09-onda3-next-model-iteration-design.md`
+- `docs/superpowers/plans/2026-06-09-onda3-next-model-iteration.md`
+- `reports/onda3-rolling/onda3_rolling_model_report_v1.md`
+- `reports/onda4-model-rolling/onda4_model_robustness_report_v1.md`
+- `reports/onda3-interactions/onda3_interaction_model_report_v1.md`
+- `reports/onda4-model-interactions/onda4_model_robustness_report_v1.md`
 - `docs/decisions/011-regime-ontology-repair.md`
 - `ROADMAP.md`

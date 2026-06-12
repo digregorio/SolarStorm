@@ -1,0 +1,12 @@
+station,latitude,longitude,model,provider,provider_family,endpoint_priority,coverage_expectation,causal_role,priority_rank,production_status
+NZWN,-41.3272,174.8053,gfs_seamless,NOAA,NOAA_GFS,"previous_runs,single_runs",global_candidate,fixed_lead_and_snapshot_candidate,10,EXPERIMENT_ONLY
+NZWN,-41.3272,174.8053,ecmwf_ifs025,ECMWF,ECMWF_IFS,"single_runs,previous_runs",global_candidate,snapshot_preferred_candidate,20,EXPERIMENT_ONLY
+NZWN,-41.3272,174.8053,ecmwf_aifs025_single,ECMWF,ECMWF_AIFS,"single_runs,previous_runs",global_candidate,snapshot_preferred_candidate,30,EXPERIMENT_ONLY
+NZWN,-41.3272,174.8053,icon_seamless,DWD,DWD_ICON,"previous_runs,single_runs",global_candidate,fixed_lead_and_snapshot_candidate,40,EXPERIMENT_ONLY
+NZWN,-41.3272,174.8053,icon_eu,DWD,DWD_ICON,"previous_runs,single_runs",regional_expected_missing_for_wellington,coverage_probe_only,41,EXPERIMENT_ONLY
+NZWN,-41.3272,174.8053,icon_d2,DWD,DWD_ICON,"previous_runs,single_runs",regional_expected_missing_for_wellington,coverage_probe_only,42,EXPERIMENT_ONLY
+NZWN,-41.3272,174.8053,gem_seamless,ECCC,ECCC_GEM,"previous_runs,single_runs",global_candidate,fixed_lead_and_snapshot_candidate,50,EXPERIMENT_ONLY
+NZWN,-41.3272,174.8053,gem_global,ECCC,ECCC_GEM,"previous_runs,single_runs",global_candidate,fixed_lead_and_snapshot_candidate,51,EXPERIMENT_ONLY
+NZWN,-41.3272,174.8053,gem_regional,ECCC,ECCC_GEM,"previous_runs,single_runs",regional_expected_missing_for_wellington,coverage_probe_only,52,EXPERIMENT_ONLY
+NZWN,-41.3272,174.8053,gem_hrdps_continental,ECCC,ECCC_GEM,"previous_runs,single_runs",regional_expected_missing_for_wellington,coverage_probe_only,53,EXPERIMENT_ONLY
+NZWN,-41.3272,174.8053,jma_seamless,JMA,JMA_GSM,"previous_runs,single_runs",global_candidate,fixed_lead_and_snapshot_candidate,60,EXPERIMENT_ONLY

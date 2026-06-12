@@ -1,0 +1,5 @@
+test_year,candidate_id,n_train,n_test,mae,exact_bracket_pct,production_status
+2024,local_only_reference,24,24,1.3836484514601561,29.166666666666668,EXPERIMENT_ONLY
+2024,open_meteo_augmented,24,24,1.3825887880494936,33.33333333333333,EXPERIMENT_ONLY
+2025,local_only_reference,48,24,1.383732126345748,29.166666666666668,EXPERIMENT_ONLY
+2025,open_meteo_augmented,48,24,1.1178090478005245,25.0,EXPERIMENT_ONLY

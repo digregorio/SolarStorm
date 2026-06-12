@@ -1,0 +1,2 @@
+target_date_local,cp,endpoint,model,run_time_utc,n_rows,duplicate_key_status,production_status
+2026-06-12,20:00,forecast,gfs_seamless,2026-06-11T12:00:00Z,1,unique,EXPERIMENT_ONLY

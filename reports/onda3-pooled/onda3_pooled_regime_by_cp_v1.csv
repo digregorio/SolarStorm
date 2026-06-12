@@ -1,0 +1,9 @@
+iteration_id,iteration_label,binary_macro_regime_label,cp,n_cp_rows,mae,exact_bracket_rows,exact_bracket_pct,production_status
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,macro_non_southerly,20:00,804,1.148526964374022,225,27.985074626865668,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,macro_non_southerly,21:00,806,1.0580226344737884,258,32.00992555831266,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,macro_non_southerly,22:00,806,1.0210475707677267,253,31.389578163771713,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,macro_non_southerly,23:00,809,1.032301115775718,248,30.655129789864027,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,macro_southerly_flow,20:00,292,1.1059053217165327,89,30.47945205479452,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,macro_southerly_flow,21:00,290,1.0428235543267894,88,30.344827586206897,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,macro_southerly_flow,22:00,290,1.0476290487033246,97,33.44827586206897,EXPERIMENT_ONLY
+onda3_f_pooled_temporal_regime,Onda 3F pooled temporal/regime,macro_southerly_flow,23:00,287,1.0173262511183627,97,33.79790940766551,EXPERIMENT_ONLY

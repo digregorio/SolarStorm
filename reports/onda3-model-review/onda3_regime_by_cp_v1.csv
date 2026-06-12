@@ -1,0 +1,25 @@
+iteration_id,iteration_label,binary_macro_regime_label,cp,n_cp_rows,mae,exact_bracket_rows,exact_bracket_pct
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,macro_non_southerly,20:00,363,1.3750166346133683,88,24.242424242424242
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,macro_non_southerly,21:00,364,1.2825635200675942,99,27.197802197802197
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,macro_non_southerly,22:00,365,1.1598311589699122,117,32.054794520547944
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,macro_non_southerly,23:00,366,1.184289890627521,105,28.688524590163933
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,macro_southerly_flow,20:00,156,1.3785617855188252,45,28.846153846153843
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,macro_southerly_flow,21:00,155,1.3810042483508895,40,25.806451612903224
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,macro_southerly_flow,22:00,154,1.2887317126737612,48,31.16883116883117
+onda3_b_cp_specific_holdout,Onda 3B CP-specific holdout 2025+,macro_southerly_flow,23:00,153,1.228333739058891,47,30.718954248366014
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,macro_non_southerly,20:00,804,1.3358542366573747,185,23.00995024875622
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,macro_non_southerly,21:00,806,1.2086385223819633,221,27.419354838709676
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,macro_non_southerly,22:00,806,1.1106779589454239,243,30.148883374689827
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,macro_non_southerly,23:00,809,1.1257882416381344,233,28.80098887515451
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,macro_southerly_flow,20:00,292,1.293378729614892,86,29.45205479452055
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,macro_southerly_flow,21:00,290,1.270730561904836,84,28.965517241379313
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,macro_southerly_flow,22:00,290,1.1841178655913362,94,32.41379310344827
+onda3_c_rolling_temporal,Onda 3C rolling temporal no-interaction,macro_southerly_flow,23:00,287,1.1440903755015177,92,32.05574912891986
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_non_southerly,20:00,804,1.2966521576783054,207,25.74626865671642
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_non_southerly,21:00,806,1.1859509858100663,215,26.674937965260547
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_non_southerly,22:00,806,1.0942365740928008,245,30.3970223325062
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_non_southerly,23:00,809,1.1130152661083514,234,28.924598269468483
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_southerly_flow,20:00,292,1.220939650003081,79,27.054794520547947
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_southerly_flow,21:00,290,1.2285960633682085,82,28.27586206896552
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_southerly_flow,22:00,290,1.1485122502945995,90,31.03448275862069
+onda3_d_binary_macro_interactions,Onda 3D binary-macro interactions,macro_southerly_flow,23:00,287,1.0944080756267776,94,32.752613240418114

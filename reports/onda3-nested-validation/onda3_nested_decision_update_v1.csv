@@ -1,0 +1,2 @@
+decision_status,decision_rationale,n_outer_folds,selected_mean_test_mae,always_onda3d_mean_test_mae,always_onda3f_mean_test_mae,production_status
+PROMOTE_NESTED_VALIDATION_AS_MODEL_SELECTION_HARNESS,Nested validation selected Onda 3F consistently; keep the nested harness as the model-selection gate before any Open-Meteo work.,3,1.0624358001264005,1.1704716626660236,1.0624358001264005,EXPERIMENT_ONLY

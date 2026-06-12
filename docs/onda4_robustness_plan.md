@@ -334,3 +334,72 @@ Result: M1-M8 all pass. The decision update records
 `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`, with
 `production_status = EXPERIMENT_ONLY`. This authorizes the next experimental
 Onda 3 model iteration only.
+
+## Onda 4M Review of Onda 3B
+
+The follow-up Onda 4M review has also run against the Onda 3B CP-specific
+artifact surface from `reports/onda3-next/`. It uses the same M1-M8 model gate
+contract and writes separate outputs under `reports/onda4-model-next/`.
+
+Generated outputs:
+
+- `reports/onda4-model-next/onda4_model_input_audit_v1.csv/.md`
+- `reports/onda4-model-next/onda4_model_gate_results_v1.csv/.md`
+- `reports/onda4-model-next/onda4_model_slice_review_v1.csv/.md`
+- `reports/onda4-model-next/onda4_model_uncertainty_review_v1.csv/.md`
+- `reports/onda4-model-next/onda4_model_decision_update_v1.csv/.md`
+- `reports/onda4-model-next/onda4_model_robustness_report_v1.md`
+
+Result: M1-M8 all pass. M3 records null MAE 2.8120, challenger MAE 1.2708,
+lift 1.5411, and challenger failures 0 across CP-specific rows. The decision
+update records `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`, with
+`production_status = EXPERIMENT_ONLY`. This authorizes another experimental
+Onda 3 model iteration only; it does not authorize production, deployment,
+market execution, EV, position sizing, or trading.
+
+## Onda 4M Review of Onda 3C Rolling Temporal Surface
+
+The next follow-up Onda 4M review has run against the Onda 3C rolling temporal
+artifact surface from `reports/onda3-rolling/`. It uses the same M1-M8 model
+gate contract and writes separate outputs under `reports/onda4-model-rolling/`.
+
+Generated outputs:
+
+- `reports/onda4-model-rolling/onda4_model_input_audit_v1.csv/.md`
+- `reports/onda4-model-rolling/onda4_model_gate_results_v1.csv/.md`
+- `reports/onda4-model-rolling/onda4_model_slice_review_v1.csv/.md`
+- `reports/onda4-model-rolling/onda4_model_uncertainty_review_v1.csv/.md`
+- `reports/onda4-model-rolling/onda4_model_decision_update_v1.csv/.md`
+- `reports/onda4-model-rolling/onda4_model_robustness_report_v1.md`
+
+Result: M1-M8 all pass. M3 records null MAE 2.9522, challenger MAE 1.2026,
+lift 1.7496, and challenger failures 0 across 12 year x CP challenger rows.
+M4 records rolling temporal diagnostics for test years `2023,2024,2025`.
+The decision update records `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`, with
+`production_status = EXPERIMENT_ONLY`. This authorizes another experimental
+Onda 3 model iteration only; it does not authorize production, deployment,
+market execution, EV, position sizing, or trading.
+
+## Onda 4M Review of Onda 3D Binary-Macro Interactions
+
+The next follow-up Onda 4M review has run against the Onda 3D interaction
+surface from `reports/onda3-interactions/`. It tests whether the binary macro
+surface can remain a structural switch while continuous features explain
+within-macro variance through explicit interactions.
+
+Generated outputs:
+
+- `reports/onda4-model-interactions/onda4_model_input_audit_v1.csv/.md`
+- `reports/onda4-model-interactions/onda4_model_gate_results_v1.csv/.md`
+- `reports/onda4-model-interactions/onda4_model_slice_review_v1.csv/.md`
+- `reports/onda4-model-interactions/onda4_model_uncertainty_review_v1.csv/.md`
+- `reports/onda4-model-interactions/onda4_model_decision_update_v1.csv/.md`
+- `reports/onda4-model-interactions/onda4_model_robustness_report_v1.md`
+
+Result: M1-M8 all pass. M3 records null MAE 2.9522, challenger MAE 1.1726,
+lift 1.7796, and challenger failures 0 across 12 year x CP challenger rows.
+M4 records rolling temporal diagnostics for test years `2023,2024,2025`.
+The decision update records `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`, with
+`production_status = EXPERIMENT_ONLY`. This authorizes another experimental
+Onda 3 model iteration only; it does not authorize production, deployment,
+market execution, EV, position sizing, or trading.

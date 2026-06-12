@@ -1,0 +1,3 @@
+iteration_id,iteration_label,n_days,n_cp_rows,mae,any_cp_exact_pct,cp23_exact_pct,cp_2000_exact_pct,cp_2100_exact_pct,cp_2200_exact_pct,cp_2300_exact_pct,variant_id,train_start,production_status
+continuous_2012_start,Onda 3E continuous 2012-start binary-macro interactions,1096,4384,1.170484439111782,45.07299270072993,29.83576642335766,25.91240875912409,27.645985401459853,30.474452554744524,29.83576642335766,continuous_2012_start,2012-01-01,EXPERIMENT_ONLY
+legacy_2009_start,Onda 3E legacy 2009-start binary-macro interactions,1096,4384,1.172613997446333,45.16423357664234,29.927007299270077,26.094890510948904,27.0985401459854,30.565693430656932,29.927007299270077,legacy_2009_start,2009-04-23,EXPERIMENT_ONLY

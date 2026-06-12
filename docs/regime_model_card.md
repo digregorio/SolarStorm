@@ -397,3 +397,79 @@ Generated result:
 The regime model remains non-production. This passing Onda 4M review allows the
 next Onda 3 model iteration only; it cannot promote the regime classifier,
 binary macro assignments, deployment, or market execution.
+
+## Onda 3B Model Iteration Handoff
+
+Onda 3B has now generated CP-specific next-model artifacts under
+`reports/onda3-next/`. The run uses the binary macro surface only as
+experiment-only categorical context and does not promote it to production.
+
+Result:
+
+- `20:00` ridge MAE 1.3761 versus null MAE 2.8120.
+- `21:00` ridge MAE 1.3120 versus null MAE 2.8120.
+- `22:00` ridge MAE 1.1981 versus null MAE 2.8120.
+- `23:00` ridge MAE 1.1973 versus null MAE 2.8120.
+- decision status: `READY_FOR_ONDA4_MODEL_RERUN`
+- production status: `EXPERIMENT_ONLY`
+
+The follow-up Onda 4M model robustness review of `reports/onda3-next/` has now
+run under `reports/onda4-model-next/`.
+
+Review result:
+
+- M1-M8 all pass.
+- M3 records null MAE 2.8120, challenger MAE 1.2708, lift 1.5411, and
+  challenger failures 0 across CP-specific rows.
+- decision status: `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`
+- production status: `EXPERIMENT_ONLY`
+
+The next action is another experiment-only Onda 3 model iteration. The regime
+classifier and binary macro assignments remain non-production.
+
+## Onda 3D Binary-Macro Interaction Handoff
+
+Onda 3D has now tested the model structure implied by the binary macro pivot:
+the binary macro label acts as a structural switch, while continuous signals
+explain residual variance inside each macro.
+
+The experiment adds four interaction inputs:
+
+- `foehn_score_x_macro_non_southerly`
+- `foehn_score_x_macro_southerly_flow`
+- `cloud_cover_suppression_x_macro_non_southerly`
+- `cloud_cover_suppression_x_macro_southerly_flow`
+
+Result:
+
+- all 12 year x CP challenger rows beat their train-mean nulls.
+- all 12 year x CP challenger rows improve versus the Onda 3C no-interaction
+  challenger.
+- mean MAE delta versus no-interaction rolling surface: -0.0300.
+- Onda 4M M3 records null MAE 2.9522, challenger MAE 1.1726, lift 1.7796,
+  and challenger failures 0.
+- Onda 4M M4 records rolling temporal diagnostics for `2023,2024,2025`.
+- decision status: `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`
+- production status: `EXPERIMENT_ONLY`
+
+This supports the binary macro regime as a predictive switch, not as a claim
+that Wellington has only two descriptive meteorological regimes. The regime
+classifier and binary macro assignments remain non-production.
+
+## Onda 3C Rolling Temporal Handoff
+
+Onda 3C has now generated rolling annual model artifacts under
+`reports/onda3-rolling/`. It reruns the CP-specific ridge challenger against
+test years `2023,2024,2025`, with each test year trained only on prior years.
+
+Result:
+
+- 12 year x CP challenger rows beat their train-mean nulls.
+- Onda 4M M3 records null MAE 2.9522, challenger MAE 1.2026, lift 1.7496,
+  and challenger failures 0.
+- Onda 4M M4 records rolling temporal diagnostics for `2023,2024,2025`.
+- decision status: `READY_FOR_ONDA3_NEXT_MODEL_ITERATION`
+- production status: `EXPERIMENT_ONLY`
+
+The next action is another experiment-only Onda 3 model iteration. The regime
+classifier and binary macro assignments remain non-production.

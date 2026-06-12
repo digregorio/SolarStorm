@@ -1,0 +1,10 @@
+# onda3_nested_fold_scope_v1
+
+| stage | outer_test_year | evaluation_year | train_start | train_end | train_start_year | train_end_year | evaluation_start | evaluation_end | n_train_rows | n_evaluation_rows | production_status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| validation | 2023 | 2022 | 2012-01-01 | 2021-12-31 | 2012 | 2021 | 2022-01-01 | 2022-12-31 | 14584 | 1460 | EXPERIMENT_ONLY |
+| test | 2023 | 2023 | 2012-01-01 | 2022-12-31 | 2012 | 2022 | 2023-01-01 | 2023-12-31 | 16044 | 1460 | EXPERIMENT_ONLY |
+| validation | 2024 | 2023 | 2012-01-01 | 2022-12-31 | 2012 | 2022 | 2023-01-01 | 2023-12-31 | 16044 | 1460 | EXPERIMENT_ONLY |
+| test | 2024 | 2024 | 2012-01-01 | 2023-12-31 | 2012 | 2023 | 2024-01-01 | 2024-12-31 | 17504 | 1464 | EXPERIMENT_ONLY |
+| validation | 2025 | 2024 | 2012-01-01 | 2023-12-31 | 2012 | 2023 | 2024-01-01 | 2024-12-31 | 17504 | 1464 | EXPERIMENT_ONLY |
+| test | 2025 | 2025 | 2012-01-01 | 2024-12-31 | 2012 | 2024 | 2025-01-01 | 2025-12-31 | 18968 | 1460 | EXPERIMENT_ONLY |

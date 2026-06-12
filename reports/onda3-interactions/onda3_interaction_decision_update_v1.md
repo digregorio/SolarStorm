@@ -1,0 +1,5 @@
+# onda3_interaction_decision_update_v1
+
+| decision_status | decision_rationale | mean_mae_delta_vs_no_interaction | production_status |
+| --- | --- | --- | --- |
+| READY_FOR_ONDA4_MODEL_RERUN | Onda 3D binary-macro interaction experiment completed. | -0.029970032769595867 | EXPERIMENT_ONLY |

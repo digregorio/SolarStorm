@@ -1,0 +1,5 @@
+iteration_id,iteration_label,binary_macro_regime_label,n_cp_rows,n_unique_dates,mae,exact_bracket_rows,exact_bracket_pct,variant_id,train_start,production_status
+continuous_2012_start,Onda 3E continuous 2012-start binary-macro interactions,macro_non_southerly,3225,833,1.1703152848203007,897,27.813953488372096,continuous_2012_start,2012-01-01,EXPERIMENT_ONLY
+continuous_2012_start,Onda 3E continuous 2012-start binary-macro interactions,macro_southerly_flow,1159,319,1.170955122968579,351,30.28472821397757,continuous_2012_start,2012-01-01,EXPERIMENT_ONLY
+legacy_2009_start,Onda 3E legacy 2009-start binary-macro interactions,macro_non_southerly,3225,833,1.17233142894162,901,27.93798449612403,legacy_2009_start,2009-04-23,EXPERIMENT_ONLY
+legacy_2009_start,Onda 3E legacy 2009-start binary-macro interactions,macro_southerly_flow,1159,319,1.1734002644245032,345,29.767040552200175,legacy_2009_start,2009-04-23,EXPERIMENT_ONLY

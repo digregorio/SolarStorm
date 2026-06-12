@@ -1,0 +1,4 @@
+scenario_id,scenario_description,data_source_status,earliest_covered_date,latest_covered_date,n_common_dates,n_common_rows,n_valid_outer_folds,meets_two_fold_gate,leakage_status,blocker,production_status
+current_strict_common_rows,"Observed strict common rows across local, Open-Meteo features, multi-provider features and calibrated candidates.",observed_current_cache,2022-01-01,2025-12-31,1441,5764,2,true,STRICT_COMMON_ROWS_NO_FUTURE_ROWS,"",EXPERIMENT_ONLY
+previous_runs_history_from_2022,Counterfactual causal Previous Runs history materialized from 2022 on local feature keys.,requires_additional_historical_fetch,2022-01-01,2026-06-03,1615,6460,2,true,STRICT_COMMON_ROWS_NO_FUTURE_ROWS,"",EXPERIMENT_ONLY
+alternate_fixed_leads_current_cache,Alternate fixed leads over the current cache; lead choice cannot create pre-2023 dates.,observed_current_cache_no_date_expansion,2022-01-01,2025-12-31,1441,5764,2,true,STRICT_COMMON_ROWS_NO_FUTURE_ROWS,"",EXPERIMENT_ONLY
